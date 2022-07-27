@@ -36,16 +36,18 @@
 ![GitHub](https://img.shields.io/badge/Github-%23121011.svg?style=flat&logo=github&logoColor=white&color=2bbc8a&label=Tools)
 
 ### 📈 Code Statistics
+<table style="width:100%; border: none;">
+  <tr style="border: none;">
+    <td><img width="500px" src="https://github-readme-stats.vercel.app/api?username=stanley-okwii&show_icons=true&count_private=true&hide_border=true&custom_title=StanleeO's Stats" alt="Statistics" /></td>
+    <td><img width="500px" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=stanley-okwii&count_private=true" alt="Contribution Graph"/>
+  </td>
+  </tr>
+  <tr>
+    <td><img width="500px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=stanley-okwii&layout=compact&langs_count=4&custom_title=Top Used Languages" alt="Top Used Languages"/></td>
+    <td><img width="500px" src="https://github-readme-stats.vercel.app/api/wakatime?username=stanleeo&layout=compact&langs_count=4&custom_title=Time spent coding" alt="Time spent coding last week"/></td>
+  </tr>
+</table>
 
-<div align="center">
-<img width="500px" src="https://github-readme-stats.vercel.app/api?username=stanley-okwii&show_icons=true&count_private=true&hide_border=true" alt="Statistics" />
-
-<img width="500px" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=stanley-okwii&count_private=true" alt="Contribution Graph"/>
-
-<img width="500px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=stanley-okwii&layout=compact&langs_count=4&custom_title=Top Used Languages" alt="Top Used Languages"/>
-
-<img width="500px" src="https://github-readme-stats.vercel.app/api/wakatime?username=stanleeo&layout=compact" alt="Top Used Languages"/>
-</div>
 
 📝 The statistics above does not reflect my proficiency, rather github metrics of programming languages I mostly use.
 
