@@ -1,8 +1,15 @@
 <h1 align="center">🧑🏽‍💻 Stanley Okwii 🧑🏽‍💻</h1>
+<div align="center">
+<a align="left" href="https://www.linkedin.com/in/stanley-okwii/">
+  <img alt="Stanley's LinkedIn" height="20px" src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat&logo=linkedin&logoColor=white"/>
+</a>
+<a align="right" href="https://www.upwork.com/freelancers/~011e3b40516e710b85">
+  <img alt="Stanley's LinkedIn" height="20px" src="https://img.shields.io/badge/UpWork-6FDA44?style=flat&logo=Upwork&logoColor=white"/>
+</a>
+</div>
 
 <h3 align="center">A Software Engineer</h3>
 
-<hr/>
 
 ### 🔧 Technologies & Tools
 
@@ -53,12 +60,3 @@
 
 ### Badges
 ![Profile Stalkers](https://visitor-badge.glitch.me/badge?page_id=stanley-okwii)
-
-### Socials
-<a href="https://www.linkedin.com/in/stanley-okwii/">
-  <img align="left" alt="Stanley's LinkedIn" height="20px" src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=flat&logo=linkedin&logoColor=white"/>
-</a>
-
-<a href="https://www.upwork.com/freelancers/~011e3b40516e710b85">
-  <img alt="Stanley's LinkedIn" height="20px" src="https://img.shields.io/badge/UpWork-6FDA44?style=flat&logo=Upwork&logoColor=white"/>
-</a>
