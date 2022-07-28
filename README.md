@@ -118,8 +118,4 @@ CoffeeScript             1 repo              █░░░░░░░░░░�
  Last Updated on 28/07/2022 23:13:12 UTC
 <!--END_SECTION:waka-->
 
-
 📝 The statistics above does not reflect my proficiency, rather github metrics of programming languages I mostly use.
-
-### Badges
-![Profile Stalkers](https://visitor-badge.glitch.me/badge?page_id=stanley-okwii)
