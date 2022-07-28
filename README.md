@@ -55,6 +55,9 @@
   </tr>
 </table>
 
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
+
 
 📝 The statistics above does not reflect my proficiency, rather github metrics of programming languages I mostly use.
 
