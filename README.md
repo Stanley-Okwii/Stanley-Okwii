@@ -62,18 +62,6 @@
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-59%20Thousand%20lines%20of%20code-blue)
 
-**🐱 My GitHub Data** 
-
-> 🏆 335 Contributions in the Year 2022
- > 
-> 📦 12.0 kB Used in GitHub's Storage 
- > 
-> 💼 Opted to Hire
- > 
-> 📜 27 Public Repositories 
- > 
-> 🔑 1 Private Repository 
- > 
 **I'm a Night 🦉** 
 
 ```text
@@ -112,9 +100,6 @@ Other                    1 min               ░░░░░░░░░░░�
 🔥 Editors: 
 VS Code                  9 hrs 39 mins       █████████████████████████   100.0%
 
-💻 Operating System: 
-Mac                      9 hrs 39 mins       █████████████████████████   100.0%
-
 ```
 
 **I Mostly Code in JavaScript** 
@@ -130,7 +115,7 @@ CoffeeScript             1 repo              █░░░░░░░░░░�
 
 
 
- Last Updated on 28/07/2022 23:09:33 UTC
+ Last Updated on 28/07/2022 23:13:12 UTC
 <!--END_SECTION:waka-->
 
 
