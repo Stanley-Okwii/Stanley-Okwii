@@ -1,4 +1,4 @@
-name: WakaTime Readme
+name: Update Wakatime Stats
 
 on:
   workflow_dispatch:
