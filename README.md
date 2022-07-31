@@ -8,9 +8,11 @@
 </a>
 </div>
 
-<h3 align="center">A Software Engineer</h3>
+<div align="center">
+Technically advanced and highly analytical software engineer with hands-on experience in designing, developing, testing, deploying, maintaining, and enhancing software solutions for fast-growing companies.
+</div>
 
-
+</br>
 ### 🔧 Technologies & Tools
 
 ![Python](https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&logoColor=ffdd54&color=2bbc8a)
@@ -112,10 +114,7 @@ CSS                      1 repo              █░░░░░░░░░░�
 CoffeeScript             1 repo              █░░░░░░░░░░░░░░░░░░░░░░░░   7.14%
 
 ```
-
-
-
  Last Updated on 31/07/2022 18:52:04 UTC
 <!--END_SECTION:waka-->
 
-📝 The statistics above does not reflect my proficiency, rather github metrics of programming languages I mostly use.
+📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.

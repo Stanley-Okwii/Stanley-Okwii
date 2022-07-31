@@ -21,4 +21,6 @@ jobs:
           SHOW_SHORT_INFO: "False"
           SHOW_OS: "False"
           COMMIT_BY_ME: "True"
+          SHOW_TIMEZONE: "False"
           COMMIT_MESSAGE: "Update waka time dev metrics"
+          SHOW_LANGUAGE_PER_REPO: "False"
