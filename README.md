@@ -53,7 +53,7 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-0%20secs-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-4%2C734%20hrs%205%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-65-blue)
 
@@ -62,8 +62,8 @@ Technically advanced and highly analytical software engineer with hands-on exper
 **I'm an Early 🐤** 
 
 ```text
-🌞 Morning    69 commits     ███░░░░░░░░░░░░░░░░░░░░░░   13.04% 
-🌆 Daytime    198 commits    █████████░░░░░░░░░░░░░░░░   37.43% 
+🌞 Morning    70 commits     ███░░░░░░░░░░░░░░░░░░░░░░   13.23% 
+🌆 Daytime    197 commits    █████████░░░░░░░░░░░░░░░░   37.24% 
 🌃 Evening    223 commits    ██████████░░░░░░░░░░░░░░░   42.16% 
 🌙 Night      39 commits     █░░░░░░░░░░░░░░░░░░░░░░░░   7.37%
 
@@ -75,8 +75,8 @@ Monday       59 commits     ██░░░░░░░░░░░░░░░�
 Tuesday      95 commits     ████░░░░░░░░░░░░░░░░░░░░░   17.96% 
 Wednesday    83 commits     ████░░░░░░░░░░░░░░░░░░░░░   15.69% 
 Thursday     102 commits    ████░░░░░░░░░░░░░░░░░░░░░   19.28% 
-Friday       86 commits     ████░░░░░░░░░░░░░░░░░░░░░   16.26% 
-Saturday     39 commits     █░░░░░░░░░░░░░░░░░░░░░░░░   7.37% 
+Friday       85 commits     ████░░░░░░░░░░░░░░░░░░░░░   16.07% 
+Saturday     40 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   7.56% 
 Sunday       65 commits     ███░░░░░░░░░░░░░░░░░░░░░░   12.29%
 
 ```
@@ -98,7 +98,7 @@ VS Code                  7 hrs 10 mins       ███████████�
 ```
 
 
- Last Updated on 13/08/2022 05:24:47 UTC
+ Last Updated on 14/08/2022 05:23:13 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
