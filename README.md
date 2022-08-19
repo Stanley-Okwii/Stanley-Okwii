@@ -53,7 +53,7 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-1%2C257%20hrs%2058%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-0%20secs-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-2-blue)
 
@@ -62,9 +62,9 @@ Technically advanced and highly analytical software engineer with hands-on exper
 **I'm an Early 🐤** 
 
 ```text
-🌞 Morning    75 commits     ███░░░░░░░░░░░░░░░░░░░░░░   14.18% 
+🌞 Morning    76 commits     ███░░░░░░░░░░░░░░░░░░░░░░   14.37% 
 🌆 Daytime    196 commits    █████████░░░░░░░░░░░░░░░░   37.05% 
-🌃 Evening    217 commits    ██████████░░░░░░░░░░░░░░░   41.02% 
+🌃 Evening    216 commits    ██████████░░░░░░░░░░░░░░░   40.83% 
 🌙 Night      41 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   7.75%
 
 ```
@@ -98,7 +98,7 @@ VS Code                  13 hrs 10 mins      ███████████�
 ```
 
 
- Last Updated on 19/08/2022 05:33:52 UTC
+ Last Updated on 19/08/2022 23:24:23 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
