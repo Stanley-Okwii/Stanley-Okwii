@@ -59,8 +59,42 @@ Technically advanced and highly analytical software engineer with hands-on exper
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-43%20Thousand%20lines%20of%20code-blue)
 
+**I'm a Night 🦉** 
 
- Last Updated on 14/09/2022 23:28:41 UTC
+```text
+🌞 Morning    57 commits     ███░░░░░░░░░░░░░░░░░░░░░░   12.05% 
+🌆 Daytime    171 commits    █████████░░░░░░░░░░░░░░░░   36.15% 
+🌃 Evening    199 commits    ██████████░░░░░░░░░░░░░░░   42.07% 
+🌙 Night      46 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   9.73%
+
+```
+📅 **I'm Most Productive on Thursday** 
+
+```text
+Monday       61 commits     ███░░░░░░░░░░░░░░░░░░░░░░   12.9% 
+Tuesday      92 commits     ████░░░░░░░░░░░░░░░░░░░░░   19.45% 
+Wednesday    86 commits     ████░░░░░░░░░░░░░░░░░░░░░   18.18% 
+Thursday     96 commits     █████░░░░░░░░░░░░░░░░░░░░   20.3% 
+Friday       65 commits     ███░░░░░░░░░░░░░░░░░░░░░░   13.74% 
+Saturday     10 commits     ░░░░░░░░░░░░░░░░░░░░░░░░░   2.11% 
+Sunday       63 commits     ███░░░░░░░░░░░░░░░░░░░░░░   13.32%
+
+```
+
+
+📊 **This Week I Spent My Time On** 
+
+```text
+💬 Programming Languages: 
+No Activity Tracked This Week
+
+🔥 Editors: 
+No Activity Tracked This Week
+
+```
+
+
+ Last Updated on 15/09/2022 06:11:11 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
