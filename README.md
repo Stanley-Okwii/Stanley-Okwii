@@ -53,7 +53,7 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-4%2C883%20hrs%204%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-4%2C887%20hrs%205%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
@@ -86,19 +86,19 @@ Sunday       44 commits     ██░░░░░░░░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-Python                   2 hrs 41 mins       ████░░░░░░░░░░░░░░░░░░░░░   19.1% 
-YAML                     2 hrs 28 mins       ████░░░░░░░░░░░░░░░░░░░░░   17.61% 
-JSON                     2 hrs 27 mins       ████░░░░░░░░░░░░░░░░░░░░░   17.5% 
-Other                    1 hr 9 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   8.29% 
-Bash                     1 hr 5 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   7.75%
+JSON                     3 hrs 29 mins       ██████░░░░░░░░░░░░░░░░░░░   24.74% 
+Python                   3 hrs 4 mins        █████░░░░░░░░░░░░░░░░░░░░   21.84% 
+YAML                     1 hr 58 mins        ███░░░░░░░░░░░░░░░░░░░░░░   13.96% 
+JavaScript               1 hr 46 mins        ███░░░░░░░░░░░░░░░░░░░░░░   12.55% 
+Terraform                55 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   6.58%
 
 🔥 Editors: 
-VS Code                  14 hrs 3 mins       █████████████████████████   100.0%
+VS Code                  14 hrs 5 mins       █████████████████████████   100.0%
 
 ```
 
 
- Last Updated on 10/11/2022 23:24:09 UTC
+ Last Updated on 11/11/2022 23:23:25 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
