@@ -53,52 +53,14 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-4%2C942%20hrs%208%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-4%2C947%20hrs%2016%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-2-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-43%20Thousand%20lines%20of%20code-blue)
 
-**I'm a Night 🦉** 
 
-```text
-🌞 Morning    43 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   8.72% 
-🌆 Daytime    168 commits    ████████░░░░░░░░░░░░░░░░░   34.08% 
-🌃 Evening    195 commits    ██████████░░░░░░░░░░░░░░░   39.55% 
-🌙 Night      87 commits     ████░░░░░░░░░░░░░░░░░░░░░   17.65%
-
-```
-📅 **I'm Most Productive on Thursday** 
-
-```text
-Monday       78 commits     ████░░░░░░░░░░░░░░░░░░░░░   15.82% 
-Tuesday      95 commits     ████░░░░░░░░░░░░░░░░░░░░░   19.27% 
-Wednesday    87 commits     ████░░░░░░░░░░░░░░░░░░░░░   17.65% 
-Thursday     104 commits    █████░░░░░░░░░░░░░░░░░░░░   21.1% 
-Friday       68 commits     ███░░░░░░░░░░░░░░░░░░░░░░   13.79% 
-Saturday     21 commits     █░░░░░░░░░░░░░░░░░░░░░░░░   4.26% 
-Sunday       40 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   8.11%
-
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-💬 Programming Languages: 
-Python                   8 hrs 15 mins       ████████████░░░░░░░░░░░░░   49.88% 
-JavaScript               4 hrs 20 mins       ██████░░░░░░░░░░░░░░░░░░░   26.19% 
-JSON                     1 hr 34 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   9.46% 
-HTML                     1 hr 25 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   8.55% 
-YAML                     21 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   2.15%
-
-🔥 Editors: 
-VS Code                  16 hrs 34 mins      █████████████████████████   100.0%
-
-```
-
-
- Last Updated on 09/12/2022 23:20:46 UTC
+ Last Updated on 12/12/2022 23:20:51 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
