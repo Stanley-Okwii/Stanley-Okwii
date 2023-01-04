@@ -53,7 +53,7 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-4%2C983%20hrs%2053%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-4%2C985%20hrs%2055%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
@@ -86,19 +86,19 @@ Sunday       38 commits     ██░░░░░░░░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-Bash                     5 hrs 29 mins       ████████████░░░░░░░░░░░░░   49.16% 
-JSON                     1 hr 22 mins        ███░░░░░░░░░░░░░░░░░░░░░░   12.27% 
-Text                     1 hr 7 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   10.15% 
-Gettext Catalog          1 hr 1 min          ██░░░░░░░░░░░░░░░░░░░░░░░   9.16% 
-JavaScript               41 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   6.21%
+Bash                     1 hr 21 mins        ███░░░░░░░░░░░░░░░░░░░░░░   15.36% 
+JSON                     1 hr 18 mins        ███░░░░░░░░░░░░░░░░░░░░░░   14.89% 
+HTML                     1 hr 12 mins        ███░░░░░░░░░░░░░░░░░░░░░░   13.67% 
+Text                     1 hr 7 mins         ███░░░░░░░░░░░░░░░░░░░░░░   12.84% 
+Gettext Catalog          56 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   10.64%
 
 🔥 Editors: 
-VS Code                  11 hrs 9 mins       █████████████████████████   100.0%
+VS Code                  8 hrs 48 mins       █████████████████████████   100.0%
 
 ```
 
 
- Last Updated on 03/01/2023 23:19:50 UTC
+ Last Updated on 04/01/2023 23:18:14 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
