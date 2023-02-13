@@ -53,9 +53,9 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-5%2C035%20hrs%201%20min-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-5%2C038%20hrs%205%20mins-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-8-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-4-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-43%20Thousand%20lines%20of%20code-blue)
 
@@ -74,9 +74,9 @@ Technically advanced and highly analytical software engineer with hands-on exper
 Monday          70 commits       ███░░░░░░░░░░░░░░░░░░░░░░   14.17 % 
 Tuesday         85 commits       ████░░░░░░░░░░░░░░░░░░░░░   17.21 % 
 Wednesday       84 commits       ████░░░░░░░░░░░░░░░░░░░░░   17.00 % 
-Thursday       128 commits       ██████░░░░░░░░░░░░░░░░░░░   25.91 % 
+Thursday       127 commits       ██████░░░░░░░░░░░░░░░░░░░   25.71 % 
 Friday          68 commits       ███░░░░░░░░░░░░░░░░░░░░░░   13.77 % 
-Saturday        24 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   04.86 % 
+Saturday        25 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   05.06 % 
 Sunday          35 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   07.09 % 
 
 ```
@@ -86,19 +86,19 @@ Sunday          35 commits       █░░░░░░░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-JavaScript               5 hrs 34 mins       █████████████░░░░░░░░░░░░   52.89 % 
-JSON                     1 hr 41 mins        ████░░░░░░░░░░░░░░░░░░░░░   15.99 % 
-TypeScript               1 hr 36 mins        ███░░░░░░░░░░░░░░░░░░░░░░   15.24 % 
-Makefile                 28 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.51 % 
-Markdown                 17 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   02.78 % 
+JavaScript               5 hrs 47 mins       █████████████░░░░░░░░░░░░   51.99 % 
+JSON                     2 hrs 46 mins       ██████░░░░░░░░░░░░░░░░░░░   24.94 % 
+TypeScript               1 hr 25 mins        ███░░░░░░░░░░░░░░░░░░░░░░   12.77 % 
+Makefile                 26 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.01 % 
+Other                    12 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.80 % 
 
 🔥 Editors: 
-VS Code                  10 hrs 31 mins      █████████████████████████   100.00 % 
+VS Code                  11 hrs 7 mins       █████████████████████████   100.00 % 
 
 ```
 
 
- Last Updated on 10/02/2023 23:18:37 UTC
+ Last Updated on 13/02/2023 23:20:06 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
