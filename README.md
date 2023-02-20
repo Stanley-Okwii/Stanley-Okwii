@@ -53,19 +53,19 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-5%2C053%20hrs%2045%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-5%2C055%20hrs%2024%20mins-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-4-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-1-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-63%20Thousand%20lines%20of%20code-blue)
 
 **I'm a Night 🦉** 
 
 ```text
-🌞 Morning       19 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   03.89 % 
+🌞 Morning       18 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   03.69 % 
 🌆 Daytime      182 commits       █████████░░░░░░░░░░░░░░░░   37.30 % 
 🌃 Evening      177 commits       █████████░░░░░░░░░░░░░░░░   36.27 % 
-🌙 Night        110 commits       █████░░░░░░░░░░░░░░░░░░░░   22.54 % 
+🌙 Night        111 commits       █████░░░░░░░░░░░░░░░░░░░░   22.75 % 
 
 ```
 📅 **I'm Most Productive on Thursday** 
@@ -86,19 +86,19 @@ Sunday          32 commits       █░░░░░░░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-TypeScript               8 hrs 51 mins       ███████████░░░░░░░░░░░░░░   47.32 % 
-JSON                     4 hrs 7 mins        █████░░░░░░░░░░░░░░░░░░░░   22.08 % 
-JavaScript               4 hrs 4 mins        █████░░░░░░░░░░░░░░░░░░░░   21.74 % 
-CSS                      23 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   02.08 % 
-Makefile                 21 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.87 % 
+TypeScript               9 hrs 51 mins       █████████████░░░░░░░░░░░░   55.46 % 
+JavaScript               3 hrs 4 mins        ████░░░░░░░░░░░░░░░░░░░░░   17.34 % 
+JSON                     2 hrs 50 mins       ████░░░░░░░░░░░░░░░░░░░░░   15.99 % 
+CSS                      23 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   02.19 % 
+Makefile                 20 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.94 % 
 
 🔥 Editors: 
-VS Code                  18 hrs 43 mins      █████████████████████████   100.00 % 
+VS Code                  17 hrs 45 mins      █████████████████████████   100.00 % 
 
 ```
 
 
- Last Updated on 17/02/2023 23:16:17 UTC
+ Last Updated on 20/02/2023 23:15:56 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
