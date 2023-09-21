@@ -3,7 +3,8 @@ name: Send emails to EgyptAir
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 */1 * * *'
+    # - cron: '30 */1 * * *' # Every 30 minutes
+    - cron: '*/5 * * * *' # Every 15 minutes
 
 jobs:
   send_email:
@@ -31,7 +32,7 @@ jobs:
             # Optional (recommended) mail server password:
             password: ${{secrets.MAIL_PASSWORD}}
             # Required mail subject:
-            subject: Flight Booking NSM7IL
+            subject: EgyptAir, find my baggage
             # Required recipients' addresses: wecare@egyptair.com, 
             to: wecare@egyptair.com
             # Required sender full name (address can be skipped):
@@ -39,7 +40,7 @@ jobs:
             # Optional plain body:
             body: "You have mishandled my baggage and refused to take accountability for it. That’s so unprofessional. \n\n
             I handed over my baggage to you and paid for it’s safe delivery. My baggage didn’t arrive at Heathrow as you promised. \n\n
-            I eagerly await your prompt response and resolution of this issue \n\n
+
             Sincerely, \n
             Stanley Okwii \n"
             # Optional HTML body read from file:
@@ -47,7 +48,7 @@ jobs:
             # Optional carbon copy recipients:
             # cc: stanleeparker12@gmail.com
             # Optional blind carbon copy recipients:
-            bcc: mybaggage@egyptair.com, CaiTer3@egyptair.com, CaiTerm1@egyptair.com, foreign_Aff@egyptair.com, Abassia@egyptair.com, Adly@egyptair.com, TalaatHarb@egyptair.com, Shobra@egyptair.com, PASSEMBLY@egyptair.com, Heliopolis@egyptair.com, Kampala_to@egyptair.com, paris_to@egyptair com
+            bcc: mybaggage@egyptair.com, CaiTer3@egyptair.com, CaiTerm1@egyptair.com, foreign_Aff@egyptair.com, Abassia@egyptair.com, Adly@egyptair.com, TalaatHarb@egyptair.com, Shobra@egyptair.com, PASSEMBLY@egyptair.com, Heliopolis@egyptair.com, Kampala_to@egyptair.com, paris_to@egyptair.com, ber.mgr@egyptair.de, webbookingsupport@egyptair.com
             # Optional recipient of the email response:
             reply_to: stanlee.okwii@gmail.com
             # Optional Message ID this message is replying to:
