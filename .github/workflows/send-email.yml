@@ -47,7 +47,7 @@ jobs:
             # Optional carbon copy recipients:
             # cc: stanleeparker12@gmail.com
             # Optional blind carbon copy recipients:
-            bcc: mybaggage@egyptair.com, cairo@egyptair.com, CaiTer3@egyptair.com, CaiTerm1@egyptair.com, foreign_Aff@egyptair.com, Abassia@egyptair.com, Adly@egyptair.com, TalaatHarb@egyptair.com, Shobra@egyptair.com, PASSEMBLY@egyptair.com, Heliopolis@egyptair.com
+            bcc: mybaggage@egyptair.com, CaiTer3@egyptair.com, CaiTerm1@egyptair.com, foreign_Aff@egyptair.com, Abassia@egyptair.com, Adly@egyptair.com, TalaatHarb@egyptair.com, Shobra@egyptair.com, PASSEMBLY@egyptair.com, Heliopolis@egyptair.com
             # Optional recipient of the email response:
             reply_to: stanlee.okwii@gmail.com
             # Optional Message ID this message is replying to:
