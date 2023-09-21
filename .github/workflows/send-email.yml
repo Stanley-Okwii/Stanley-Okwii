@@ -45,8 +45,7 @@ jobs:
             I eagerly await your prompt response and resolution of this issue \n\n
             
             Sincerely, \n
-            Stanley Okwii \n
-            "
+            Stanley Okwii \n"
             # Optional HTML body read from file:
             # html_body: file://Email.html
             # Optional carbon copy recipients:
