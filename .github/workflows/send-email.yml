@@ -51,7 +51,7 @@ jobs:
             # Optional carbon copy recipients:
             # cc: stanleeparker12@gmail.com
             # Optional blind carbon copy recipients:
-            bcc: stanleeparker12@gmail.com
+            # bcc: stanleeparker12@gmail.com
             # Optional recipient of the email response:
             reply_to: stanlee.okwii@gmail.com
             # Optional Message ID this message is replying to:
