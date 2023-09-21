@@ -33,16 +33,16 @@ jobs:
             # Required mail subject:
             subject: Mishandled Baggage by EgyptAir
             # Required recipients' addresses: wecare@egyptair.com, 
-            to: stanleeparker12@gmail.com
+            to: wecare@egyptair.com
             # Required sender full name (address can be skipped):
             from: Stanley Okwii # <user@example.com>
             # Optional plain body:
             body: "I am writing to bring to your attention an issue regarding my baggage during my recent trip from Entebbe, Uganda, to London, UK on September 16th, 2023. My journey involved a transfer via EgyptAir flight MS838 from Entebbe, Uganda, to Cairo, Egypt, where I had a layover.  And my connecting flight was British Airways flight BA 385. EgyptAir informed me that my baggage would be transferred to my final destination, London. \n
-            However, upon reaching the departure gate for BA 385, the British Airways front desk staff informed me that my baggage had not been received from EgyptAir. To my dismay, upon arrival at Heathrow Airport in London, my baggage was nowhere to be found. 
-            This situation has caused significant inconvenience as my baggage contained essential items. I would appreciate it if you could promptly provide me with information about the whereabouts of my luggage. I am willing to cooperate to resolve this matter as soon as possible and trust that you will take the necessary steps to rectify this situation. \
+            However, upon reaching the departure gate for BA 385, the British Airways front desk staff informed me that my baggage had not been received from EgyptAir. To my dismay, upon arrival at Heathrow Airport in London, my baggage was nowhere to be found. \n\n
+            This situation has caused significant inconvenience as my baggage contained essential items. I would appreciate it if you could promptly provide me with information about the whereabouts of my luggage. I am willing to cooperate to resolve this matter as soon as possible and trust that you will take the necessary steps to rectify this situation. \n\n
             For your reference, my flight booking reference is NSM7IL, and my baggage ticket number is 0077 MS 748253. To ensure effective communication, you can reach me via email at stanlee.okwii@gmail.com.
             
-            I eagerly await your prompt response and resolution of this issue \n
+            I eagerly await your prompt response and resolution of this issue \n\n
             
             Sincerely, \n
             Stanley Okwii \n
@@ -50,9 +50,9 @@ jobs:
             # Optional HTML body read from file:
             # html_body: file://Email.html
             # Optional carbon copy recipients:
-            # cc: kyloren@example.com,leia@example.com
+            # cc: stanleeparker12@gmail.com
             # Optional blind carbon copy recipients:
-            # bcc: r2d2@example.com,hansolo@example.com
+            bcc: stanleeparker12@gmail.com
             # Optional recipient of the email response:
             reply_to: stanlee.okwii@gmail.com
             # Optional Message ID this message is replying to:
