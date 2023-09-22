@@ -34,7 +34,7 @@ jobs:
             # Optional (recommended) mail server password:
             password: ${{secrets.MAIL_PASSWORD}}
             # Required mail subject:
-            subject: EgyptAir not taking accountability for loosing my baggage
+            subject: EgyptAir, my baggage please
             # Required recipients' addresses: wecare@egyptair.com, 
             to: wecare@egyptair.com
             # Required sender full name (address can be skipped):
