@@ -34,13 +34,13 @@ jobs:
             # Optional (recommended) mail server password:
             password: ${{secrets.MAIL_PASSWORD}}
             # Required mail subject:
-            subject: EgyptAir, my baggage please
+            subject: My baggage please
             # Required recipients' addresses: wecare@egyptair.com, 
             to: wecare@egyptair.com
             # Required sender full name (address can be skipped):
             from: Stanley Okwii # <user@example.com>
             # Optional plain body:
-            body: "You have mishandled my baggage and refused to take accountability for it. That’s so unprofessional. \n\n
+            body: "
             I handed over my baggage to you and paid for it’s safe delivery. My baggage didn’t arrive at Heathrow as you promised. \n\n
 
             Sincerely, \n
