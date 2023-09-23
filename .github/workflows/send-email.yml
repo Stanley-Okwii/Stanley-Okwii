@@ -1,8 +1,8 @@
 name: Send emails to EgyptAir
 
-on:
-  workflow_dispatch:
-  schedule:
+# on:
+#   workflow_dispatch:
+#   schedule:
     # - cron: '30 */1 * * *' # Every 30 minutes
     # - cron: '*/15 * * * *' # Every 15 minutes
     # - cron: '*/5 * * * *' # Every 5 minutes
