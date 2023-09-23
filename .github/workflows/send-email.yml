@@ -1,8 +1,8 @@
 name: Send emails to EgyptAir
 
-on:
-  workflow_dispatch:
-#   schedule:
+# on:
+#   workflow_dispatch:
+  # schedule:
     # - cron: '30 */1 * * *' # Every 30 minutes
     # - cron: '*/15 * * * *' # Every 15 minutes
     # - cron: '*/5 * * * *' # Every 5 minutes
@@ -44,14 +44,14 @@ jobs:
             body: "
             Hello EgyptAir, \n\n
 
-            I handed over my baggage to you and paid for it’s safe delivery. \n\n
-            My baggage didn’t arrive at Heathrow, London as you promised. \n\n
+            I handed over my baggage to you and paid for it’s safe delivery. \n
+            My baggage didn’t arrive at Heathrow, London as you promised. \n
 
             My baggage claims number is: LHRMS21430 \n
             My baggage ticket number is: 0077 MS 748253 \n
             My flight booking reference was: NSM7IL \n
 
-            Attached here is a picture of the baggage that you LOST. \n\n
+            Attached here is a picture of the baggage that you LOST. \n
 
             The contents of bag were: \n
               - 6 trousers  \n
