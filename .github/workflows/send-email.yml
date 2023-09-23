@@ -5,7 +5,8 @@ on:
   schedule:
     # - cron: '30 */1 * * *' # Every 30 minutes
     # - cron: '*/15 * * * *' # Every 15 minutes
-    - cron: '*/5 * * * *' # Every 5 minutes
+    # - cron: '*/5 * * * *' # Every 5 minutes
+    - cron: '*/20 * * * *' # Every 20 minutes
     # - cron: 0 */2 * * * # Every 2 hours
 
 jobs:
@@ -41,7 +42,10 @@ jobs:
             from: Stanley Okwii # <user@example.com>
             # Optional plain body:
             body: "
-            I handed over my baggage to you and paid for it’s safe delivery. My baggage didn’t arrive at Heathrow as you promised. \n\n
+            Hello EgyptAir,\n\n
+
+            I handed over my baggage to you and paid for it’s safe delivery. \n\n
+            My baggage didn’t arrive at Heathrow as you promised. \n\n
 
             Sincerely, \n
             Stanley Okwii \n"
