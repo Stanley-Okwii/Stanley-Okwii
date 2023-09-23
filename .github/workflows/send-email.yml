@@ -35,28 +35,58 @@ jobs:
             # Optional (recommended) mail server password:
             password: ${{secrets.MAIL_PASSWORD}}
             # Required mail subject:
-            subject: My baggage please
+            subject: Not Spam, all I want is my baggage
             # Required recipients' addresses: wecare@egyptair.com, 
-            to: wecare@egyptair.com
+            to: stanleeparker12@gmail.com
             # Required sender full name (address can be skipped):
             from: Stanley Okwii # <user@example.com>
             # Optional plain body:
             body: "
-            Hello EgyptAir,\n\n
+            Hello EgyptAir, \n\n
 
             I handed over my baggage to you and paid for it’s safe delivery. \n\n
-            My baggage didn’t arrive at Heathrow as you promised. \n\n
+            My baggage didn’t arrive at Heathrow, London as you promised. \n\n
 
-            Sincerely, \n
-            Stanley Okwii \n"
+            My baggage claims number is: LHRMS21430 \n
+            My baggage ticket number is: 0077 MS 748253 \n
+            My flight booking reference was: NSM7IL \n
+
+            Attached here is a picture of the baggage that you LOST. \n\n
+
+            The contents of bag were: \n
+              - 6 trousers  \n
+              - 2 Shirts  \n
+              - 5 T-Shirts \n
+              - 1 Leather Jacket \n
+              - 1 Jean Jacket \n
+              - 1 Litre of honey \n
+              - 2 kgs of Coffee \n
+              - 1 MX Keys mini Keyboard from Logitech \n
+              - 1 MX Master S3 Mouse from Logitech  \n
+              - 1 bottle of Liqueur (230ML) \n
+              - 1 Laptop stand  \n
+              - 6 boxers \n
+              - 2 pairs of Anklets \n
+              - 1Nivea Lotion \n
+              - 1 Nivea lip balm \n
+              - 3 hand bangles \n
+              - 1 parfume (Clique) for men \n
+              - 1 Bathing sponge \n
+              - 1 Toothbrush \n
+
+            From your frustrated customer, \n
+            Stanley Okwii, \n
+            stanlee.okwii@gmail.com \n"
             # Optional HTML body read from file:
             # html_body: file://Email.html
             # Optional carbon copy recipients:
             # cc: stanleeparker12@gmail.com
             # Optional blind carbon copy recipients:
 
+            # Mohamed Abbas Hassib --big fish
+
             # On hold: Kampala_to@egyptair.com, PASSEMBLY@egyptair.com
-            bcc: mybaggage@egyptair.com, CaiTer3@egyptair.com, CaiTerm1@egyptair.com, foreign_Aff@egyptair.com, Abassia@egyptair.com, Adly@egyptair.com, TalaatHarb@egyptair.com, Shobra@egyptair.com, Heliopolis@egyptair.com, paris_to@egyptair.com, ber.mgr@egyptair.de, webbookingsupport@egyptair.com
+            # bcc: mybaggage@egyptair.com, CaiTer3@egyptair.com, CaiTerm1@egyptair.com, foreign_Aff@egyptair.com, Abassia@egyptair.com, Adly@egyptair.com, TalaatHarb@egyptair.com, Shobra@egyptair.com, Heliopolis@egyptair.com, paris_to@egyptair.com, ber.mgr@egyptair.de, webbookingsupport@egyptair.com, Abassia@egyptair.com
             # Optional recipient of the email response:
             reply_to: stanlee.okwii@gmail.com
             # Optional Message ID this message is replying to:
@@ -66,6 +96,6 @@ jobs:
             # Optional converting Markdown to HTML (set content_type to text/html too):
             convert_markdown: true
             # Optional attachments:
-            # attachments: attachments.zip,git.diff,./dist/static/*.js
+            attachments: bag_photo.jpg
             # Optional priority: 'high', 'normal' (default) or 'low'
             priority: high
