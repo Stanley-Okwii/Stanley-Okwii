@@ -57,43 +57,8 @@ Technically advanced and highly analytical software engineer with hands-on exper
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-184.0%20million%20lines%20of%20code-blue)
 
-**I'm a Night 🦉** 
 
-```text
-🌞 Morning                20421 commits       ██░░░░░░░░░░░░░░░░░░░░░░░   06.96 % 
-🌆 Daytime                120661 commits      ██████████░░░░░░░░░░░░░░░   41.12 % 
-🌃 Evening                137097 commits      ████████████░░░░░░░░░░░░░   46.72 % 
-🌙 Night                  15254 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   05.20 % 
-```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday                   59463 commits       █████░░░░░░░░░░░░░░░░░░░░   20.26 % 
-Tuesday                  75486 commits       ██████░░░░░░░░░░░░░░░░░░░   25.73 % 
-Wednesday                52608 commits       ████░░░░░░░░░░░░░░░░░░░░░   17.93 % 
-Thursday                 63521 commits       █████░░░░░░░░░░░░░░░░░░░░   21.65 % 
-Friday                   39144 commits       ███░░░░░░░░░░░░░░░░░░░░░░   13.34 % 
-Saturday                 2713 commits        ░░░░░░░░░░░░░░░░░░░░░░░░░   00.92 % 
-Sunday                   498 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.17 % 
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-💬 Programming Languages: 
-JavaScript               3 hrs 9 mins        ███████████░░░░░░░░░░░░░░   42.77 % 
-Python                   2 hrs 2 mins        ███████░░░░░░░░░░░░░░░░░░   27.64 % 
-JSON                     47 mins             ███░░░░░░░░░░░░░░░░░░░░░░   10.78 % 
-YAML                     17 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.88 % 
-HTML                     17 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.84 % 
-
-🔥 Editors: 
-VS Code                  7 hrs 23 mins       █████████████████████████   100.00 % 
-```
-
-
- Last Updated on 22/10/2024 00:09:09 UTC
+ Last Updated on 23/10/2024 00:01:22 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
