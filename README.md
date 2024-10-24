@@ -53,12 +53,49 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-6%2C314%20hrs%2024%20mins-blue)
+
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-2-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-184.0%20million%20lines%20of%20code-blue)
 
+**I'm a Night 🦉** 
 
- Last Updated on 23/10/2024 00:01:22 UTC
+```text
+🌞 Morning                20419 commits       ██░░░░░░░░░░░░░░░░░░░░░░░   06.96 % 
+🌆 Daytime                120652 commits      ██████████░░░░░░░░░░░░░░░   41.12 % 
+🌃 Evening                137092 commits      ████████████░░░░░░░░░░░░░   46.72 % 
+🌙 Night                  15256 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   05.20 % 
+```
+📅 **I'm Most Productive on Tuesday** 
+
+```text
+Monday                   59459 commits       █████░░░░░░░░░░░░░░░░░░░░   20.26 % 
+Tuesday                  75484 commits       ██████░░░░░░░░░░░░░░░░░░░   25.73 % 
+Wednesday                52605 commits       ████░░░░░░░░░░░░░░░░░░░░░   17.93 % 
+Thursday                 63517 commits       █████░░░░░░░░░░░░░░░░░░░░   21.65 % 
+Friday                   39143 commits       ███░░░░░░░░░░░░░░░░░░░░░░   13.34 % 
+Saturday                 2713 commits        ░░░░░░░░░░░░░░░░░░░░░░░░░   00.92 % 
+Sunday                   498 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.17 % 
+```
+
+
+📊 **This Week I Spent My Time On** 
+
+```text
+💬 Programming Languages: 
+Python                   2 hrs 7 mins        █████████░░░░░░░░░░░░░░░░   34.48 % 
+JavaScript               1 hr 7 mins         █████░░░░░░░░░░░░░░░░░░░░   18.20 % 
+YAML                     34 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   09.17 % 
+SQL                      32 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   08.64 % 
+JSON                     25 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.74 % 
+
+🔥 Editors: 
+VS Code                  6 hrs 11 mins       █████████████████████████   100.00 % 
+```
+
+
+ Last Updated on 24/10/2024 00:08:52 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
