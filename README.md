@@ -53,49 +53,12 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-6%2C549%20hrs%2040%20mins-blue)
-
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
-![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-257.2%20million%20lines%20of%20code-blue)
-
-**I'm a Night 🦉** 
-
-```text
-🌞 Morning                20607 commits       ██░░░░░░░░░░░░░░░░░░░░░░░   06.01 % 
-🌆 Daytime                148607 commits      ███████████░░░░░░░░░░░░░░   43.31 % 
-🌃 Evening                158050 commits      ████████████░░░░░░░░░░░░░   46.06 % 
-🌙 Night                  15855 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   04.62 % 
-```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday                   68640 commits       █████░░░░░░░░░░░░░░░░░░░░   20.00 % 
-Tuesday                  86428 commits       ██████░░░░░░░░░░░░░░░░░░░   25.19 % 
-Wednesday                62489 commits       █████░░░░░░░░░░░░░░░░░░░░   18.21 % 
-Thursday                 77325 commits       ██████░░░░░░░░░░░░░░░░░░░   22.54 % 
-Friday                   44755 commits       ███░░░░░░░░░░░░░░░░░░░░░░   13.04 % 
-Saturday                 2860 commits        ░░░░░░░░░░░░░░░░░░░░░░░░░   00.83 % 
-Sunday                   622 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.18 % 
-```
+![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-259.9%20million%20lines%20of%20code-blue)
 
 
-📊 **This Week I Spent My Time On** 
-
-```text
-💬 Programming Languages: 
-JavaScript               2 hrs 10 mins       █████████████░░░░░░░░░░░░   52.16 % 
-Python                   1 hr 17 mins        ████████░░░░░░░░░░░░░░░░░   30.85 % 
-JSON                     26 mins             ███░░░░░░░░░░░░░░░░░░░░░░   10.46 % 
-HTML                     11 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.73 % 
-CSS                      2 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.16 % 
-
-🔥 Editors: 
-VS Code                  4 hrs 9 mins        █████████████████████████   100.00 % 
-```
-
-
- Last Updated on 22/03/2025 00:07:54 UTC
+ Last Updated on 25/03/2025 00:08:19 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
