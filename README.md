@@ -53,46 +53,12 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-6%2C607%20hrs%2034%20mins-blue)
-
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-261.3%20million%20lines%20of%20code-blue)
 
-**I'm a Night 🦉** 
 
-```text
-🌞 Morning                20694 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   05.96 % 
-🌆 Daytime                150670 commits      ███████████░░░░░░░░░░░░░░   43.41 % 
-🌃 Evening                159732 commits      ████████████░░░░░░░░░░░░░   46.02 % 
-🌙 Night                  15981 commits       █░░░░░░░░░░░░░░░░░░░░░░░░   04.60 % 
-```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday                   69336 commits       █████░░░░░░░░░░░░░░░░░░░░   19.98 % 
-Tuesday                  87299 commits       ██████░░░░░░░░░░░░░░░░░░░   25.15 % 
-Wednesday                63330 commits       █████░░░░░░░░░░░░░░░░░░░░   18.25 % 
-Thursday                 78345 commits       ██████░░░░░░░░░░░░░░░░░░░   22.57 % 
-Friday                   45266 commits       ███░░░░░░░░░░░░░░░░░░░░░░   13.04 % 
-Saturday                 2877 commits        ░░░░░░░░░░░░░░░░░░░░░░░░░   00.83 % 
-Sunday                   624 commits         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.18 % 
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-💬 Programming Languages: 
-JSON                     16 mins             █████████████░░░░░░░░░░░░   50.06 % 
-JavaScript               16 mins             ████████████░░░░░░░░░░░░░   49.94 % 
-
-🔥 Editors: 
-VS Code                  33 mins             █████████████████████████   100.00 % 
-```
-
-
- Last Updated on 02/05/2025 00:16:14 UTC
+ Last Updated on 03/05/2025 00:07:03 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
