@@ -12,7 +12,9 @@
 </div>
 
 <h4 align="center">
-Technically advanced and highly analytical software engineer with hands-on experience in designing, developing, testing, deploying, maintaining, and enhancing software solutions for fast-growing companies.
+With 7+ years of experience, I  build customer-focused web and mobile products using JavaScript, TypeScript, Python, and cloud tools like AWS/GCP. As a technical lead, I facilitate cross-team collaboration, mentor junior developers, and ensure the timely delivery of scalable features.
+<br/>
+Recently, I have also been learning to build AI models using TensorFlow and Keras and how to integrate them into existing RESTful applications to improve user experience.
 </h4>
 </br>
 
