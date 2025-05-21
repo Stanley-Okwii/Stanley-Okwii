@@ -11,7 +11,7 @@
 </a>
 </div>
 
-<p align="center">
+<p align="left">
 With 7+ years of experience, I  build customer-focused web and mobile products using JavaScript, TypeScript, Python, and cloud tools like AWS/GCP. As a technical lead, I facilitate cross-team collaboration, mentor junior developers, and ensure the timely delivery of scalable features.
 <br/>
 Recently, I have also been learning to build AI models using TensorFlow and Keras and how to integrate them into existing RESTful applications to improve user experience.
