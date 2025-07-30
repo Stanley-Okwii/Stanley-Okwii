@@ -55,49 +55,12 @@ Recently, I have also been learning to build AI models using TensorFlow and Kera
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-6%2C766%20hrs%204%20mins-blue)
-
-![Profile Views](http://img.shields.io/badge/Profile%20Views-3-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-432.7%20thousand%20lines%20of%20code-blue)
 
-**I'm a Night 🦉** 
 
-```text
-🌞 Morning                727 commits         ██████░░░░░░░░░░░░░░░░░░░   25.89 % 
-🌆 Daytime                612 commits         █████░░░░░░░░░░░░░░░░░░░░   21.79 % 
-🌃 Evening                768 commits         ███████░░░░░░░░░░░░░░░░░░   27.35 % 
-🌙 Night                  701 commits         ██████░░░░░░░░░░░░░░░░░░░   24.96 % 
-```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday                   406 commits         ████░░░░░░░░░░░░░░░░░░░░░   14.46 % 
-Tuesday                  551 commits         █████░░░░░░░░░░░░░░░░░░░░   19.62 % 
-Wednesday                437 commits         ████░░░░░░░░░░░░░░░░░░░░░   15.56 % 
-Thursday                 414 commits         ████░░░░░░░░░░░░░░░░░░░░░   14.74 % 
-Friday                   382 commits         ███░░░░░░░░░░░░░░░░░░░░░░   13.60 % 
-Saturday                 331 commits         ███░░░░░░░░░░░░░░░░░░░░░░   11.79 % 
-Sunday                   287 commits         ███░░░░░░░░░░░░░░░░░░░░░░   10.22 % 
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-💬 Programming Languages: 
-JavaScript               2 hrs 21 mins       ████████████████░░░░░░░░░   63.45 % 
-JSON                     46 mins             █████░░░░░░░░░░░░░░░░░░░░   20.85 % 
-XML                      15 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.84 % 
-SCSS                     9 mins              █░░░░░░░░░░░░░░░░░░░░░░░░   04.28 % 
-CSS                      3 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.58 % 
-
-🔥 Editors: 
-VS Code                  3 hrs 43 mins       █████████████████████████   100.00 % 
-```
-
-
- Last Updated on 29/07/2025 23:24:07 UTC
+ Last Updated on 30/07/2025 23:23:44 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
