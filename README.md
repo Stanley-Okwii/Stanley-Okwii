@@ -55,6 +55,8 @@ Recently, I have also been learning to build AI models using TensorFlow and Kera
 </div>
 
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-6%2C811%20hrs%2019%20mins-blue)
+
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-3-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-473.2%20thousand%20lines%20of%20code-blue)
@@ -84,18 +86,18 @@ Sunday                   288 commits         ███░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-Python                   26 hrs 53 mins      ████████████████████████░   97.82 % 
-JavaScript               26 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.60 % 
-Markdown                 3 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.19 % 
-JSON                     2 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.16 % 
-Other                    1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   00.12 % 
+Python                   29 hrs 27 mins      █████████████████████████   99.57 % 
+JavaScript               4 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.25 % 
+JSON                     2 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.15 % 
+Other                    0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.01 % 
+Text                     0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.01 % 
 
 🔥 Editors: 
-VS Code                  27 hrs 29 mins      █████████████████████████   100.00 % 
+VS Code                  29 hrs 35 mins      █████████████████████████   100.00 % 
 ```
 
 
- Last Updated on 25/08/2025 23:21:17 UTC
+ Last Updated on 26/08/2025 23:19:47 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
