@@ -55,49 +55,12 @@ Recently, I have also been learning to build AI models using TensorFlow and Kera
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-6%2C994%20hrs%2031%20mins-blue)
-
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-477.5%20thousand%20lines%20of%20code-blue)
 
-**I'm a Night 🦉** 
 
-```text
-🌞 Morning                728 commits         ██████░░░░░░░░░░░░░░░░░░░   25.70 % 
-🌆 Daytime                620 commits         █████░░░░░░░░░░░░░░░░░░░░   21.88 % 
-🌃 Evening                778 commits         ███████░░░░░░░░░░░░░░░░░░   27.46 % 
-🌙 Night                  707 commits         ██████░░░░░░░░░░░░░░░░░░░   24.96 % 
-```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday                   409 commits         ████░░░░░░░░░░░░░░░░░░░░░   14.44 % 
-Tuesday                  555 commits         █████░░░░░░░░░░░░░░░░░░░░   19.59 % 
-Wednesday                441 commits         ████░░░░░░░░░░░░░░░░░░░░░   15.57 % 
-Thursday                 417 commits         ████░░░░░░░░░░░░░░░░░░░░░   14.72 % 
-Friday                   382 commits         ███░░░░░░░░░░░░░░░░░░░░░░   13.48 % 
-Saturday                 335 commits         ███░░░░░░░░░░░░░░░░░░░░░░   11.82 % 
-Sunday                   294 commits         ███░░░░░░░░░░░░░░░░░░░░░░   10.38 % 
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-💬 Programming Languages: 
-Python                   59 mins             ██████████████░░░░░░░░░░░   56.08 % 
-TypeScript               16 mins             ████░░░░░░░░░░░░░░░░░░░░░   15.51 % 
-Markdown                 14 mins             ███░░░░░░░░░░░░░░░░░░░░░░   13.46 % 
-AppleScript              7 mins              ██░░░░░░░░░░░░░░░░░░░░░░░   07.47 % 
-JSON                     6 mins              █░░░░░░░░░░░░░░░░░░░░░░░░   05.73 % 
-
-🔥 Editors: 
-VS Code                  1 hr 46 mins        █████████████████████████   100.00 % 
-```
-
-
- Last Updated on 18/09/2025 23:19:41 UTC
+ Last Updated on 19/09/2025 23:19:16 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
