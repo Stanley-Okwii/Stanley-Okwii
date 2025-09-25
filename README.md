@@ -61,8 +61,39 @@ Recently, I have also been learning to build AI models using TensorFlow and Kera
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-477.5%20thousand%20lines%20of%20code-blue)
 
+**I'm a Night 🦉** 
 
- Last Updated on 23/09/2025 23:18:52 UTC
+```text
+🌞 Morning                728 commits         ██████░░░░░░░░░░░░░░░░░░░   25.70 % 
+🌆 Daytime                620 commits         █████░░░░░░░░░░░░░░░░░░░░   21.88 % 
+🌃 Evening                778 commits         ███████░░░░░░░░░░░░░░░░░░   27.46 % 
+🌙 Night                  707 commits         ██████░░░░░░░░░░░░░░░░░░░   24.96 % 
+```
+📅 **I'm Most Productive on Tuesday** 
+
+```text
+Monday                   409 commits         ████░░░░░░░░░░░░░░░░░░░░░   14.44 % 
+Tuesday                  555 commits         █████░░░░░░░░░░░░░░░░░░░░   19.59 % 
+Wednesday                441 commits         ████░░░░░░░░░░░░░░░░░░░░░   15.57 % 
+Thursday                 417 commits         ████░░░░░░░░░░░░░░░░░░░░░   14.72 % 
+Friday                   382 commits         ███░░░░░░░░░░░░░░░░░░░░░░   13.48 % 
+Saturday                 335 commits         ███░░░░░░░░░░░░░░░░░░░░░░   11.82 % 
+Sunday                   294 commits         ███░░░░░░░░░░░░░░░░░░░░░░   10.38 % 
+```
+
+
+📊 **This Week I Spent My Time On** 
+
+```text
+💬 Programming Languages: 
+No Activity Tracked This Week
+
+🔥 Editors: 
+No Activity Tracked This Week
+```
+
+
+ Last Updated on 25/09/2025 23:19:26 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
