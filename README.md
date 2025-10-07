@@ -55,6 +55,8 @@ Recently, I have also been learning to build AI models using TensorFlow and Kera
 </div>
 
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-7%2C004%20hrs%206%20mins-blue)
+
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-481.0%20thousand%20lines%20of%20code-blue)
@@ -95,7 +97,7 @@ VS Code                  3 hrs 48 mins       ███████████�
 ```
 
 
- Last Updated on 06/10/2025 23:19:18 UTC
+ Last Updated on 07/10/2025 23:19:07 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
