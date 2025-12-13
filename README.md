@@ -53,7 +53,7 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-7%2C026%20hrs%2031%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-7%2C026%20hrs%2056%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
@@ -95,7 +95,7 @@ VS Code                  6 hrs 29 mins       ███████████�
 ```
 
 
- Last Updated on 13/12/2025 14:15:01 UTC
+ Last Updated on 13/12/2025 15:15:28 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
