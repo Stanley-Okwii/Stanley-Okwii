@@ -53,7 +53,7 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-7%2C026%20hrs%2045%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-7%2C026%20hrs%2057%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
@@ -84,18 +84,18 @@ Sunday                   289 commits         ███░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-TypeScript               3 hrs               ████████████░░░░░░░░░░░░░   46.30 % 
-JavaScript               1 hr 55 mins        ███████░░░░░░░░░░░░░░░░░░   29.76 % 
-HTML                     27 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   07.07 % 
-Other                    27 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   07.00 % 
-CSS                      19 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.90 % 
+TypeScript               3 hrs               ███████████░░░░░░░░░░░░░░   44.97 % 
+JavaScript               1 hr 58 mins        ███████░░░░░░░░░░░░░░░░░░   29.50 % 
+HTML                     29 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   07.25 % 
+Other                    27 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.80 % 
+JSON                     21 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   05.30 % 
 
 🔥 Editors: 
-VS Code                  6 hrs 29 mins       █████████████████████████   100.00 % 
+VS Code                  6 hrs 40 mins       █████████████████████████   100.00 % 
 ```
 
 
- Last Updated on 14/12/2025 01:16:06 UTC
+ Last Updated on 14/12/2025 03:26:22 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
