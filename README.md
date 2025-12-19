@@ -53,7 +53,7 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-7%2C039%20hrs%2045%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-7%2C041%20hrs%2051%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-24-blue)
 
@@ -84,18 +84,19 @@ Sunday                   291 commits         ███░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-TypeScript               9 hrs 13 mins       ███████████████░░░░░░░░░░   60.16 % 
-Python                   1 hr 47 mins        ███░░░░░░░░░░░░░░░░░░░░░░   11.70 % 
-AppleScript              1 hr 6 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   07.21 % 
-JavaScript               1 hr 4 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   06.96 % 
-Markdown                 30 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.34 % 
+TypeScript               11 hrs 13 mins      ███████████████░░░░░░░░░░   58.45 % 
+Python                   2 hrs 25 mins       ███░░░░░░░░░░░░░░░░░░░░░░   12.61 % 
+AppleScript              1 hr 6 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   05.76 % 
+JavaScript               1 hr 4 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   05.56 % 
+Markdown                 1 hr 2 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   05.42 % 
 
 🔥 Editors: 
-VS Code                  15 hrs 19 mins      █████████████████████████   100.00 % 
+VS Code                  18 hrs 36 mins      ████████████████████████░   96.95 % 
+Cursor                   35 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.05 % 
 ```
 
 
- Last Updated on 18/12/2025 23:29:58 UTC
+ Last Updated on 19/12/2025 23:29:16 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
