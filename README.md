@@ -53,11 +53,11 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-7%2C098%20hrs%2034%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-7%2C102%20hrs%201%20min-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-7-blue)
 
-![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-514.4%20thousand%20lines%20of%20code-blue)
+![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-514.35%20thousand%20lines%20of%20code-blue)
 
 **I'm an Early 🐤** 
 
@@ -84,19 +84,19 @@ Sunday                   291 commits         ███░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-Python                   16 hrs 30 mins      █████████████░░░░░░░░░░░░   51.91 % 
-TypeScript               8 hrs 6 mins        ██████░░░░░░░░░░░░░░░░░░░   25.48 % 
-Dart                     1 hr 57 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.18 % 
-Markdown                 58 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.07 % 
-JSON                     56 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.98 % 
+Python                   11 hrs 44 mins      ██████████░░░░░░░░░░░░░░░   40.85 % 
+TypeScript               8 hrs 35 mins       ███████░░░░░░░░░░░░░░░░░░   29.85 % 
+Markdown                 2 hrs 25 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   08.45 % 
+Dart                     1 hr 54 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.66 % 
+JSON                     54 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.18 % 
 
 🔥 Editors: 
-VS Code                  26 hrs 2 mins       ████████████████████░░░░░   81.92 % 
-Cursor                   5 hrs 44 mins       █████░░░░░░░░░░░░░░░░░░░░   18.08 % 
+VS Code                  27 hrs 42 mins      ████████████████████████░   96.32 % 
+Cursor                   1 hr 3 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   03.68 % 
 ```
 
 
- Last Updated on 31/12/2025 23:29:51 UTC
+ Last Updated on 01/01/2026 23:30:13 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
