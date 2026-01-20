@@ -53,6 +53,8 @@ Technically advanced and highly analytical software engineer with hands-on exper
 </div>
 
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-7%2C153%20hrs%2026%20mins-blue?style=flat)
+
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue?style=flat)
 
 ![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-696.25%20thousand%20lines%20of%20code-blue?style=flat)
@@ -82,18 +84,18 @@ Sunday                   293 commits         ███░░░░░░░░�
 
 ```text
 💬 Programming Languages: 
-Dart                     8 hrs 42 mins       ████████████████████░░░░░   79.09 % 
-Python                   46 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.97 % 
-Markdown                 30 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   04.67 % 
-XML                      22 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.38 % 
-Kotlin                   21 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.23 % 
+Dart                     4 hrs 48 mins       ████████████████████░░░░░   81.33 % 
+Python                   25 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   07.07 % 
+XML                      22 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   06.30 % 
+YAML                     11 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.24 % 
+HTML                     5 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.50 % 
 
 🔥 Editors: 
-VS Code                  11 hrs              █████████████████████████   100.00 % 
+VS Code                  5 hrs 54 mins       █████████████████████████   100.00 % 
 ```
 
 
- Last Updated on 19/01/2026 23:31:25 UTC
+ Last Updated on 20/01/2026 23:33:54 UTC
 <!--END_SECTION:waka-->
 
 📝 The statistics above don't reflect my proficiency, but rather Github metrics of programming languages I use.
