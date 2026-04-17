@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-04-17T13:50:50Z",
+  "name": "Stanley Okwii",
+  "location": "London, United Kingdom",
+  "summary": "A senior Full-Stack Engineer with 6+ years building web and mobile products in Python and TypeScript on AWS and GCP. I build systems end-to-end, from AI assistants and payment platforms to large-scale data pipelines. I thrive as a technical lead or individual contributor, turning ambiguous requirements into production systems that serve real users.",
+  "contact": {
+    "email": "stanlee.okwii@gmail.com",
+    "phone": "+44 7570 488 532",
+    "location": "London, United Kingdom",
+    "linkedin_url": "https://www.linkedin.com/in/stanley-okwii/",
+    "linkedin_handle": "stanley-okwii",
+    "github_url": "https://github.com/Stanley-Okwii",
+    "github_handle": "Stanley-Okwii"
+  },
+  "skills": [
+    {
+      "label": "Programming",
+      "details": "Python, Javascript, Typescript, Dart, HTML, CSS"
+    },
+    {
+      "label": "Databases",
+      "details": "PostgreSQL, MySQL, MongoDB, Redis, SQLite, pgvector"
+    },
+    {
+      "label": "Libraries and Frameworks",
+      "details": "Django, FastAPI, Flask, Express, React, Next.js, Node.js, Flutter, Redux, Angular, ReactNative, GraphQL"
+    },
+    {
+      "label": "AI/ML",
+      "details": "RAG Pipelines, LLM Integration (Claude, Gemini), Vector Search, Embeddings, Hybrid Retrieval"
+    },
+    {
+      "label": "Tools and Platforms",
+      "details": "AWS (ECS, Bedrock, CloudFormation), GCP, Supabase, Docker, Git, GitHub Actions, Celery, Redis Streams, Sentry, New Relic"
+    }
+  ],
+  "experience": [
+    {
+      "position": "Founding Engineer",
+      "company": "Access to Energy (Stealth)",
+      "period": "Jan 2026 — Present",
+      "location": "London, UK",
+      "summary": "AI research assistant for energy access in Africa — helps researchers, NGOs, and energy professionals get evidence-based answers with citations, drawn from a trusted library of sector reports and publications.",
+      "highlights": [
+        "Built an AI research assistant that answers questions with cited sources from a curated document library, improving answer accuracy by 35% over a basic search baseline.",
+        "Designed and deployed the cloud infrastructure on AWS, automating environment setup and cutting provisioning time from days to under 15 minutes.",
+        "Built a document processing pipeline that handles hundreds of files at once, making uploaded content searchable in minutes instead of hours.",
+        "Designed a multi-tenant platform with secure data isolation and per-organisation usage tracking, enabling onboarding of multiple research organisations on a single shared system."
+      ]
+    },
+    {
+      "position": "Senior Full-Stack Software Engineer (Full-time)",
+      "company": "Harver",
+      "period": "Mar 2023 — May 2025",
+      "location": "New York, USA",
+      "summary": "Left Harver in May 2025 to focus full-time on completing my MSc at Birkbeck, University of London.",
+      "highlights": [
+        "Owned end-to-end architecture and delivery of 3+ client-facing software projects across a Python backend and React frontend, making key technical decisions on security, performance, and long-term maintainability.",
+        "Drove project planning across engineering, product, and design — scoping requirements, managing technical trade-offs, and delivering projects on schedule.",
+        "Authored technical documentation of core system workflows, reducing onboarding time for new engineers by 15% and establishing shared knowledge across the team.",
+        "Shaped engineering hiring by leading 15+ technical interviews, assessing candidates on system design, code quality, and problem-solving."
+      ]
+    },
+    {
+      "position": "Full-Stack Software Engineer (Full-time)",
+      "company": "Harver",
+      "period": "Sep 2019 — Mar 2023",
+      "location": "New York, USA",
+      "summary": "",
+      "highlights": [
+        "Improved application observability by implementing structured logging and monitoring, cutting debugging time by 25%.",
+        "Built analytics dashboards providing clients with actionable insights into talent growth and mobility metrics across their organisations.",
+        "Identified and resolved performance bottlenecks through systematic profiling, achieving a 15% improvement in API response latency.",
+        "Automated the release process by building CI/CD pipelines, resulting in 20% faster deployment of frontend applications."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Hoppers (Event Ticketing Platform)",
+      "role": "Full-Stack Software Engineer (Contract)",
+      "period": "Oct 2025 — Present",
+      "location": "Remote",
+      "highlights": [
+        "Built a payment system integrating multiple providers with commission tracking, automated settlements, and booking-fee snapshots for accurate revenue reconciliation.",
+        "Implemented QR-code ticketing with secure generation, server-side validation, and per-user purchase limits with safeguards to prevent double-bookings under heavy traffic.",
+        "Shipped a team management system with invitations, permission controls, and organiser metrics dashboards — delivering major features across backend, admin, and mobile as primary contributor."
+      ]
+    },
+    {
+      "name": "<a href=\"https://careerfoundry.com/\" rel=\"noopener\">CareerFoundry</a> (Online Coding Bootcamp)",
+      "role": "Full-Stack Web Development Mentor (Freelance)",
+      "period": "Mar 2023 — Jan 2026",
+      "location": "Berlin, Germany",
+      "highlights": [
+        "Provided technical mentorship and project feedback to 23+ students in the Full-Stack Web Development program at CareerFoundry.",
+        "Maintained a consistent 5/5 student rating for quality of feedback, supportiveness, and responsiveness."
+      ]
+    },
+    {
+      "name": "<a href=\"https://chromewebstore.google.com/detail/dghaelfeofkkdebndhkfoneojddiebhd?utm_source=item-share-cb\" rel=\"noopener\">Utidash - New Tab</a> (Productivity Chrome Extension)",
+      "role": "Full-Stack Software Engineer (Contract)",
+      "period": "Sep 2020 — Nov 2020",
+      "location": "Berlin, Germany",
+      "highlights": [
+        "Implemented new features for a productivity Chrome extension serving over 6,000 users, which led to a 12% increase in daily active usage."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Birkbeck, University of London",
+      "area": "Advanced Computing",
+      "degree": "MSc",
+      "period": "Oct 2024 — Sep 2025",
+      "location": "London, UK",
+      "highlights": [
+        "Graduated with Merit"
+      ]
+    },
+    {
+      "institution": "Makerere University",
+      "area": "Software Engineering",
+      "degree": "BSc",
+      "period": "Aug 2014 — Sep 2018",
+      "location": "Kampala, Uganda",
+      "highlights": [
+        "Graduated with 2:1 (Upper Second Class Honours)"
+      ]
+    }
+  ]
+}

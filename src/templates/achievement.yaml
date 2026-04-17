@@ -2,7 +2,8 @@ cv:
   name: "Stanley Okwii"
   location: "London, United Kingdom"
   email: "stanlee.okwii@gmail.com"
-  website: 
+  phone: "+44 7570 488 532"
+  website:
   social_networks:
     - network: "LinkedIn"
       username: "stanley-okwii"
@@ -240,7 +241,7 @@ settings:
   current_date: "2026-04-14"
   bold_keywords: []
   render_command:
-    pdf_path: ../cvs/Stanley_Okwii_CV.pdf
+    pdf_path: ../resumes/Stanley_Okwii_CV.pdf
     dont_generate_markdown: true
     dont_generate_html: true
     dont_generate_png: true
