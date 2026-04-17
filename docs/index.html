@@ -30,7 +30,13 @@
 <meta property="og:description" content="Senior Full-Stack Engineer · London · 6+ years shipping web and mobile products in Python and TypeScript on AWS and GCP.">
 <meta property="og:url" content="https://stanley-okwii.github.io/Stanley-Okwii/">
 <meta property="og:site_name" content="Stanley Okwii · DWG-2026.01">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://stanley-okwii.github.io/Stanley-Okwii/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stanley Okwii — Senior Full-Stack Engineer · London">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://stanley-okwii.github.io/Stanley-Okwii/og-image.png">
+<meta name="author" content="Stanley Okwii">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +58,14 @@
     "addressLocality": "London",
     "addressCountry": "UK"
   },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Birkbeck, University of London"
+  },
+  "knowsAbout": [
+    "Python", "TypeScript", "Django", "FastAPI", "React", "Next.js",
+    "Flutter", "AWS", "GCP", "PostgreSQL", "Supabase", "Distributed Systems"
+  ],
   "sameAs": [
     "https://www.linkedin.com/in/stanley-okwii",
     "https://github.com/Stanley-Okwii"
@@ -183,15 +197,6 @@ section{padding:5rem 2rem;position:relative}
 .sub-title{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.25em;text-transform:uppercase;margin:2.5rem 0 1.2rem;padding-bottom:.6rem;border-bottom:1px dashed var(--border);display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
 .sub-title b{color:var(--amber);font-weight:500}
 
-/* ======= METHODOLOGY ======= */
-.method{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.method-c{border:1px solid var(--border);padding:1.5rem;position:relative;background:var(--terminal-bg);transition:border-color .2s}
-.method-c:hover{border-color:var(--accent)}
-.method-n{position:absolute;top:1rem;right:1.2rem;font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--border);font-weight:300;line-height:1}
-.method-t{font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;color:var(--ink-strong);margin-bottom:.6rem;letter-spacing:-.01em}
-.method-d{font-size:13px;color:var(--dim);line-height:1.65}
-.method-d strong{color:var(--ink)}
-
 /* ======= BLUEPRINT CARD PRIMITIVE ======= */
 .b-card{border:1px solid var(--border);padding:1.5rem;position:relative;background:var(--terminal-bg);display:flex;flex-direction:column;gap:.7rem;transition:border-color .2s}
 .b-card:hover{border-color:var(--accent)}
@@ -299,42 +304,72 @@ footer .rev{color:var(--amber)}
 
 @media(max-width:900px){
   .bp-main{grid-template-columns:1fr}
-  .method{grid-template-columns:1fr 1fr}
   .grid-3,.grid-2{grid-template-columns:1fr}
   #contact-grid{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
-  .bp-frame{padding:1.5rem}
+  .nav-links{gap:.1rem}
+  .nav-links a{padding:.4rem .55rem;font-size:10px;letter-spacing:.05em}
+  .nav-l-extra{display:none}
+  .bp-frame{padding:1.5rem;margin:2rem 1rem}
   .s-inner{padding:1.5rem}
   section{padding:3rem 1rem}
   #hero{padding-top:56px}
-  .bp-frame{margin:2rem 1rem}
   .stats-grid{grid-template-columns:1fr}
   .stat-langs,.stat-editors{grid-column:auto}
   .bar-row{grid-template-columns:90px 1fr 56px}
   .gh-cards{grid-template-columns:1fr}
   .gh-kpis{grid-template-columns:repeat(2,1fr)}
 }
+@media(max-width:640px){
+  nav{padding:0 .75rem}
+  .nav-links a{padding:.3rem .4rem;font-size:9px;letter-spacing:.02em}
+  .theme-toggle{padding:.4rem .55rem}
+  .theme-toggle #theme-label{display:none}
+}
 @media(max-width:560px){
-  .method{grid-template-columns:1fr}
   #contact-grid{grid-template-columns:1fr}
-  nav{padding:0 1rem}
   .gh-rank-block{flex-direction:column;align-items:flex-start;gap:1rem}
+}
+
+/* ======= SCROLLSPY ======= */
+.nav-links a.active{color:var(--accent);border-color:var(--border)}
+
+/* ======= PRINT ======= */
+@media print{
+  :root,:root[data-theme="dark"],:root[data-theme="light"]{
+    --bg:#fff;--bg2:#fff;--ink:#000;--ink-strong:#000;--dim:#333;--dimmer:#666;
+    --accent:#0a2540;--amber:#8a5a00;--highlight:#0a5a0a;
+    --border:#bbb;--border-strong:#666;
+    --panel-bg:transparent;--terminal-bg:transparent;--shadow:none;
+    --grid-fine:transparent;--grid-coarse:transparent;
+  }
+  body{background:#fff!important;color:#000!important;background-image:none!important;font-size:10pt;line-height:1.4}
+  nav,#stats,.bp-cta,.bp-availability,.theme-toggle,footer .rev,.bp-c-tr,.bp-c-bl{display:none!important}
+  .bp-frame,.s-inner,.b-card,.gh-stats-card,.gh-lang-card,.stat-kpi,.stat-panel{
+    border:1px solid #bbb!important;background:#fff!important;backdrop-filter:none!important;box-shadow:none!important;break-inside:avoid;page-break-inside:avoid;
+  }
+  .bp-frame::before,.bp-frame::after,.gh-stats-card::before,.gh-stats-card::after{display:none}
+  section{padding:1rem 0!important;break-inside:avoid;page-break-inside:avoid}
+  #hero{min-height:auto;padding-top:0!important}
+  .bp-frame{margin:0!important;padding:1.5rem!important}
+  .bp-name{font-size:2.2rem!important}
+  a{color:#0a2540!important;text-decoration:none!important}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:.75em;color:#555}
+  a[href^="mailto:"]::after,a[href^="tel:"]::after{content:""}
 }
 </style>
 </head>
 <body>
 
 <nav aria-label="Primary">
-  <div class="nav-l">S.OKWII / DWG-2026.01 / SENIOR</div>
+  <div class="nav-l">S.OKWII<span class="nav-l-extra"> / DWG-2026.01 / SENIOR</span></div>
   <div class="nav-r">
     <div class="nav-links">
-      <a href="#method">method.md</a>
       <a href="#stats">stats.live</a>
       <a href="#experience">work.log</a>
       <a href="#projects">projects.dir</a>
       <a href="#contact">contact.sys</a>
     </div>
-    <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle colour theme" aria-pressed="false" title="Click to toggle · Alt/Option-click or long-press to follow system">
+    <button class="theme-toggle" id="theme-toggle-btn" aria-label="Switch to light theme" aria-pressed="false">
       <span class="icon" aria-hidden="true"></span>
       <span id="theme-label">LIGHT</span>
     </button>
@@ -354,10 +389,10 @@ footer .rev{color:var(--amber)}
     <div class="bp-main">
       <div>
         <div class="bp-label">Engineering Profile · <span id="hero-location">London</span></div>
-        <div class="bp-name">Stanley<br><strong>Okwii</strong></div>
+        <h1 class="bp-name">Stanley<br><strong>Okwii</strong></h1>
         <div class="bp-sub">// Senior Full-Stack Engineer — Python · TypeScript · AWS · GCP</div>
-        <p class="bp-pitch" id="hero-summary">Loading…</p>
-        <div class="bp-availability">STATUS: AVAILABLE · LONDON · SENIOR / STAFF</div>
+        <p class="bp-pitch" id="hero-summary">London-based senior full-stack engineer — 6+ years shipping production web and mobile systems across Python, TypeScript, AWS, and GCP.</p>
+        <div class="bp-availability">STATUS: AVAILABLE · LONDON · SENIOR / FULL-STACK</div>
         <div class="bp-cta">
           <a href="mailto:stanlee.okwii@gmail.com" class="bp-btn bp-btn-primary">Get in touch →</a>
           <a href="cv.pdf" class="bp-btn bp-btn-ghost" download>Download CV</a>
@@ -382,41 +417,10 @@ footer .rev{color:var(--amber)}
   </div>
 </section>
 
-<!-- ======= METHODOLOGY ======= -->
-<section id="method">
-  <div class="s-inner">
-    <div class="sec-tag">Section 01 / How I Work</div>
-    <h2 class="sec-title">Methodology <strong>[how.I.actually.ship]</strong></h2>
-    <p class="sec-intro">Practical patterns I use every day — measurable, honest, and battle-tested across six years of production work before I started orchestrating agents.</p>
-    <div class="method">
-      <div class="method-c">
-        <div class="method-n">01</div>
-        <div class="method-t">Parallel agentic workflows</div>
-        <div class="method-d">Debug one incident while a second agent ships a separate feature. <strong>Two branches advance per hour</strong>, not one. Human stays in the loop on review and risk.</div>
-      </div>
-      <div class="method-c">
-        <div class="method-n">02</div>
-        <div class="method-t">Multi-model code review</div>
-        <div class="method-d">Never trust a single model's output. <strong>I route critical diffs through 2–3 reviewers</strong> and catch the low-quality generations before they reach main.</div>
-      </div>
-      <div class="method-c">
-        <div class="method-n">03</div>
-        <div class="method-t">Agentic planning first</div>
-        <div class="method-d">Before implementation, I give the agent <strong>deep feature context and a plan</strong>. Without this, agents build confidently wrong. With it, they build correctly fast.</div>
-      </div>
-      <div class="method-c">
-        <div class="method-n">04</div>
-        <div class="method-t">Observability before velocity</div>
-        <div class="method-d">I don't optimise latency by guessing. <strong>New Relic, Sentry, Kibana</strong> — instrument first, then cut. That's how the 15% API latency win happened at Harver.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ======= LIVE STATS: WakaTime + GitHub ======= -->
 <section id="stats">
   <div class="s-inner">
-    <div class="sec-tag">Section 02 / Live Instrumentation</div>
+    <div class="sec-tag">Section 01 / Live Instrumentation</div>
     <h2 class="sec-title">Activity <strong>[live.feeds]</strong></h2>
     <p class="sec-intro">Auto-synced nightly — not hand-crafted numbers. WakaTime tracks my keystrokes by language and editor; the GitHub stats card below mirrors the classic <strong>github-readme-stats</strong> rank and breakdown, re-rendered in this site's theme.</p>
 
@@ -482,7 +486,7 @@ footer .rev{color:var(--amber)}
 <!-- ======= SKILLS ======= -->
 <section id="skills">
   <div class="s-inner">
-    <div class="sec-tag">Section 03 / Technical Stack</div>
+    <div class="sec-tag">Section 02 / Technical Stack</div>
     <h2 class="sec-title">Skills <strong>[stack.map]</strong></h2>
     <p class="sec-intro">Six years of production work across typed languages, composable frameworks, and well-instrumented systems. Pragmatic — I use what ships.</p>
     <div class="grid-3" id="skills-grid">
@@ -494,7 +498,7 @@ footer .rev{color:var(--amber)}
 <!-- ======= EXPERIENCE ======= -->
 <section id="experience">
   <div class="s-inner">
-    <div class="sec-tag">Section 04 / Engagement Log</div>
+    <div class="sec-tag">Section 03 / Engagement Log</div>
     <h2 class="sec-title">Experience <strong>[history.dat]</strong></h2>
     <p class="sec-intro">Roles across Kampala, New York, and London. Outcomes are quantified and verifiable — no rounded-up claims.</p>
     <div class="grid-stack" id="experience-list">
@@ -506,7 +510,7 @@ footer .rev{color:var(--amber)}
 <!-- ======= PROJECTS ======= -->
 <section id="projects">
   <div class="s-inner">
-    <div class="sec-tag">Section 05 / Build Catalogue</div>
+    <div class="sec-tag">Section 04 / Build Catalogue</div>
     <h2 class="sec-title">Projects <strong>[builds.idx]</strong></h2>
     <p class="sec-intro">Independent contract and client work — from event-ticketing payment rails to Chrome extensions with thousands of daily users.</p>
     <div class="grid-2" id="projects-list">
@@ -518,7 +522,7 @@ footer .rev{color:var(--amber)}
 <!-- ======= EDUCATION ======= -->
 <section id="education">
   <div class="s-inner">
-    <div class="sec-tag">Section 06 / Academic Record</div>
+    <div class="sec-tag">Section 05 / Academic Record</div>
     <h2 class="sec-title">Education <strong>[learn.log]</strong></h2>
     <div class="grid-2" id="education-list">
       <div class="cv-skel">loading education…</div>
@@ -529,7 +533,7 @@ footer .rev{color:var(--amber)}
 <!-- ======= CONTACT ======= -->
 <section id="contact">
   <div class="s-inner">
-    <div class="sec-tag">Section 07 / Communication Channels</div>
+    <div class="sec-tag">Section 06 / Communication Channels</div>
     <h2 class="sec-title">Contact <strong>[reach.out]</strong></h2>
     <p class="sec-intro">Open to Senior and Staff-level engineering roles at product-led companies. Based in London — open to hybrid or remote on UK-aligned hours.</p>
     <div id="contact-grid">
@@ -548,57 +552,20 @@ footer .rev{color:var(--amber)}
 function applyThemeMeta(theme){
   document.getElementById('theme-label').textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
   const btn = document.getElementById('theme-toggle-btn');
-  if(btn) btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+  if(btn){
+    btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  }
 }
 function toggleTheme(){
   const root = document.documentElement;
-  const current = root.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
   applyThemeMeta(next);
   try{ localStorage.setItem('theme', next); }catch(e){}
 }
-function resetThemeToSystem(){
-  try{ localStorage.removeItem('theme'); }catch(e){}
-  const systemLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  const theme = systemLight ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', theme);
-  applyThemeMeta(theme);
-}
 applyThemeMeta(document.documentElement.getAttribute('data-theme') || 'dark');
-
-(function wireThemeToggle(){
-  const btn = document.getElementById('theme-toggle-btn');
-  if(!btn) return;
-  const LONG_PRESS_MS = 600;
-  let longPressed = false;
-  let pressTimer = null;
-
-  btn.addEventListener('pointerdown', () => {
-    longPressed = false;
-    clearTimeout(pressTimer);
-    pressTimer = setTimeout(() => {
-      longPressed = true;
-      resetThemeToSystem();
-    }, LONG_PRESS_MS);
-  });
-  ['pointerup','pointerleave','pointercancel'].forEach(evt => {
-    btn.addEventListener(evt, () => clearTimeout(pressTimer));
-  });
-
-  btn.addEventListener('click', (ev) => {
-    if(longPressed){
-      longPressed = false;
-      ev.preventDefault();
-      return;
-    }
-    if(ev.altKey || ev.shiftKey){
-      resetThemeToSystem();
-      return;
-    }
-    toggleTheme();
-  });
-})();
+document.getElementById('theme-toggle-btn')?.addEventListener('click', toggleTheme);
 
 try {
   const mq = window.matchMedia('(prefers-color-scheme: light)');
@@ -613,6 +580,28 @@ try {
   if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
   else if (mq.addListener)  mq.addListener(onSystemChange);
 } catch(e) {}
+
+// ======= SCROLLSPY =======
+(function scrollspy(){
+  const links = Array.from(document.querySelectorAll('.nav-links a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  const map = new Map();
+  links.forEach(a => {
+    const id = (a.getAttribute('href') || '').slice(1);
+    const section = id && document.getElementById(id);
+    if(section) map.set(section, a);
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      const active = map.get(entry.target);
+      if(!active) return;
+      links.forEach(l => l.classList.remove('active'));
+      active.classList.add('active');
+    });
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+  map.forEach((_, section) => observer.observe(section));
+})();
 
 // ======= UTIL =======
 const nf = new Intl.NumberFormat('en-GB');
@@ -760,12 +749,12 @@ function renderEntries(hostId, items){
     const titleWrap = document.createElement('div');
     const title = document.createElement('div');
     title.className = 'b-card-title';
-    title.innerHTML = item.title || '';
+    title.textContent = item.title || '';
     titleWrap.appendChild(title);
     if(item.org){
       const org = document.createElement('div');
       org.className = 'b-card-org';
-      org.innerHTML = item.org;
+      org.textContent = item.org;
       titleWrap.appendChild(org);
     }
     head.appendChild(titleWrap);
