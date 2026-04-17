@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stanley Okwii — Staff Engineer (AI-native)</title>
+<meta name="description" content="Staff-level full-stack engineer with a parallel-agent development practice. Seven years shipping in production.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ======= THEMES ======= */
+:root[data-theme="dark"]{
+  --bg:#0a2540;--bg2:#102f52;--paper:transparent;
+  --grid-fine:rgba(180,220,255,0.05);--grid-coarse:rgba(180,220,255,0.12);
+  --ink:#e4f0ff;--ink-strong:#ffffff;--dim:#6d92bc;--dimmer:#4a6a8a;
+  --accent:#7fd3ff;--amber:#ffc857;--highlight:#c4ffce;--danger:#ff8b8b;
+  --panel-bg:rgba(16,47,82,0.4);--panel-bg-solid:#102f52;--border:rgba(180,220,255,0.12);--border-strong:rgba(127,211,255,0.4);
+  --terminal-bg:rgba(5,20,40,0.6);--shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+:root[data-theme="light"]{
+  --bg:#f6f2e8;--bg2:#eee8d8;--paper:transparent;
+  --grid-fine:rgba(20,60,120,0.04);--grid-coarse:rgba(20,60,120,0.1);
+  --ink:#1a3452;--ink-strong:#0a2540;--dim:#6a7a92;--dimmer:#a8b0c0;
+  --accent:#1a6fb0;--amber:#b87d00;--highlight:#2d6a2d;--danger:#c04040;
+  --panel-bg:rgba(255,253,246,0.6);--panel-bg-solid:#fbf8ee;--border:rgba(20,60,120,0.15);--border-strong:rgba(26,111,176,0.5);
+  --terminal-bg:rgba(250,247,235,0.7);--shadow:0 4px 20px rgba(20,40,80,0.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  background-image:
+    linear-gradient(var(--grid-fine) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-fine) 1px,transparent 1px),
+    linear-gradient(var(--grid-coarse) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-coarse) 1px,transparent 1px);
+  background-size:20px 20px,20px 20px,100px 100px,100px 100px;
+  background-position:-1px -1px;
+  transition:background-color .4s ease,color .4s ease;
+}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* ======= NAV ======= */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;background:var(--bg);backdrop-filter:blur(8px);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;border-bottom:1px solid var(--border);transition:background-color .4s ease,border-color .4s ease}
+:root[data-theme="dark"] nav{background:rgba(10,37,64,0.92)}
+:root[data-theme="light"] nav{background:rgba(246,242,232,0.92)}
+.nav-l{display:flex;align-items:center;gap:1rem;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:.1em}
+.nav-l::before{content:'';width:14px;height:14px;border:2px solid var(--accent);border-radius:50%;display:block}
+.nav-r{display:flex;align-items:center;gap:.5rem}
+.nav-links{display:flex;gap:.3rem}
+.nav-links a{color:var(--dim);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12px;padding:.5rem 1rem;border:1px solid transparent;transition:all .2s}
+.nav-links a:hover{color:var(--accent);border-color:var(--border)}
+
+.theme-toggle{
+  background:transparent;border:1px solid var(--border);color:var(--dim);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:.5rem .8rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.5rem;
+}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.theme-toggle .icon{width:14px;height:14px;display:inline-block;position:relative}
+.theme-toggle .icon::before{
+  content:'';position:absolute;inset:2px;border-radius:50%;
+  background:var(--ink);
+}
+:root[data-theme="dark"] .theme-toggle .icon::before{box-shadow:inset -4px -4px 0 0 var(--bg)}
+
+/* ======= HERO ======= */
+#hero{padding-top:56px;min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.bp-frame{max-width:1200px;width:100%;margin:3rem 2rem;border:1px solid var(--border);padding:3rem;position:relative;background:var(--panel-bg);backdrop-filter:blur(2px)}
+.bp-frame::before,.bp-frame::after,.bp-c-tr,.bp-c-bl{content:'';position:absolute;width:24px;height:24px;border:1px solid var(--accent)}
+.bp-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.bp-frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+.bp-c-tr{top:-1px;right:-1px;border-left:none;border-bottom:none}
+.bp-c-bl{bottom:-1px;left:-1px;border-right:none;border-top:none}
+
+.bp-head{display:flex;justify-content:space-between;padding-bottom:1.5rem;border-bottom:1px dashed var(--border);margin-bottom:2rem;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.1em;flex-wrap:wrap;gap:1rem}
+.bp-head b{color:var(--accent);font-weight:500}
+
+.bp-main{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:start}
+
+.bp-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.25em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}
+.bp-label::before{content:'◆';color:var(--amber)}
+
+.bp-name{font-family:'IBM Plex Sans',sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:300;line-height:.95;letter-spacing:-.02em;color:var(--ink-strong);margin-bottom:.8rem}
+.bp-name strong{font-weight:700;color:var(--accent)}
+.bp-sub{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber);margin-bottom:1.5rem;letter-spacing:.05em}
+
+.bp-pitch{color:var(--ink);font-size:16px;line-height:1.75;max-width:600px;margin-bottom:1.2rem;font-weight:400}
+.bp-pitch strong{color:var(--ink-strong);font-weight:600}
+.bp-pitch em{color:var(--accent);font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:0 .15rem}
+
+.bp-availability{display:inline-flex;align-items:center;gap:.6rem;padding:.5rem 1rem;border:1px solid var(--highlight);background:rgba(196,255,206,.08);font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--highlight);letter-spacing:.1em;margin-bottom:2rem}
+:root[data-theme="light"] .bp-availability{background:rgba(45,106,45,.06)}
+.bp-availability::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--highlight);box-shadow:0 0 8px var(--highlight);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{50%{opacity:.5;transform:scale(.9)}}
+
+.bp-cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.bp-btn{padding:.85rem 1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;border:1px solid;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
+.bp-btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
+.bp-btn-primary:hover{background:var(--ink-strong);border-color:var(--ink-strong)}
+.bp-btn-ghost{color:var(--ink);border-color:var(--border);background:transparent}
+.bp-btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Spec panel */
+.bp-specs{border:1px solid var(--border);padding:0;background:var(--panel-bg)}
+.spec-header{padding:.8rem 1.2rem;background:rgba(127,211,255,.05);border-bottom:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;display:flex;justify-content:space-between}
+:root[data-theme="light"] .spec-header{background:rgba(26,111,176,.05)}
+.spec-header b{color:var(--amber)}
+.spec-body{padding:1.2rem}
+.spec-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px dashed var(--border);font-size:12px;font-family:'IBM Plex Mono',monospace;gap:.5rem}
+.spec-row:last-child{border-bottom:none}
+.spec-k{color:var(--dim);flex-shrink:0}
+.spec-v{color:var(--ink-strong);font-weight:500;text-align:right}
+.spec-v.amber{color:var(--amber)}
+.spec-v.accent{color:var(--accent)}
+.spec-v.hl{color:var(--highlight)}
+
+/* ======= SECTIONS ======= */
+section{padding:5rem 2rem;position:relative}
+.s-inner{max-width:1200px;margin:0 auto;border:1px solid var(--border);background:var(--panel-bg);padding:3rem;backdrop-filter:blur(2px)}
+.sec-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.25em;text-transform:uppercase;margin-bottom:.8rem}
+.sec-title{font-family:'IBM Plex Sans',sans-serif;font-size:2.2rem;font-weight:300;color:var(--ink-strong);letter-spacing:-.01em;margin-bottom:1rem;display:flex;align-items:center;gap:1rem}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title strong{font-weight:700;color:var(--amber);font-size:.55em;font-family:'IBM Plex Mono',monospace;letter-spacing:.05em}
+.sec-intro{color:var(--dim);font-size:14px;line-height:1.7;max-width:720px;margin-bottom:2.5rem}
+.sec-intro strong{color:var(--ink-strong);font-weight:500}
+
+/* ======= INTERACTIVE DEMO (THE CENTREPIECE) ======= */
+#orchestrator{padding:5rem 2rem}
+.orch-wrap{max-width:1200px;margin:0 auto;border:1px solid var(--border-strong);background:var(--panel-bg);position:relative;overflow:hidden}
+.orch-wrap::before,.orch-wrap::after{content:'';position:absolute;width:24px;height:24px;border:1px solid var(--accent)}
+.orch-wrap::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.orch-wrap::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+
+.orch-header{padding:2rem 2.5rem;border-bottom:1px solid var(--border);background:rgba(127,211,255,.03)}
+:root[data-theme="light"] .orch-header{background:rgba(26,111,176,.04)}
+.orch-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.orch-title-group h2{font-family:'IBM Plex Sans',sans-serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:500;color:var(--ink-strong);line-height:1.1;letter-spacing:-.02em;margin-bottom:.3rem}
+.orch-title-group h2 b{color:var(--accent);font-weight:500}
+.orch-subtitle{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--amber);letter-spacing:.05em}
+.orch-clock{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.1em;text-align:right;display:flex;flex-direction:column;gap:.2rem;align-items:flex-end}
+.orch-clock b{color:var(--accent);font-weight:500}
+.orch-clock .ctime{font-size:22px;color:var(--ink-strong);font-family:'IBM Plex Mono',monospace;letter-spacing:.05em;font-weight:400}
+.orch-clock .ctime.done{color:var(--highlight)}
+
+.orch-description{font-size:14px;color:var(--ink);line-height:1.7;max-width:820px}
+.orch-description strong{color:var(--ink-strong)}
+
+/* Scenario picker */
+.orch-scenarios{padding:1.2rem 2.5rem;border-bottom:1px solid var(--border);display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;background:var(--bg)}
+.orch-scenarios-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-right:.5rem}
+.orch-scenarios-label::before{content:'◆ '}
+.orch-scenarios-label::before{color:var(--amber)}
+.scenario-btn{background:transparent;border:1px solid var(--border);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:.5rem .9rem;cursor:pointer;transition:all .15s;letter-spacing:.03em}
+.scenario-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.scenario-btn.active{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
+.scenario-btn:disabled{opacity:.4;cursor:not-allowed}
+.orch-controls{margin-left:auto;display:flex;gap:.5rem}
+.ctrl-btn{background:transparent;border:1px solid var(--border);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:.5rem .9rem;cursor:pointer;transition:all .15s;letter-spacing:.05em}
+.ctrl-btn:hover{border-color:var(--amber);color:var(--amber)}
+.ctrl-btn.primary{background:var(--amber);color:var(--bg);border-color:var(--amber);font-weight:600}
+.ctrl-btn.primary:hover{background:var(--ink-strong);border-color:var(--ink-strong);color:var(--bg)}
+
+/* Agent terminals */
+.orch-agents{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border)}
+.agent{background:var(--terminal-bg);padding:0;min-height:520px;display:flex;flex-direction:column;border-right:1px solid var(--border)}
+.agent:last-child{border-right:none}
+.agent-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--bg);gap:1rem}
+.agent-id{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.1em;display:flex;align-items:center;gap:.5rem}
+.agent-id::before{content:'';width:8px;height:8px;background:var(--dimmer);border-radius:50%;transition:all .3s}
+.agent.running .agent-id::before{background:var(--amber);box-shadow:0 0 10px var(--amber);animation:pulse-dot 1s infinite}
+.agent.done .agent-id::before{background:var(--highlight);box-shadow:0 0 10px var(--highlight)}
+.agent-task{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);text-align:right;line-height:1.4;max-width:60%}
+.agent-task b{color:var(--ink-strong);font-weight:500;display:block}
+
+.terminal{flex:1;padding:1.2rem 1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.65;overflow-y:auto;max-height:500px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.terminal::-webkit-scrollbar{width:6px}
+.terminal::-webkit-scrollbar-thumb{background:var(--border)}
+.tline{color:var(--ink);opacity:0;animation:line-in .18s forwards;margin-bottom:.15rem;word-break:break-word}
+@keyframes line-in{to{opacity:1}}
+.tline .ts{color:var(--dimmer);margin-right:.5rem;font-size:10px}
+.tline.cmd{color:var(--accent)}
+.tline.cmd::before{content:'$ ';color:var(--amber);font-weight:600}
+.tline.trace{color:var(--dim)}
+.tline.trace::before{content:'→ ';color:var(--accent)}
+.tline.ok{color:var(--highlight)}
+.tline.ok::before{content:'✓ ';font-weight:700}
+.tline.warn{color:var(--amber)}
+.tline.warn::before{content:'! '}
+.tline.info{color:var(--ink)}
+.tline.info::before{content:'• ';color:var(--dim)}
+.tline.result{color:var(--ink-strong);background:rgba(127,211,255,.06);padding:.3rem .5rem;margin:.3rem 0;border-left:2px solid var(--accent)}
+:root[data-theme="light"] .tline.result{background:rgba(26,111,176,.06)}
+
+.terminal .cursor{display:inline-block;width:7px;height:12px;background:var(--accent);animation:blink 1s infinite;vertical-align:middle;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+
+/* Comparison footer */
+.orch-footer{padding:1.5rem 2.5rem;border-top:1px solid var(--border);background:var(--bg);display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;font-family:'IBM Plex Mono',monospace;font-size:12px}
+.of-stat{display:flex;flex-direction:column;gap:.3rem}
+.of-stat-k{font-size:10px;color:var(--dim);letter-spacing:.2em;text-transform:uppercase}
+.of-stat-v{font-size:18px;color:var(--ink-strong);font-weight:500}
+.of-stat-v.savings{color:var(--highlight)}
+.of-stat-v.sequential{color:var(--dim);text-decoration:line-through}
+
+/* ======= METHODOLOGY ======= */
+.method{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.method-c{border:1px solid var(--border);padding:1.5rem;position:relative;background:var(--terminal-bg);transition:border-color .2s}
+.method-c:hover{border-color:var(--accent)}
+.method-n{position:absolute;top:1rem;right:1.2rem;font-family:'IBM Plex Mono',monospace;font-size:24px;color:var(--border);font-weight:300;line-height:1}
+.method-t{font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;color:var(--ink-strong);margin-bottom:.6rem;letter-spacing:-.01em}
+.method-d{font-size:13px;color:var(--dim);line-height:1.65}
+.method-d strong{color:var(--ink)}
+
+/* ======= SKILLS ======= */
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.sk-card{border:1px solid var(--border);padding:1.3rem;position:relative}
+.sk-card::before{content:'[ ]';color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:10px;position:absolute;top:.5rem;right:.5rem}
+.sk-h{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px dashed var(--border)}
+.sk-items{display:flex;flex-direction:column;gap:.3rem;font-family:'IBM Plex Mono',monospace;font-size:12px}
+.sk-it{color:var(--ink);padding:.15rem 0;display:flex;align-items:center;gap:.5rem}
+.sk-it::before{content:'›';color:var(--accent)}
+
+/* ======= EXPERIENCE ======= */
+.exp{display:grid;gap:1.5rem}
+.exp-c{border:1px solid var(--border);padding:2rem}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px dashed var(--border);flex-wrap:wrap;gap:1rem}
+.exp-l{flex:1}
+.exp-role{font-size:1.2rem;font-weight:600;color:var(--ink-strong);margin-bottom:.2rem}
+.exp-co{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:.05em}
+.exp-co::before{content:'@ '}
+.exp-period{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);border:1px solid var(--amber);padding:.3rem .7rem;white-space:nowrap;letter-spacing:.05em}
+.exp-ul{list-style:none;display:grid;gap:.4rem}
+.exp-ul li{font-size:13.5px;padding-left:1.5rem;position:relative;color:var(--ink);line-height:1.65}
+.exp-ul li::before{content:'+';position:absolute;left:0;color:var(--accent);font-family:'IBM Plex Mono',monospace;font-weight:600}
+.exp-ul li b{color:var(--amber);font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:0 .15rem}
+
+/* ======= PROJECTS ======= */
+.pj{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.pj-c{border:1px solid var(--border);padding:1.8rem;position:relative;background:var(--terminal-bg);transition:border-color .2s;display:flex;flex-direction:column;gap:.8rem}
+.pj-c:hover{border-color:var(--accent)}
+.pj-c.featured{border-color:var(--accent);background:rgba(127,211,255,.04)}
+:root[data-theme="light"] .pj-c.featured{background:rgba(26,111,176,.04)}
+.pj-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;display:flex;justify-content:space-between}
+.pj-num b{color:var(--accent);padding:.1rem .4rem;border:1px solid var(--accent);font-size:9px;letter-spacing:.15em}
+.pj-name{font-size:1.15rem;font-weight:600;color:var(--ink-strong);line-height:1.2}
+.pj-d{font-size:13.5px;color:var(--ink);line-height:1.7;flex:1}
+.pj-d strong{color:var(--ink-strong);font-weight:600}
+.pj-s{display:flex;flex-wrap:wrap;gap:.3rem;padding-top:.8rem;border-top:1px dashed var(--border)}
+.pj-s span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);border:1px solid var(--border);padding:.2rem .5rem}
+
+/* ======= EDUCATION ======= */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.edu-c{border:1px solid var(--border);padding:1.8rem}
+.edu-d{font-size:1.1rem;font-weight:600;color:var(--ink-strong);margin-bottom:.3rem}
+.edu-s{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);margin-bottom:.3rem}
+.edu-y{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);margin-bottom:.8rem}
+.edu-n{font-size:13px;color:var(--ink);font-style:italic;font-family:'IBM Plex Serif',serif}
+
+/* ======= CONTACT ======= */
+.contact{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.c-link{border:1px solid var(--border);padding:1.5rem;text-decoration:none;color:var(--ink);transition:all .2s;display:block;background:var(--terminal-bg)}
+.c-link:hover{border-color:var(--accent);background:rgba(127,211,255,.06)}
+:root[data-theme="light"] .c-link:hover{background:rgba(26,111,176,.05)}
+.c-l{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem}
+.c-v{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-strong);word-break:break-all}
+
+footer{padding:2rem;text-align:center;color:var(--dim);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1200px;margin:0 auto;padding-left:0;padding-right:0}
+footer span{color:var(--accent)}
+footer .rev{color:var(--amber)}
+
+@media(max-width:900px){
+  .bp-main{grid-template-columns:1fr}
+  .orch-agents{grid-template-columns:1fr}
+  .agent{border-right:none;border-bottom:1px solid var(--border)}
+  .method{grid-template-columns:1fr 1fr}
+  .sk-grid{grid-template-columns:1fr}
+  .pj{grid-template-columns:1fr}
+  .edu{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .bp-frame{padding:1.5rem}
+  .s-inner{padding:1.5rem}
+  .orch-footer{grid-template-columns:1fr}
+  section{padding:3rem 1rem}
+  #hero{padding-top:56px}
+  .bp-frame{margin:2rem 1rem}
+}
+@media(max-width:560px){
+  .method{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .orch-scenarios{padding:1rem}
+  .orch-controls{margin-left:0;width:100%}
+  nav{padding:0 1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-l">S.OKWII / DWG-2026.01 / STAFF</div>
+  <div class="nav-r">
+    <div class="nav-links">
+      <a href="#orchestrator">demo.live</a>
+      <a href="#method">method.md</a>
+      <a href="#experience">work.log</a>
+      <a href="#projects">projects.dir</a>
+      <a href="#contact">contact.sys</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="icon"></span>
+      <span id="theme-label">LIGHT</span>
+    </button>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="bp-frame">
+    <span class="bp-c-tr"></span>
+    <span class="bp-c-bl"></span>
+    <div class="bp-head">
+      <span>DWG NO. <b>S.O-2026-01</b></span>
+      <span>SHEET 1 OF 6</span>
+      <span>CLASSIFICATION: <b>STAFF ENGINEER</b></span>
+      <span>REV: <b>A</b></span>
+    </div>
+    <div class="bp-main">
+      <div>
+        <div class="bp-label">Engineering Profile · London</div>
+        <div class="bp-name">Stanley<br><strong>Okwii</strong></div>
+        <div class="bp-sub">// Senior Full-Stack Engineer — Staff-track, AI-native practice</div>
+        <p class="bp-pitch">
+          I ship production systems across <strong>frontend, backend, and data</strong> — and I do it running <em>parallel agentic workflows</em>, multi-model review, and agentic planning as part of my day-to-day. <strong>Seven years in production</strong>. Measurable outcomes: <strong>−25% debug time, −15% API latency, +20% deploy velocity</strong>. No fluff, no methodology-theatre. Demo below.
+        </p>
+        <div class="bp-availability">STATUS: AVAILABLE · LONDON · SENIOR / STAFF</div>
+        <div class="bp-cta">
+          <a href="#orchestrator" class="bp-btn bp-btn-primary">▶ See the workflow live</a>
+          <a href="mailto:stanlee.okwii@gmail.com" class="bp-btn bp-btn-ghost">Initiate contact →</a>
+        </div>
+      </div>
+      <div class="bp-specs">
+        <div class="spec-header"><span>SPEC SHEET</span><b>v2026.01</b></div>
+        <div class="spec-body">
+          <div class="spec-row"><span class="spec-k">LOCATION</span><span class="spec-v">London, UK</span></div>
+          <div class="spec-row"><span class="spec-k">EXPERIENCE</span><span class="spec-v accent">7+ years prod</span></div>
+          <div class="spec-row"><span class="spec-k">TARGET LEVEL</span><span class="spec-v accent">Senior / Staff</span></div>
+          <div class="spec-row"><span class="spec-k">CORE STACK</span><span class="spec-v">TS · Py · React · Django</span></div>
+          <div class="spec-row"><span class="spec-k">AI WORKFLOW</span><span class="spec-v amber">Claude Code · parallel agents</span></div>
+          <div class="spec-row"><span class="spec-k">DEBUG TIME</span><span class="spec-v hl">−25%</span></div>
+          <div class="spec-row"><span class="spec-k">API LATENCY</span><span class="spec-v hl">−15%</span></div>
+          <div class="spec-row"><span class="spec-k">DEPLOY SPEED</span><span class="spec-v hl">+20%</span></div>
+          <div class="spec-row"><span class="spec-k">MENTORED</span><span class="spec-v">23+ students</span></div>
+          <div class="spec-row"><span class="spec-k">EDUCATION</span><span class="spec-v">MSc Birkbeck</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= INTERACTIVE PARALLEL AGENT DEMO ======= -->
+<section id="orchestrator">
+  <div class="orch-wrap">
+    <div class="orch-header">
+      <div class="orch-meta">
+        <div class="orch-title-group">
+          <h2>Parallel Agent Orchestrator · <b>Live Demo</b></h2>
+          <div class="orch-subtitle">// a working simulation of how I actually build</div>
+        </div>
+        <div class="orch-clock">
+          <div>ELAPSED</div>
+          <div class="ctime" id="clock">00:00</div>
+          <div><b id="clock-label">READY</b></div>
+        </div>
+      </div>
+      <p class="orch-description">
+        Most engineers treat AI as autocomplete. I treat it as <strong>a team of subordinate agents running in parallel</strong>. While one agent ships a feature, a second debugs production; I orchestrate, review, and make the calls. Pick a scenario below and watch two agents run simultaneously — with the time comparison against doing both sequentially.
+      </p>
+    </div>
+
+    <div class="orch-scenarios">
+      <span class="orch-scenarios-label">Scenario</span>
+      <button class="scenario-btn active" data-scenario="0">01 · Feature + Prod Bug</button>
+      <button class="scenario-btn" data-scenario="1">02 · Refactor + Tests</button>
+      <button class="scenario-btn" data-scenario="2">03 · GraphQL + Query Opt</button>
+      <div class="orch-controls">
+        <button class="ctrl-btn primary" id="run-btn" onclick="runScenario()">▶ Run</button>
+        <button class="ctrl-btn" onclick="resetScenario()">↺ Reset</button>
+      </div>
+    </div>
+
+    <div class="orch-agents">
+      <div class="agent" id="agent-a">
+        <div class="agent-header">
+          <div class="agent-id">AGENT_A · FEATURE</div>
+          <div class="agent-task" id="task-a"><b>Ready</b>Select scenario & run</div>
+        </div>
+        <div class="terminal" id="term-a"></div>
+      </div>
+      <div class="agent" id="agent-b">
+        <div class="agent-header">
+          <div class="agent-id">AGENT_B · DEBUG</div>
+          <div class="agent-task" id="task-b"><b>Ready</b>Select scenario & run</div>
+        </div>
+        <div class="terminal" id="term-b"></div>
+      </div>
+    </div>
+
+    <div class="orch-footer">
+      <div class="of-stat">
+        <div class="of-stat-k">Parallel (my workflow)</div>
+        <div class="of-stat-v" id="parallel-time">—</div>
+      </div>
+      <div class="of-stat">
+        <div class="of-stat-k">Sequential (solo equivalent)</div>
+        <div class="of-stat-v sequential" id="sequential-time">—</div>
+      </div>
+      <div class="of-stat">
+        <div class="of-stat-k">Time saved</div>
+        <div class="of-stat-v savings" id="savings-time">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= METHODOLOGY ======= -->
+<section id="method">
+  <div class="s-inner">
+    <div class="sec-tag">Section 01 / How I Work</div>
+    <h2 class="sec-title">Methodology <strong>[how.I.actually.ship]</strong></h2>
+    <p class="sec-intro">I'm not here to sell you "AI-powered". These are the patterns I use every day — practical, measurable, and honest. They work because I spent seven years learning to engineer before I started orchestrating agents.</p>
+    <div class="method">
+      <div class="method-c">
+        <div class="method-n">01</div>
+        <div class="method-t">Parallel agentic workflows</div>
+        <div class="method-d">Debug one incident while a second agent ships a separate feature. <strong>Two branches advance per hour</strong>, not one. Human stays in the loop on review and risk.</div>
+      </div>
+      <div class="method-c">
+        <div class="method-n">02</div>
+        <div class="method-t">Multi-model code review</div>
+        <div class="method-d">Never trust a single model's output. <strong>I route critical diffs through 2–3 reviewers</strong> and catch the low-quality generations before they reach main.</div>
+      </div>
+      <div class="method-c">
+        <div class="method-n">03</div>
+        <div class="method-t">Agentic planning first</div>
+        <div class="method-d">Before implementation, I give the agent <strong>deep feature context and a plan</strong>. Without this, agents build confidently wrong. With it, they build correctly fast.</div>
+      </div>
+      <div class="method-c">
+        <div class="method-n">04</div>
+        <div class="method-t">Observability before velocity</div>
+        <div class="method-d">I don't optimise latency by guessing. <strong>Kibana, New Relic, Sentry</strong> — instrument first, then cut. That's how the 15% API latency win happened at Harver.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SKILLS ======= -->
+<section id="skills">
+  <div class="s-inner">
+    <div class="sec-tag">Section 02 / Technical Stack</div>
+    <h2 class="sec-title">Skills <strong>[stack.map]</strong></h2>
+    <p class="sec-intro">Seven years of production work across typed languages, composable frameworks, and well-instrumented systems. Pragmatic — I use what ships.</p>
+    <div class="sk-grid">
+      <div class="sk-card"><div class="sk-h">Languages</div><div class="sk-items"><div class="sk-it">TypeScript</div><div class="sk-it">Python</div><div class="sk-it">JavaScript</div><div class="sk-it">HTML / CSS</div></div></div>
+      <div class="sk-card"><div class="sk-h">Frontend</div><div class="sk-items"><div class="sk-it">React + Next.js</div><div class="sk-it">Redux</div><div class="sk-it">Angular</div><div class="sk-it">React Native</div><div class="sk-it">D3.js</div></div></div>
+      <div class="sk-card"><div class="sk-h">Backend</div><div class="sk-items"><div class="sk-it">Django</div><div class="sk-it">FastAPI</div><div class="sk-it">Node.js / Express</div><div class="sk-it">GraphQL</div></div></div>
+      <div class="sk-card"><div class="sk-h">Cloud &amp; Infra</div><div class="sk-items"><div class="sk-it">AWS · GCP</div><div class="sk-it">Docker</div><div class="sk-it">Terraform</div><div class="sk-it">CI/CD pipelines</div></div></div>
+      <div class="sk-card"><div class="sk-h">Data &amp; AI</div><div class="sk-items"><div class="sk-it">PostgreSQL</div><div class="sk-it">MongoDB · Redis</div><div class="sk-it">TensorFlow · Keras</div><div class="sk-it">Anthropic API</div></div></div>
+      <div class="sk-card"><div class="sk-h">Observability &amp; Tooling</div><div class="sk-items"><div class="sk-it">New Relic · Kibana</div><div class="sk-it">Sentry</div><div class="sk-it">LaunchDarkly</div><div class="sk-it">Looker · Snowflake</div><div class="sk-it">Claude Code · Cursor</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= EXPERIENCE ======= -->
+<section id="experience">
+  <div class="s-inner">
+    <div class="sec-tag">Section 03 / Engagement Log</div>
+    <h2 class="sec-title">Experience <strong>[history.dat]</strong></h2>
+    <p class="sec-intro">Four engagements across Kampala, New York, and London. Outcomes below are quantified and verifiable — no rounded-up claims.</p>
+    <div class="exp">
+      <div class="exp-c"><div class="exp-head"><div class="exp-l"><div class="exp-role">Senior Full-Stack Engineer</div><div class="exp-co">Pymetrics / Harver · New York · Remote</div></div><div class="exp-period">MAR 2023 – MAY 2025</div></div><ul class="exp-ul"><li>Architected systems with a bias toward <b>security, performance, and maintainability</b> — not novelty</li><li>Owned documentation for core workflows, lifting team ramp-up speed measurably</li><li>Partnered with stakeholders on planning and delivery; <b>on-time</b> track record across major initiatives</li><li>Led technical interview evaluations across <b>4+ hiring loops</b></li></ul></div>
+      <div class="exp-c"><div class="exp-head"><div class="exp-l"><div class="exp-role">Full-Stack Engineer</div><div class="exp-co">Pymetrics / Harver · New York · Remote</div></div><div class="exp-period">SEPT 2019 – MAR 2023</div></div><ul class="exp-ul"><li>Cut debugging time <b>25%</b> via structured logging and observability rollout</li><li>Built analytics dashboards surfacing talent mobility insights to enterprise clients</li><li>Resolved hot-path bottlenecks — <b>15% API latency reduction</b></li><li>Automated CI/CD — <b>20% faster</b> frontend deployment cycles</li></ul></div>
+      <div class="exp-c"><div class="exp-head"><div class="exp-l"><div class="exp-role">Software Engineer</div><div class="exp-co">Andela · Kampala, Uganda</div></div><div class="exp-period">FEB – AUG 2019</div></div><ul class="exp-ul"><li>Mentored <b>13+ junior engineers</b> across technical skills and review practice</li><li>Conducted technical interviews for <b>17+ candidates</b></li><li>Led web application delivery for key client engagements</li></ul></div>
+      <div class="exp-c"><div class="exp-head"><div class="exp-l"><div class="exp-role">Software Developer</div><div class="exp-co">Flock of Birds · Kampala, Uganda</div></div><div class="exp-period">JAN 2018 – JAN 2019</div></div><ul class="exp-ul"><li>Developed and enhanced <b>6+ Mendix widgets</b> for a low-code platform</li><li>Support tickets reduced <b>5%</b> through testing and maintenance</li><li>Championed code quality via peer review leadership</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PROJECTS ======= -->
+<section id="projects">
+  <div class="s-inner">
+    <div class="sec-tag">Section 04 / Build Catalogue</div>
+    <h2 class="sec-title">Projects <strong>[builds.idx]</strong></h2>
+    <p class="sec-intro">Selected independent work. The Event Management Platform below is the live proof of the parallel-agent workflow — a solo solo build shipped end-to-end.</p>
+    <div class="pj">
+      <div class="pj-c featured">
+        <div class="pj-num"><span>PRJ-001 · SOLO BUILD · 2025</span><b>FEATURED</b></div>
+        <div class="pj-name">Event Management Platform · end-to-end</div>
+        <p class="pj-d">Payments, admin portal, organiser portal, mobile app — <strong>shipped solo</strong> using parallel agentic workflows, multi-model review, and agentic planning. The working proof that one engineer plus AI orchestration equals a small team.</p>
+        <div class="pj-s"><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>Stripe</span><span>React Native</span><span>Claude Code</span></div>
+      </div>
+      <div class="pj-c">
+        <div class="pj-num"><span>PRJ-002 · PERSONAL TOOL · 2024</span></div>
+        <div class="pj-name">Job Application Auto-Filler</div>
+        <p class="pj-d">React tool using the <strong>Anthropic API</strong> to auto-complete applications across Greenhouse, Lever, and Workday. Cuts repetitive form completion dramatically. Built for myself, still in daily use.</p>
+        <div class="pj-s"><span>React</span><span>TypeScript</span><span>Anthropic API</span></div>
+      </div>
+      <div class="pj-c">
+        <div class="pj-num"><span>PRJ-003 · CONTRACT · 2020</span></div>
+        <div class="pj-name">Utidash · Chrome Extension</div>
+        <p class="pj-d">Productivity Chrome extension serving <strong>6,000+ users</strong>. New features drove a <strong>12% lift in daily active usage</strong>.</p>
+        <div class="pj-s"><span>JavaScript</span><span>React</span><span>Chrome API</span></div>
+      </div>
+      <div class="pj-c">
+        <div class="pj-num"><span>PRJ-004 · FREELANCE · 2023–26</span></div>
+        <div class="pj-name">CareerFoundry · Tutoring</div>
+        <p class="pj-d">Full-stack web development tutor for <strong>23+ students</strong>. Consistent <strong>5/5 rating</strong> on punctuality, support, and feedback depth.</p>
+        <div class="pj-s"><span>React</span><span>Node.js</span><span>Python</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= EDUCATION ======= -->
+<section id="education">
+  <div class="s-inner">
+    <div class="sec-tag">Section 05 / Academic Record</div>
+    <h2 class="sec-title">Education <strong>[learn.log]</strong></h2>
+    <div class="edu">
+      <div class="edu-c"><div class="edu-d">MSc Advanced Computing</div><div class="edu-s">Birkbeck, University of London</div><div class="edu-y">Oct 2024 – Sept 2025 · London</div><div class="edu-n">Research focus: impact of adversarial training on AI model performance</div></div>
+      <div class="edu-c"><div class="edu-d">BSc Software Engineering</div><div class="edu-s">Makerere University</div><div class="edu-y">Aug 2014 – Sept 2018 · Kampala</div><div class="edu-n">Second Class With Honours, Upper Division</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CONTACT ======= -->
+<section id="contact">
+  <div class="s-inner">
+    <div class="sec-tag">Section 06 / Communication Channels</div>
+    <h2 class="sec-title">Contact <strong>[reach.out]</strong></h2>
+    <p class="sec-intro">Open to Senior and Staff-level engineering roles at product-led companies. Based in London — open to hybrid or remote with UK-aligned hours.</p>
+    <div class="contact">
+      <a href="mailto:stanlee.okwii@gmail.com" class="c-link"><div class="c-l">EMAIL</div><div class="c-v">stanlee.okwii@gmail.com</div></a>
+      <a href="tel:07570488532" class="c-link"><div class="c-l">PHONE</div><div class="c-v">07570 488 532</div></a>
+      <a href="https://linkedin.com/in/stanley-okwii" target="_blank" rel="noopener" class="c-link"><div class="c-l">LINKEDIN</div><div class="c-v">/in/stanley-okwii</div></a>
+      <a href="https://github.com/Stanley-Okwii" target="_blank" rel="noopener" class="c-link"><div class="c-l">GITHUB</div><div class="c-v">Stanley-Okwii</div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>// <span>S.OKWII</span> · STAFF-TRACK ENGINEER · LONDON</div>
+  <div><span class="rev">DWG-2026.01 · REV A</span> · Compiled April 2026</div>
+</footer>
+
+<script>
+// ======= THEME TOGGLE =======
+function toggleTheme(){
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  document.getElementById('theme-label').textContent = next === 'dark' ? 'LIGHT' : 'DARK';
+  try{ localStorage.setItem('theme', next); }catch(e){}
+}
+try{
+  const saved = localStorage.getItem('theme');
+  if(saved){
+    document.documentElement.setAttribute('data-theme', saved);
+    document.getElementById('theme-label').textContent = saved === 'dark' ? 'LIGHT' : 'DARK';
+  }
+}catch(e){}
+
+// ======= PARALLEL AGENT ORCHESTRATOR =======
+const SCENARIOS = [
+  {
+    name: "Feature + Prod Bug",
+    taskA: { title: "Stripe checkout flow", sub: "/src/payments/*" },
+    taskB: { title: "Analytics p99 latency spike", sub: "kibana alert · 14:23 UTC" },
+    parallelMs: 52000,   // 52s elapsed
+    sequentialMs: 134000, // 2:14
+    agentA: [
+      { t:'cmd', text:'claude-code "build /checkout flow per spec.md"' },
+      { t:'trace', text:'loading context from /src/payments', d:800 },
+      { t:'trace', text:'cross-referencing existing /subscriptions route', d:1400 },
+      { t:'info', text:'plan: route → validation → webhook → idempotency key', d:1800 },
+      { t:'cmd', text:'generating src/routes/checkout.ts', d:2400 },
+      { t:'ok', text:'checkout.ts created (142 LOC)', d:4200 },
+      { t:'cmd', text:'wiring stripe webhook handler', d:5200 },
+      { t:'ok', text:'webhook w/ signature verify + idempotency', d:6800 },
+      { t:'trace', text:'generating unit tests (vitest)', d:8400 },
+      { t:'ok', text:'14/14 tests passing', d:11500 },
+      { t:'warn', text:'multi-model review: gpt-4o flagged race condition in webhook', d:13000 },
+      { t:'cmd', text:'patching: adding row-level lock', d:14800 },
+      { t:'ok', text:'re-run: 14/14 tests passing · lint clean', d:17500 },
+      { t:'cmd', text:'creating migration 2026_04_checkout.sql', d:19000 },
+      { t:'ok', text:'migration validated on staging snapshot', d:22000 },
+      { t:'trace', text:'drafting PR description + context', d:24500 },
+      { t:'result', text:'PR #4812 ready · +312 / −14 · awaiting human review', d:28000 },
+    ],
+    agentB: [
+      { t:'cmd', text:'claude-code --debug "p99 latency spike"' },
+      { t:'trace', text:'sampling kibana logs · window 14:00–15:00 UTC', d:1200 },
+      { t:'trace', text:'ingesting 84k request traces', d:3400 },
+      { t:'info', text:'baseline p99 = 280ms · current = 620ms (2.2x)', d:5200 },
+      { t:'trace', text:'correlating with deploy timeline', d:6800 },
+      { t:'warn', text:'no recent deploys · infra-side hypothesis rejected', d:8600 },
+      { t:'cmd', text:'profiling request spans in New Relic', d:10200 },
+      { t:'trace', text:'hot path: /events/aggregate → user_events table', d:12800 },
+      { t:'warn', text:'suspected N+1 on user_events join', d:14600 },
+      { t:'cmd', text:'EXPLAIN ANALYZE on hot query', d:17000 },
+      { t:'result', text:'root cause: N+1 query · 412 roundtrips per request', d:20500 },
+      { t:'cmd', text:'proposing fix: eager-load w/ joinedload()', d:23000 },
+      { t:'trace', text:'testing fix against staging replica', d:26500 },
+      { t:'ok', text:'p99 reduced 620ms → 48ms · 12.9x', d:32000 },
+      { t:'result', text:'hotfix ready · PR #4813 · needs review', d:36000 },
+    ]
+  },
+  {
+    name: "Refactor + Tests",
+    taskA: { title: "Auth layer refactor", sub: "session → JWT migration" },
+    taskB: { title: "API test coverage uplift", sub: "current: 42% → target: 85%" },
+    parallelMs: 61000,
+    sequentialMs: 158000,
+    agentA: [
+      { t:'cmd', text:'claude-code "refactor auth: session → JWT"' },
+      { t:'trace', text:'mapping all auth touchpoints', d:1000 },
+      { t:'info', text:'found 18 call sites across 7 files', d:2400 },
+      { t:'info', text:'plan: shim layer first, then gradual cutover', d:3600 },
+      { t:'cmd', text:'generating jwt service module', d:5200 },
+      { t:'ok', text:'jwt service · sign/verify/rotate implemented', d:8400 },
+      { t:'cmd', text:'adding middleware with backward-compat', d:10800 },
+      { t:'ok', text:'middleware accepts both session & JWT during migration', d:13500 },
+      { t:'trace', text:'updating 18 call sites (batched)', d:16000 },
+      { t:'ok', text:'all call sites migrated', d:22000 },
+      { t:'warn', text:'multi-model review: claude-opus caught missing refresh token revocation', d:25000 },
+      { t:'cmd', text:'patching revocation path', d:27500 },
+      { t:'ok', text:'revocation + rotation wired', d:31000 },
+      { t:'trace', text:'integration tests · auth suite', d:34000 },
+      { t:'ok', text:'42/42 auth tests passing', d:40000 },
+      { t:'result', text:'PR #4901 ready · breaking change documented', d:45000 },
+    ],
+    agentB: [
+      { t:'cmd', text:'claude-code "raise API coverage to 85%"' },
+      { t:'trace', text:'running coverage baseline', d:1400 },
+      { t:'info', text:'baseline: 42.3% · gap: ~43pp', d:3200 },
+      { t:'trace', text:'identifying untested controllers', d:5200 },
+      { t:'info', text:'14 controllers under 50% · prioritising by traffic', d:7500 },
+      { t:'cmd', text:'generating tests for /orders controller', d:9800 },
+      { t:'ok', text:'orders.spec.ts · 23 tests added · coverage 48% → 91%', d:14500 },
+      { t:'cmd', text:'generating tests for /users controller', d:16000 },
+      { t:'ok', text:'users.spec.ts · 31 tests · coverage 38% → 88%', d:22000 },
+      { t:'cmd', text:'tests for /webhooks (critical path)', d:24500 },
+      { t:'warn', text:'flaky test detected · retried 3x · stabilised', d:28000 },
+      { t:'ok', text:'webhooks.spec.ts · 18 tests · coverage 22% → 94%', d:33000 },
+      { t:'trace', text:'continuing across remaining 11 controllers', d:36000 },
+      { t:'ok', text:'212 new tests · global coverage: 42% → 86%', d:48000 },
+      { t:'result', text:'PR #4902 ready · 212 tests · CI green', d:54000 },
+    ]
+  },
+  {
+    name: "GraphQL + Query Opt",
+    taskA: { title: "GraphQL mutation: bulkUpdate", sub: "/schema/orders" },
+    taskB: { title: "Slow query: orders.dashboard", sub: "p95 > 2.4s" },
+    parallelMs: 47000,
+    sequentialMs: 118000,
+    agentA: [
+      { t:'cmd', text:'claude-code "add GraphQL bulkUpdateOrders mutation"' },
+      { t:'trace', text:'reading /schema/orders.graphql', d:900 },
+      { t:'info', text:'plan: input type, resolver, validation, rate-limit', d:2300 },
+      { t:'cmd', text:'extending schema with BulkUpdateOrdersInput', d:4000 },
+      { t:'ok', text:'schema updated · codegen run', d:6500 },
+      { t:'cmd', text:'implementing resolver', d:8200 },
+      { t:'trace', text:'batching via DataLoader for N+1 safety', d:10500 },
+      { t:'ok', text:'resolver implemented · DataLoader wired', d:14000 },
+      { t:'cmd', text:'adding rate-limit (100/min per user)', d:16500 },
+      { t:'ok', text:'rate limiter active · redis-backed', d:18500 },
+      { t:'trace', text:'generating tests + fixtures', d:21000 },
+      { t:'ok', text:'19 tests · including transaction rollback cases', d:26000 },
+      { t:'warn', text:'review: gpt-4o flagged missing input sanitisation', d:29000 },
+      { t:'ok', text:'sanitisation added · validated against fuzzer', d:33500 },
+      { t:'result', text:'PR #5002 ready · schema change documented', d:38000 },
+    ],
+    agentB: [
+      { t:'cmd', text:'claude-code --debug "dashboard query p95"' },
+      { t:'trace', text:'pulling query plan from pg_stat', d:1100 },
+      { t:'info', text:'query scans 2.4M rows · uses seq scan on events', d:3000 },
+      { t:'cmd', text:'EXPLAIN (ANALYZE, BUFFERS)', d:4800 },
+      { t:'warn', text:'missing composite index on (user_id, created_at)', d:7200 },
+      { t:'cmd', text:'testing hypothesis: adding index on staging', d:10000 },
+      { t:'ok', text:'p95 dropped 2.4s → 340ms · 7x', d:14500 },
+      { t:'trace', text:'checking for further wins', d:16000 },
+      { t:'info', text:'dashboard also refetches on every tab switch', d:18500 },
+      { t:'cmd', text:'adding Redis cache · 60s TTL', d:21000 },
+      { t:'ok', text:'cached path: p95 = 18ms', d:25500 },
+      { t:'warn', text:'cache invalidation hook missing on order update', d:28000 },
+      { t:'cmd', text:'wiring invalidation on orders.updated', d:30500 },
+      { t:'ok', text:'validated: stale reads eliminated', d:35000 },
+      { t:'result', text:'migration + PR #5003 ready · 7x sustained', d:40000 },
+    ]
+  }
+];
+
+let currentScenario = 0;
+let running = false;
+let timers = [];
+let clockInterval = null;
+let startTime = 0;
+
+const fmt = ms => {
+  const s = Math.floor(ms/1000);
+  return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0');
+};
+
+const fmtDur = ms => {
+  const s = Math.floor(ms/1000);
+  if(s < 60) return s + 's';
+  return Math.floor(s/60) + 'm ' + (s%60) + 's';
+};
+
+document.querySelectorAll('.scenario-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if(running) return;
+    document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentScenario = parseInt(btn.dataset.scenario);
+    resetScenario();
+  });
+});
+
+function appendLine(termId, line){
+  const term = document.getElementById(termId);
+  const div = document.createElement('div');
+  div.className = 'tline ' + (line.t || 'info');
+  div.textContent = line.text;
+  term.appendChild(div);
+  term.scrollTop = term.scrollHeight;
+}
+
+function setTask(agent, task){
+  const el = document.getElementById('task-' + agent);
+  el.innerHTML = '<b>' + task.title + '</b>' + task.sub;
+}
+
+function runScenario(){
+  if(running) return;
+  resetScenario();
+  running = true;
+
+  const scenario = SCENARIOS[currentScenario];
+  const agentAEl = document.getElementById('agent-a');
+  const agentBEl = document.getElementById('agent-b');
+  agentAEl.classList.add('running');
+  agentBEl.classList.add('running');
+  setTask('a', scenario.taskA);
+  setTask('b', scenario.taskB);
+
+  document.getElementById('run-btn').disabled = true;
+  document.getElementById('run-btn').textContent = '● Running';
+  document.getElementById('clock-label').textContent = 'RUNNING';
+
+  startTime = Date.now();
+  clockInterval = setInterval(() => {
+    document.getElementById('clock').textContent = fmt(Date.now() - startTime);
+  }, 100);
+
+  // Schedule agent A lines
+  scenario.agentA.forEach((line, i) => {
+    const delay = line.d || (i * 800);
+    // Scale to fit in ~scenario.parallelMs * 0.75 of real time
+    const scaled = delay * 0.3;
+    timers.push(setTimeout(() => appendLine('term-a', line), scaled));
+  });
+
+  // Schedule agent B lines
+  scenario.agentB.forEach((line, i) => {
+    const delay = line.d || (i * 800);
+    const scaled = delay * 0.3;
+    timers.push(setTimeout(() => appendLine('term-b', line), scaled));
+  });
+
+  // Mark agents done
+  const endMs = Math.max(
+    ...scenario.agentA.map(l => (l.d || 0)),
+    ...scenario.agentB.map(l => (l.d || 0))
+  ) * 0.3 + 800;
+
+  timers.push(setTimeout(() => {
+    agentAEl.classList.remove('running');
+    agentAEl.classList.add('done');
+    agentBEl.classList.remove('running');
+    agentBEl.classList.add('done');
+    clearInterval(clockInterval);
+    const clockEl = document.getElementById('clock');
+    clockEl.classList.add('done');
+    document.getElementById('clock-label').textContent = 'COMPLETE';
+    document.getElementById('run-btn').disabled = false;
+    document.getElementById('run-btn').textContent = '▶ Run again';
+    document.getElementById('parallel-time').textContent = fmtDur(scenario.parallelMs);
+    document.getElementById('sequential-time').textContent = fmtDur(scenario.sequentialMs);
+    const saved = scenario.sequentialMs - scenario.parallelMs;
+    const pct = Math.round(saved / scenario.sequentialMs * 100);
+    document.getElementById('savings-time').textContent = fmtDur(saved) + ' · ' + pct + '% faster';
+    running = false;
+  }, endMs));
+}
+
+function resetScenario(){
+  timers.forEach(t => clearTimeout(t));
+  timers = [];
+  if(clockInterval) clearInterval(clockInterval);
+  document.getElementById('term-a').innerHTML = '';
+  document.getElementById('term-b').innerHTML = '';
+  document.getElementById('agent-a').classList.remove('running','done');
+  document.getElementById('agent-b').classList.remove('running','done');
+  document.getElementById('clock').textContent = '00:00';
+  document.getElementById('clock').classList.remove('done');
+  document.getElementById('clock-label').textContent = 'READY';
+  document.getElementById('run-btn').disabled = false;
+  document.getElementById('run-btn').textContent = '▶ Run';
+  document.getElementById('parallel-time').textContent = '—';
+  document.getElementById('sequential-time').textContent = '—';
+  document.getElementById('savings-time').textContent = '—';
+  const scenario = SCENARIOS[currentScenario];
+  setTask('a', { title: 'Ready', sub: scenario.taskA.title });
+  setTask('b', { title: 'Ready', sub: scenario.taskB.title });
+  running = false;
+}
+
+// Initialise
+resetScenario();
+</script>
+
+</body>
+</html>
