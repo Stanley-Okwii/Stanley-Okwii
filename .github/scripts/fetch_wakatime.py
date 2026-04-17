@@ -5,6 +5,7 @@ import base64
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -22,13 +23,39 @@ LANG_LIMIT = 10
 EDITOR_LIMIT = 5
 OS_LIMIT = 5
 
+# WakaTime returns 202 while it warms the cache for long-range endpoints
+# (particularly /all_time_since_today). Retry with short backoff.
+RETRY_ATTEMPTS = 6
+RETRY_SLEEP_SECONDS = 5
+
 
 def get_json(url: str, auth_header: str) -> dict:
     req = urllib.request.Request(url, headers={"Authorization": auth_header, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        if resp.status != 200:
+    last_status = None
+    for attempt in range(1, RETRY_ATTEMPTS + 1):
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            last_status = resp.status
+            body = resp.read().decode("utf-8")
+            if resp.status == 200:
+                return json.loads(body)
+            if resp.status == 202:
+                print(
+                    f"{url} returned 202 (cache warming), attempt {attempt}/{RETRY_ATTEMPTS}",
+                    file=sys.stderr,
+                )
+                if attempt < RETRY_ATTEMPTS:
+                    time.sleep(RETRY_SLEEP_SECONDS)
+                    continue
+                # Final attempt still 202 — some WakaTime responses include
+                # partial data alongside 202. If so, return it; otherwise fail.
+                try:
+                    parsed = json.loads(body)
+                    if parsed.get("data"):
+                        return parsed
+                except ValueError:
+                    pass
             raise RuntimeError(f"{url} returned HTTP {resp.status}")
-        return json.loads(resp.read().decode("utf-8"))
+    raise RuntimeError(f"{url} never returned 200 (last status {last_status})")
 
 
 def pick(items: list, limit: int) -> list:
