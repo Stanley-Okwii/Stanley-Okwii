@@ -47,52 +47,6 @@ I build reliable backends and polished product frontends for fast-moving teams.<
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=stanley-okwii&theme=github&hide_border=true&count_private=true" alt="Profile summary"/>
 </div>
 
-<!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-7%2C185%20hrs%2040%20mins-blue?style=flat)
-
-![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue?style=flat)
-
-![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-885.48%20thousand%20lines%20of%20code-blue?style=flat)
-
-**I'm an Early 🐤** 
-
-```text
-🌞 Morning                789 commits         ███████░░░░░░░░░░░░░░░░░░   29.77 % 
-🌆 Daytime                715 commits         ███████░░░░░░░░░░░░░░░░░░   26.98 % 
-🌃 Evening                723 commits         ███████░░░░░░░░░░░░░░░░░░   27.28 % 
-🌙 Night                  423 commits         ████░░░░░░░░░░░░░░░░░░░░░   15.96 % 
-```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday                   461 commits         ████░░░░░░░░░░░░░░░░░░░░░   17.40 % 
-Tuesday                  497 commits         █████░░░░░░░░░░░░░░░░░░░░   18.75 % 
-Wednesday                427 commits         ████░░░░░░░░░░░░░░░░░░░░░   16.11 % 
-Thursday                 358 commits         ███░░░░░░░░░░░░░░░░░░░░░░   13.51 % 
-Friday                   315 commits         ███░░░░░░░░░░░░░░░░░░░░░░   11.89 % 
-Saturday                 299 commits         ███░░░░░░░░░░░░░░░░░░░░░░   11.28 % 
-Sunday                   293 commits         ███░░░░░░░░░░░░░░░░░░░░░░   11.06 % 
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-💬 Programming Languages: 
-Python                   10 hrs 35 mins      █████████████░░░░░░░░░░░░   51.37 % 
-Dart                     2 hrs 56 mins       ████░░░░░░░░░░░░░░░░░░░░░   14.26 % 
-TypeScript               2 hrs 25 mins       ███░░░░░░░░░░░░░░░░░░░░░░   11.74 % 
-Markdown                 1 hr 29 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   07.22 % 
-Other                    1 hr 1 min          █░░░░░░░░░░░░░░░░░░░░░░░░   04.95 % 
-
-🔥 Editors: 
-VS Code                  20 hrs 37 mins      █████████████████████████   100.00 % 
-```
-
-
- Last Updated on 05/02/2026 23:35:01 UTC
-<!--END_SECTION:waka-->
-
 ---
 
 ### 💼 Open to

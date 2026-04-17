@@ -5,7 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stanley Okwii — Staff Engineer (AI-native)</title>
 <meta name="description" content="Staff-level full-stack engineer with a parallel-agent development practice. Seven years shipping in production.">
+
+<link rel="canonical" href="https://stanley-okwii.github.io/Stanley-Okwii/">
+<meta name="theme-color" content="#0a2540" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f2e8" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%237fd3ff' stroke-width='3'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Stanley Okwii — Staff Engineer (AI-native)">
+<meta property="og:description" content="Staff-level full-stack engineer with a parallel-agent development practice. Seven years shipping in production.">
+<meta property="og:url" content="https://stanley-okwii.github.io/Stanley-Okwii/">
+<meta property="og:site_name" content="Stanley Okwii · DWG-2026.01">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="./data/wakatime.json" as="fetch" crossorigin="anonymous">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Stanley Okwii",
+  "jobTitle": "Senior Full-Stack Engineer",
+  "url": "https://stanley-okwii.github.io/Stanley-Okwii/",
+  "email": "stanlee.okwii@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "UK"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/stanley-okwii",
+    "https://github.com/Stanley-Okwii"
+  ]
+}
+</script>
 <style>
 /* ======= THEMES ======= */
 :root[data-theme="dark"]{
@@ -153,8 +189,7 @@ section{padding:5rem 2rem;position:relative}
 /* Scenario picker */
 .orch-scenarios{padding:1.2rem 2.5rem;border-bottom:1px solid var(--border);display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;background:var(--bg)}
 .orch-scenarios-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.15em;text-transform:uppercase;margin-right:.5rem}
-.orch-scenarios-label::before{content:'◆ '}
-.orch-scenarios-label::before{color:var(--amber)}
+.orch-scenarios-label::before{content:'◆ ';color:var(--amber)}
 .scenario-btn{background:transparent;border:1px solid var(--border);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:.5rem .9rem;cursor:pointer;transition:all .15s;letter-spacing:.03em}
 .scenario-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
 .scenario-btn.active{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
@@ -167,7 +202,7 @@ section{padding:5rem 2rem;position:relative}
 
 /* Agent terminals */
 .orch-agents{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border)}
-.agent{background:var(--terminal-bg);padding:0;min-height:520px;display:flex;flex-direction:column;border-right:1px solid var(--border)}
+.agent{background:var(--terminal-bg);padding:0;min-height:520px;display:flex;flex-direction:column;border-right:1px solid var(--border);overflow:hidden}
 .agent:last-child{border-right:none}
 .agent-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--bg);gap:1rem}
 .agent-id{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.1em;display:flex;align-items:center;gap:.5rem}
@@ -177,7 +212,7 @@ section{padding:5rem 2rem;position:relative}
 .agent-task{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);text-align:right;line-height:1.4;max-width:60%}
 .agent-task b{color:var(--ink-strong);font-weight:500;display:block}
 
-.terminal{flex:1;padding:1.2rem 1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.65;overflow-y:auto;max-height:500px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.terminal{flex:1;padding:1.2rem 1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.65;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .terminal::-webkit-scrollbar{width:6px}
 .terminal::-webkit-scrollbar-thumb{background:var(--border)}
 .tline{color:var(--ink);opacity:0;animation:line-in .18s forwards;margin-bottom:.15rem;word-break:break-word}
@@ -273,6 +308,33 @@ footer{padding:2rem;text-align:center;color:var(--dim);font-family:'IBM Plex Mon
 footer span{color:var(--accent)}
 footer .rev{color:var(--amber)}
 
+/* ======= LIVE STATS ======= */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.stat-kpi{border:1px solid var(--border);padding:1.3rem;background:var(--terminal-bg);display:flex;flex-direction:column;gap:.4rem}
+.kpi-k{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase}
+.kpi-v{font-size:1.6rem;color:var(--ink-strong);font-weight:500;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em}
+.stat-panel{border:1px solid var(--border);padding:1.3rem;background:var(--terminal-bg);display:flex;flex-direction:column;gap:1rem}
+.stat-langs{grid-column:1 / span 2}
+.stat-editors{grid-column:3 / span 1}
+.sp-h{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;padding-bottom:.6rem;border-bottom:1px dashed var(--border)}
+.bar-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;font-family:'IBM Plex Mono',monospace;font-size:12px;margin:0;padding:0}
+.bar-row{display:grid;grid-template-columns:110px 1fr 72px;gap:.6rem;align-items:center}
+.bar-name{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{height:6px;background:var(--border);position:relative;overflow:hidden}
+.bar-fill{position:absolute;inset:0 auto 0 0;background:var(--accent);width:var(--pct,0%);transition:width .6s ease}
+.bar-pct{color:var(--dim);text-align:right}
+.stat-footer{grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);padding-top:.8rem;border-top:1px dashed var(--border);letter-spacing:.05em}
+.stats-fallback{border:1px dashed var(--border);padding:1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);text-align:center}
+
+/* Focus styles */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .bar-fill{transition:none}
+}
+
 @media(max-width:900px){
   .bp-main{grid-template-columns:1fr}
   .orch-agents{grid-template-columns:1fr}
@@ -289,6 +351,9 @@ footer .rev{color:var(--amber)}
   section{padding:3rem 1rem}
   #hero{padding-top:56px}
   .bp-frame{margin:2rem 1rem}
+  .stats-grid{grid-template-columns:1fr}
+  .stat-langs,.stat-editors{grid-column:auto}
+  .bar-row{grid-template-columns:90px 1fr 56px}
 }
 @media(max-width:560px){
   .method{grid-template-columns:1fr}
@@ -301,18 +366,19 @@ footer .rev{color:var(--amber)}
 </head>
 <body>
 
-<nav>
+<nav aria-label="Primary">
   <div class="nav-l">S.OKWII / DWG-2026.01 / STAFF</div>
   <div class="nav-r">
     <div class="nav-links">
       <a href="#orchestrator">demo.live</a>
       <a href="#method">method.md</a>
+      <a href="#stats">stats.live</a>
       <a href="#experience">work.log</a>
       <a href="#projects">projects.dir</a>
       <a href="#contact">contact.sys</a>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-      <span class="icon"></span>
+    <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle colour theme" aria-pressed="false">
+      <span class="icon" aria-hidden="true"></span>
       <span id="theme-label">LIGHT</span>
     </button>
   </div>
@@ -398,14 +464,14 @@ footer .rev{color:var(--amber)}
           <div class="agent-id">AGENT_A · FEATURE</div>
           <div class="agent-task" id="task-a"><b>Ready</b>Select scenario & run</div>
         </div>
-        <div class="terminal" id="term-a"></div>
+        <div class="terminal" id="term-a" role="log" aria-live="polite" aria-label="Agent A output"></div>
       </div>
       <div class="agent" id="agent-b">
         <div class="agent-header">
           <div class="agent-id">AGENT_B · DEBUG</div>
           <div class="agent-task" id="task-b"><b>Ready</b>Select scenario & run</div>
         </div>
-        <div class="terminal" id="term-b"></div>
+        <div class="terminal" id="term-b" role="log" aria-live="polite" aria-label="Agent B output"></div>
       </div>
     </div>
 
@@ -457,6 +523,34 @@ footer .rev{color:var(--amber)}
   </div>
 </section>
 
+<!-- ======= LIVE STATS ======= -->
+<section id="stats">
+  <div class="s-inner">
+    <div class="sec-tag">Section 01.5 / Live Instrumentation</div>
+    <h2 class="sec-title">Coding Stats <strong>[wakatime.live]</strong></h2>
+    <p class="sec-intro">Auto-synced from WakaTime nightly — not a hand-crafted number. Last 7 days of actual keystrokes, pulled from a scheduled GitHub Action and rendered client-side.</p>
+
+    <div class="stats-grid" id="stats-grid" hidden>
+      <div class="stat-kpi"><span class="kpi-k">Lifetime</span><span class="kpi-v" id="kpi-lifetime">—</span></div>
+      <div class="stat-kpi"><span class="kpi-k">Last 7 days</span><span class="kpi-v" id="kpi-7d">—</span></div>
+      <div class="stat-kpi"><span class="kpi-k">Daily average</span><span class="kpi-v" id="kpi-avg">—</span></div>
+
+      <div class="stat-panel stat-langs" role="region" aria-label="Languages over the last 7 days">
+        <div class="sp-h">Languages · last 7d</div>
+        <ul id="lang-bars" class="bar-list"></ul>
+      </div>
+      <div class="stat-panel stat-editors" role="region" aria-label="Editors over the last 7 days">
+        <div class="sp-h">Editors · last 7d</div>
+        <ul id="editor-bars" class="bar-list"></ul>
+      </div>
+
+      <div class="stat-footer">last updated <span id="stat-updated">—</span> · source: wakatime.com</div>
+    </div>
+
+    <div class="stats-fallback" id="stats-fallback" hidden>Live stats are temporarily unavailable — check back after the next nightly sync.</div>
+  </div>
+</section>
+
 <!-- ======= SKILLS ======= -->
 <section id="skills">
   <div class="s-inner">
@@ -494,7 +588,7 @@ footer .rev{color:var(--amber)}
   <div class="s-inner">
     <div class="sec-tag">Section 04 / Build Catalogue</div>
     <h2 class="sec-title">Projects <strong>[builds.idx]</strong></h2>
-    <p class="sec-intro">Selected independent work. The Event Management Platform below is the live proof of the parallel-agent workflow — a solo solo build shipped end-to-end.</p>
+    <p class="sec-intro">Selected independent work. The Event Management Platform below is the live proof of the parallel-agent workflow — a solo build shipped end-to-end.</p>
     <div class="pj">
       <div class="pj-c featured">
         <div class="pj-num"><span>PRJ-001 · SOLO BUILD · 2025</span><b>FEATURED</b></div>
@@ -553,28 +647,37 @@ footer .rev{color:var(--amber)}
 
 <footer>
   <div>// <span>S.OKWII</span> · STAFF-TRACK ENGINEER · LONDON</div>
-  <div><span class="rev">DWG-2026.01 · REV A</span> · Compiled April 2026</div>
+  <div><span class="rev">DWG-2026.01 · REV A</span> · <span id="footer-rev">Compiled April 2026</span></div>
 </footer>
 
 <script>
 // ======= THEME TOGGLE =======
+function applyThemeMeta(theme){
+  document.getElementById('theme-label').textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+  const btn = document.getElementById('theme-toggle-btn');
+  if(btn) btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+}
 function toggleTheme(){
   const root = document.documentElement;
   const current = root.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
-  document.getElementById('theme-label').textContent = next === 'dark' ? 'LIGHT' : 'DARK';
+  applyThemeMeta(next);
   try{ localStorage.setItem('theme', next); }catch(e){}
 }
 try{
   const saved = localStorage.getItem('theme');
   if(saved){
     document.documentElement.setAttribute('data-theme', saved);
-    document.getElementById('theme-label').textContent = saved === 'dark' ? 'LIGHT' : 'DARK';
+    applyThemeMeta(saved);
+  } else {
+    applyThemeMeta(document.documentElement.getAttribute('data-theme') || 'dark');
   }
 }catch(e){}
 
 // ======= PARALLEL AGENT ORCHESTRATOR =======
+const SPEED = 0.3; // scale factor for scripted delays
+const prefersReducedMotion = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const SCENARIOS = [
   {
     name: "Feature + Prod Bug",
@@ -767,18 +870,20 @@ function runScenario(){
     document.getElementById('clock').textContent = fmt(Date.now() - startTime);
   }, 100);
 
+  const reduce = prefersReducedMotion();
+  const scale = reduce ? 0 : SPEED;
+
   // Schedule agent A lines
   scenario.agentA.forEach((line, i) => {
     const delay = line.d || (i * 800);
-    // Scale to fit in ~scenario.parallelMs * 0.75 of real time
-    const scaled = delay * 0.3;
+    const scaled = delay * scale;
     timers.push(setTimeout(() => appendLine('term-a', line), scaled));
   });
 
   // Schedule agent B lines
   scenario.agentB.forEach((line, i) => {
     const delay = line.d || (i * 800);
-    const scaled = delay * 0.3;
+    const scaled = delay * scale;
     timers.push(setTimeout(() => appendLine('term-b', line), scaled));
   });
 
@@ -786,7 +891,7 @@ function runScenario(){
   const endMs = Math.max(
     ...scenario.agentA.map(l => (l.d || 0)),
     ...scenario.agentB.map(l => (l.d || 0))
-  ) * 0.3 + 800;
+  ) * scale + (reduce ? 0 : 800);
 
   timers.push(setTimeout(() => {
     agentAEl.classList.remove('running');
@@ -832,6 +937,77 @@ function resetScenario(){
 
 // Initialise
 resetScenario();
+
+// ======= FOOTER YEAR =======
+(function renderFooterYear(){
+  const el = document.getElementById('footer-rev');
+  if(!el) return;
+  const now = new Date();
+  const month = now.toLocaleString('en-GB', { month: 'long' });
+  el.textContent = 'Compiled ' + month + ' ' + now.getFullYear();
+})();
+
+// ======= LIVE STATS =======
+(async function loadStats(){
+  const grid = document.getElementById('stats-grid');
+  const fallback = document.getElementById('stats-fallback');
+  try {
+    const r = await fetch('./data/wakatime.json', { cache:'no-cache' });
+    if(!r.ok) throw new Error('http '+r.status);
+    const d = await r.json();
+    if(!d || !d.last_7_days || !d.all_time) throw new Error('empty');
+
+    document.getElementById('kpi-lifetime').textContent = d.all_time.human_readable || '—';
+    document.getElementById('kpi-7d').textContent       = d.last_7_days.human_readable_total || '—';
+    document.getElementById('kpi-avg').textContent      = d.last_7_days.daily_average_human || '—';
+
+    renderBars('lang-bars',   (d.last_7_days.languages || []).slice(0,5));
+    renderBars('editor-bars', (d.last_7_days.editors   || []).slice(0,3));
+    document.getElementById('stat-updated').textContent = relTime(d.generated_at);
+
+    grid.hidden = false;
+  } catch (e) {
+    fallback.hidden = false;
+  }
+})();
+
+function renderBars(id, items){
+  const host = document.getElementById(id);
+  if(!host) return;
+  host.innerHTML = '';
+  items.forEach(item => {
+    const pct = Number(item.percent || 0);
+    const li = document.createElement('li');
+    li.className = 'bar-row';
+    const name = document.createElement('span');
+    name.className = 'bar-name';
+    name.textContent = item.name || '—';
+    const track = document.createElement('span');
+    track.className = 'bar-track';
+    const fill = document.createElement('span');
+    fill.className = 'bar-fill';
+    fill.style.setProperty('--pct', pct.toFixed(2) + '%');
+    track.appendChild(fill);
+    const p = document.createElement('span');
+    p.className = 'bar-pct';
+    p.textContent = pct.toFixed(1) + '%';
+    li.append(name, track, p);
+    host.appendChild(li);
+  });
+}
+
+function relTime(iso){
+  if(!iso) return '—';
+  const then = new Date(iso);
+  if(isNaN(then.getTime())) return iso;
+  const diffSec = Math.max(0, Math.floor((Date.now() - then.getTime()) / 1000));
+  if(diffSec < 60) return 'just now';
+  if(diffSec < 3600) return Math.floor(diffSec/60) + ' min ago';
+  if(diffSec < 86400) return Math.floor(diffSec/3600) + ' hr ago';
+  const days = Math.floor(diffSec / 86400);
+  if(days < 30) return days + ' day' + (days===1?'':'s') + ' ago';
+  return then.toLocaleDateString('en-GB', { year:'numeric', month:'short', day:'numeric' });
+}
 </script>
 
 </body>
