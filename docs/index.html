@@ -6,6 +6,20 @@
 <title>Stanley Okwii — Staff Engineer (AI-native)</title>
 <meta name="description" content="Staff-level full-stack engineer with a parallel-agent development practice. Seven years shipping in production.">
 
+<script>
+  (function(){
+    try {
+      var saved = localStorage.getItem('theme');
+      var valid = (saved === 'dark' || saved === 'light');
+      var systemLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      var theme = valid ? saved : (systemLight ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch(e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+
 <link rel="canonical" href="https://stanley-okwii.github.io/Stanley-Okwii/">
 <meta name="theme-color" content="#0a2540" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f2e8" media="(prefers-color-scheme: light)">
@@ -398,7 +412,7 @@ footer .rev{color:var(--amber)}
       <a href="#projects">projects.dir</a>
       <a href="#contact">contact.sys</a>
     </div>
-    <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle colour theme" aria-pressed="false">
+    <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle colour theme" aria-pressed="false" title="Click to toggle · Alt/Option-click or long-press to follow system">
       <span class="icon" aria-hidden="true"></span>
       <span id="theme-label">LIGHT</span>
     </button>
@@ -715,15 +729,64 @@ function toggleTheme(){
   applyThemeMeta(next);
   try{ localStorage.setItem('theme', next); }catch(e){}
 }
-try{
-  const saved = localStorage.getItem('theme');
-  if(saved){
-    document.documentElement.setAttribute('data-theme', saved);
-    applyThemeMeta(saved);
-  } else {
-    applyThemeMeta(document.documentElement.getAttribute('data-theme') || 'dark');
-  }
-}catch(e){}
+function resetThemeToSystem(){
+  try{ localStorage.removeItem('theme'); }catch(e){}
+  const systemLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  const theme = systemLight ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  applyThemeMeta(theme);
+}
+// Sync label + aria-pressed to whatever the head script already resolved.
+applyThemeMeta(document.documentElement.getAttribute('data-theme') || 'dark');
+
+// Click → toggle; Alt/Shift-click or long-press → reset to system.
+(function wireThemeToggle(){
+  const btn = document.getElementById('theme-toggle-btn');
+  if(!btn) return;
+  const LONG_PRESS_MS = 600;
+  let longPressed = false;
+  let pressTimer = null;
+
+  btn.addEventListener('pointerdown', () => {
+    longPressed = false;
+    clearTimeout(pressTimer);
+    pressTimer = setTimeout(() => {
+      longPressed = true;
+      resetThemeToSystem();
+    }, LONG_PRESS_MS);
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(evt => {
+    btn.addEventListener(evt, () => clearTimeout(pressTimer));
+  });
+
+  btn.addEventListener('click', (ev) => {
+    if(longPressed){
+      longPressed = false;
+      ev.preventDefault();
+      return;
+    }
+    if(ev.altKey || ev.shiftKey){
+      resetThemeToSystem();
+      return;
+    }
+    toggleTheme();
+  });
+})();
+
+// Follow OS theme live, but only while the user has no explicit override.
+try {
+  const mq = window.matchMedia('(prefers-color-scheme: light)');
+  const onSystemChange = (e) => {
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch(_) {}
+    if (saved === 'dark' || saved === 'light') return;
+    const theme = e.matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    applyThemeMeta(theme);
+  };
+  if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
+  else if (mq.addListener)  mq.addListener(onSystemChange);
+} catch(e) {}
 
 // ======= PARALLEL AGENT ORCHESTRATOR =======
 const SPEED = 0.3; // scale factor for scripted delays
