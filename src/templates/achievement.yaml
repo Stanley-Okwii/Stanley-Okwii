@@ -1,0 +1,246 @@
+cv:
+  name: "Stanley Okwii"
+  location: "London, United Kingdom"
+  email: "stanlee.okwii@gmail.com"
+  website: 
+  social_networks:
+    - network: "LinkedIn"
+      username: "stanley-okwii"
+    - network: "GitHub"
+      username: "Stanley-Okwii"
+  sections:
+    Summary:
+      - "A senior Full-Stack Engineer with 6+ years building web and mobile products in Python and TypeScript on AWS and GCP. I build systems end-to-end, from AI assistants and payment platforms to large-scale data pipelines. I thrive as a technical lead or individual contributor, turning ambiguous requirements into production systems that serve real users."
+    skills:
+      - label: "Programming"
+        details: "Python, Javascript, Typescript, Dart, HTML, CSS"
+      - label: "Databases"
+        details: "PostgreSQL, MySQL, MongoDB, Redis, SQLite, pgvector"
+      - label: "Libraries and Frameworks"
+        details: "Django, FastAPI, Flask, Express, React, Next.js, Node.js, Flutter, Redux, Angular, ReactNative, GraphQL"
+      - label: "AI/ML"
+        details: "RAG Pipelines, LLM Integration (Claude, Gemini), Vector Search, Embeddings, Hybrid Retrieval"
+      - label: "Tools and Platforms"
+        details: "AWS (ECS, Bedrock, CloudFormation), GCP, Supabase, Docker, Git, GitHub Actions, Celery, Redis Streams, Sentry, New Relic"
+    experience:
+      - company: "Access to Energy (Stealth)"
+        position: "Founding Engineer"
+        date:
+        start_date: "2026-01"
+        end_date: "present"
+        location: "London, UK"
+        summary: "AI research assistant for energy access in Africa — helps researchers, NGOs, and energy professionals get evidence-based answers with citations, drawn from a trusted library of sector reports and publications."
+        highlights:
+          - "Built an AI research assistant that answers questions with cited sources from a curated document library, improving answer accuracy by 35% over a basic search baseline."
+          - "Designed and deployed the cloud infrastructure on AWS, automating environment setup and cutting provisioning time from days to under 15 minutes."
+          - "Built a document processing pipeline that handles hundreds of files at once, making uploaded content searchable in minutes instead of hours."
+          - "Designed a multi-tenant platform with secure data isolation and per-organisation usage tracking, enabling onboarding of multiple research organisations on a single shared system."
+      - company: "Harver"
+        position: "Senior Full-Stack Software Engineer (Full-time)"
+        date:
+        start_date: "2023-03"
+        end_date: "2025-05"
+        location: "New York, USA"
+        summary: "Left Harver in May 2025 to focus full-time on completing my MSc at Birkbeck, University of London."
+        highlights:
+          - "Owned end-to-end architecture and delivery of 3+ client-facing software projects across a Python backend and React frontend, making key technical decisions on security, performance, and long-term maintainability."
+          - "Drove project planning across engineering, product, and design — scoping requirements, managing technical trade-offs, and delivering projects on schedule."
+          - "Authored technical documentation of core system workflows, reducing onboarding time for new engineers by 15% and establishing shared knowledge across the team."
+          - "Shaped engineering hiring by leading 15+ technical interviews, assessing candidates on system design, code quality, and problem-solving."
+      - company: "Harver"
+        position: "Full-Stack Software Engineer (Full-time)"
+        date:
+        start_date: "2019-09"
+        end_date: "2023-03"
+        location: "New York, USA"
+        summary:
+        highlights:
+          - "Improved application observability by implementing structured logging and monitoring, cutting debugging time by 25%."
+          - "Built analytics dashboards providing clients with actionable insights into talent growth and mobility metrics across their organisations."
+          - "Identified and resolved performance bottlenecks through systematic profiling, achieving a 15% improvement in API response latency."
+          - "Automated the release process by building CI/CD pipelines, resulting in 20% faster deployment of frontend applications."
+    projects:
+      - name: "Hoppers (Event Ticketing Platform)"
+        date:
+        start_date: "2025-10"
+        end_date: "present"
+        location: "Remote"
+        summary: "Full-Stack Software Engineer (Contract)"
+        highlights:
+          - "Built a payment system integrating multiple providers with commission tracking, automated settlements, and booking-fee snapshots for accurate revenue reconciliation."
+          - "Implemented QR-code ticketing with secure generation, server-side validation, and per-user purchase limits with safeguards to prevent double-bookings under heavy traffic."
+          - "Shipped a team management system with invitations, permission controls, and organiser metrics dashboards — delivering major features across backend, admin, and mobile as primary contributor."
+      - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
+        date:
+        start_date: "2023-03"
+        end_date: "2026-01"
+        location: "Berlin, Germany"
+        summary: "Full-Stack Web Development Mentor (Freelance)"
+        highlights:
+          - "Provided technical mentorship and project feedback to 23+ students in the Full-Stack Web Development program at CareerFoundry."
+          - "Maintained a consistent 5/5 student rating for quality of feedback, supportiveness, and responsiveness."
+      - name: "[Utidash - New Tab](https://chromewebstore.google.com/detail/dghaelfeofkkdebndhkfoneojddiebhd?utm_source=item-share-cb) (Productivity Chrome Extension)"
+        date:
+        start_date: "2020-09"
+        end_date: "2020-11"
+        location: "Berlin, Germany"
+        summary: "Full-Stack Software Engineer (Contract)"
+        highlights:
+          - "Implemented new features for a productivity Chrome extension serving over 6,000 users, which led to a 12% increase in daily active usage."
+    education:
+      - institution: "Birkbeck, University of London"
+        area: "Advanced Computing"
+        degree: "MSc"
+        date:
+        start_date: "2024-10"
+        end_date: "2025-09"
+        location: "London, UK"
+        summary:
+        highlights:
+          - "Graduated with Merit"
+      - institution: "Makerere University"
+        area: "Software Engineering"
+        degree: "BSc"
+        date:
+        start_date: "2014-08"
+        end_date: "2018-09"
+        location: "Kampala, Uganda"
+        summary:
+        highlights:
+          - "Graduated with 2:1 (Upper Second Class Honours)"
+design:
+  theme: "engineeringclassic"
+  page:
+    size: "a4"
+    top_margin: "2cm"
+    bottom_margin: "2cm"
+    left_margin: "2cm"
+    right_margin: "2cm"
+    show_footer: false
+    show_top_note: true
+  colors:
+    body: "rgb(0, 0, 0)"
+    name: "rgb(0, 79, 144)"
+    connections: "rgb(0, 79, 144)"
+    section_titles: "rgb(0, 79, 144)"
+    links: "rgb(0, 79, 144)"
+    footer: "rgb(128, 128, 128)"
+    top_note: "rgb(128, 128, 128)"
+  typography:
+    font_family:
+      body: "Raleway"
+      name: "Raleway"
+      headline: "Raleway"
+      connections: "Raleway"
+      section_titles: "Raleway"
+    font_size:
+      body: "10pt"
+      name: "30pt"
+      section_titles: "1.4em"
+    line_spacing: "0.6em"
+    alignment: "justified"
+    date_and_location_column_alignment: "right"
+    bold:
+      name: false
+      section_titles: false
+    small_caps:
+      name: false
+  links:
+    underline: false
+    show_external_link_icon: false
+  header:
+    alignment: "left"
+    photo_width: "3.5cm"
+    space_below_name: "0.7cm"
+    space_below_connections: "0.7cm"
+    connections:
+      phone_number_format: "national"
+      hyperlink: true
+      show_icons: true
+      display_urls_instead_of_usernames: false
+      separator: ""
+      space_between_connections: "0.5cm"
+  section_titles:
+    type: "with_partial_line"
+    line_thickness: "0.5pt"
+    space_above: "0.5cm"
+    space_below: "0.3cm"
+  sections:
+    allow_page_break: true
+    space_between_regular_entries: "1.2em"
+    show_time_spans_in: []
+  entries:
+    date_and_location_width: "4.15cm"
+    side_space: "0.2cm"
+    space_between_columns: "0.1cm"
+    allow_page_break: true
+    short_second_row: false
+    highlights:
+      bullet: "•"
+      nested_bullet: "-"
+      space_above: "0.25cm"
+      space_left: "0cm"
+      space_between_items: "0.2cm"
+      space_between_bullet_and_text: "0.5em"
+  templates:
+    footer: "NAME - Page PAGE_NUMBER of TOTAL_PAGES"
+    top_note: "*LAST_UPDATED CURRENT_DATE*"
+    single_date: "MONTH_ABBREVIATION YEAR"
+    date_range: "START_DATE – END_DATE"
+    one_line_entry:
+      main_column: "**LABEL:** DETAILS"
+    education_entry:
+      main_column: "**INSTITUTION**, AREA -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      degree_column: "**DEGREE**"
+      date_and_location_column: "DATE"
+    normal_entry:
+      main_column: "**NAME** -- **LOCATION**\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    experience_entry:
+      main_column: "**POSITION**, COMPANY -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    publication_entry:
+      main_column: "**TITLE**\nAUTHORS\nURL (JOURNAL)"
+      date_and_location_column: "DATE"
+locale:
+  language: "english"
+  last_updated: "Last updated in"
+  month: "month"
+  months: "months"
+  year: "year"
+  years: "years"
+  present: "present"
+  month_abbreviations:
+    - "Jan"
+    - "Feb"
+    - "Mar"
+    - "Apr"
+    - "May"
+    - "June"
+    - "July"
+    - "Aug"
+    - "Sept"
+    - "Oct"
+    - "Nov"
+    - "Dec"
+  month_names:
+    - "January"
+    - "February"
+    - "March"
+    - "April"
+    - "May"
+    - "June"
+    - "July"
+    - "August"
+    - "September"
+    - "October"
+    - "November"
+    - "December"
+settings:
+  current_date: "2026-04-14"
+  bold_keywords: []
+  render_command:
+    pdf_path: ../cvs/Stanley_Okwii_CV.pdf
+    dont_generate_markdown: true
+    dont_generate_html: true
+    dont_generate_png: true

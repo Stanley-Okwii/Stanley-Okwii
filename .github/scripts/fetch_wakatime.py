@@ -46,8 +46,6 @@ def get_json(url: str, auth_header: str) -> dict:
                 if attempt < RETRY_ATTEMPTS:
                     time.sleep(RETRY_SLEEP_SECONDS)
                     continue
-                # Final attempt still 202 — some WakaTime responses include
-                # partial data alongside 202. If so, return it; otherwise fail.
                 try:
                     parsed = json.loads(body)
                     if parsed.get("data"):
