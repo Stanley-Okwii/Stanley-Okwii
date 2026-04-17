@@ -1,1 +1,79 @@
-{}
+{
+  "generated_at": "2026-04-17T12:45:31Z",
+  "login": "Stanley-Okwii",
+  "name": "StanleeO",
+  "url": "https://github.com/Stanley-Okwii",
+  "avatar_url": "https://avatars.githubusercontent.com/u/29123354?u=9f9ab5337f5a5fb82475d0fc53b31b66921a039b&v=4",
+  "bio": "Fullstack Software Engineer",
+  "followers": 16,
+  "following": 8,
+  "public_repos": 12,
+  "total_stars": 1,
+  "contributions_past_year": {
+    "commits": 122,
+    "pull_requests": 0,
+    "issues": 0,
+    "reviews": 2
+  },
+  "top_languages": [
+    {
+      "name": "JavaScript",
+      "size": 48451,
+      "color": "#f1e05a",
+      "percent": 42.43
+    },
+    {
+      "name": "TypeScript",
+      "size": 44102,
+      "color": "#3178c6",
+      "percent": 38.62
+    },
+    {
+      "name": "Python",
+      "size": 18203,
+      "color": "#3572A5",
+      "percent": 15.94
+    },
+    {
+      "name": "HTML",
+      "size": 2002,
+      "color": "#e34c26",
+      "percent": 1.75
+    },
+    {
+      "name": "CSS",
+      "size": 718,
+      "color": "#663399",
+      "percent": 0.63
+    },
+    {
+      "name": "Shell",
+      "size": 361,
+      "color": "#89e051",
+      "percent": 0.32
+    }
+  ],
+  "top_repos": [
+    {
+      "name": "metrics",
+      "description": "Timeline metrics visualization",
+      "url": "https://github.com/Stanley-Okwii/metrics",
+      "stargazer_count": 1,
+      "primary_language": "JavaScript"
+    },
+    {
+      "name": "mini-post",
+      "description": "",
+      "url": "https://github.com/Stanley-Okwii/mini-post",
+      "stargazer_count": 0,
+      "primary_language": "JavaScript"
+    },
+    {
+      "name": "piazza",
+      "description": "SaaS Backend Application",
+      "url": "https://github.com/Stanley-Okwii/piazza",
+      "stargazer_count": 0,
+      "primary_language": "TypeScript"
+    }
+  ]
+}
