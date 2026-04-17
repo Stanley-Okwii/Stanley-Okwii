@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="preload" href="./data/wakatime.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="./data/github.json" as="fetch" crossorigin="anonymous">
 
 <script type="application/ld+json">
 {
@@ -326,6 +327,22 @@ footer .rev{color:var(--amber)}
 .stat-footer{grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);padding-top:.8rem;border-top:1px dashed var(--border);letter-spacing:.05em}
 .stats-fallback{border:1px dashed var(--border);padding:1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);text-align:center}
 
+/* ======= GITHUB STATS ======= */
+.gh-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.gh-grid .stat-panel{grid-column:span 2}
+.gh-grid .stat-footer{grid-column:1 / -1}
+.repo-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin:0;padding:0}
+.repo-row{display:flex;flex-direction:column;gap:.2rem;font-family:'IBM Plex Mono',monospace;font-size:12px;padding-bottom:.7rem;border-bottom:1px dashed var(--border)}
+.repo-row:last-child{border-bottom:none;padding-bottom:0}
+.repo-head{display:flex;justify-content:space-between;gap:.8rem;align-items:baseline}
+.repo-name{color:var(--accent);text-decoration:none;font-weight:500;letter-spacing:.02em}
+.repo-name:hover{text-decoration:underline}
+.repo-stars{color:var(--amber);font-size:11px;white-space:nowrap;font-weight:500}
+.repo-stars::before{content:'★ '}
+.repo-desc{color:var(--dim);font-size:11.5px;line-height:1.55}
+.repo-lang{color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:.15em}
+.repo-lang::before{content:'› ';color:var(--accent)}
+
 /* Focus styles */
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
@@ -354,6 +371,8 @@ footer .rev{color:var(--amber)}
   .stats-grid{grid-template-columns:1fr}
   .stat-langs,.stat-editors{grid-column:auto}
   .bar-row{grid-template-columns:90px 1fr 56px}
+  .gh-grid{grid-template-columns:1fr 1fr}
+  .gh-grid .stat-panel{grid-column:1 / -1}
 }
 @media(max-width:560px){
   .method{grid-template-columns:1fr}
@@ -361,6 +380,7 @@ footer .rev{color:var(--amber)}
   .orch-scenarios{padding:1rem}
   .orch-controls{margin-left:0;width:100%}
   nav{padding:0 1rem}
+  .gh-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -373,6 +393,7 @@ footer .rev{color:var(--amber)}
       <a href="#orchestrator">demo.live</a>
       <a href="#method">method.md</a>
       <a href="#stats">stats.live</a>
+      <a href="#github">github.live</a>
       <a href="#experience">work.log</a>
       <a href="#projects">projects.dir</a>
       <a href="#contact">contact.sys</a>
@@ -548,6 +569,35 @@ footer .rev{color:var(--amber)}
     </div>
 
     <div class="stats-fallback" id="stats-fallback" hidden>Live stats are temporarily unavailable — check back after the next nightly sync.</div>
+  </div>
+</section>
+
+<!-- ======= GITHUB ACTIVITY ======= -->
+<section id="github">
+  <div class="s-inner">
+    <div class="sec-tag">Section 01.6 / Open-Source Output</div>
+    <h2 class="sec-title">GitHub Activity <strong>[octocat.live]</strong></h2>
+    <p class="sec-intro">Aggregate public footprint — repos, stars, and language distribution by bytes across owned repositories. Pulled from the GitHub GraphQL API alongside the WakaTime sync.</p>
+
+    <div class="gh-grid" id="gh-grid" hidden>
+      <div class="stat-kpi"><span class="kpi-k">Public repos</span><span class="kpi-v" id="gh-repos">—</span></div>
+      <div class="stat-kpi"><span class="kpi-k">Total stars</span><span class="kpi-v" id="gh-stars">—</span></div>
+      <div class="stat-kpi"><span class="kpi-k">Followers</span><span class="kpi-v" id="gh-followers">—</span></div>
+      <div class="stat-kpi"><span class="kpi-k">Commits · 1y</span><span class="kpi-v" id="gh-commits">—</span></div>
+
+      <div class="stat-panel" role="region" aria-label="Top languages across public repos by bytes">
+        <div class="sp-h">Languages · bytes across public repos</div>
+        <ul id="gh-lang-bars" class="bar-list"></ul>
+      </div>
+      <div class="stat-panel" role="region" aria-label="Most starred repositories">
+        <div class="sp-h">Most starred repos</div>
+        <ul id="gh-top-repos" class="repo-list"></ul>
+      </div>
+
+      <div class="stat-footer">last updated <span id="gh-updated">—</span> · source: github.com/<span id="gh-login">Stanley-Okwii</span></div>
+    </div>
+
+    <div class="stats-fallback" id="gh-fallback" hidden>GitHub stats are temporarily unavailable — check back after the next nightly sync.</div>
   </div>
 </section>
 
@@ -1007,6 +1057,71 @@ function relTime(iso){
   const days = Math.floor(diffSec / 86400);
   if(days < 30) return days + ' day' + (days===1?'':'s') + ' ago';
   return then.toLocaleDateString('en-GB', { year:'numeric', month:'short', day:'numeric' });
+}
+
+// ======= GITHUB STATS =======
+(async function loadGithub(){
+  const grid = document.getElementById('gh-grid');
+  const fallback = document.getElementById('gh-fallback');
+  try {
+    const r = await fetch('./data/github.json', { cache:'no-cache' });
+    if(!r.ok) throw new Error('http '+r.status);
+    const d = await r.json();
+    if(!d || typeof d.public_repos !== 'number') throw new Error('empty');
+
+    const nf = new Intl.NumberFormat('en-GB');
+    document.getElementById('gh-repos').textContent     = nf.format(d.public_repos);
+    document.getElementById('gh-stars').textContent     = nf.format(d.total_stars || 0);
+    document.getElementById('gh-followers').textContent = nf.format(d.followers || 0);
+    document.getElementById('gh-commits').textContent   = nf.format((d.contributions_past_year && d.contributions_past_year.commits) || 0);
+
+    renderBars('gh-lang-bars', (d.top_languages || []).slice(0,5));
+    renderRepos('gh-top-repos', d.top_repos || []);
+    document.getElementById('gh-updated').textContent = relTime(d.generated_at);
+    if(d.login) document.getElementById('gh-login').textContent = d.login;
+
+    grid.hidden = false;
+  } catch (e) {
+    fallback.hidden = false;
+  }
+})();
+
+function renderRepos(id, items){
+  const host = document.getElementById(id);
+  if(!host) return;
+  host.innerHTML = '';
+  items.forEach(r => {
+    const li = document.createElement('li');
+    li.className = 'repo-row';
+
+    const head = document.createElement('div');
+    head.className = 'repo-head';
+    const a = document.createElement('a');
+    a.className = 'repo-name';
+    a.href = r.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = r.name;
+    const stars = document.createElement('span');
+    stars.className = 'repo-stars';
+    stars.textContent = (r.stargazer_count || 0).toLocaleString('en-GB');
+    head.append(a, stars);
+    li.appendChild(head);
+
+    if(r.description){
+      const desc = document.createElement('div');
+      desc.className = 'repo-desc';
+      desc.textContent = r.description;
+      li.appendChild(desc);
+    }
+    if(r.primary_language){
+      const lang = document.createElement('div');
+      lang.className = 'repo-lang';
+      lang.textContent = r.primary_language;
+      li.appendChild(lang);
+    }
+    host.appendChild(li);
+  });
 }
 </script>
 

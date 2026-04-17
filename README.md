@@ -36,20 +36,12 @@ I build reliable backends and polished product frontends for fast-moving teams.<
 - **[repo-name](https://github.com/stanley-okwii/REPO)** — one-line pitch.
 - **[repo-name](https://github.com/stanley-okwii/REPO)** — one-line pitch.
 
-### 📈 GitHub Stats
-
-<p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=stanley-okwii&show_icons=true&theme=github_dark&hide_border=true&count_private=true" height="160" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=stanley-okwii&layout=compact&theme=github_dark&hide_border=true" height="160" />
-</p>
-
-<div align="left">
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=stanley-okwii&theme=github&hide_border=true&count_private=true" alt="Profile summary"/>
-</div>
+### 📊 Live stats
+WakaTime + GitHub stats render on the portfolio: **[stanley-okwii.github.io/Stanley-Okwii](https://stanley-okwii.github.io/Stanley-Okwii/#stats)** — updated nightly via GitHub Actions.
 
 ---
 
 ### 💼 Open to
 Senior full-stack engineering roles · remote-first.
 
-📬 **Reach me:** YOUR_EMAIL · [Book a 15-min call](https://calendly.com/YOUR_HANDLE)
+📬 **Reach me:** stanlee.okwii@gmail.com · [Book a 15-min call](https://calendar.app.google/coaieBdcAmwuMhLt5)
