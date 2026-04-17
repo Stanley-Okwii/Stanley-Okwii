@@ -3,9 +3,9 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/stanley-okwii/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat&logo=linkedin&logoColor=white"/></a>
-  <a href="mailto:YOUR_EMAIL"><img alt="Email" src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white"/></a>
-  <a href="https://YOUR_SITE"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-111111?style=flat&logo=githubpages&logoColor=white"/></a>
-  <a href="https://calendly.com/YOUR_HANDLE"><img alt="Book a call" src="https://img.shields.io/badge/Book%20a%20call-006BFF?style=flat&logo=calendly&logoColor=white"/></a>
+  <a href="mailto:stanlee.okwii@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white"/></a>
+  <a href="https://stanley-okwii.github.io/Stanley-Okwii/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-111111?style=flat&logo=githubpages&logoColor=white"/></a>
+  <a href="https://calendar.app.google/coaieBdcAmwuMhLt5"><img alt="Book a call" src="https://img.shields.io/badge/Book%20a%20call-006BFF?style=flat&logo=calendly&logoColor=white"/></a>
 </p>
 
 <p align="center">
@@ -42,6 +42,7 @@ WakaTime + GitHub stats render on the portfolio: **[stanley-okwii.github.io/Stan
 ---
 
 ### 💼 Open to
-Senior full-stack engineering roles · remote-first.
+Full-stack engineering roles
+Data science/Analytics  roles
 
 📬 **Reach me:** stanlee.okwii@gmail.com · [Book a 15-min call](https://calendar.app.google/coaieBdcAmwuMhLt5)
