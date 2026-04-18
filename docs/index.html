@@ -433,11 +433,11 @@ footer .rev{color:var(--amber)}
         <div class="stat-kpi"><span class="kpi-k">Daily average</span><span class="kpi-v" id="kpi-avg">—</span></div>
 
         <div class="stat-panel stat-langs" role="region" aria-label="Languages over the last 7 days">
-          <div class="sp-h">Languages · last 7d</div>
+          <div class="sp-h">Languages · last 7 days</div>
           <ul id="lang-bars" class="bar-list"></ul>
         </div>
         <div class="stat-panel stat-editors" role="region" aria-label="Editors over the last 7 days">
-          <div class="sp-h">Editors · last 7d</div>
+          <div class="sp-h">Editors · last 7 days</div>
           <ul id="editor-bars" class="bar-list"></ul>
         </div>
 
@@ -469,8 +469,8 @@ footer .rev{color:var(--amber)}
             <div class="gh-kpi"><span class="gh-kpi-k">Total Commits (past year)</span><span class="gh-kpi-v" id="gh-commits">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Total PRs</span><span class="gh-kpi-v" id="gh-prs">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Repositories (pub / priv)</span><span class="gh-kpi-v" id="gh-repos">—</span></div>
-            <div class="gh-kpi"><span class="gh-kpi-k">Reviews (past year)</span><span class="gh-kpi-v" id="gh-reviews">—</span></div>
-            <div class="gh-kpi"><span class="gh-kpi-k">Contributed to</span><span class="gh-kpi-v" id="gh-contrib">—</span></div>
+            <div class="gh-kpi"><span class="gh-kpi-k">PR Reviews (past year)</span><span class="gh-kpi-v" id="gh-reviews">—</span></div>
+            <div class="gh-kpi"><span class="gh-kpi-k">Active days (past year)</span><span class="gh-kpi-v" id="gh-active-days">—</span></div>
           </div>
         </div>
         <div class="gh-lang-card" role="region" aria-label="Most used languages">
@@ -905,7 +905,8 @@ function renderContact(contact){
     const priv = d.private_repos ?? 0;
     document.getElementById('gh-repos').textContent     = nf.format(pub) + ' / ' + nf.format(priv);
     document.getElementById('gh-reviews').textContent   = nf.format(t.reviews ?? 0);
-    document.getElementById('gh-contrib').textContent   = nf.format(t.contributed_to ?? 0);
+    const active = d.active_days_past_year;
+    document.getElementById('gh-active-days').textContent = (active != null) ? (nf.format(active) + ' / 365') : '—';
 
     const sinceEl = document.getElementById('gh-since');
     if(sinceEl && d.created_at){

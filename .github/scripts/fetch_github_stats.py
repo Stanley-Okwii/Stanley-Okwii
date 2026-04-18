@@ -169,6 +169,15 @@ def weekly_contributions(calendar: dict) -> list:
     return result
 
 
+def active_days(calendar: dict) -> int:
+    count = 0
+    for week in (calendar.get("weeks") or []):
+        for day in (week.get("contributionDays") or []):
+            if (day.get("contributionCount") or 0) > 0:
+                count += 1
+    return count
+
+
 def aggregate_languages(repos: list) -> list:
     sizes: dict = {}
     for repo in repos:
@@ -301,6 +310,7 @@ def main() -> int:
         },
         "contributions_all_time": all_time,
         "contributions_weekly": weekly_contributions(calendar),
+        "active_days_past_year": active_days(calendar),
         "totals": totals,
         "rank": rank,
         "top_languages": aggregate_languages(repos),
