@@ -76,6 +76,16 @@ query($login: String!) {
       totalPullRequestContributions
       totalIssueContributions
       totalPullRequestReviewContributions
+      contributionYears
+      contributionCalendar {
+        totalContributions
+        weeks {
+          firstDay
+          contributionDays {
+            contributionCount
+          }
+        }
+      }
     }
     repositories(
       first: 100,
@@ -104,15 +114,15 @@ query($login: String!) {
 """
 
 
-def graphql(token: str, login: str) -> dict:
-    body = json.dumps({"query": QUERY, "variables": {"login": login}}).encode("utf-8")
+def graphql(token: str, query: str, variables: dict) -> dict:
+    body = json.dumps({"query": query, "variables": variables}).encode("utf-8")
     req = urllib.request.Request(
         GRAPHQL_URL,
         data=body,
         headers={
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
-            "User-Agent": f"{login}-stats-fetcher",
+            "User-Agent": f"{variables.get('login', 'stats')}-stats-fetcher",
             "Accept": "application/json",
         },
     )
@@ -122,10 +132,41 @@ def graphql(token: str, login: str) -> dict:
         payload = json.loads(resp.read().decode("utf-8"))
     if payload.get("errors"):
         raise RuntimeError(f"GraphQL errors: {payload['errors']}")
-    user = payload.get("data", {}).get("user")
+    return payload.get("data") or {}
+
+
+def fetch_user(token: str, login: str) -> dict:
+    data = graphql(token, QUERY, {"login": login})
+    user = data.get("user")
     if not user:
         raise RuntimeError(f"No user data returned for login={login!r}")
     return user
+
+
+def fetch_all_time_contributions(token: str, login: str, years: list) -> int:
+    if not years:
+        return 0
+    aliases = [
+        f'y{y}: contributionsCollection(from: "{y}-01-01T00:00:00Z", to: "{y}-12-31T23:59:59Z") {{ contributionCalendar {{ totalContributions }} }}'
+        for y in sorted(years)
+    ]
+    query = "query($login: String!) { user(login: $login) { " + " ".join(aliases) + " } }"
+    data = graphql(token, query, {"login": login})
+    user = data.get("user") or {}
+    total = 0
+    for year in years:
+        block = user.get(f"y{year}") or {}
+        cal = block.get("contributionCalendar") or {}
+        total += cal.get("totalContributions", 0) or 0
+    return total
+
+
+def weekly_contributions(calendar: dict) -> list:
+    result = []
+    for week in (calendar.get("weeks") or []):
+        count = sum((d.get("contributionCount") or 0) for d in (week.get("contributionDays") or []))
+        result.append({"week_start": week.get("firstDay"), "count": count})
+    return result
 
 
 def aggregate_languages(repos: list) -> list:
@@ -197,13 +238,22 @@ def main() -> int:
         return 2
 
     try:
-        user = graphql(token, USER_LOGIN)
+        user = fetch_user(token, USER_LOGIN)
     except (urllib.error.URLError, urllib.error.HTTPError, RuntimeError) as exc:
         print(f"GitHub API error: {exc}", file=sys.stderr)
         return 1
 
     repos = user["repositories"]["nodes"]
     contrib = user.get("contributionsCollection") or {}
+    calendar = contrib.get("contributionCalendar") or {}
+    years = contrib.get("contributionYears") or []
+
+    try:
+        all_time = fetch_all_time_contributions(token, USER_LOGIN, years)
+    except (urllib.error.URLError, urllib.error.HTTPError, RuntimeError) as exc:
+        print(f"All-time contributions fetch failed: {exc}", file=sys.stderr)
+        all_time = calendar.get("totalContributions", 0) or 0
+
     stars = total_stars(repos)
 
     totals = {
@@ -247,7 +297,10 @@ def main() -> int:
             "pull_requests": contrib.get("totalPullRequestContributions", 0),
             "issues": contrib.get("totalIssueContributions", 0),
             "reviews": contrib.get("totalPullRequestReviewContributions", 0),
+            "total": calendar.get("totalContributions", 0) or 0,
         },
+        "contributions_all_time": all_time,
+        "contributions_weekly": weekly_contributions(calendar),
         "totals": totals,
         "rank": rank,
         "top_languages": aggregate_languages(repos),

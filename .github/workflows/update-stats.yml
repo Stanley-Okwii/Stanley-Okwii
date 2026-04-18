@@ -1,4 +1,4 @@
-name: Pull and update statistics
+name: pull and update statistics
 
 on:
   workflow_dispatch:
@@ -67,6 +67,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore: sync CV + stats"
+            git commit -m "chore(updates): sync CV + stats"
             git push
           fi

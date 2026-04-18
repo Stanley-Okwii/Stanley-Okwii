@@ -264,22 +264,18 @@ section{padding:5rem 2rem;position:relative}
 .gh-stats-card::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
 .gh-stats-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:.6rem;border-bottom:1px dashed var(--border);font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase}
 .gh-stats-head b{color:var(--accent);font-weight:500}
-.gh-rank-block{display:flex;align-items:center;gap:1.4rem}
-.rank-ring{
-  width:108px;height:108px;border-radius:50%;flex-shrink:0;
-  background:conic-gradient(var(--accent) 0 var(--arc,0deg), var(--border) var(--arc,0deg) 360deg);
-  display:grid;place-items:center;position:relative;
-  transition:background 1s ease;
-}
-.rank-ring::after{
-  content:'';position:absolute;inset:6px;border-radius:50%;
-  background:var(--bg);border:1px solid var(--border);
-}
-.rank-glyph{position:relative;font-family:'IBM Plex Mono',monospace;font-size:2rem;color:var(--accent);font-weight:500;z-index:1;letter-spacing:-.02em;line-height:1}
-.rank-text{display:flex;flex-direction:column;gap:.3rem;font-family:'IBM Plex Mono',monospace;min-width:0}
-.rank-owner{font-size:13px;color:var(--ink-strong);font-weight:500;letter-spacing:.02em}
-.rank-pct{font-size:11px;color:var(--dim);letter-spacing:.05em}
-.rank-pct b{color:var(--highlight);font-weight:500}
+.gh-counter-block{display:flex;align-items:center;gap:1.4rem}
+.gh-counter-num{font-family:'IBM Plex Mono',monospace;font-size:2.6rem;color:var(--accent);font-weight:500;letter-spacing:-.02em;line-height:1;min-width:108px;font-variant-numeric:tabular-nums}
+.gh-counter-text{display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;min-width:0}
+.gh-counter-label{font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase}
+.gh-counter-sub{font-size:11px;color:var(--dim);letter-spacing:.05em}
+.gh-counter-sub b{color:var(--highlight);font-weight:500}
+.gh-sparkline-wrap{display:flex;flex-direction:column;gap:.5rem}
+.gh-sparkline-head{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.15em;text-transform:uppercase}
+.gh-sparkline-scale b{color:var(--highlight);font-weight:500}
+.gh-sparkline{display:flex;align-items:flex-end;gap:2px;height:44px}
+.gh-sparkline-bar{flex:1;min-width:0;background:var(--accent);border-radius:1px;transition:opacity .2s,transform .2s;min-height:2px}
+.gh-sparkline-bar:hover{opacity:1!important;transform:scaleY(1.08)}
 .gh-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:0;font-family:'IBM Plex Mono',monospace}
 .gh-kpi{display:flex;justify-content:space-between;padding:.55rem 0;font-size:12px;border-bottom:1px dashed var(--border);gap:1rem}
 .gh-kpi:nth-child(odd){padding-right:1rem;border-right:1px dashed var(--border)}
@@ -292,6 +288,7 @@ section{padding:5rem 2rem;position:relative}
 .gh-footer{grid-column:1/-1;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);padding-top:.8rem;border-top:1px dashed var(--border);letter-spacing:.05em;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .gh-footer a{color:var(--accent);text-decoration:none}
 .gh-footer a:hover{text-decoration:underline}
+.gh-since{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.05em;margin-top:-.6rem}
 
 footer{padding:2rem;text-align:center;color:var(--dim);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1200px;margin:0 auto;padding-left:0;padding-right:0}
 footer span{color:var(--accent)}
@@ -303,7 +300,7 @@ footer .rev{color:var(--amber)}
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
-  .bar-fill,.rank-ring{transition:none}
+  .bar-fill{transition:none}
 }
 
 @media(max-width:900px){
@@ -331,7 +328,7 @@ footer .rev{color:var(--amber)}
 }
 @media(max-width:560px){
   #contact-grid{grid-template-columns:1fr}
-  .gh-rank-block{flex-direction:column;align-items:flex-start;gap:1rem}
+  .gh-counter-block{flex-direction:column;align-items:flex-start;gap:1rem}
 }
 
 /* ======= SCROLLSPY ======= */
@@ -407,7 +404,7 @@ footer .rev{color:var(--amber)}
         <div class="spec-body">
           <div class="spec-row"><span class="spec-k">LOCATION</span><span class="spec-v" id="spec-location">—</span></div>
           <div class="spec-row"><span class="spec-k">EXPERIENCE</span><span class="spec-v accent">6+ years prod</span></div>
-          <div class="spec-row"><span class="spec-k">ROLES OPEN TO</span><span class="spec-v accent">Senior / Staff</span></div>
+          <div class="spec-row"><span class="spec-k">ROLES OPEN TO</span><span class="spec-v accent">Full-Stack Engineer</span></div>
           <div class="spec-row"><span class="spec-k">BACKEND</span><span class="spec-v">Python · Django · FastAPI</span></div>
           <div class="spec-row"><span class="spec-k">FRONTEND</span><span class="spec-v">React · Next.js · Flutter</span></div>
           <div class="spec-row"><span class="spec-k">CLOUD</span><span class="spec-v">AWS · GCP · Supabase</span></div>
@@ -454,21 +451,24 @@ footer .rev{color:var(--amber)}
       <div class="gh-cards" id="gh-cards" hidden>
         <div class="gh-stats-card" role="region" aria-label="GitHub stats card">
           <div class="gh-stats-head"><span>Stanley Okwii's GitHub Stats</span><b id="gh-login-head">Stanley-Okwii</b></div>
-          <div class="gh-rank-block">
-            <div class="rank-ring" id="rank-ring" aria-hidden="true">
-              <span class="rank-glyph" id="rank-glyph">—</span>
+          <div class="gh-since" id="gh-since"></div>
+          <div class="gh-counter-block">
+            <div class="gh-counter-num" id="gh-counter">—</div>
+            <div class="gh-counter-text">
+              <span class="gh-counter-label">Total Contributions</span>
+              <span class="gh-counter-sub">all time · across public + private</span>
+              <span class="gh-counter-sub">past year · <b id="gh-past-year">—</b></span>
             </div>
-            <div class="rank-text">
-              <span class="rank-owner">Rank <b id="rank-level-inline">—</b></span>
-              <span class="rank-pct">Top <b id="rank-percentile">—</b> worldwide</span>
-              <span class="rank-pct">Score <span id="rank-score">—</span></span>
-            </div>
+          </div>
+          <div class="gh-sparkline-wrap">
+            <div class="gh-sparkline-head"><span>52-week activity</span><span class="gh-sparkline-scale"><b id="gh-sparkline-max">—</b> peak</span></div>
+            <div class="gh-sparkline" id="gh-sparkline" role="img" aria-label="Contributions over the last 52 weeks"></div>
           </div>
           <div class="gh-kpis">
             <div class="gh-kpi"><span class="gh-kpi-k">Total Stars Earned</span><span class="gh-kpi-v" id="gh-stars">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Total Commits (past year)</span><span class="gh-kpi-v" id="gh-commits">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Total PRs</span><span class="gh-kpi-v" id="gh-prs">—</span></div>
-            <div class="gh-kpi"><span class="gh-kpi-k">Total Issues</span><span class="gh-kpi-v" id="gh-issues">—</span></div>
+            <div class="gh-kpi"><span class="gh-kpi-k">Repositories (pub / priv)</span><span class="gh-kpi-v" id="gh-repos">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Reviews (past year)</span><span class="gh-kpi-v" id="gh-reviews">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Contributed to</span><span class="gh-kpi-v" id="gh-contrib">—</span></div>
           </div>
@@ -479,7 +479,7 @@ footer .rev{color:var(--amber)}
         </div>
         <div class="gh-footer">
           <span>last updated <span id="gh-updated">—</span> · <a id="gh-profile-link" href="https://github.com/Stanley-Okwii" target="_blank" rel="noopener">github.com/<span id="gh-login">Stanley-Okwii</span></a></span>
-          <span>rank: Part of github stats scoring curve</span>
+          <span>nightly sync · public + private repos</span>
         </div>
       </div>
       <div class="stats-fallback" id="gh-fallback" hidden>GitHub stats are temporarily unavailable — check back after the next nightly sync.</div>
@@ -645,6 +645,44 @@ function renderBars(id, items){
     p.textContent = pct.toFixed(1) + '%';
     li.append(name, track, p);
     host.appendChild(li);
+  });
+}
+
+function animateCounter(el, target, duration){
+  if(!el) return;
+  const fmt = new Intl.NumberFormat('en-GB');
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !target){ el.textContent = fmt.format(target || 0); return; }
+  const start = performance.now();
+  function frame(now){
+    const p = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt.format(Math.floor(eased * target));
+    if(p < 1) requestAnimationFrame(frame);
+    else el.textContent = fmt.format(target);
+  }
+  requestAnimationFrame(frame);
+}
+
+function renderSparkline(id, weekly){
+  const host = document.getElementById(id);
+  const maxEl = document.getElementById('gh-sparkline-max');
+  if(!host) return;
+  host.innerHTML = '';
+  if(!weekly || !weekly.length){
+    host.parentElement && (host.parentElement.hidden = true);
+    return;
+  }
+  const max = weekly.reduce((m, w) => Math.max(m, w.count || 0), 0) || 1;
+  if(maxEl) maxEl.textContent = max;
+  weekly.forEach(w => {
+    const bar = document.createElement('div');
+    bar.className = 'gh-sparkline-bar';
+    const ratio = (w.count || 0) / max;
+    bar.style.height = Math.max(4, Math.round(ratio * 100)) + '%';
+    bar.style.opacity = (0.18 + 0.82 * ratio).toFixed(2);
+    bar.title = (w.week_start || '') + ' · ' + (w.count || 0) + ' contributions';
+    host.appendChild(bar);
   });
 }
 
@@ -851,23 +889,33 @@ function renderContact(contact){
     if(!d || (!d.totals && typeof d.public_repos !== 'number')) throw new Error('empty');
 
     const t = d.totals || {};
-    const rank = d.rank || { level: '—', percentile: 0, score: 0 };
 
-    document.getElementById('rank-glyph').textContent = rank.level || '—';
-    document.getElementById('rank-level-inline').textContent = rank.level || '—';
-    document.getElementById('rank-percentile').textContent = (rank.percentile != null ? rank.percentile + '%' : '—');
-    document.getElementById('rank-score').textContent = (rank.score != null ? rank.score.toFixed(2) : '—');
+    const cpy = d.contributions_past_year || {};
+    const pastYear = cpy.total ?? cpy.commits ?? 0;
+    const allTime = d.contributions_all_time != null ? d.contributions_all_time : pastYear;
+    animateCounter(document.getElementById('gh-counter'), allTime, 900);
+    document.getElementById('gh-past-year').textContent = nf.format(pastYear);
 
-    const ring = document.getElementById('rank-ring');
-    const arcDeg = Math.max(4, Math.min(360, Math.round((rank.score || 0) * 360)));
-    ring.style.setProperty('--arc', arcDeg + 'deg');
+    renderSparkline('gh-sparkline', d.contributions_weekly || []);
 
     document.getElementById('gh-stars').textContent     = nf.format(t.stars ?? d.total_stars ?? 0);
     document.getElementById('gh-commits').textContent   = nf.format(t.commits ?? (d.contributions_past_year && d.contributions_past_year.commits) ?? 0);
     document.getElementById('gh-prs').textContent       = nf.format(t.prs ?? 0);
-    document.getElementById('gh-issues').textContent    = nf.format(t.issues ?? 0);
+    const pub = d.public_repos ?? 0;
+    const priv = d.private_repos ?? 0;
+    document.getElementById('gh-repos').textContent     = nf.format(pub) + ' / ' + nf.format(priv);
     document.getElementById('gh-reviews').textContent   = nf.format(t.reviews ?? 0);
     document.getElementById('gh-contrib').textContent   = nf.format(t.contributed_to ?? 0);
+
+    const sinceEl = document.getElementById('gh-since');
+    if(sinceEl && d.created_at){
+      const since = new Date(d.created_at);
+      if(!isNaN(since.getTime())){
+        const month = since.toLocaleString('en-GB', { month:'short' });
+        const years = Math.max(0, Math.floor((Date.now() - since.getTime()) / (365.25 * 24 * 3600 * 1000)));
+        sinceEl.textContent = 'On GitHub since ' + month + ' ' + since.getFullYear() + ' · ' + years + ' yr' + (years === 1 ? '' : 's');
+      }
+    }
 
     renderBars('gh-lang-bars', (d.top_languages || []).slice(0,6));
 
