@@ -1,6 +1,5 @@
 {
-  "generated_at": "2026-04-18T21:14:17Z",
-  
+  "generated_at": "2026-04-18T21:56:55Z",
   "login": "Stanley-Okwii",
   "name": "StanleeO",
   "url": "https://github.com/Stanley-Okwii",
@@ -13,13 +12,229 @@
   "private_repos": 13,
   "total_stars": 2,
   "contributions_past_year": {
-    "commits": 140,
+    "commits": 141,
     "pull_requests": 0,
     "issues": 0,
-    "reviews": 2
+    "reviews": 2,
+    "total": 643
   },
+  "contributions_all_time": 5721,
+  "contributions_weekly": [
+    {
+      "week_start": "2025-04-13",
+      "count": 14
+    },
+    {
+      "week_start": "2025-04-20",
+      "count": 4
+    },
+    {
+      "week_start": "2025-04-27",
+      "count": 7
+    },
+    {
+      "week_start": "2025-05-04",
+      "count": 5
+    },
+    {
+      "week_start": "2025-05-11",
+      "count": 9
+    },
+    {
+      "week_start": "2025-05-18",
+      "count": 3
+    },
+    {
+      "week_start": "2025-05-25",
+      "count": 12
+    },
+    {
+      "week_start": "2025-06-01",
+      "count": 1
+    },
+    {
+      "week_start": "2025-06-08",
+      "count": 10
+    },
+    {
+      "week_start": "2025-06-15",
+      "count": 15
+    },
+    {
+      "week_start": "2025-06-22",
+      "count": 7
+    },
+    {
+      "week_start": "2025-06-29",
+      "count": 0
+    },
+    {
+      "week_start": "2025-07-06",
+      "count": 0
+    },
+    {
+      "week_start": "2025-07-13",
+      "count": 6
+    },
+    {
+      "week_start": "2025-07-20",
+      "count": 0
+    },
+    {
+      "week_start": "2025-07-27",
+      "count": 0
+    },
+    {
+      "week_start": "2025-08-03",
+      "count": 1
+    },
+    {
+      "week_start": "2025-08-10",
+      "count": 0
+    },
+    {
+      "week_start": "2025-08-17",
+      "count": 14
+    },
+    {
+      "week_start": "2025-08-24",
+      "count": 1
+    },
+    {
+      "week_start": "2025-08-31",
+      "count": 3
+    },
+    {
+      "week_start": "2025-09-07",
+      "count": 44
+    },
+    {
+      "week_start": "2025-09-14",
+      "count": 0
+    },
+    {
+      "week_start": "2025-09-21",
+      "count": 0
+    },
+    {
+      "week_start": "2025-09-28",
+      "count": 0
+    },
+    {
+      "week_start": "2025-10-05",
+      "count": 4
+    },
+    {
+      "week_start": "2025-10-12",
+      "count": 5
+    },
+    {
+      "week_start": "2025-10-19",
+      "count": 0
+    },
+    {
+      "week_start": "2025-10-26",
+      "count": 0
+    },
+    {
+      "week_start": "2025-11-02",
+      "count": 2
+    },
+    {
+      "week_start": "2025-11-09",
+      "count": 0
+    },
+    {
+      "week_start": "2025-11-16",
+      "count": 0
+    },
+    {
+      "week_start": "2025-11-23",
+      "count": 0
+    },
+    {
+      "week_start": "2025-11-30",
+      "count": 2
+    },
+    {
+      "week_start": "2025-12-07",
+      "count": 3
+    },
+    {
+      "week_start": "2025-12-14",
+      "count": 11
+    },
+    {
+      "week_start": "2025-12-21",
+      "count": 5
+    },
+    {
+      "week_start": "2025-12-28",
+      "count": 3
+    },
+    {
+      "week_start": "2026-01-04",
+      "count": 7
+    },
+    {
+      "week_start": "2026-01-11",
+      "count": 4
+    },
+    {
+      "week_start": "2026-01-18",
+      "count": 15
+    },
+    {
+      "week_start": "2026-01-25",
+      "count": 3
+    },
+    {
+      "week_start": "2026-02-01",
+      "count": 3
+    },
+    {
+      "week_start": "2026-02-08",
+      "count": 6
+    },
+    {
+      "week_start": "2026-02-15",
+      "count": 24
+    },
+    {
+      "week_start": "2026-02-22",
+      "count": 56
+    },
+    {
+      "week_start": "2026-03-01",
+      "count": 30
+    },
+    {
+      "week_start": "2026-03-08",
+      "count": 20
+    },
+    {
+      "week_start": "2026-03-15",
+      "count": 15
+    },
+    {
+      "week_start": "2026-03-22",
+      "count": 1
+    },
+    {
+      "week_start": "2026-03-29",
+      "count": 53
+    },
+    {
+      "week_start": "2026-04-05",
+      "count": 98
+    },
+    {
+      "week_start": "2026-04-12",
+      "count": 117
+    }
+  ],
   "totals": {
-    "commits": 140,
+    "commits": 141,
     "prs": 152,
     "prs_year": 0,
     "issues": 24,
@@ -32,7 +247,7 @@
   "rank": {
     "level": "B",
     "percentile": 61.8,
-    "score": 0.3821
+    "score": 0.3822
   },
   "top_languages": [
     {
