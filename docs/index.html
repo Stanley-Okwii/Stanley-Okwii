@@ -270,12 +270,16 @@ section{padding:5rem 2rem;position:relative}
 .gh-counter-label{font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase}
 .gh-counter-sub{font-size:11px;color:var(--dim);letter-spacing:.05em}
 .gh-counter-sub b{color:var(--highlight);font-weight:500}
-.gh-sparkline-wrap{display:flex;flex-direction:column;gap:.5rem}
+.gh-sparkline-wrap{display:flex;flex-direction:column;gap:.5rem;position:relative}
 .gh-sparkline-head{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.15em;text-transform:uppercase}
 .gh-sparkline-scale b{color:var(--highlight);font-weight:500}
 .gh-sparkline{display:flex;align-items:flex-end;gap:2px;height:44px}
-.gh-sparkline-bar{flex:1;min-width:0;background:var(--accent);border-radius:1px;transition:opacity .2s,transform .2s;min-height:2px}
+.gh-sparkline-bar{flex:1;min-width:0;background:var(--accent);border-radius:1px;transition:opacity .2s,transform .2s;min-height:2px;cursor:pointer}
 .gh-sparkline-bar:hover{opacity:1!important;transform:scaleY(1.08)}
+.gh-sparkline-tip{position:absolute;bottom:calc(100% + .4rem);transform:translateX(-50%);background:var(--panel-bg-solid);border:1px solid var(--border-strong);padding:.45rem .65rem;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .12s;z-index:3;letter-spacing:.02em}
+.gh-sparkline-tip.is-on{opacity:1}
+.gh-sparkline-tip b{color:var(--accent);font-weight:500}
+.gh-sparkline-tip-date{color:var(--dim);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
 .gh-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:0;font-family:'IBM Plex Mono',monospace}
 .gh-kpi{display:flex;justify-content:space-between;padding:.55rem 0;font-size:12px;border-bottom:1px dashed var(--border);gap:1rem}
 .gh-kpi:nth-child(odd){padding-right:1rem;border-right:1px dashed var(--border)}
@@ -325,10 +329,36 @@ footer .rev{color:var(--amber)}
   .nav-links a{padding:.3rem .4rem;font-size:9px;letter-spacing:.02em}
   .theme-toggle{padding:.4rem .55rem}
   .theme-toggle #theme-label{display:none}
+  .sec-title{font-size:1.6rem}
+  .bp-name{font-size:clamp(2.4rem,9vw,3.6rem)}
+  .bp-head{gap:.4rem;font-size:10px}
+  .bp-cta{flex-direction:column;align-items:stretch}
+  .bp-btn{width:100%;justify-content:center}
+  .gh-stats-card,.gh-lang-card{padding:1.2rem}
+  .gh-footer{flex-direction:column;align-items:flex-start;gap:.4rem}
 }
 @media(max-width:560px){
   #contact-grid{grid-template-columns:1fr}
   .gh-counter-block{flex-direction:column;align-items:flex-start;gap:1rem}
+  .gh-counter-num{min-width:auto;font-size:2.2rem}
+  .gh-kpis{grid-template-columns:1fr}
+  .gh-kpi{padding:.6rem 0!important;border-right:none!important;padding-left:0!important;padding-right:0!important}
+  .gh-kpi:not(:last-child){border-bottom:1px dashed var(--border)!important}
+  .gh-kpi:last-child{border-bottom:none!important}
+  .gh-kpi-k{white-space:normal;overflow:visible;text-overflow:clip}
+  .gh-sparkline-tip{white-space:normal;max-width:70vw;font-size:10px}
+  .bp-frame{margin:1rem .5rem;padding:1.2rem}
+  section{padding:2.5rem .75rem}
+  .s-inner{padding:1.2rem}
+}
+@media(max-width:420px){
+  .bp-name{font-size:2rem}
+  .bp-pitch{font-size:13px}
+  .nav-l{font-size:11px;letter-spacing:.05em}
+  .nav-links a{padding:.25rem .35rem;font-size:9px}
+  .gh-counter-num{font-size:1.9rem}
+  .spec-row{font-size:11px}
+  .b-card{padding:1.1rem}
 }
 
 /* ======= SCROLLSPY ======= */
@@ -384,7 +414,7 @@ footer .rev{color:var(--amber)}
     <div class="bp-head">
       <span>DWG NO. <b>S.O-2026-01</b></span>
       <span>SHEET 1 OF 5</span>
-      <span>CLASSIFICATION: <b>SENIOR ENGINEER</b></span>
+      <span>CLASSIFICATION: <b>FULL-STACK ENGINEER</b></span>
       <span>REV: <b>B</b></span>
     </div>
     <div class="bp-main">
@@ -469,7 +499,7 @@ footer .rev{color:var(--amber)}
             <div class="gh-kpi"><span class="gh-kpi-k">Total Commits (past year)</span><span class="gh-kpi-v" id="gh-commits">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Total PRs</span><span class="gh-kpi-v" id="gh-prs">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Repositories (pub / priv)</span><span class="gh-kpi-v" id="gh-repos">—</span></div>
-            <div class="gh-kpi"><span class="gh-kpi-k">PR Reviews (past year)</span><span class="gh-kpi-v" id="gh-reviews">—</span></div>
+            <div class="gh-kpi"><span class="gh-kpi-k">Total Issues</span><span class="gh-kpi-v" id="gh-issues">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Active days (past year)</span><span class="gh-kpi-v" id="gh-active-days">—</span></div>
           </div>
         </div>
@@ -673,17 +703,52 @@ function renderSparkline(id, weekly){
     host.parentElement && (host.parentElement.hidden = true);
     return;
   }
+  const wrap = host.parentElement;
   const max = weekly.reduce((m, w) => Math.max(m, w.count || 0), 0) || 1;
   if(maxEl) maxEl.textContent = max;
+
+  const fmtRange = (iso) => {
+    if(!iso) return '';
+    const start = new Date(iso + 'T00:00:00Z');
+    const end = new Date(start);
+    end.setUTCDate(end.getUTCDate() + 6);
+    const opts = { day:'numeric', month:'short', timeZone:'UTC' };
+    return start.toLocaleDateString('en-GB', opts) + ' – ' + end.toLocaleDateString('en-GB', opts);
+  };
+
+  let tip = wrap.querySelector('.gh-sparkline-tip');
+  if(!tip){
+    tip = document.createElement('div');
+    tip.className = 'gh-sparkline-tip';
+    wrap.appendChild(tip);
+  }
+
   weekly.forEach(w => {
     const bar = document.createElement('div');
     bar.className = 'gh-sparkline-bar';
-    const ratio = (w.count || 0) / max;
+    const count = w.count || 0;
+    const ratio = count / max;
     bar.style.height = Math.max(4, Math.round(ratio * 100)) + '%';
     bar.style.opacity = (0.18 + 0.82 * ratio).toFixed(2);
-    bar.title = (w.week_start || '') + ' · ' + (w.count || 0) + ' contributions';
+    bar.dataset.count = count;
+    bar.dataset.week = w.week_start || '';
     host.appendChild(bar);
   });
+
+  const nf = new Intl.NumberFormat('en-GB');
+  host.addEventListener('mousemove', (e) => {
+    const bar = e.target.closest('.gh-sparkline-bar');
+    if(!bar){ tip.classList.remove('is-on'); return; }
+    const count = bar.dataset.count || '0';
+    tip.innerHTML = '<b>' + nf.format(count) + '</b> contribution' + (count === '1' ? '' : 's') +
+      '<div class="gh-sparkline-tip-date">' + fmtRange(bar.dataset.week) + '</div>';
+    const barRect = bar.getBoundingClientRect();
+    const wrapRect = wrap.getBoundingClientRect();
+    const x = barRect.left - wrapRect.left + barRect.width / 2;
+    tip.style.left = Math.max(40, Math.min(wrapRect.width - 40, x)) + 'px';
+    tip.classList.add('is-on');
+  });
+  host.addEventListener('mouseleave', () => tip.classList.remove('is-on'));
 }
 
 // ======= FOOTER YEAR =======
@@ -905,7 +970,7 @@ function renderContact(contact){
     const pub = d.public_repos ?? 0;
     const priv = d.private_repos ?? 0;
     document.getElementById('gh-repos').textContent     = nf.format(pub) + ' / ' + nf.format(priv);
-    document.getElementById('gh-reviews').textContent   = nf.format(t.reviews ?? 0);
+    document.getElementById('gh-issues').textContent    = nf.format(t.issues ?? 0);
     const active = d.active_days_past_year;
     document.getElementById('gh-active-days').textContent = (active != null) ? (nf.format(active) + ' / 365') : '—';
 
