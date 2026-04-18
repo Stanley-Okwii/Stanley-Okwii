@@ -42,9 +42,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="preload" href="./data/cv.json" as="fetch" crossorigin="anonymous">
-<link rel="preload" href="./data/wakatime.json" as="fetch" crossorigin="anonymous">
-<link rel="preload" href="./data/github.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="./data/cv.json" as="fetch">
+<link rel="preload" href="./data/wakatime.json" as="fetch">
+<link rel="preload" href="./data/github.json" as="fetch">
 
 <script type="application/ld+json">
 {
@@ -434,7 +434,7 @@ footer .rev{color:var(--amber)}
           <div class="spec-row"><span class="spec-k">EXPERIENCE</span><span class="spec-v accent">6+ years prod</span></div>
           <div class="spec-row"><span class="spec-k">ROLES OPEN TO</span><span class="spec-v accent">Full-Stack Engineer</span></div>
           <div class="spec-row"><span class="spec-k">BACKEND</span><span class="spec-v">Python · Django · FastAPI</span></div>
-          <div class="spec-row"><span class="spec-k">FRONTEND</span><span class="spec-v">Typescript . React · Next.js</span></div>
+          <div class="spec-row"><span class="spec-k">FRONTEND</span><span class="spec-v">TypeScript · React · Next.js</span></div>
           <div class="spec-row"><span class="spec-k">CLOUD</span><span class="spec-v">AWS · GCP · Supabase</span></div>
           <div class="spec-row"><span class="spec-k">AI WORKFLOW</span><span class="spec-v amber">Claude · RAG · parallel agents</span></div>
           <div class="spec-row"><span class="spec-k">PROJECTS</span><span class="spec-v" id="spec-projects">—</span></div>
@@ -567,7 +567,7 @@ footer .rev{color:var(--amber)}
   <div class="s-inner">
     <div class="sec-tag">Section 06 / Get in Touch</div>
     <h2 class="sec-title">Contact</h2>
-    <p class="sec-intro">Open to Senior and Staff-level engineering roles at product-led companies. Based in London — open to hybrid or remote on UK-aligned hours.</p>
+    <p class="sec-intro">Open to full-stack engineering roles at product-led companies. Based in London — open to hybrid or remote on UK-aligned hours.</p>
     <div id="contact-grid">
       <div class="cv-skel">loading contact…</div>
     </div>
@@ -638,6 +638,12 @@ try {
 // ======= UTIL =======
 const nf = new Intl.NumberFormat('en-GB');
 
+async function fetchJson(path){
+  const r = await fetch(path, { cache:'no-cache' });
+  if(!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}
+
 function relTime(iso){
   if(!iso) return '—';
   const then = new Date(iso);
@@ -678,16 +684,15 @@ function renderBars(id, items){
 
 function animateCounter(el, target, duration){
   if(!el) return;
-  const fmt = new Intl.NumberFormat('en-GB');
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce || !target){ el.textContent = fmt.format(target || 0); return; }
+  if(reduce || !target){ el.textContent = nf.format(target || 0); return; }
   const start = performance.now();
   function frame(now){
     const p = Math.min(1, (now - start) / duration);
     const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = fmt.format(Math.floor(eased * target));
+    el.textContent = nf.format(Math.floor(eased * target));
     if(p < 1) requestAnimationFrame(frame);
-    else el.textContent = fmt.format(target);
+    else el.textContent = nf.format(target);
   }
   requestAnimationFrame(frame);
 }
@@ -733,7 +738,6 @@ function renderSparkline(id, weekly){
     host.appendChild(bar);
   });
 
-  const nf = new Intl.NumberFormat('en-GB');
   host.addEventListener('mousemove', (e) => {
     const bar = e.target.closest('.gh-sparkline-bar');
     if(!bar){ tip.classList.remove('is-on'); return; }
@@ -761,9 +765,7 @@ function renderSparkline(id, weekly){
 // ======= CV HYDRATION =======
 (async function hydrateCv(){
   try {
-    const r = await fetch('./data/cv.json', { cache:'no-cache' });
-    if(!r.ok) throw new Error('http '+r.status);
-    const d = await r.json();
+    const d = await fetchJson('./data/cv.json');
 
     const heroSummary = document.getElementById('hero-summary');
     if(d.summary) heroSummary.innerHTML = d.summary;
@@ -922,9 +924,7 @@ function renderContact(contact){
   const grid = document.getElementById('stats-grid');
   const fallback = document.getElementById('stats-fallback');
   try {
-    const r = await fetch('./data/wakatime.json', { cache:'no-cache' });
-    if(!r.ok) throw new Error('http '+r.status);
-    const d = await r.json();
+    const d = await fetchJson('./data/wakatime.json');
     if(!d || !d.last_7_days || !d.all_time) throw new Error('empty');
 
     document.getElementById('kpi-lifetime').textContent = d.all_time.human_readable || '—';
@@ -946,9 +946,7 @@ function renderContact(contact){
   const wrap = document.getElementById('gh-cards');
   const fallback = document.getElementById('gh-fallback');
   try {
-    const r = await fetch('./data/github.json', { cache:'no-cache' });
-    if(!r.ok) throw new Error('http '+r.status);
-    const d = await r.json();
+    const d = await fetchJson('./data/github.json');
     if(!d || (!d.totals && typeof d.public_repos !== 'number')) throw new Error('empty');
 
     const t = d.totals || {};

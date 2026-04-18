@@ -1,14 +1,7 @@
 #!/usr/bin/env python3
-"""Fetch public GitHub stats via GraphQL and write JSON for docs/index.html.
-
-Rank/grade (S / A+ / A / A- / B+ / B / B- / C+ / C) is a Python port of the
-github-readme-stats scoring curve (MIT, Anurag Hazra): weighted contributions
-scored against an exponential CDF with median thresholds, then bucketed by
-percentile.
-"""
+"""Fetch public GitHub stats via GraphQL and write JSON for docs/index.html."""
 
 import json
-import math
 import os
 import sys
 import urllib.error
@@ -20,70 +13,26 @@ USER_LOGIN = os.environ.get("GITHUB_USER", "Stanley-Okwii")
 GRAPHQL_URL = "https://api.github.com/graphql"
 OUTPUT = Path(__file__).resolve().parents[2] / "docs" / "data" / "github.json"
 
-TOP_REPO_LIMIT = 3
 TOP_LANG_LIMIT = 6
-
-# github-readme-stats medians/weights.
-RANK_MEDIANS = {
-    "commits": 1000,
-    "prs": 50,
-    "issues": 25,
-    "reviews": 2,
-    "stars": 50,
-    "followers": 10,
-}
-RANK_WEIGHTS = {
-    "commits": 2,
-    "prs": 3,
-    "issues": 1,
-    "reviews": 1,
-    "stars": 4,
-    "followers": 1,
-}
-RANK_THRESHOLDS = [
-    ("S", 1),
-    ("A+", 12.5),
-    ("A", 25),
-    ("A-", 37.5),
-    ("B+", 50),
-    ("B", 62.5),
-    ("B-", 75),
-    ("C+", 87.5),
-    ("C", 100),
-]
 
 QUERY = """
 query($login: String!) {
   user(login: $login) {
     login
-    name
-    avatarUrl
     url
-    bio
     createdAt
-    followers { totalCount }
-    following { totalCount }
     publicRepos: repositories(ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) { totalCount }
     privateRepos: repositories(ownerAffiliations: OWNER, isFork: false, privacy: PRIVATE) { totalCount }
     pullRequests(states: [OPEN, MERGED, CLOSED]) { totalCount }
     issues(states: [OPEN, CLOSED]) { totalCount }
-    repositoriesContributedTo(
-      contributionTypes: [COMMIT, PULL_REQUEST, ISSUE, PULL_REQUEST_REVIEW],
-      first: 1
-    ) { totalCount }
     contributionsCollection {
       totalCommitContributions
-      totalPullRequestContributions
-      totalIssueContributions
-      totalPullRequestReviewContributions
       contributionYears
       contributionCalendar {
         totalContributions
         weeks {
           firstDay
-          contributionDays {
-            contributionCount
-          }
+          contributionDays { contributionCount }
         }
       }
     }
@@ -94,13 +43,8 @@ query($login: String!) {
       orderBy: {field: STARGAZERS, direction: DESC}
     ) {
       nodes {
-        name
-        description
-        url
         isPrivate
         stargazerCount
-        pushedAt
-        primaryLanguage { name color }
         languages(first: 20, orderBy: {field: SIZE, direction: DESC}) {
           edges {
             size
@@ -215,42 +159,8 @@ def aggregate_languages(repos: list) -> list:
     return items[:TOP_LANG_LIMIT]
 
 
-def top_repos(repos: list) -> list:
-    public = [r for r in repos if not r.get("isPrivate")]
-    result = []
-    for repo in public[:TOP_REPO_LIMIT]:
-        result.append({
-            "name": repo["name"],
-            "description": repo.get("description") or "",
-            "url": repo["url"],
-            "stargazer_count": repo.get("stargazerCount", 0),
-            "primary_language": (repo.get("primaryLanguage") or {}).get("name"),
-        })
-    return result
-
-
 def total_stars(repos: list) -> int:
     return sum(r.get("stargazerCount", 0) for r in repos if not r.get("isPrivate"))
-
-
-def compute_rank(totals: dict) -> dict:
-    def cdf(value: float, median: float) -> float:
-        if median <= 0:
-            return 0.0
-        return 1 - math.exp(-math.log(2) * value / median)
-
-    total_weight = sum(RANK_WEIGHTS.values())
-    score = sum(
-        cdf(totals[key], RANK_MEDIANS[key]) * weight
-        for key, weight in RANK_WEIGHTS.items()
-    ) / total_weight
-    percentile = round((1 - score) * 100, 1)
-    level = RANK_THRESHOLDS[-1][0]
-    for name, cutoff in RANK_THRESHOLDS:
-        if percentile <= cutoff:
-            level = name
-            break
-    return {"level": level, "percentile": percentile, "score": round(score, 4)}
 
 
 def main() -> int:
@@ -265,7 +175,7 @@ def main() -> int:
         print(f"GitHub API error: {exc}", file=sys.stderr)
         return 1
 
-    repos = user["repositories"]["nodes"]
+    repos = (user.get("repositories") or {}).get("nodes") or []
     contrib = user.get("contributionsCollection") or {}
     calendar = contrib.get("contributionCalendar") or {}
     years = contrib.get("contributionYears") or []
@@ -277,58 +187,31 @@ def main() -> int:
         all_time = calendar.get("totalContributions", 0) or 0
 
     stars = total_stars(repos)
-
-    totals = {
-        "commits": contrib.get("totalCommitContributions", 0),
-        "prs": (user.get("pullRequests") or {}).get("totalCount", 0),
-        "prs_year": contrib.get("totalPullRequestContributions", 0),
-        "issues": (user.get("issues") or {}).get("totalCount", 0),
-        "issues_year": contrib.get("totalIssueContributions", 0),
-        "reviews": contrib.get("totalPullRequestReviewContributions", 0),
-        "stars": stars,
-        "contributed_to": (user.get("repositoriesContributedTo") or {}).get("totalCount", 0),
-        "followers": user["followers"]["totalCount"],
-    }
-
-    # Score against the commits median using rank-input keys only.
-    rank_totals = {
-        "commits": totals["commits"],
-        "prs": totals["prs"],
-        "issues": totals["issues"],
-        "reviews": totals["reviews"],
-        "stars": totals["stars"],
-        "followers": totals["followers"],
-    }
-    rank = compute_rank(rank_totals)
+    commits = contrib.get("totalCommitContributions", 0)
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "login": user["login"],
-        "name": user.get("name"),
         "url": user["url"],
-        "avatar_url": user.get("avatarUrl"),
-        "bio": user.get("bio"),
         "created_at": user.get("createdAt") or "",
-        "followers": user["followers"]["totalCount"],
-        "following": user["following"]["totalCount"],
-        "public_repos": user["publicRepos"]["totalCount"],
-        "private_repos": user.get("privateRepos", {}).get("totalCount", 0),
+        "public_repos": (user.get("publicRepos") or {}).get("totalCount", 0),
+        "private_repos": (user.get("privateRepos") or {}).get("totalCount", 0),
         "total_stars": stars,
         "contributions_past_year": {
-            "commits": contrib.get("totalCommitContributions", 0),
-            "pull_requests": contrib.get("totalPullRequestContributions", 0),
-            "issues": contrib.get("totalIssueContributions", 0),
-            "reviews": contrib.get("totalPullRequestReviewContributions", 0),
+            "commits": commits,
             "total": calendar.get("totalContributions", 0) or 0,
         },
         "contributions_all_time": all_time,
         "contributions_weekly": weekly_contributions(calendar),
         "active_days_past_year": active_days(calendar),
         "longest_streak_past_year": longest_streak(calendar),
-        "totals": totals,
-        "rank": rank,
+        "totals": {
+            "commits": commits,
+            "prs": (user.get("pullRequests") or {}).get("totalCount", 0),
+            "issues": (user.get("issues") or {}).get("totalCount", 0),
+            "stars": stars,
+        },
         "top_languages": aggregate_languages(repos),
-        "top_repos": top_repos(repos),
     }
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

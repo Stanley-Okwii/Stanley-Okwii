@@ -1,7 +1,7 @@
 [project]
 name = "stanley-okwii"
 version = "0.1.0"
-description = "Add your description here"
+description = "Scripts that render the CV and fetch stats for stanleeokwii.info"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [

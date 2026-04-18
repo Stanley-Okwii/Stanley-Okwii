@@ -18,16 +18,21 @@ MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 MD_LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+SAFE_SCHEMES = ("http:", "https:", "mailto:", "tel:")
 
 
 def md_to_html(text):
     if text is None:
         return ""
     escaped = html.escape(str(text), quote=False)
-    return MD_LINK.sub(
-        lambda m: f'<a href="{html.escape(m.group(2), quote=True)}" rel="noopener">{html.escape(m.group(1), quote=False)}</a>',
-        escaped,
-    )
+
+    def replace(m):
+        url = m.group(2)
+        if not any(url.lower().lstrip().startswith(s) for s in SAFE_SCHEMES):
+            url = "#"
+        return f'<a href="{html.escape(url, quote=True)}" rel="noopener">{html.escape(m.group(1), quote=False)}</a>'
+
+    return MD_LINK.sub(replace, escaped)
 
 
 def fmt_date(value):

@@ -34,17 +34,7 @@ jobs:
         run: uv run rendercv render src/templates/achievement.yaml
 
       - name: Copy CV PDF into docs/
-        run: |
-          src_pdf=""
-          for cand in src/cvs/Stanley_Okwii_CV.pdf src/resumes/Stanley_Okwii_CV.pdf; do
-            if [ -f "$cand" ]; then src_pdf="$cand"; break; fi
-          done
-          if [ -z "$src_pdf" ]; then
-            echo "Rendered CV PDF not found under src/cvs or src/resumes" >&2
-            exit 1
-          fi
-          cp "$src_pdf" docs/cv.pdf
-          echo "Copied $src_pdf → docs/cv.pdf"
+        run: cp src/resumes/Stanley_Okwii_CV.pdf docs/cv.pdf
 
       - name: Fetch WakaTime stats
         env:
@@ -60,10 +50,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data/cv.json docs/data/wakatime.json docs/data/github.json docs/cv.pdf
-          for cand in src/cvs/Stanley_Okwii_CV.pdf src/resumes/Stanley_Okwii_CV.pdf; do
-            if [ -f "$cand" ]; then git add "$cand"; fi
-          done
+          git add docs/data/cv.json docs/data/wakatime.json docs/data/github.json docs/cv.pdf src/resumes/Stanley_Okwii_CV.pdf
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
