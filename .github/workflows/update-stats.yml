@@ -1,4 +1,4 @@
-name: Update stats
+name: Pull and update statistics
 
 on:
   workflow_dispatch:
