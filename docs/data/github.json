@@ -1,29 +1,17 @@
 {
-  "generated_at": "2026-04-18T22:30:39Z",
+  "generated_at": "2026-04-18T23:37:36Z",
   "login": "Stanley-Okwii",
-  "name": "StanleeO",
   "url": "https://github.com/Stanley-Okwii",
-  "avatar_url": "https://avatars.githubusercontent.com/u/29123354?u=9f9ab5337f5a5fb82475d0fc53b31b66921a039b&v=4",
-  "bio": "Fullstack Software Engineer",
   "created_at": "2017-06-01T13:21:14Z",
-  "followers": 16,
-  "following": 8,
   "public_repos": 12,
   "private_repos": 13,
   "total_stars": 2,
   "contributions_past_year": {
-    "commits": 143,
-    "pull_requests": 0,
-    "issues": 0,
-    "reviews": 2,
-    "total": 645
+    "commits": 146,
+    "total": 648
   },
-  "contributions_all_time": 5723,
+  "contributions_all_time": 5726,
   "contributions_weekly": [
-    {
-      "week_start": "2025-04-13",
-      "count": 14
-    },
     {
       "week_start": "2025-04-20",
       "count": 4
@@ -230,26 +218,20 @@
     },
     {
       "week_start": "2026-04-12",
-      "count": 119
+      "count": 120
+    },
+    {
+      "week_start": "2026-04-19",
+      "count": 2
     }
   ],
-  "active_days_past_year": 140,
+  "active_days_past_year": 135,
   "longest_streak_past_year": 17,
   "totals": {
-    "commits": 143,
+    "commits": 146,
     "prs": 152,
-    "prs_year": 0,
     "issues": 24,
-    "issues_year": 0,
-    "reviews": 2,
-    "stars": 2,
-    "contributed_to": 9,
-    "followers": 16
-  },
-  "rank": {
-    "level": "B",
-    "percentile": 61.8,
-    "score": 0.3825
+    "stars": 2
   },
   "top_languages": [
     {
@@ -287,29 +269,6 @@
       "size": 10140,
       "color": "#663399",
       "percent": 2.81
-    }
-  ],
-  "top_repos": [
-    {
-      "name": "Stanley-Okwii",
-      "description": "Stanley Okwii",
-      "url": "https://github.com/Stanley-Okwii/Stanley-Okwii",
-      "stargazer_count": 1,
-      "primary_language": "Makefile"
-    },
-    {
-      "name": "metrics",
-      "description": "Timeline metrics visualization",
-      "url": "https://github.com/Stanley-Okwii/metrics",
-      "stargazer_count": 1,
-      "primary_language": "JavaScript"
-    },
-    {
-      "name": "mini-post",
-      "description": "",
-      "url": "https://github.com/Stanley-Okwii/mini-post",
-      "stargazer_count": 0,
-      "primary_language": "JavaScript"
     }
   ]
 }
