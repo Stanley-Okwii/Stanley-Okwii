@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T14:25:44Z",
+  "generated_at": "2026-04-18T21:14:17Z",
   "login": "Stanley-Okwii",
   "name": "StanleeO",
   "url": "https://github.com/Stanley-Okwii",
@@ -9,65 +9,66 @@
   "followers": 16,
   "following": 8,
   "public_repos": 12,
+  "private_repos": 13,
   "total_stars": 2,
   "contributions_past_year": {
-    "commits": 128,
+    "commits": 140,
     "pull_requests": 0,
     "issues": 0,
     "reviews": 2
   },
   "totals": {
-    "commits": 128,
-    "prs": 55,
+    "commits": 140,
+    "prs": 152,
     "prs_year": 0,
-    "issues": 2,
+    "issues": 24,
     "issues_year": 0,
     "reviews": 2,
     "stars": 2,
-    "contributed_to": 3,
+    "contributed_to": 9,
     "followers": 16
   },
   "rank": {
-    "level": "B-",
-    "percentile": 74.1,
-    "score": 0.2586
+    "level": "B",
+    "percentile": 61.8,
+    "score": 0.3821
   },
   "top_languages": [
     {
       "name": "JavaScript",
-      "size": 48451,
+      "size": 113905,
       "color": "#f1e05a",
-      "percent": 42.31
-    },
-    {
-      "name": "TypeScript",
-      "size": 44102,
-      "color": "#3178c6",
-      "percent": 38.51
+      "percent": 31.58
     },
     {
       "name": "Python",
-      "size": 18203,
+      "size": 103479,
       "color": "#3572A5",
-      "percent": 15.9
+      "percent": 28.69
+    },
+    {
+      "name": "TypeScript",
+      "size": 62440,
+      "color": "#3178c6",
+      "percent": 17.31
+    },
+    {
+      "name": "Jupyter Notebook",
+      "size": 52182,
+      "color": "#DA5B0B",
+      "percent": 14.47
     },
     {
       "name": "HTML",
-      "size": 2002,
+      "size": 16613,
       "color": "#e34c26",
-      "percent": 1.75
+      "percent": 4.61
     },
     {
       "name": "CSS",
-      "size": 718,
+      "size": 10140,
       "color": "#663399",
-      "percent": 0.63
-    },
-    {
-      "name": "Makefile",
-      "size": 496,
-      "color": "#427819",
-      "percent": 0.43
+      "percent": 2.81
     }
   ],
   "top_repos": [
