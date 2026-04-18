@@ -465,7 +465,7 @@ footer .rev{color:var(--amber)}
             <div class="gh-sparkline" id="gh-sparkline" role="img" aria-label="Contributions over the last 52 weeks"></div>
           </div>
           <div class="gh-kpis">
-            <div class="gh-kpi"><span class="gh-kpi-k">Total Stars Earned</span><span class="gh-kpi-v" id="gh-stars">—</span></div>
+            <div class="gh-kpi"><span class="gh-kpi-k">Longest streak (past year)</span><span class="gh-kpi-v" id="gh-streak">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Total Commits (past year)</span><span class="gh-kpi-v" id="gh-commits">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Total PRs</span><span class="gh-kpi-v" id="gh-prs">—</span></div>
             <div class="gh-kpi"><span class="gh-kpi-k">Repositories (pub / priv)</span><span class="gh-kpi-v" id="gh-repos">—</span></div>
@@ -898,7 +898,8 @@ function renderContact(contact){
 
     renderSparkline('gh-sparkline', d.contributions_weekly || []);
 
-    document.getElementById('gh-stars').textContent     = nf.format(t.stars ?? d.total_stars ?? 0);
+    const streak = d.longest_streak_past_year;
+    document.getElementById('gh-streak').textContent    = (streak != null) ? (nf.format(streak) + ' days') : '—';
     document.getElementById('gh-commits').textContent   = nf.format(t.commits ?? (d.contributions_past_year && d.contributions_past_year.commits) ?? 0);
     document.getElementById('gh-prs').textContent       = nf.format(t.prs ?? 0);
     const pub = d.public_repos ?? 0;

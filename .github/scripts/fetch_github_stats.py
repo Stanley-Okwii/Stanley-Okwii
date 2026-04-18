@@ -178,6 +178,19 @@ def active_days(calendar: dict) -> int:
     return count
 
 
+def longest_streak(calendar: dict) -> int:
+    best = current = 0
+    for week in (calendar.get("weeks") or []):
+        for day in (week.get("contributionDays") or []):
+            if (day.get("contributionCount") or 0) > 0:
+                current += 1
+                if current > best:
+                    best = current
+            else:
+                current = 0
+    return best
+
+
 def aggregate_languages(repos: list) -> list:
     sizes: dict = {}
     for repo in repos:
@@ -311,6 +324,7 @@ def main() -> int:
         "contributions_all_time": all_time,
         "contributions_weekly": weekly_contributions(calendar),
         "active_days_past_year": active_days(calendar),
+        "longest_streak_past_year": longest_streak(calendar),
         "totals": totals,
         "rank": rank,
         "top_languages": aggregate_languages(repos),
