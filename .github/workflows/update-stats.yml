@@ -53,7 +53,7 @@ jobs:
 
       - name: Fetch GitHub stats
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
         run: python .github/scripts/fetch_github_stats.py
 
       - name: Commit if changed

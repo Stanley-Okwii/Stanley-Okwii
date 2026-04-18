@@ -280,7 +280,7 @@ section{padding:5rem 2rem;position:relative}
 .rank-owner{font-size:13px;color:var(--ink-strong);font-weight:500;letter-spacing:.02em}
 .rank-pct{font-size:11px;color:var(--dim);letter-spacing:.05em}
 .rank-pct b{color:var(--highlight);font-weight:500}
-.gh-kpis{display:grid;grid-template-columns:repeat(2,1fr) 0;gap:0;font-family:'IBM Plex Mono',monospace}
+.gh-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:0;font-family:'IBM Plex Mono',monospace}
 .gh-kpi{display:flex;justify-content:space-between;padding:.55rem 0;font-size:12px;border-bottom:1px dashed var(--border);gap:1rem}
 .gh-kpi:nth-child(odd){padding-right:1rem;border-right:1px dashed var(--border)}
 .gh-kpi:nth-child(even){padding-left:1rem}
@@ -426,7 +426,7 @@ footer .rev{color:var(--amber)}
   <div class="s-inner">
     <div class="sec-tag">Section 01 / Live Instrumentation</div>
     <h2 class="sec-title">Activity <strong>[live.feeds]</strong></h2>
-    <p class="sec-intro">Auto-synced nightly — not hand-crafted numbers. WakaTime tracks my keystrokes by language and editor; the GitHub stats card below mirrors the classic <strong>github-readme-stats</strong> rank and breakdown, re-rendered in this site's theme.</p>
+    <p class="sec-intro">Auto-synced nightly — not hand-crafted numbers. WakaTime tracks my keystrokes by language and editor; the GitHub stats card below mirrors the classic <strong>github stats</strong> rank and breakdown, re-rendered here.</p>
 
     <div class="stats-block">
       <div class="sub-title"><span>WakaTime · last 7 days</span><b>[wakatime.live]</b></div>
@@ -479,7 +479,7 @@ footer .rev{color:var(--amber)}
         </div>
         <div class="gh-footer">
           <span>last updated <span id="gh-updated">—</span> · <a id="gh-profile-link" href="https://github.com/Stanley-Okwii" target="_blank" rel="noopener">github.com/<span id="gh-login">Stanley-Okwii</span></a></span>
-          <span>rank: port of github-readme-stats scoring curve</span>
+          <span>rank: Part of github stats scoring curve</span>
         </div>
       </div>
       <div class="stats-fallback" id="gh-fallback" hidden>GitHub stats are temporarily unavailable — check back after the next nightly sync.</div>
@@ -548,7 +548,7 @@ footer .rev{color:var(--amber)}
 
 <footer>
   <div>// <span>S.OKWII</span> · SENIOR FULL-STACK ENGINEER · LONDON</div>
-  <div><span class="rev">DWG-2026.01 · REV B</span> · <span id="footer-rev">Compiled April 2026</span></div>
+  <div><span class="rev">DWG-2026.01 · REV B</span> · <span id="footer-rev">Updated April 2026</span></div>
 </footer>
 
 <script>
@@ -753,7 +753,7 @@ function renderEntries(hostId, items){
     const titleWrap = document.createElement('div');
     const title = document.createElement('div');
     title.className = 'b-card-title';
-    title.textContent = item.title || '';
+    title.innerHTML = item.title || '';
     titleWrap.appendChild(title);
     if(item.org){
       const org = document.createElement('div');

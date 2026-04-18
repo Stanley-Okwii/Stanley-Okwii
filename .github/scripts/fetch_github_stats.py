@@ -64,6 +64,7 @@ query($login: String!) {
     followers { totalCount }
     following { totalCount }
     publicRepos: repositories(ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) { totalCount }
+    privateRepos: repositories(ownerAffiliations: OWNER, isFork: false, privacy: PRIVATE) { totalCount }
     pullRequests(states: [OPEN, MERGED, CLOSED]) { totalCount }
     issues(states: [OPEN, CLOSED]) { totalCount }
     repositoriesContributedTo(
@@ -80,13 +81,13 @@ query($login: String!) {
       first: 100,
       ownerAffiliations: OWNER,
       isFork: false,
-      privacy: PUBLIC,
       orderBy: {field: STARGAZERS, direction: DESC}
     ) {
       nodes {
         name
         description
         url
+        isPrivate
         stargazerCount
         pushedAt
         primaryLanguage { name color }
@@ -152,8 +153,9 @@ def aggregate_languages(repos: list) -> list:
 
 
 def top_repos(repos: list) -> list:
+    public = [r for r in repos if not r.get("isPrivate")]
     result = []
-    for repo in repos[:TOP_REPO_LIMIT]:
+    for repo in public[:TOP_REPO_LIMIT]:
         result.append({
             "name": repo["name"],
             "description": repo.get("description") or "",
@@ -165,7 +167,7 @@ def top_repos(repos: list) -> list:
 
 
 def total_stars(repos: list) -> int:
-    return sum(r.get("stargazerCount", 0) for r in repos)
+    return sum(r.get("stargazerCount", 0) for r in repos if not r.get("isPrivate"))
 
 
 def compute_rank(totals: dict) -> dict:
@@ -238,6 +240,7 @@ def main() -> int:
         "followers": user["followers"]["totalCount"],
         "following": user["following"]["totalCount"],
         "public_repos": user["publicRepos"]["totalCount"],
+        "private_repos": user.get("privateRepos", {}).get("totalCount", 0),
         "total_stars": stars,
         "contributions_past_year": {
             "commits": contrib.get("totalCommitContributions", 0),
