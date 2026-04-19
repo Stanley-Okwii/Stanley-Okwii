@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="215" height="28" viewBox="0 0 215 28" role="img" aria-label="stanleeokwii.info">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E8E8E8"/>
+    </linearGradient>
+    <radialGradient id="compassFace" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#5DB8FF"/>
+      <stop offset="60%" stop-color="#1E7FD6"/>
+      <stop offset="100%" stop-color="#024A95"/>
+    </radialGradient>
+    <linearGradient id="compassRing" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F0F0F0"/>
+      <stop offset="1" stop-color="#A0A0A0"/>
+    </linearGradient>
+    <linearGradient id="needleRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF7373"/>
+      <stop offset="1" stop-color="#C92A2A"/>
+    </linearGradient>
+    <linearGradient id="needleWhite" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#BDBDBD"/>
+    </linearGradient>
+    <linearGradient id="sparkle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE066"/>
+      <stop offset="1" stop-color="#E8930C"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF8787"/>
+      <stop offset="1" stop-color="#C92A2A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background: subtle vertical gradient + thin border -->
+  <rect x="0.5" y="0.5" width="214" height="27" rx="4" fill="url(#bg)" stroke="#CFCFCF" stroke-width="0.5"/>
+
+  <!-- Safari compass -->
+  <g transform="translate(6,4)">
+    <!-- Outer silver ring -->
+    <circle cx="10" cy="10" r="9.5" fill="url(#compassRing)"/>
+    <!-- Blue compass face -->
+    <circle cx="10" cy="10" r="8" fill="url(#compassFace)"/>
+    <!-- Glossy inner highlight -->
+    <path d="M 3,9 A 7,6 0 0 1 17,9" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-opacity="0.45"/>
+    <!-- Tick marks (N/E/S/W) -->
+    <g stroke="#FFFFFF" stroke-width="0.6" stroke-opacity="0.8" stroke-linecap="round">
+      <line x1="10" y1="3"    x2="10" y2="4.3"/>
+      <line x1="10" y1="15.7" x2="10" y2="17"/>
+      <line x1="3"  y1="10"   x2="4.3" y2="10"/>
+      <line x1="15.7" y1="10" x2="17" y2="10"/>
+    </g>
+    <!-- Needle: red points NW, white points SE -->
+    <g transform="translate(10,10) rotate(-45)">
+      <polygon points="0,-7 1.4,0 -1.4,0" fill="url(#needleRed)"/>
+      <polygon points="0,7  1.4,0 -1.4,0" fill="url(#needleWhite)"/>
+    </g>
+    <!-- Center pin -->
+    <circle cx="10" cy="10" r="1.1" fill="#2A2A2A"/>
+    <circle cx="10" cy="10" r="0.45" fill="#888"/>
+  </g>
+
+  <!-- Sparkle ✦ -->
+  <text x="32" y="20" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="13" font-weight="700" fill="url(#sparkle)">✦</text>
+
+  <!-- Domain text -->
+  <text x="48" y="19" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" font-weight="700" fill="#1F1F1F" letter-spacing="0.3">STANLEEOKWII.INFO</text>
+
+  <!-- Arrow ↗ -->
+  <text x="192" y="20" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="14" font-weight="900" fill="url(#arrow)">↗</text>
+</svg>
