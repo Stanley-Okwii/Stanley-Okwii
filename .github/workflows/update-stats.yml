@@ -34,7 +34,7 @@ jobs:
         run: uv run rendercv render src/templates/achievement.yaml
 
       - name: Copy CV PDF into docs/
-        run: cp src/resumes/Stanley_Okwii_CV.pdf docs/cv.pdf
+        run: cp src/resumes/Stanley_Okwii_CV.pdf docs/assets/cv.pdf
 
       - name: Fetch WakaTime stats
         env:
@@ -50,10 +50,10 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data/cv.json docs/data/wakatime.json docs/data/github.json docs/cv.pdf src/resumes/Stanley_Okwii_CV.pdf
+          git add docs/data/cv.json docs/data/wakatime.json docs/data/github.json docs/assets/cv.pdf src/resumes/Stanley_Okwii_CV.pdf
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore(updates): sync CV + stats"
+            git commit -m "chore(updates): sync resume + github & wakatime stats"
             git push
           fi
