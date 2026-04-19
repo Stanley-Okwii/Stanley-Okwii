@@ -23,8 +23,7 @@
 
 <!-- ========================= CURRENTLY ========================= -->
 
-> [!TIP]
-> ### Right now
+> ### 💡 Right now
 > **Founding Engineer** at **Access to Energy** *(stealth)* — an AI research assistant helping researchers, NGOs, and energy professionals find evidence-based answers from a curated library of energy-sector reports.<br/>
 > **Stack** — Python · FastAPI · AWS (ECS, Bedrock) · pgvector · Claude · Gemini<br/>
 > **Open to chat** about RAG, multi-tenant infra, or turning AI prototypes into production systems.<br/>
