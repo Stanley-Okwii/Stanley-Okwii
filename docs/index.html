@@ -392,7 +392,7 @@ footer .rev{color:var(--amber)}
 <body>
 
 <nav aria-label="Primary">
-  <div class="nav-l">S.OKWII<span class="nav-l-extra"> / DWG-2026.01 / SENIOR</span></div>
+  <div class="nav-l">S.OKWII<span class="nav-l-extra"> / DWG-2026.01 </span></div>
   <div class="nav-r">
     <div class="nav-links">
       <a href="#stats">Stats</a>
@@ -421,10 +421,10 @@ footer .rev{color:var(--amber)}
         <h1 class="bp-name">Stanley<br><strong>Okwii</strong></h1>
         <div class="bp-sub">// Senior Full-Stack Engineer — Python · TypeScript · AWS · GCP</div>
         <p class="bp-pitch" id="hero-summary">London-based senior full-stack engineer — 6+ years shipping production web and mobile systems across Python, TypeScript, AWS, and GCP.</p>
-        <div class="bp-availability">STATUS: AVAILABLE · LONDON · SENIOR / FULL-STACK</div>
+        <div class="bp-availability">STATUS: AVAILABLE</div>
         <div class="bp-cta">
           <a href="mailto:stanlee.okwii@gmail.com" class="bp-btn bp-btn-primary">Get in touch →</a>
-          <a href="assets/cv.pdf" class="bp-btn bp-btn-ghost" download>Download Resume</a>
+          <a href="assets/cv.pdf" class="bp-btn bp-btn-ghost" target="_blank" rel="noopener">View Resume</a>
         </div>
       </div>
       <div class="bp-specs">
@@ -436,9 +436,8 @@ footer .rev{color:var(--amber)}
           <div class="spec-row"><span class="spec-k">BACKEND</span><span class="spec-v">Python · Django · FastAPI</span></div>
           <div class="spec-row"><span class="spec-k">FRONTEND</span><span class="spec-v">TypeScript · React · Next.js</span></div>
           <div class="spec-row"><span class="spec-k">CLOUD</span><span class="spec-v">AWS · GCP · Supabase</span></div>
-          <div class="spec-row"><span class="spec-k">AI WORKFLOW</span><span class="spec-v amber">Claude · RAG · parallel agents</span></div>
+          <div class="spec-row"><span class="spec-k">AI WORKFLOW</span><span class="spec-v amber">Claude · Co-pilot . Cursor</span></div>
           <div class="spec-row"><span class="spec-k">PROJECTS</span><span class="spec-v" id="spec-projects">—</span></div>
-          <div class="spec-row"><span class="spec-k">GITHUB STARS</span><span class="spec-v hl" id="spec-stars">—</span></div>
           <div class="spec-row"><span class="spec-k">EDUCATION</span><span class="spec-v">MSc Birkbeck (Merit)</span></div>
         </div>
       </div>
@@ -987,9 +986,6 @@ function renderContact(contact){
     document.getElementById('gh-login').textContent = login;
     document.getElementById('gh-login-head').textContent = login;
     document.getElementById('gh-profile-link').href = d.url || ('https://github.com/' + login);
-
-    const starsSpec = document.getElementById('spec-stars');
-    if(starsSpec) starsSpec.textContent = nf.format(t.stars ?? d.total_stars ?? 0);
 
     wrap.hidden = false;
   } catch (e) {
