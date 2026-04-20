@@ -10,7 +10,7 @@
 <br/><br/>
 
 <a href="https://www.linkedin.com/in/stanley-okwii/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-<a href="mailto:stanlee.okwii@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+<a href="mailto:stanlee.okwii@icloud.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 <a href="https://stanleeokwii.info"><img alt="Personal Website" src="./docs/assets/website-badge.svg"/></a>
 <a href="https://calendar.app.google/coaieBdcAmwuMhLt5"><img alt="Book a call" src="https://img.shields.io/badge/Book%20a%20call-4285F4?style=for-the-badge&logo=googlecalendar&logoColor=white"/></a>
 
