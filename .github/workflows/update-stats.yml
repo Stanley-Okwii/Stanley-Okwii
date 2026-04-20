@@ -6,11 +6,17 @@ on:
     paths:
       - 'src/templates/achievement.yaml'
       - '.github/scripts/build_cv_json.py'
+      - '.github/scripts/fetch_wakatime.py'
+      - '.github/scripts/fetch_github_stats.py'
   schedule:
-    - cron: '0 23 * * 1-5'
+    - cron: '0 23 * * 0-6'
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-stats
+  cancel-in-progress: false
 
 jobs:
   fetch-and-commit:
@@ -39,12 +45,12 @@ jobs:
       - name: Fetch WakaTime stats
         env:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-        run: python .github/scripts/fetch_wakatime.py
+        run: uv run python .github/scripts/fetch_wakatime.py
 
       - name: Fetch GitHub stats
         env:
           GITHUB_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
-        run: python .github/scripts/fetch_github_stats.py
+        run: uv run python .github/scripts/fetch_github_stats.py
 
       - name: Commit if changed
         run: |
