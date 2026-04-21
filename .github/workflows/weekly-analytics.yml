@@ -41,6 +41,7 @@ jobs:
           title: "Weekly analytics — week ending ${{ steps.report.outputs.week_ending }} (${{ steps.report.outputs.pageviews }} pageviews, ${{ steps.report.outputs.visits }} visits)"
           content-filepath: report.md
           labels: analytics
+          assignees: Stanley-Okwii
 
       - name: Upload report as workflow artifact
         if: always()
