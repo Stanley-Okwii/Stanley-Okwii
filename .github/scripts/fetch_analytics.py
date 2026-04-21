@@ -246,61 +246,21 @@ def md_table_simple(rows: list[dict], label: str, key: str, name_fn=None) -> str
     return header + "\n".join(lines) + "\n"
 
 
-def mermaid_xychart(rows: list[dict]) -> str:
+def md_table_day(rows: list[dict]) -> str:
     if not rows:
-        return ""
-    labels = []
-    values = []
-    max_val = 0
-    for r in rows:
-        labels.append(fmt_day(r["dimensions"]["date"]))
-        count = r["count"]
-        values.append(str(count))
-        if count > max_val:
-            max_val = count
-    x_axis = ", ".join(f'"{l}"' for l in labels)
-    return (
-        "```mermaid\n"
-        "xychart-beta\n"
-        '    title "Daily pageviews"\n'
-        f"    x-axis [{x_axis}]\n"
-        f'    y-axis "Pageviews" 0 --> {max_val + 5}\n'
-        f"    bar [{', '.join(values)}]\n"
-        "```"
-    )
-
-
-def mermaid_pie(rows: list[dict], title: str, key: str, name_fn=None, top: int = 6) -> str:
-    if not rows:
-        return ""
-    slices = []
-    other = 0
-    for i, r in enumerate(rows):
-        name = extract_name(r, key, name_fn)
-        if i < top:
-            slices.append(f'    "{name}" : {r["count"]}')
-        else:
-            other += r["count"]
-    if other:
-        slices.append(f'    "Other" : {other}')
-    entries = "\n".join(slices)
-    return (
-        "```mermaid\n"
-        "pie showData\n"
-        f'    title "{title}"\n'
-        f"{entries}\n"
-        "```"
-    )
+        return "_No data_\n"
+    max_pv = max(r["count"] for r in rows) or 1
+    header = "| Date | | Pageviews |\n| --- | --- | ---: |\n"
+    lines = [
+        f"| {fmt_day(r['dimensions']['date'])} | `{bar(r['count'], max_pv)}` | {r['count']:,} |"
+        for r in rows
+    ]
+    return header + "\n".join(lines) + "\n"
 
 
 # ---------------------------------------------------------------------------
 # Build markdown report
 # ---------------------------------------------------------------------------
-
-daily_chart = mermaid_xychart(acct["byDay"])
-country_chart = mermaid_pie(acct["topCountries"], "Visitors by country", "countryName", country_name)
-device_chart = mermaid_pie(acct["byDevice"], "Visitors by device", "deviceType", str.title)
-browser_chart = mermaid_pie(acct["byBrowser"], "Visitors by browser", "userAgentBrowser", clean_browser)
 
 md = f"""# Weekly analytics — {day(start)} → {day(now)}
 
@@ -319,13 +279,11 @@ md = f"""# Weekly analytics — {day(start)} → {day(now)}
 
 ## Pageviews by day
 
-{daily_chart}
+{md_table_day(acct['byDay'])}
 
 ---
 
 ## Top countries
-
-{country_chart}
 
 {md_table_with_bar(acct['topCountries'], 'Country', 'countryName', country_name)}
 
@@ -333,15 +291,11 @@ md = f"""# Weekly analytics — {day(start)} → {day(now)}
 
 ## Devices
 
-{device_chart}
-
 {md_table_with_bar(acct['byDevice'], 'Device', 'deviceType', str.title)}
 
 ---
 
 ## Browsers
-
-{browser_chart}
 
 {md_table_with_bar(acct['byBrowser'], 'Browser', 'userAgentBrowser', clean_browser)}
 
