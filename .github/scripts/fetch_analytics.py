@@ -201,7 +201,24 @@ def classify_section(selector: str) -> str:
     return "Other"
 
 
-def discover_vitals_element_fields() -> list[str]:
+def _log(msg: str) -> None:
+    print(f"[vitals] {msg}", file=sys.stderr)
+
+
+_VITALS_KEYWORDS = ("element", "selector", "target")
+_VITALS_FALLBACK_CANDIDATES = [
+    "largestContentfulPaintElement",
+    "cumulativeLayoutShiftElement",
+    "interactionNextPaintElement",
+    "cumulativeLayoutShiftTargetElement",
+    "interactionNextPaintTargetElement",
+    "element",
+    "targetElement",
+    "selector",
+]
+
+
+def _introspect_dimension_fields() -> list[str]:
     for type_name in (
         "RumWebVitalsEventsAdaptiveGroupsDimensions",
         "RumWebVitalsEventsAdaptiveDimensions",
@@ -213,10 +230,54 @@ def discover_vitals_element_fields() -> list[str]:
         )
         t = ((res.get("data") or {}).get("__type")) or {}
         fields = [f["name"] for f in (t.get("fields") or [])]
-        element_fields = [f for f in fields if "element" in f.lower()]
-        if element_fields:
-            return element_fields
+        if fields:
+            _log(f"introspection {type_name}: {len(fields)} dimensions")
+            return fields
+    _log("introspection returned no dimension fields (schema may disallow it)")
     return []
+
+
+def _probe_field(fname: str) -> bool:
+    probe = (
+        "query Probe($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) {"
+        " viewer { accounts(filter: { accountTag: $accountTag }) {"
+        f" rumWebVitalsEventsAdaptiveGroups("
+        f"   filter: {{ siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end }} limit: 1"
+        f" ) {{ count dimensions {{ {fname} }} }}"
+        " } } }"
+    )
+    res = graphql(
+        probe,
+        {
+            "accountTag": CF_ACCOUNT_TAG,
+            "siteTag": CF_SITE_TAG,
+            "start": iso(start),
+            "end": iso(now),
+        },
+        raise_on_errors=False,
+    )
+    return not res.get("errors")
+
+
+def discover_vitals_element_fields() -> list[str]:
+    override = os.environ.get("CF_VITALS_ELEMENT_FIELDS", "").strip()
+    if override:
+        fields = [f.strip() for f in override.split(",") if f.strip()]
+        _log(f"override fields: {fields}")
+        return fields
+
+    all_dims = _introspect_dimension_fields()
+    if all_dims:
+        matches = [f for f in all_dims if any(k in f.lower() for k in _VITALS_KEYWORDS)]
+        if matches:
+            _log(f"keyword matches: {matches}")
+            return matches
+        _log(f"no keyword matches; available dims: {', '.join(all_dims[:30])}")
+
+    _log("falling back to candidate probes")
+    valid = [c for c in _VITALS_FALLBACK_CANDIDATES if _probe_field(c)]
+    _log(f"probed candidates → valid: {valid}")
+    return valid
 
 
 vitals_fields = discover_vitals_element_fields()
@@ -247,17 +308,22 @@ if vitals_fields:
         },
         raise_on_errors=False,
     )
+    if v_body.get("errors"):
+        _log(f"vitals query errors: {json.dumps(v_body['errors'])[:500]}")
     v_accounts = (((v_body.get("data") or {}).get("viewer") or {}).get("accounts")) or []
     if v_accounts:
         v_acct = v_accounts[0]
         for i, fname in enumerate(vitals_fields):
-            for row in v_acct.get(f"v{i}") or []:
+            rows = v_acct.get(f"v{i}") or []
+            _log(f"v{i} ({fname}): {len(rows)} rows")
+            for row in rows:
                 selector = (row.get("dimensions") or {}).get(fname) or ""
                 section = classify_section(selector)
                 section_counts[section] = section_counts.get(section, 0) + row["count"]
 
 sections_ranked = sorted(section_counts.items(), key=lambda kv: kv[1], reverse=True)
 sections_total = sum(section_counts.values())
+_log(f"section totals: {dict(sections_ranked)} (sum={sections_total})")
 
 # ---------------------------------------------------------------------------
 # All-time history (persisted weekly snapshots)
@@ -375,9 +441,11 @@ def md_alltime_sparkline(weeks: list[dict]) -> str:
     return header + "\n".join(lines) + "\n"
 
 
-def md_sections(ranked: list[tuple[str, int]], total: int) -> str:
+def md_sections(ranked: list[tuple[str, int]], total: int, fields: list[str]) -> str:
+    if not fields:
+        return "_Could not discover Core Web Vitals element dimensions in Cloudflare's schema. Set `CF_VITALS_ELEMENT_FIELDS` to override._\n"
     if not ranked or not total:
-        return "_No Core Web Vitals data for this window._\n"
+        return f"_No Core Web Vitals element events for this window (queried: {', '.join(fields)})._\n"
     header = "| Section | | Events | Share |\n| --- | --- | ---: | ---: |\n"
     lines = [
         f"| {name} | `{bar(count, total)}` | {count:,} | {pct(count, total)} |"
@@ -471,7 +539,7 @@ md = f"""# Weekly analytics — {day(start)} → {day(now)}
 
 <sub>Counts are Core Web Vitals events (LCP / CLS / INP) rolled up to each page section — a proxy for where users actually see and interact with content, not dwell seconds.</sub>
 
-{md_sections(sections_ranked, sections_total)}
+{md_sections(sections_ranked, sections_total, vitals_fields)}
 
 ---
 
@@ -564,9 +632,11 @@ def html_alltime_bars(weeks: list[dict]) -> str:
     return f'<div style="display:flex;align-items:flex-end;gap:6px;padding:16px 0;overflow-x:auto">{"".join(parts)}</div>'
 
 
-def html_sections(ranked: list[tuple[str, int]], total: int) -> str:
+def html_sections(ranked: list[tuple[str, int]], total: int, fields: list[str]) -> str:
+    if not fields:
+        return "<p><em>Could not discover Core Web Vitals element dimensions in Cloudflare's schema.</em></p>"
     if not ranked or not total:
-        return "<p><em>No Core Web Vitals data for this window.</em></p>"
+        return f"<p><em>No Core Web Vitals element events for this window (queried: {escape(', '.join(fields))}).</em></p>"
     header = (
         '<tr><th align="left">Section</th>'
         '<th align="left">Share</th>'
@@ -685,7 +755,7 @@ html = f"""<!doctype html>
   <div {section_style}>
     <h2 {h2_style}>Sections by attention</h2>
     <p style="color:#666;font-size:12px;margin:0 0 8px">Core Web Vitals events (LCP / CLS / INP) rolled up by page section — a proxy for attention, not dwell seconds.</p>
-    {html_sections(sections_ranked, sections_total)}
+    {html_sections(sections_ranked, sections_total, vitals_fields)}
   </div>
 
   <div {section_style}>
