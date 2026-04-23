@@ -139,8 +139,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:99;background:var(--bg);backdrop
 }
 :root[data-theme="dark"] .theme-toggle .icon::before{box-shadow:inset -4px -4px 0 0 var(--bg)}
 
-/* ======= HERO ======= */
-#hero{padding-top:56px;min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+/* ======= PROFILE ======= */
+#profile{padding-top:56px;min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .bp-frame{max-width:1200px;width:100%;margin:3rem 2rem;border:1px solid var(--border);padding:3rem;position:relative;background:var(--panel-bg);backdrop-filter:blur(2px)}
 .bp-frame::before,.bp-frame::after,.bp-c-tr,.bp-c-bl{content:'';position:absolute;width:24px;height:24px;border:1px solid var(--accent)}
 .bp-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
@@ -238,14 +238,14 @@ section{padding:5rem 2rem;position:relative}
 .cv-skel{border:1px dashed var(--border);padding:1.5rem;color:var(--dim);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;min-height:6rem}
 
 /* ======= LIVE STATS ======= */
-.stats-block + .stats-block{margin-top:2.5rem}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.stat-kpi{border:1px solid var(--border);padding:1.3rem;background:var(--terminal-bg);display:flex;flex-direction:column;gap:.4rem}
+.activity-block + .activity-block{margin-top:2.5rem}
+.activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.activity-kpi{border:1px solid var(--border);padding:1.3rem;background:var(--terminal-bg);display:flex;flex-direction:column;gap:.4rem}
 .kpi-k{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase}
 .kpi-v{font-size:1.6rem;color:var(--ink-strong);font-weight:500;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em}
-.stat-panel{border:1px solid var(--border);padding:1.3rem;background:var(--terminal-bg);display:flex;flex-direction:column;gap:1rem}
-.stat-langs{grid-column:1 / span 2}
-.stat-editors{grid-column:3 / span 1}
+.activity-panel{border:1px solid var(--border);padding:1.3rem;background:var(--terminal-bg);display:flex;flex-direction:column;gap:1rem}
+.activity-langs{grid-column:1 / span 2}
+.activity-editors{grid-column:3 / span 1}
 .sp-h{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:.2em;text-transform:uppercase;padding-bottom:.6rem;border-bottom:1px dashed var(--border)}
 .bar-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;font-family:'IBM Plex Mono',monospace;font-size:12px;margin:0;padding:0}
 .bar-row{display:grid;grid-template-columns:110px 1fr 72px;gap:.6rem;align-items:center}
@@ -253,8 +253,8 @@ section{padding:5rem 2rem;position:relative}
 .bar-track{height:6px;background:var(--border);position:relative;overflow:hidden}
 .bar-fill{position:absolute;inset:0 auto 0 0;background:var(--accent);width:var(--pct,0%);transition:width .6s ease}
 .bar-pct{color:var(--dim);text-align:right}
-.stat-footer{grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);padding-top:.8rem;border-top:1px dashed var(--border);letter-spacing:.05em}
-.stats-fallback{border:1px dashed var(--border);padding:1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);text-align:center}
+.activity-footer{grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);padding-top:.8rem;border-top:1px dashed var(--border);letter-spacing:.05em}
+.activity-fallback{border:1px dashed var(--border);padding:1.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);text-align:center}
 
 /* ======= GITHUB CARDS (blueprint-restyled readme-stats + top-langs) ======= */
 .gh-cards{display:grid;grid-template-columns:1.15fr 1fr;gap:1rem}
@@ -317,9 +317,9 @@ footer .rev{color:var(--amber)}
   .bp-frame{padding:1.5rem;margin:2rem 1rem}
   .s-inner{padding:1.5rem}
   section{padding:3rem 1rem}
-  #hero{padding-top:56px}
-  .stats-grid{grid-template-columns:1fr}
-  .stat-langs,.stat-editors{grid-column:auto}
+  #profile{padding-top:56px}
+  .activity-grid{grid-template-columns:1fr}
+  .activity-langs,.activity-editors{grid-column:auto}
   .bar-row{grid-template-columns:90px 1fr 56px}
   .gh-cards{grid-template-columns:1fr}
   .gh-kpis{grid-template-columns:repeat(2,1fr)}
@@ -374,13 +374,13 @@ footer .rev{color:var(--amber)}
     --grid-fine:transparent;--grid-coarse:transparent;
   }
   body{background:#fff!important;color:#000!important;background-image:none!important;font-size:10pt;line-height:1.4}
-  nav,#stats,.bp-cta,.bp-availability,.theme-toggle,footer .rev,.bp-c-tr,.bp-c-bl{display:none!important}
-  .bp-frame,.s-inner,.b-card,.gh-stats-card,.gh-lang-card,.stat-kpi,.stat-panel{
+  nav,#activity,.bp-cta,.bp-availability,.theme-toggle,footer .rev,.bp-c-tr,.bp-c-bl{display:none!important}
+  .bp-frame,.s-inner,.b-card,.gh-stats-card,.gh-lang-card,.activity-kpi,.activity-panel{
     border:1px solid #bbb!important;background:#fff!important;backdrop-filter:none!important;box-shadow:none!important;break-inside:avoid;page-break-inside:avoid;
   }
   .bp-frame::before,.bp-frame::after,.gh-stats-card::before,.gh-stats-card::after{display:none}
   section{padding:1rem 0!important;break-inside:avoid;page-break-inside:avoid}
-  #hero{min-height:auto;padding-top:0!important}
+  #profile{min-height:auto;padding-top:0!important}
   .bp-frame{margin:0!important;padding:1.5rem!important}
   .bp-name{font-size:2.2rem!important}
   a{color:#0a2540!important;text-decoration:none!important}
@@ -395,7 +395,7 @@ footer .rev{color:var(--amber)}
   <div class="nav-l">S.OKWII<span class="nav-l-extra"> / DWG-2026.01 </span></div>
   <div class="nav-r">
     <div class="nav-links">
-      <a href="#stats">Stats</a>
+      <a href="#activity">Activity</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -407,7 +407,7 @@ footer .rev{color:var(--amber)}
   </div>
 </nav>
 
-<section id="hero">
+<section id="profile">
   <div class="bp-frame">
     <span class="bp-c-tr"></span>
     <span class="bp-c-bl"></span>
@@ -417,10 +417,10 @@ footer .rev{color:var(--amber)}
     </div>
     <div class="bp-main">
       <div>
-        <div class="bp-label">Engineering Profile · <span id="hero-location">London</span></div>
+        <div class="bp-label">Engineering Profile · <span id="profile-location">London</span></div>
         <h1 class="bp-name">Stanley<br><strong>Okwii</strong></h1>
         <div class="bp-sub">// Senior Full-Stack Engineer — Python · TypeScript · AWS · GCP</div>
-        <p class="bp-pitch" id="hero-summary">London-based senior full-stack engineer — 6+ years shipping production web and mobile systems across Python, TypeScript, AWS, and GCP.</p>
+        <p class="bp-pitch" id="profile-summary">London-based senior full-stack engineer — 6+ years shipping production web and mobile systems across Python, TypeScript, AWS, and GCP.</p>
         <div class="bp-availability">STATUS: AVAILABLE</div>
         <div class="bp-cta">
           <a href="mailto:stanlee.okwii@icloud.com" class="bp-btn bp-btn-primary">Get in touch →</a>
@@ -446,34 +446,34 @@ footer .rev{color:var(--amber)}
 </section>
 
 <!-- ======= LIVE STATS: WakaTime + GitHub ======= -->
-<section id="stats">
+<section id="activity">
   <div class="s-inner">
     <div class="sec-tag">Section 01 / Activity</div>
     <h2 class="sec-title">Activity</h2>
     <p class="sec-intro">Auto-synced nightly — not hand-crafted numbers. WakaTime tracks my coding activity by language and editor; the GitHub stats card below mirrors the classic <strong>github stats</strong> rank and breakdown, re-rendered here.</p>
 
-    <div class="stats-block">
+    <div class="activity-block">
       <div class="sub-title"><span>WakaTime · last 7 days</span></div>
-      <div class="stats-grid" id="stats-grid" hidden>
-        <div class="stat-kpi"><span class="kpi-k">Lifetime</span><span class="kpi-v" id="kpi-lifetime">—</span></div>
-        <div class="stat-kpi"><span class="kpi-k">Last 7 days</span><span class="kpi-v" id="kpi-7d">—</span></div>
-        <div class="stat-kpi"><span class="kpi-k">Daily average</span><span class="kpi-v" id="kpi-avg">—</span></div>
+      <div class="activity-grid" id="activity-grid" hidden>
+        <div class="activity-kpi"><span class="kpi-k">Lifetime</span><span class="kpi-v" id="kpi-lifetime">—</span></div>
+        <div class="activity-kpi"><span class="kpi-k">Last 7 days</span><span class="kpi-v" id="kpi-7d">—</span></div>
+        <div class="activity-kpi"><span class="kpi-k">Daily average</span><span class="kpi-v" id="kpi-avg">—</span></div>
 
-        <div class="stat-panel stat-langs" role="region" aria-label="Languages over the last 7 days">
+        <div class="activity-panel activity-langs" role="region" aria-label="Languages over the last 7 days">
           <div class="sp-h">Languages · last 7 days</div>
           <ul id="lang-bars" class="bar-list"></ul>
         </div>
-        <div class="stat-panel stat-editors" role="region" aria-label="Editors over the last 7 days">
+        <div class="activity-panel activity-editors" role="region" aria-label="Editors over the last 7 days">
           <div class="sp-h">Editors · last 7 days</div>
           <ul id="editor-bars" class="bar-list"></ul>
         </div>
 
-        <div class="stat-footer">last updated <span id="stat-updated">—</span> · source: wakatime.com</div>
+        <div class="activity-footer">last updated <span id="activity-updated">—</span> · source: wakatime.com</div>
       </div>
-      <div class="stats-fallback" id="stats-fallback" hidden>Live stats are temporarily unavailable — check back after the next nightly sync.</div>
+      <div class="activity-fallback" id="activity-fallback" hidden>Live activity is temporarily unavailable — check back after the next nightly sync.</div>
     </div>
 
-    <div class="stats-block">
+    <div class="activity-block">
       <div class="sub-title"><span>GitHub · open-source output</span></div>
       <div class="gh-cards" id="gh-cards" hidden>
         <div class="gh-stats-card" role="region" aria-label="GitHub stats card">
@@ -509,7 +509,7 @@ footer .rev{color:var(--amber)}
           <span>nightly sync · public + private repos</span>
         </div>
       </div>
-      <div class="stats-fallback" id="gh-fallback" hidden>GitHub stats are temporarily unavailable — check back after the next nightly sync.</div>
+      <div class="activity-fallback" id="gh-fallback" hidden>GitHub stats are temporarily unavailable — check back after the next nightly sync.</div>
     </div>
   </div>
 </section>
@@ -766,13 +766,13 @@ function renderSparkline(id, weekly){
   try {
     const d = await fetchJson('./data/cv.json');
 
-    const heroSummary = document.getElementById('hero-summary');
-    if(d.summary) heroSummary.innerHTML = d.summary;
+    const profileSummary = document.getElementById('profile-summary');
+    if(d.summary) profileSummary.innerHTML = d.summary;
 
     const specLoc = document.getElementById('spec-location');
     if(specLoc && d.location) specLoc.textContent = d.location;
-    const heroLoc = document.getElementById('hero-location');
-    if(heroLoc && d.location) heroLoc.textContent = d.location.split(',')[0];
+    const profileLoc = document.getElementById('profile-location');
+    if(profileLoc && d.location) profileLoc.textContent = d.location.split(',')[0];
 
     const projectsCount = document.getElementById('spec-projects');
     if(projectsCount) projectsCount.textContent = (d.projects || []).length + ' featured';
@@ -920,8 +920,8 @@ function renderContact(contact){
 
 // ======= WAKATIME =======
 (async function loadWakatime(){
-  const grid = document.getElementById('stats-grid');
-  const fallback = document.getElementById('stats-fallback');
+  const grid = document.getElementById('activity-grid');
+  const fallback = document.getElementById('activity-fallback');
   try {
     const d = await fetchJson('./data/wakatime.json');
     if(!d || !d.last_7_days || !d.all_time) throw new Error('empty');
@@ -932,7 +932,7 @@ function renderContact(contact){
 
     renderBars('lang-bars',   (d.last_7_days.languages || []).slice(0,5));
     renderBars('editor-bars', (d.last_7_days.editors   || []).slice(0,3));
-    document.getElementById('stat-updated').textContent = relTime(d.generated_at);
+    document.getElementById('activity-updated').textContent = relTime(d.generated_at);
 
     grid.hidden = false;
   } catch (e) {

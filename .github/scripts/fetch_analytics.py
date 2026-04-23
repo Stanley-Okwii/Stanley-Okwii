@@ -185,7 +185,7 @@ best_day_pv = best_day_row["count"] if best_day_row else 0
 # Sections by Core Web Vitals element events
 # ---------------------------------------------------------------------------
 
-_SECTIONS = ["hero", "stats", "skills", "experience", "projects", "education", "contact"]
+_SECTIONS = ["profile", "activity", "skills", "experience", "projects", "education", "contact"]
 
 
 def classify_section(selector: str) -> str:

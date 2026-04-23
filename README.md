@@ -1,4 +1,4 @@
-<!-- ========================= HERO ========================= -->
+<!-- ======================= PROFILE ======================= -->
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a2540,50:1a6fb0,100:7fd3ff&height=200&section=header&text=Stanley%20Okwii&fontSize=58&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Senior%20Full-Stack%20Engineer%20%E2%80%A2%20London&descSize=18&descAlignY=62&descAlign=50" width="100%" alt="Stanley Okwii — Senior Full-Stack Engineer"/>
