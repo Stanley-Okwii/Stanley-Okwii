@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 · Page not found — Stanley Okwii</title>
+<meta name="description" content="404 — the page you were looking for has wandered off.">
+<meta name="robots" content="noindex">
+
+<script>
+  (function(){
+    try {
+      var saved = localStorage.getItem('theme');
+      var valid = (saved === 'dark' || saved === 'light');
+      var systemLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      document.documentElement.setAttribute('data-theme', valid ? saved : (systemLight ? 'light' : 'dark'));
+    } catch(e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%237fd3ff' stroke-width='3'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "60990e56273040928855da0d78e4bff0"}'></script><!-- End Cloudflare Web Analytics -->
+
+<style>
+:root[data-theme="dark"]{
+  --bg:#0a2540;--ink:#e4f0ff;--ink-strong:#ffffff;--dim:#6d92bc;--dimmer:#4a6a8a;
+  --accent:#7fd3ff;--amber:#ffc857;--danger:#ff8b8b;
+  --grid-fine:rgba(180,220,255,0.05);--grid-coarse:rgba(180,220,255,0.12);
+  --panel-bg:rgba(16,47,82,0.4);--border:rgba(180,220,255,0.12);--border-strong:rgba(127,211,255,0.4);
+  --terminal-bg:rgba(5,20,40,0.6);
+}
+:root[data-theme="light"]{
+  --bg:#f6f2e8;--ink:#1a3452;--ink-strong:#0a2540;--dim:#6a7a92;--dimmer:#a8b0c0;
+  --accent:#1a6fb0;--amber:#b87d00;--danger:#c04040;
+  --grid-fine:rgba(20,60,120,0.04);--grid-coarse:rgba(20,60,120,0.1);
+  --panel-bg:rgba(255,253,246,0.6);--border:rgba(20,60,120,0.15);--border-strong:rgba(26,111,176,0.5);
+  --terminal-bg:rgba(250,247,235,0.7);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.6;
+  background-image:
+    linear-gradient(var(--grid-fine) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-fine) 1px,transparent 1px),
+    linear-gradient(var(--grid-coarse) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-coarse) 1px,transparent 1px);
+  background-size:20px 20px,20px 20px,100px 100px,100px 100px;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;
+  transition:background-color .4s ease,color .4s ease;
+}
+::selection{background:var(--accent);color:var(--bg)}
+
+.frame{
+  max-width:720px;width:100%;border:1px solid var(--border);
+  padding:3rem;background:var(--panel-bg);backdrop-filter:blur(2px);position:relative;
+}
+.frame::before,.frame::after,.corner-tr,.corner-bl{
+  content:'';position:absolute;width:24px;height:24px;border:1px solid var(--accent);
+}
+.frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+.corner-tr{top:-1px;right:-1px;border-left:none;border-bottom:none}
+.corner-bl{bottom:-1px;left:-1px;border-right:none;border-top:none}
+
+.head{
+  display:flex;justify-content:space-between;padding-bottom:1.2rem;
+  border-bottom:1px dashed var(--border);margin-bottom:2rem;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);
+  letter-spacing:.1em;flex-wrap:wrap;gap:1rem;
+}
+.head b{color:var(--accent);font-weight:500}
+
+.label{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);
+  letter-spacing:.25em;text-transform:uppercase;margin-bottom:1rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.label::before{content:'◆';color:var(--amber)}
+
+.code-number{
+  font-family:'IBM Plex Sans',sans-serif;font-size:clamp(4rem,12vw,8rem);
+  font-weight:300;line-height:.95;letter-spacing:-.02em;color:var(--ink-strong);
+  margin-bottom:.8rem;
+}
+.code-number strong{font-weight:700;color:var(--accent)}
+
+.tagline{font-family:'IBM Plex Serif',Georgia,serif;font-style:italic;color:var(--dim);font-size:1.05rem;margin-bottom:2rem}
+
+.terminal{
+  background:var(--terminal-bg);border:1px solid var(--border);padding:1.2rem 1.4rem;
+  font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);
+  margin-bottom:2rem;overflow-x:auto;
+}
+.terminal .prompt{color:var(--accent);user-select:none}
+.terminal .out{color:var(--dim)}
+.terminal .caret{display:inline-block;width:8px;height:14px;background:var(--accent);margin-left:4px;vertical-align:middle;animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+
+.actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{
+  background:transparent;border:1px solid var(--border);color:var(--dim);
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  padding:.7rem 1.2rem;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn:hover{color:var(--accent);border-color:var(--accent)}
+.btn.primary{color:var(--accent);border-color:var(--border-strong)}
+
+.meta{
+  margin-top:2rem;padding-top:1.2rem;border-top:1px dashed var(--border);
+  font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dimmer);
+  letter-spacing:.1em;text-transform:uppercase;
+}
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <span class="corner-tr"></span><span class="corner-bl"></span>
+
+  <div class="head">
+    <span>DWG-2026.01 · <b>ERR-404</b></span>
+    <span>STATUS · <b style="color:var(--danger)">ROUTE NOT FOUND</b></span>
+  </div>
+
+  <div class="label">Engineering Incident · Severity Low</div>
+
+  <div class="code-number"><strong>404</strong>_</div>
+
+  <p class="tagline">This page wandered off. Probably needs a JOIN.</p>
+
+  <div class="terminal">
+    <div><span class="prompt">$</span> curl -I <span style="color:var(--amber)">"<span id="path">/</span>"</span></div>
+    <div class="out">HTTP/2 404 — page not found</div>
+    <div class="out">&nbsp;</div>
+    <div><span class="prompt">$</span> fortune --engineering</div>
+    <div class="out">
+      A SQL query walks into a bar, walks up to<br>
+      two tables and asks:
+      <span style="color:var(--accent)">"can I JOIN you?"</span><span class="caret"></span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" href="/">◀ Return to home</a>
+    <a class="btn" href="/#contact">Report this incident</a>
+  </div>
+
+  <div class="meta">Issued by the Department of Missing Routes · v1</div>
+</div>
+
+<script>
+  try {
+    var p = document.getElementById('path');
+    if (p) p.textContent = (location.pathname || '/') + (location.search || '');
+  } catch (e) {}
+</script>
+
+</body>
+</html>

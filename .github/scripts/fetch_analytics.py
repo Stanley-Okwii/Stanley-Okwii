@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from html import escape
@@ -51,32 +52,11 @@ def fmt_day(date_str: str) -> str:
 # Country code → full name
 # ---------------------------------------------------------------------------
 
-_COUNTRY_NAMES: dict[str, str] = {
-    "AF": "Afghanistan", "AL": "Albania", "DZ": "Algeria",
-    "AR": "Argentina", "AU": "Australia", "AT": "Austria",
-    "AZ": "Azerbaijan", "BE": "Belgium", "BR": "Brazil",
-    "BG": "Bulgaria", "CA": "Canada", "CL": "Chile",
-    "CN": "China", "CO": "Colombia", "HR": "Croatia",
-    "CZ": "Czech Republic", "DK": "Denmark", "EG": "Egypt",
-    "EE": "Estonia", "FI": "Finland", "FR": "France",
-    "DE": "Germany", "GH": "Ghana", "GR": "Greece",
-    "HK": "Hong Kong", "HU": "Hungary", "IN": "India",
-    "ID": "Indonesia", "IE": "Ireland", "IL": "Israel",
-    "IT": "Italy", "JP": "Japan", "KZ": "Kazakhstan",
-    "KE": "Kenya", "KR": "South Korea", "LV": "Latvia",
-    "LT": "Lithuania", "MY": "Malaysia", "MX": "Mexico",
-    "MA": "Morocco", "NL": "Netherlands", "NZ": "New Zealand",
-    "NG": "Nigeria", "NO": "Norway", "PK": "Pakistan",
-    "PE": "Peru", "PH": "Philippines", "PL": "Poland",
-    "PT": "Portugal", "RO": "Romania", "RU": "Russia",
-    "SA": "Saudi Arabia", "RS": "Serbia", "SG": "Singapore",
-    "SK": "Slovakia", "ZA": "South Africa", "ES": "Spain",
-    "SE": "Sweden", "CH": "Switzerland", "TW": "Taiwan",
-    "TH": "Thailand", "TN": "Tunisia", "TR": "Turkey",
-    "UA": "Ukraine", "AE": "United Arab Emirates",
-    "GB": "United Kingdom", "US": "United States",
-    "UZ": "Uzbekistan", "VN": "Vietnam",
-}
+_COUNTRY_FILE = Path(__file__).parent / "country_codes.json"
+try:
+    _COUNTRY_NAMES: dict[str, str] = json.loads(_COUNTRY_FILE.read_text())
+except FileNotFoundError:
+    _COUNTRY_NAMES = {}
 
 
 def country_name(code: str) -> str:
@@ -140,6 +120,12 @@ query Weekly($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!
         orderBy: [count_DESC]
       ) { count sum { visits } dimensions { countryName } }
 
+      byCountryDay: rumPageloadEventsAdaptiveGroups(
+        filter: { siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end }
+        limit: 1000
+        orderBy: [count_DESC]
+      ) { count dimensions { date countryName } }
+
       byDevice: rumPageloadEventsAdaptiveGroups(
         filter: { siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end }
         limit: 10
@@ -156,36 +142,33 @@ query Weekly($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!
 }
 """
 
-payload = json.dumps({
-    "query": QUERY,
-    "variables": {
-        "accountTag": CF_ACCOUNT_TAG,
-        "siteTag": CF_SITE_TAG,
-        "start": iso(start),
-        "end": iso(now),
-    },
-}).encode()
+_HEADERS = {
+    "Authorization": f"Bearer {CF_API_TOKEN}",
+    "Content-Type": "application/json",
+}
 
-req = request.Request(
-    ENDPOINT,
-    data=payload,
-    headers={
-        "Authorization": f"Bearer {CF_API_TOKEN}",
-        "Content-Type": "application/json",
-    },
-    method="POST",
-)
 
-try:
-    with request.urlopen(req, timeout=30) as resp:
-        body = json.loads(resp.read())
-except error.HTTPError as e:
-    sys.exit(f"HTTP {e.code}: {e.read().decode(errors='replace')}")
-except error.URLError as e:
-    sys.exit(f"Network error: {e}")
+def graphql(query: str, variables: dict | None = None, *, raise_on_errors: bool = True) -> dict:
+    payload = json.dumps({"query": query, "variables": variables or {}}).encode()
+    req = request.Request(ENDPOINT, data=payload, headers=_HEADERS, method="POST")
+    try:
+        with request.urlopen(req, timeout=30) as resp:
+            body = json.loads(resp.read())
+    except error.HTTPError as e:
+        sys.exit(f"HTTP {e.code}: {e.read().decode(errors='replace')}")
+    except error.URLError as e:
+        sys.exit(f"Network error: {e}")
+    if body.get("errors") and raise_on_errors:
+        sys.exit("GraphQL errors:\n" + json.dumps(body["errors"], indent=2))
+    return body
 
-if body.get("errors"):
-    sys.exit("GraphQL errors:\n" + json.dumps(body["errors"], indent=2))
+
+body = graphql(QUERY, {
+    "accountTag": CF_ACCOUNT_TAG,
+    "siteTag": CF_SITE_TAG,
+    "start": iso(start),
+    "end": iso(now),
+})
 
 acct = body["data"]["viewer"]["accounts"][0]
 totals = (acct["totals"] or [{"count": 0, "sum": {"visits": 0}}])[0]
@@ -197,6 +180,110 @@ avg_per_day = round(total_pv / days_with_data) if days_with_data else 0
 best_day_row = max(acct["byDay"], key=lambda r: r["count"], default=None)
 best_day = fmt_day(best_day_row["dimensions"]["date"]) if best_day_row else "—"
 best_day_pv = best_day_row["count"] if best_day_row else 0
+
+# ---------------------------------------------------------------------------
+# Sections by Core Web Vitals element events
+# ---------------------------------------------------------------------------
+
+_SECTIONS = ["hero", "stats", "skills", "experience", "projects", "education", "contact"]
+
+
+def classify_section(selector: str) -> str:
+    if not selector:
+        return "Other"
+    for token in re.findall(r"#([\w-]+)", selector):
+        tok = token.lower()
+        for s in _SECTIONS:
+            if tok == s or tok.startswith(s + "-"):
+                return s.title()
+    if selector.lower().startswith(("html>body>nav", "nav>", "nav ")):
+        return "Navigation"
+    return "Other"
+
+
+def discover_vitals_element_fields() -> list[str]:
+    for type_name in (
+        "RumWebVitalsEventsAdaptiveGroupsDimensions",
+        "RumWebVitalsEventsAdaptiveDimensions",
+    ):
+        res = graphql(
+            "query($n: String!){ __type(name:$n){ fields { name } } }",
+            {"n": type_name},
+            raise_on_errors=False,
+        )
+        t = ((res.get("data") or {}).get("__type")) or {}
+        fields = [f["name"] for f in (t.get("fields") or [])]
+        element_fields = [f for f in fields if "element" in f.lower()]
+        if element_fields:
+            return element_fields
+    return []
+
+
+vitals_fields = discover_vitals_element_fields()
+section_counts: dict[str, int] = {}
+
+if vitals_fields:
+    sub_queries = "\n".join(
+        f"""v{i}: rumWebVitalsEventsAdaptiveGroups(
+            filter: {{ siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end }}
+            limit: 100
+            orderBy: [count_DESC]
+          ) {{ count dimensions {{ {fname} }} }}"""
+        for i, fname in enumerate(vitals_fields)
+    )
+    vitals_query = (
+        "query Vitals($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) {"
+        " viewer { accounts(filter: { accountTag: $accountTag }) { "
+        + sub_queries
+        + " } } }"
+    )
+    v_body = graphql(
+        vitals_query,
+        {
+            "accountTag": CF_ACCOUNT_TAG,
+            "siteTag": CF_SITE_TAG,
+            "start": iso(start),
+            "end": iso(now),
+        },
+        raise_on_errors=False,
+    )
+    v_accounts = (((v_body.get("data") or {}).get("viewer") or {}).get("accounts")) or []
+    if v_accounts:
+        v_acct = v_accounts[0]
+        for i, fname in enumerate(vitals_fields):
+            for row in v_acct.get(f"v{i}") or []:
+                selector = (row.get("dimensions") or {}).get(fname) or ""
+                section = classify_section(selector)
+                section_counts[section] = section_counts.get(section, 0) + row["count"]
+
+sections_ranked = sorted(section_counts.items(), key=lambda kv: kv[1], reverse=True)
+sections_total = sum(section_counts.values())
+
+# ---------------------------------------------------------------------------
+# All-time history (persisted weekly snapshots)
+# ---------------------------------------------------------------------------
+
+_HISTORY_FILE = Path(__file__).parent / "analytics-history.json"
+
+try:
+    _history = json.loads(_HISTORY_FILE.read_text())
+except (FileNotFoundError, json.JSONDecodeError):
+    _history = {"weeks": []}
+
+_weeks = [w for w in _history.get("weeks", []) if w.get("week_ending") != day(now)]
+_weeks.append({
+    "week_ending": day(now),
+    "pageviews": total_pv,
+    "visits": total_visits,
+})
+_weeks.sort(key=lambda w: w["week_ending"])
+_history["weeks"] = _weeks
+_HISTORY_FILE.write_text(json.dumps(_history, indent=2) + "\n")
+
+alltime_pv = sum(w["pageviews"] for w in _weeks)
+alltime_visits = sum(w["visits"] for w in _weeks)
+alltime_weeks = len(_weeks)
+alltime_first = _weeks[0]["week_ending"] if _weeks else "—"
 
 # ---------------------------------------------------------------------------
 # Markdown helpers
@@ -258,6 +345,61 @@ def md_table_day(rows: list[dict]) -> str:
     return header + "\n".join(lines) + "\n"
 
 
+def _pivot_country_day(rows: list[dict], top_n: int = 8) -> tuple[list[str], list[tuple[str, dict[str, int], int]]]:
+    """Returns (sorted_dates, [(country_label, {date: count}, total), ...])."""
+    dates: set[str] = set()
+    by_country: dict[str, dict[str, int]] = {}
+    for r in rows:
+        d = r["dimensions"]["date"]
+        c = r["dimensions"].get("countryName") or ""
+        dates.add(d)
+        per_day = by_country.setdefault(c, {})
+        per_day[d] = per_day.get(d, 0) + r["count"]
+    ranked = sorted(
+        ((country_name(c), per_day, sum(per_day.values())) for c, per_day in by_country.items()),
+        key=lambda t: t[2],
+        reverse=True,
+    )[:top_n]
+    return sorted(dates), ranked
+
+
+def md_alltime_sparkline(weeks: list[dict]) -> str:
+    if not weeks:
+        return "_No history yet._\n"
+    max_pv = max(w["pageviews"] for w in weeks) or 1
+    header = "| Week ending | | Pageviews | Visits |\n| --- | --- | ---: | ---: |\n"
+    lines = [
+        f"| {w['week_ending']} | `{bar(w['pageviews'], max_pv)}` | {w['pageviews']:,} | {w['visits']:,} |"
+        for w in weeks[-12:]
+    ]
+    return header + "\n".join(lines) + "\n"
+
+
+def md_sections(ranked: list[tuple[str, int]], total: int) -> str:
+    if not ranked or not total:
+        return "_No Core Web Vitals data for this window._\n"
+    header = "| Section | | Events | Share |\n| --- | --- | ---: | ---: |\n"
+    lines = [
+        f"| {name} | `{bar(count, total)}` | {count:,} | {pct(count, total)} |"
+        for name, count in ranked
+    ]
+    return header + "\n".join(lines) + "\n"
+
+
+def md_country_day_matrix(rows: list[dict], top_n: int = 8) -> str:
+    if not rows:
+        return "_No data_\n"
+    dates, ranked = _pivot_country_day(rows, top_n)
+    head_days = " | ".join(fmt_day(d) for d in dates)
+    header = f"| Country | {head_days} | Total |\n"
+    sep = "| --- | " + " | ".join(["---:"] * len(dates)) + " | ---: |\n"
+    lines = []
+    for name, per_day, total in ranked:
+        cells = " | ".join(f"{per_day.get(d, 0):,}" for d in dates)
+        lines.append(f"| {name} | {cells} | **{total:,}** |")
+    return header + sep + "\n".join(lines) + "\n"
+
+
 # ---------------------------------------------------------------------------
 # Build markdown report
 # ---------------------------------------------------------------------------
@@ -277,6 +419,18 @@ md = f"""# Weekly analytics — {day(start)} → {day(now)}
 
 ---
 
+## All time
+
+| Metric | Value |
+| --- | --- |
+| Pageviews (all time) | **{alltime_pv:,}** |
+| Visits (all time) | **{alltime_visits:,}** |
+| Weeks tracked | **{alltime_weeks}** (since {alltime_first}) |
+
+{md_alltime_sparkline(_weeks)}
+
+---
+
 ## Pageviews by day
 
 {md_table_day(acct['byDay'])}
@@ -286,6 +440,12 @@ md = f"""# Weekly analytics — {day(start)} → {day(now)}
 ## Top countries
 
 {md_table_with_bar(acct['topCountries'], 'Country', 'countryName', country_name)}
+
+---
+
+## Views by country & day
+
+{md_country_day_matrix(acct['byCountryDay'])}
 
 ---
 
@@ -304,6 +464,14 @@ md = f"""# Weekly analytics — {day(start)} → {day(now)}
 ## Top pages
 
 {md_table_simple(acct['topPaths'], 'Path', 'requestPath')}
+
+---
+
+## Sections by attention
+
+<sub>Counts are Core Web Vitals events (LCP / CLS / INP) rolled up to each page section — a proxy for where users actually see and interact with content, not dwell seconds.</sub>
+
+{md_sections(sections_ranked, sections_total)}
 
 ---
 
@@ -332,6 +500,14 @@ def html_bar(n: int, total: int) -> str:
     )
 
 
+def _html_table(header: str, body: str) -> str:
+    return (
+        '<table cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;font-size:14px">'
+        f'<thead style="background:#f8f8f8;border-bottom:2px solid #e5e7eb">{header}</thead>'
+        f"<tbody>{body}</tbody></table>"
+    )
+
+
 def html_table_bars(rows: list[dict], label: str, key: str, name_fn=None) -> str:
     if not rows:
         return "<p><em>No data</em></p>"
@@ -340,7 +516,7 @@ def html_table_bars(rows: list[dict], label: str, key: str, name_fn=None) -> str
         '<th align="left">Share</th>'
         '<th align="right">Pageviews</th></tr>'
     )
-    body_rows = "".join(
+    body = "".join(
         f"<tr>"
         f"<td>{escape(extract_name(r, key, name_fn))}</td>"
         f"<td>{html_bar(r['count'], total_pv)}</td>"
@@ -348,11 +524,7 @@ def html_table_bars(rows: list[dict], label: str, key: str, name_fn=None) -> str
         f"</tr>"
         for r in rows
     )
-    return (
-        '<table cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;font-size:14px">'
-        f'<thead style="background:#f8f8f8;border-bottom:2px solid #e5e7eb">{header}</thead>'
-        f"<tbody>{body_rows}</tbody></table>"
-    )
+    return _html_table(header, body)
 
 
 def html_table_simple(rows: list[dict], label: str, key: str, name_fn=None) -> str:
@@ -363,7 +535,7 @@ def html_table_simple(rows: list[dict], label: str, key: str, name_fn=None) -> s
         '<th align="right">Pageviews</th>'
         '<th align="right">Visits</th></tr>'
     )
-    body_rows = "".join(
+    body = "".join(
         f"<tr>"
         f"<td>{escape(extract_name(r, key, name_fn, fallback='Direct / unknown'))}</td>"
         f"<td align='right'>{r['count']:,}</td>"
@@ -371,11 +543,62 @@ def html_table_simple(rows: list[dict], label: str, key: str, name_fn=None) -> s
         f"</tr>"
         for r in rows
     )
-    return (
-        '<table cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;font-size:14px">'
-        f'<thead style="background:#f8f8f8;border-bottom:2px solid #e5e7eb">{header}</thead>'
-        f"<tbody>{body_rows}</tbody></table>"
+    return _html_table(header, body)
+
+
+def html_alltime_bars(weeks: list[dict]) -> str:
+    if not weeks:
+        return "<p><em>No history yet.</em></p>"
+    recent = weeks[-16:]
+    max_pv = max(w["pageviews"] for w in recent) or 1
+    parts = []
+    for w in recent:
+        h = round(w["pageviews"] / max_pv * 80)
+        parts.append(
+            '<div style="display:flex;flex-direction:column;align-items:center;gap:4px">'
+            f'<span style="font-size:10px;color:#555">{w["pageviews"]}</span>'
+            f'<div style="width:18px;height:{h}px;background:#4f46e5;border-radius:3px 3px 0 0"></div>'
+            f'<span style="font-size:10px;color:#888">{escape(w["week_ending"][5:])}</span>'
+            '</div>'
+        )
+    return f'<div style="display:flex;align-items:flex-end;gap:6px;padding:16px 0;overflow-x:auto">{"".join(parts)}</div>'
+
+
+def html_sections(ranked: list[tuple[str, int]], total: int) -> str:
+    if not ranked or not total:
+        return "<p><em>No Core Web Vitals data for this window.</em></p>"
+    header = (
+        '<tr><th align="left">Section</th>'
+        '<th align="left">Share</th>'
+        '<th align="right">Events</th></tr>'
     )
+    body = "".join(
+        "<tr>"
+        f"<td>{escape(name)}</td>"
+        f"<td>{html_bar(count, total)}</td>"
+        f"<td align='right'>{count:,}</td>"
+        "</tr>"
+        for name, count in ranked
+    )
+    return _html_table(header, body)
+
+
+def html_country_day_matrix(rows: list[dict], top_n: int = 8) -> str:
+    if not rows:
+        return "<p><em>No data</em></p>"
+    dates, ranked = _pivot_country_day(rows, top_n)
+    header_cells = "".join(f'<th align="right">{escape(fmt_day(d))}</th>' for d in dates)
+    header = (
+        f'<tr><th align="left">Country</th>{header_cells}'
+        '<th align="right">Total</th></tr>'
+    )
+    body = "".join(
+        f"<tr><td>{escape(name)}</td>"
+        + "".join(f'<td align="right">{per_day.get(d, 0):,}</td>' for d in dates)
+        + f"<td align='right'><b>{total:,}</b></td></tr>"
+        for name, per_day, total in ranked
+    )
+    return _html_table(header, body)
 
 
 def html_sparkbar(rows: list[dict]) -> str:
@@ -420,6 +643,16 @@ html = f"""<!doctype html>
   {kpis}
 
   <div {section_style}>
+    <h2 {h2_style}>All time</h2>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin:0 0 12px">
+      <div style="{kpi_style}"><div style="font-size:28px;font-weight:700;color:#4f46e5">{alltime_pv:,}</div><div style="color:#666;font-size:13px">Pageviews (all time)</div></div>
+      <div style="{kpi_style}"><div style="font-size:28px;font-weight:700;color:#4f46e5">{alltime_visits:,}</div><div style="color:#666;font-size:13px">Visits (all time)</div></div>
+      <div style="{kpi_style}"><div style="font-size:28px;font-weight:700;color:#4f46e5">{alltime_weeks}</div><div style="color:#666;font-size:13px">Weeks tracked</div></div>
+    </div>
+    {html_alltime_bars(_weeks)}
+  </div>
+
+  <div {section_style}>
     <h2 {h2_style}>Pageviews by day</h2>
     {html_sparkbar(acct['byDay'])}
   </div>
@@ -427,6 +660,11 @@ html = f"""<!doctype html>
   <div {section_style}>
     <h2 {h2_style}>Top countries</h2>
     {html_table_bars(acct['topCountries'], 'Country', 'countryName', country_name)}
+  </div>
+
+  <div {section_style}>
+    <h2 {h2_style}>Views by country & day</h2>
+    {html_country_day_matrix(acct['byCountryDay'])}
   </div>
 
   <div {section_style}>
@@ -442,6 +680,12 @@ html = f"""<!doctype html>
   <div {section_style}>
     <h2 {h2_style}>Top pages</h2>
     {html_table_simple(acct['topPaths'], 'Path', 'requestPath')}
+  </div>
+
+  <div {section_style}>
+    <h2 {h2_style}>Sections by attention</h2>
+    <p style="color:#666;font-size:12px;margin:0 0 8px">Core Web Vitals events (LCP / CLS / INP) rolled up by page section — a proxy for attention, not dwell seconds.</p>
+    {html_sections(sections_ranked, sections_total)}
   </div>
 
   <div {section_style}>
