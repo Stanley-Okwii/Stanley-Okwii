@@ -216,9 +216,32 @@ _VITALS_FALLBACK_CANDIDATES = [
     "targetElement",
     "selector",
 ]
+_RATING_KEYWORDS = ("rating", "qualityband", "score", "band")
+_RATING_FALLBACK_CANDIDATES = ["rating", "qualityBand", "performanceScore"]
+
+
+def _normalize_rating(value: str) -> str:
+    key = (value or "").lower().replace("-", "").replace("_", "").replace(" ", "")
+    if key in ("good",):
+        return "good"
+    if key in ("needsimprovement", "ni", "needs"):
+        return "ni"
+    if key in ("poor", "bad"):
+        return "poor"
+    return "unknown"
+
+
+def _truncate_selector(s: str, maxlen: int = 40) -> str:
+    return s if len(s) <= maxlen else s[: maxlen - 2] + ".."
+
+
+_dim_cache: list[str] | None = None
 
 
 def _introspect_dimension_fields() -> list[str]:
+    global _dim_cache
+    if _dim_cache is not None:
+        return _dim_cache
     for type_name in (
         "RumWebVitalsEventsAdaptiveGroupsDimensions",
         "RumWebVitalsEventsAdaptiveDimensions",
@@ -232,8 +255,10 @@ def _introspect_dimension_fields() -> list[str]:
         fields = [f["name"] for f in (t.get("fields") or [])]
         if fields:
             _log(f"introspection {type_name}: {len(fields)} dimensions")
+            _dim_cache = fields
             return fields
     _log("introspection returned no dimension fields (schema may disallow it)")
+    _dim_cache = []
     return []
 
 
@@ -280,16 +305,37 @@ def discover_vitals_element_fields() -> list[str]:
     return valid
 
 
+def discover_vitals_rating_field(all_dims: list[str]) -> str | None:
+    override = os.environ.get("CF_VITALS_RATING_FIELD", "").strip()
+    if override:
+        _log(f"rating override: {override}")
+        return override
+    for f in all_dims:
+        if any(k in f.lower() for k in _RATING_KEYWORDS):
+            _log(f"rating keyword match: {f}")
+            return f
+    for c in _RATING_FALLBACK_CANDIDATES:
+        if _probe_field(c):
+            _log(f"rating probe hit: {c}")
+            return c
+    _log("no rating dimension discovered; element bars will be single-colour")
+    return None
+
+
 vitals_fields = discover_vitals_element_fields()
+rating_field = discover_vitals_rating_field(_introspect_dimension_fields()) if vitals_fields else None
+
 section_counts: dict[str, int] = {}
+element_rows: dict[str, dict[str, int]] = {}
 
 if vitals_fields:
+    rating_dim = f" {rating_field}" if rating_field else ""
     sub_queries = "\n".join(
         f"""v{i}: rumWebVitalsEventsAdaptiveGroups(
             filter: {{ siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end }}
-            limit: 100
+            limit: 1000
             orderBy: [count_DESC]
-          ) {{ count dimensions {{ {fname} }} }}"""
+          ) {{ count dimensions {{ {fname}{rating_dim} }} }}"""
         for i, fname in enumerate(vitals_fields)
     )
     vitals_query = (
@@ -317,13 +363,25 @@ if vitals_fields:
             rows = v_acct.get(f"v{i}") or []
             _log(f"v{i} ({fname}): {len(rows)} rows")
             for row in rows:
-                selector = (row.get("dimensions") or {}).get(fname) or ""
+                dims = row.get("dimensions") or {}
+                selector = dims.get(fname) or ""
+                if not selector:
+                    continue
+                bucket = _normalize_rating(dims.get(rating_field, "")) if rating_field else "unknown"
+                per = element_rows.setdefault(selector, {"good": 0, "ni": 0, "poor": 0, "unknown": 0})
+                per[bucket] += row["count"]
                 section = classify_section(selector)
                 section_counts[section] = section_counts.get(section, 0) + row["count"]
 
 sections_ranked = sorted(section_counts.items(), key=lambda kv: kv[1], reverse=True)
 sections_total = sum(section_counts.values())
+elements_ranked = sorted(
+    ((sel, counts, sum(counts.values())) for sel, counts in element_rows.items()),
+    key=lambda t: t[2],
+    reverse=True,
+)
 _log(f"section totals: {dict(sections_ranked)} (sum={sections_total})")
+_log(f"elements tracked: {len(elements_ranked)} (rating_field={rating_field})")
 
 # ---------------------------------------------------------------------------
 # All-time history (persisted weekly snapshots)
@@ -441,6 +499,35 @@ def md_alltime_sparkline(weeks: list[dict]) -> str:
     return header + "\n".join(lines) + "\n"
 
 
+def md_elements(ranked: list[tuple[str, dict, int]], fields: list[str], rating_field: str | None, top_n: int = 10) -> str:
+    if not fields:
+        return "_Could not discover Core Web Vitals element dimensions._\n"
+    if not ranked:
+        return f"_No element events for this window (queried: {', '.join(fields)})._\n"
+    rows = ranked[:top_n]
+    max_total = rows[0][2] or 1
+    if rating_field:
+        header = "| Element | | 🟩 Good | 🟨 Needs imp. | 🟥 Poor | Total |\n| --- | --- | ---: | ---: | ---: | ---: |\n"
+        lines = []
+        for sel, c, total in rows:
+            good, ni, poor = c["good"], c["ni"], c["poor"] + c.get("unknown", 0)
+            width = 20
+            g = round(good / max_total * width)
+            n = round(ni / max_total * width)
+            p = round(poor / max_total * width)
+            pad = max(0, width - g - n - p)
+            segs = "🟩" * g + "🟨" * n + "🟥" * p + "·" * pad
+            lines.append(f"| `{_truncate_selector(sel)}` | {segs} | {good:,} | {ni:,} | {poor:,} | **{total:,}** |")
+        return header + "\n".join(lines) + "\n"
+    # no rating available — single-bar fallback
+    header = "| Element | | Events |\n| --- | --- | ---: |\n"
+    lines = [
+        f"| `{_truncate_selector(sel)}` | `{bar(total, max_total)}` | {total:,} |"
+        for sel, _, total in rows
+    ]
+    return header + "\n".join(lines) + "\n"
+
+
 def md_sections(ranked: list[tuple[str, int]], total: int, fields: list[str]) -> str:
     if not fields:
         return "_Could not discover Core Web Vitals element dimensions in Cloudflare's schema. Set `CF_VITALS_ELEMENT_FIELDS` to override._\n"
@@ -535,9 +622,17 @@ md = f"""# Weekly analytics — {day(start)} → {day(now)}
 
 ---
 
+## Elements (Core Web Vitals)
+
+<sub>Top elements by LCP / CLS / INP event counts, with quality bands. Mirrors the Element tab in the Cloudflare dashboard.</sub>
+
+{md_elements(elements_ranked, vitals_fields, rating_field)}
+
+---
+
 ## Sections by attention
 
-<sub>Counts are Core Web Vitals events (LCP / CLS / INP) rolled up to each page section — a proxy for where users actually see and interact with content, not dwell seconds.</sub>
+<sub>Same element counts rolled up by page section — one-line answer to "where does attention land?"</sub>
 
 {md_sections(sections_ranked, sections_total, vitals_fields)}
 
@@ -630,6 +725,59 @@ def html_alltime_bars(weeks: list[dict]) -> str:
             '</div>'
         )
     return f'<div style="display:flex;align-items:flex-end;gap:6px;padding:16px 0;overflow-x:auto">{"".join(parts)}</div>'
+
+
+def html_elements(ranked: list[tuple[str, dict, int]], fields: list[str], rating_field: str | None, top_n: int = 10) -> str:
+    if not fields:
+        return "<p><em>Could not discover Core Web Vitals element dimensions.</em></p>"
+    if not ranked:
+        return f"<p><em>No element events for this window (queried: {escape(', '.join(fields))}).</em></p>"
+    rows = ranked[:top_n]
+    max_total = rows[0][2] or 1
+    track_w = 420
+    row_parts = []
+    for sel, c, total in rows:
+        label = escape(_truncate_selector(sel, 50))
+        if rating_field:
+            good, ni, poor = c["good"], c["ni"], c["poor"] + c.get("unknown", 0)
+            gw = good / max_total * track_w
+            nw = ni / max_total * track_w
+            pw = poor / max_total * track_w
+            bar_html = (
+                f'<div style="display:flex;height:16px;border-radius:3px;overflow:hidden;background:#f2f2f2">'
+                f'<div style="width:{gw:.1f}px;background:#7cc47c" title="Good: {good}"></div>'
+                f'<div style="width:{nw:.1f}px;background:#f2c14e" title="Needs improvement: {ni}"></div>'
+                f'<div style="width:{pw:.1f}px;background:#e07878" title="Poor: {poor}"></div>'
+                f'</div>'
+            )
+        else:
+            w = total / max_total * track_w
+            bar_html = (
+                f'<div style="height:16px;border-radius:3px;background:#f2f2f2;width:{track_w}px">'
+                f'<div style="width:{w:.1f}px;height:16px;border-radius:3px;background:#4f46e5"></div>'
+                f'</div>'
+            )
+        row_parts.append(
+            '<tr>'
+            f'<td style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#333;white-space:nowrap">{label}</td>'
+            f'<td>{bar_html}</td>'
+            f'<td align="right"><b>{total:,}</b></td>'
+            '</tr>'
+        )
+    legend = ""
+    if rating_field:
+        legend = (
+            '<div style="display:flex;gap:12px;font-size:12px;color:#555;margin:4px 0 10px">'
+            '<span><span style="display:inline-block;width:10px;height:10px;background:#7cc47c;border-radius:2px;vertical-align:middle"></span> Good</span>'
+            '<span><span style="display:inline-block;width:10px;height:10px;background:#f2c14e;border-radius:2px;vertical-align:middle"></span> Needs improvement</span>'
+            '<span><span style="display:inline-block;width:10px;height:10px;background:#e07878;border-radius:2px;vertical-align:middle"></span> Poor</span>'
+            '</div>'
+        )
+    return (
+        legend
+        + '<table cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;font-size:13px">'
+        + f'<tbody>{"".join(row_parts)}</tbody></table>'
+    )
 
 
 def html_sections(ranked: list[tuple[str, int]], total: int, fields: list[str]) -> str:
@@ -753,8 +901,14 @@ html = f"""<!doctype html>
   </div>
 
   <div {section_style}>
+    <h2 {h2_style}>Elements (Core Web Vitals)</h2>
+    <p style="color:#666;font-size:12px;margin:0 0 8px">Top elements by LCP / CLS / INP event counts, with quality bands. Mirrors the Element tab in the Cloudflare dashboard.</p>
+    {html_elements(elements_ranked, vitals_fields, rating_field)}
+  </div>
+
+  <div {section_style}>
     <h2 {h2_style}>Sections by attention</h2>
-    <p style="color:#666;font-size:12px;margin:0 0 8px">Core Web Vitals events (LCP / CLS / INP) rolled up by page section — a proxy for attention, not dwell seconds.</p>
+    <p style="color:#666;font-size:12px;margin:0 0 8px">Same element counts rolled up by page section.</p>
     {html_sections(sections_ranked, sections_total, vitals_fields)}
   </div>
 
