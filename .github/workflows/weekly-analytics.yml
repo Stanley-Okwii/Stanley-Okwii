@@ -47,6 +47,17 @@ jobs:
             git push
           fi
 
+      # Requires a PAT (STATS_TOKEN) with repo scope — the default GITHUB_TOKEN
+      # can close issues but cannot delete them.
+      - name: Delete previous analytics issues
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue list --repo "$GITHUB_REPOSITORY" --label analytics --state open \
+            --limit 100 --json number --jq '.[].number' \
+            | xargs -r -I {} gh issue delete --repo "$GITHUB_REPOSITORY" {} --yes
+
       - name: Open issue with report
         uses: peter-evans/create-issue-from-file@v5
         with:
