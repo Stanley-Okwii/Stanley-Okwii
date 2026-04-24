@@ -17,6 +17,17 @@
     } catch(e) {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
+
+    // On touch devices, inline PDF rendering is unreliable — open the PDF directly.
+    // Add class synchronously so the loader (not the static button) renders. Wait
+    // for window.load so the deferred Cloudflare beacon has executed, then a short
+    // grace window for its in-flight fetch to land before we navigate away.
+    if (window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+      document.documentElement.classList.add('is-mobile-js');
+      window.addEventListener('load', function(){
+        setTimeout(function(){ location.replace('/assets/cv.pdf'); }, 100);
+      });
+    }
   })();
 </script>
 
@@ -63,6 +74,14 @@ body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:14px;line-he
 }
 .mobile-card .btn:hover{opacity:.88}
 
+.mobile-card .loader,.mobile-card .static-card{display:flex;flex-direction:column;align-items:center;gap:1.1rem}
+.mobile-card .loader{display:none}
+:root.is-mobile-js .mobile-card .loader{display:flex}
+:root.is-mobile-js .mobile-card .static-card{display:none}
+
+.spinner{width:36px;height:36px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
 @media (hover: none) and (pointer: coarse){
   .pdf{display:none}
   .mobile-card{display:flex}
@@ -74,9 +93,16 @@ body{font-family:'IBM Plex Sans',-apple-system,sans-serif;font-size:14px;line-he
 <iframe class="pdf" src="/assets/cv.pdf" title="Stanley Okwii — Resume"></iframe>
 
 <div class="mobile-card">
-  <div class="title">Resume</div>
-  <div class="caption">Stanley Okwii · Senior Full-Stack Engineer</div>
-  <a href="/assets/cv.pdf" class="btn" target="_blank" rel="noopener">Open resume →</a>
+  <div class="loader" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="title">Opening resume</div>
+    <div class="caption">Stanley Okwii · Senior Full-Stack Engineer</div>
+  </div>
+  <div class="static-card">
+    <div class="title">Resume</div>
+    <div class="caption">Stanley Okwii · Senior Full-Stack Engineer</div>
+    <a href="/assets/cv.pdf" class="btn" target="_blank" rel="noopener">Open resume →</a>
+  </div>
 </div>
 
 </body>
