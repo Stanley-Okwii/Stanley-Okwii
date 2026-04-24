@@ -52,7 +52,7 @@ def fmt_day(date_str: str) -> str:
 # Country code → full name
 # ---------------------------------------------------------------------------
 
-_COUNTRY_FILE = Path(__file__).parent / "country_codes.json"
+_COUNTRY_FILE = Path(__file__).resolve().parent.parent / "data" / "country_codes.json"
 try:
     _COUNTRY_NAMES: dict[str, str] = json.loads(_COUNTRY_FILE.read_text())
 except FileNotFoundError:
@@ -387,7 +387,7 @@ _log(f"elements tracked: {len(elements_ranked)} (rating_field={rating_field})")
 # All-time history (persisted weekly snapshots)
 # ---------------------------------------------------------------------------
 
-_HISTORY_FILE = Path(__file__).parent / "analytics-history.json"
+_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "analytics-history.json"
 
 try:
     _history = json.loads(_HISTORY_FILE.read_text())
