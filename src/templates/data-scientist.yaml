@@ -1,0 +1,225 @@
+# Tailored for: UBS — Data Scientist, Group Internal Audit (Job Ref #330546BR, London)
+
+cv:
+  name: "Stanley Okwii"
+  location: "London, United Kingdom"
+  email: "stanlee.okwii@icloud.com"
+  phone: "+44 7570 488 532"
+  website: "https://stanleeokwii.info/"
+  social_networks:
+    - network: "LinkedIn"
+      username: "stanley-okwii"
+    - network: "GitHub"
+      username: "Stanley-Okwii"
+  sections:
+    Summary:
+      - "Data analyst and ML practitioner with 6+ years of production Python experience and an MSc in Data Analytics (Merit, Birkbeck). I build repeatable, automated solutions — data pipelines, ML models, NLP systems — and communicate findings clearly to technical and non-technical stakeholders alike. Most recently: an LLM research assistant where every answer is traceable to its source evidence, improving measured accuracy by 35% over a search baseline."
+    skills:
+      - label: "Data Science & Statistics"
+        details: "Pandas, NumPy, Matplotlib, scikit-learn, Jupyter; statistical analysis and hypothesis testing; regression, classification, decision trees, SVMs"
+      - label: "AI/ML & NLP"
+        details: "LLM integration (Claude, Gemini, AWS Bedrock), RAG pipelines, prompt engineering, embeddings, vector search, hybrid retrieval, LLM output evaluation against baselines; neural networks and fine-tuning of pre-trained models (deep transfer learning); large-scale data processing with PySpark"
+      - label: "Databases & Tools"
+        details: "PostgreSQL, pgvector, MySQL, MongoDB, DBT, Snowflake, Looker, Mode"
+      - label: "Programming"
+        details: "Python, SQL, TypeScript, JavaScript"
+    experience:
+      - company: "Access to Energy (Stealth)"
+        position: "Founding Engineer"
+        date:
+        start_date: "2026-01"
+        end_date: "present"
+        location: "London, UK"
+        summary: "AI research assistant for energy access in Africa — helps researchers, NGOs, and energy professionals get evidence-based answers with citations, drawn from a trusted library of sector reports and publications."
+        highlights:
+          - "Built an LLM-powered research assistant where every answer is traceable to a cited source document — improving measured answer accuracy by 25% over a basic LLM response."
+          - "Built an NLP document-processing pipeline (parsing, chunking, and embedding hundreds of files concurrently), making uploaded content searchable in minutes instead of hours."
+          - "Designed and deployed the cloud infrastructure on AWS, automating environment setup into a repeatable process and cutting provisioning time from days to under 15 minutes."
+      - company: "Harver"
+        position: "Senior Full-Stack Software Engineer (Full-time)"
+        date:
+        start_date: "2023-03"
+        end_date: "2025-05"
+        location: "New York, USA"
+        summary:
+        highlights:
+          - "Owned end-to-end architecture and delivery of 3+ client-facing projects on a Python backend and React frontend, making key technical decisions on security, performance, and long-term maintainability."
+          - "Drove project planning across engineering, product, and design — scoping requirements, managing technical trade-offs, and presenting technical options and decisions to non-engineering stakeholders to keep delivery on schedule."
+          - "Ran delivery within a Scrum framework — sprint planning, standups, and retrospectives — keeping three concurrent client projects on track and engineering, product, and design aligned against shifting priorities."
+          - "Authored technical documentation of core system workflows, reducing onboarding time for new engineers by 15% and establishing shared knowledge across the team."
+          - "Shaped engineering hiring by leading 15+ technical interviews, assessing candidates on system design, code quality, and problem-solving."
+      - company: "Harver"
+        position: "Full-Stack Software Engineer (Full-time)"
+        date:
+        start_date: "2019-09"
+        end_date: "2023-03"
+        location: "New York, USA"
+        summary:
+        highlights:
+          - "Designed and maintained data pipelines that ingested, transformed, and served candidate assessment and talent-analytics data — powering client scoring models and workforce-insight dashboards in production."
+          - "Built analytics dashboards surfacing talent-growth and workforce-mobility trends for client HR organisations."
+          - "Built structured logging and monitoring that surfaced production anomalies for investigation, cutting detection-to-diagnosis time by 25%."
+          - "Identified and resolved performance bottlenecks through systematic profiling and analysis of latency data, achieving a 15% improvement in API response latency."
+          - "Automated the release process by building CI/CD pipelines, resulting in 20% faster deployment of frontend applications."
+    education:
+      - institution: "Birkbeck, University of London"
+        area: "Data Analytics"
+        degree: "MSc"
+        date:
+        start_date: "2024-10"
+        end_date: "2025-09"
+        location: "London, UK"
+        summary: "Modules included Applied Machine Learning, Big Data Analytics, Data Analytics Using R, Neural Networks & Deep Learning, and Data Science Techniques and Applications. Research project: adversarial robustness of image classifiers — built an end-to-end adversarial ML pipeline and empirically quantified the robustness-accuracy tradeoff on ResNet-50 at ImageNet scale (128k+ images, 1,000 classes)."
+        highlights:
+          - "Graduated with Merit."
+          - "Implemented and evaluated regression, classification, decision-tree, and SVM models in both R (Data Analytics Using R module) and Python/scikit-learn (Applied Machine Learning module) — including hyperparameter tuning, cross-validation, ROC/AUROC comparison, and hypothesis testing to assess statistical significance of results."
+          - "Built and fine-tuned CNNs via deep transfer learning (VGG in coursework; ResNet-50 in dissertation research) using TensorFlow/Keras, applying L2 regularisation, batch normalisation, and learning-rate scheduling across two training phases."
+          - "Implemented PGD adversarial attacks from scratch in TensorFlow, generated adversarial training data at ImageNet scale, and retrained ResNet-50 to empirically quantify the robustness-accuracy tradeoff — measuring clean accuracy, adversarial accuracy, and generalization gap across both model variants."
+          - "Prepared and explored real datasets using NumPy, Pandas, and Matplotlib, and communicated findings through written analysis and visualisation."
+          - "Processed large-scale datasets using PySpark and GPU-accelerated environments for distributed and compute-intensive workloads."
+      - institution: "Makerere University"
+        area: "Software Engineering"
+        degree: "BSc"
+        date:
+        start_date: "2014-08"
+        end_date: "2018-09"
+        location: "Kampala, Uganda"
+        summary:
+        highlights:
+          - "Graduated with 2:1 (Upper Second Class Honours)"
+design:
+  theme: "engineeringclassic"
+  page:
+    size: "a4"
+    top_margin: "2cm"
+    bottom_margin: "2cm"
+    left_margin: "2cm"
+    right_margin: "2cm"
+    show_footer: false
+    show_top_note: true
+  colors:
+    body: "rgb(0, 0, 0)"
+    name: "rgb(0, 79, 144)"
+    connections: "rgb(0, 79, 144)"
+    section_titles: "rgb(0, 79, 144)"
+    links: "rgb(0, 79, 144)"
+    footer: "rgb(128, 128, 128)"
+    top_note: "rgb(128, 128, 128)"
+  typography:
+    font_family:
+      body: "Raleway"
+      name: "Raleway"
+      headline: "Raleway"
+      connections: "Raleway"
+      section_titles: "Raleway"
+    font_size:
+      body: "10pt"
+      name: "30pt"
+      section_titles: "1.4em"
+    line_spacing: "0.6em"
+    alignment: "justified"
+    date_and_location_column_alignment: "right"
+    bold:
+      name: false
+      section_titles: false
+    small_caps:
+      name: false
+  links:
+    underline: false
+    show_external_link_icon: false
+  header:
+    alignment: "left"
+    photo_width: "3.5cm"
+    space_below_name: "0.7cm"
+    space_below_connections: "0.7cm"
+    connections:
+      phone_number_format: "national"
+      hyperlink: true
+      show_icons: true
+      display_urls_instead_of_usernames: false
+      separator: ""
+      space_between_connections: "0.5cm"
+  section_titles:
+    type: "with_partial_line"
+    line_thickness: "0.5pt"
+    space_above: "0.5cm"
+    space_below: "0.3cm"
+  sections:
+    allow_page_break: true
+    space_between_regular_entries: "1.2em"
+    show_time_spans_in: []
+  entries:
+    date_and_location_width: "4.15cm"
+    side_space: "0.2cm"
+    space_between_columns: "0.1cm"
+    allow_page_break: true
+    short_second_row: false
+    highlights:
+      bullet: "•"
+      nested_bullet: "-"
+      space_above: "0.25cm"
+      space_left: "0cm"
+      space_between_items: "0.2cm"
+      space_between_bullet_and_text: "0.5em"
+  templates:
+    footer: "NAME - Page PAGE_NUMBER of TOTAL_PAGES"
+    top_note: "*LAST_UPDATED CURRENT_DATE*"
+    single_date: "MONTH_ABBREVIATION YEAR"
+    date_range: "START_DATE – END_DATE"
+    one_line_entry:
+      main_column: "**LABEL:** DETAILS"
+    education_entry:
+      main_column: "**INSTITUTION**, AREA -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      degree_column: "**DEGREE**"
+      date_and_location_column: "DATE"
+    normal_entry:
+      main_column: "**NAME** -- **LOCATION**\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    experience_entry:
+      main_column: "**POSITION**, COMPANY -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    publication_entry:
+      main_column: "**TITLE**\nAUTHORS\nURL (JOURNAL)"
+      date_and_location_column: "DATE"
+locale:
+  language: "english"
+  last_updated: "Last updated in"
+  month: "month"
+  months: "months"
+  year: "year"
+  years: "years"
+  present: "present"
+  month_abbreviations:
+    - "Jan"
+    - "Feb"
+    - "Mar"
+    - "Apr"
+    - "May"
+    - "June"
+    - "July"
+    - "Aug"
+    - "Sept"
+    - "Oct"
+    - "Nov"
+    - "Dec"
+  month_names:
+    - "January"
+    - "February"
+    - "March"
+    - "April"
+    - "May"
+    - "June"
+    - "July"
+    - "August"
+    - "September"
+    - "October"
+    - "November"
+    - "December"
+settings:
+  current_date: "2026-06-11"
+  bold_keywords: []
+  render_command:
+    pdf_path: ../resumes/data_cv.pdf
+    dont_generate_markdown: true
+    dont_generate_html: true
+    dont_generate_png: true

@@ -23,9 +23,9 @@ help:
 	@echo ""
 	@echo "Examples:"
 	@echo "  make render-local"
-	@echo "  make render-local TEMPLATE=scope_ai"
-	@echo "  make render-local TEMPLATE=scope_ai NAME=Stanley_Okwii_Scope"
-	@echo "  make render-docs  TEMPLATE=scope_ai NAME=Stanley_Okwii_Scope"
+	@echo "  make render-local TEMPLATE=data-scientist"
+	@echo "  make render-local TEMPLATE=data-scientist NAME=data_resume"
+	@echo "  make render-docs  TEMPLATE=data-scientist NAME=data_resume"
 
 render-local:
 	$(RENDERCV) $(TEMPLATE_PATH) $(FLAGS) -pdf "$(abspath $(LOCAL_PDF))"
