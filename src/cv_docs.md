@@ -1,6 +1,6 @@
 ## Docs
 
-How to render the CV PDF. Source template: `src/templates/achievement.yaml`. The YAML's `pdf_path` sends output to `src/resumes/Stanley_Okwii_CV.pdf` unless overridden with `-pdf`.
+How to render the CV PDF. Source template: `src/templates/software-engineer.yaml`. The YAML's `pdf_path` sends output to `src/resumes/Stanley_Okwii_CV.pdf` unless overridden with `-pdf`.
 
 ### Make targets (preferred)
 
@@ -19,7 +19,7 @@ CI (`.github/workflows/update-stats.yml`) re-renders on every push that touches 
 For ad-hoc renders, call `rendercv` directly. This honours the `pdf_path` in the YAML and also writes Markdown + PNG previews into `src/templates/rendercv_output/` (gitignored):
 
 ```sh
-uv run rendercv render src/templates/achievement.yaml
+uv run rendercv render src/templates/software-engineer.yaml
 ```
 
 ### Output to directory
@@ -27,7 +27,7 @@ uv run rendercv render src/templates/achievement.yaml
 Override the PDF destination with `-pdf`; skip the Markdown / PNG side-outputs with `-nomd -nopng`:
 
 ```sh
-uv run rendercv render src/templates/achievement.yaml -nomd -nopng -pdf src/resumes/Stanley_Okwii_CV.pdf
+uv run rendercv render src/templates/software-engineer.yaml -nomd -nopng -pdf src/resumes/Stanley_Okwii_CV.pdf
 ```
 
 ### Useful flags

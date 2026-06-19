@@ -4,8 +4,8 @@
 RENDERCV  := uv run rendercv render
 FLAGS     := -nomd -nopng
 
-TEMPLATE  := achievement
-NAME      := Stanley_Okwii_CV
+TEMPLATE  := software-engineer
+NAME      := swe-resume
 
 TEMPLATE_PATH := src/templates/$(TEMPLATE).yaml
 LOCAL_PDF     := src/resumes/$(NAME).pdf
@@ -23,9 +23,9 @@ help:
 	@echo ""
 	@echo "Examples:"
 	@echo "  make render-local"
-	@echo "  make render-local TEMPLATE=data-scientist"
-	@echo "  make render-local TEMPLATE=data-scientist NAME=data_resume"
-	@echo "  make render-docs  TEMPLATE=data-scientist NAME=data_resume"
+	@echo "  make render-local TEMPLATE=software-engineer"
+	@echo "  make render-local TEMPLATE=software-engineer NAME=swe-resume"
+	@echo "  make render-docs  TEMPLATE=software-engineer NAME=swe-resume"
 
 render-local:
 	$(RENDERCV) $(TEMPLATE_PATH) $(FLAGS) -pdf "$(abspath $(LOCAL_PDF))"

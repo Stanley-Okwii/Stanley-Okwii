@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'src/templates/achievement.yaml'
-      - '.github/scripts/build_cv_json.py'
-      - '.github/scripts/fetch_wakatime.py'
-      - '.github/scripts/fetch_github_stats.py'
+      - "src/templates/software-engineer.yaml"
+      - ".github/scripts/build_cv_json.py"
+      - ".github/scripts/fetch_wakatime.py"
+      - ".github/scripts/fetch_github_stats.py"
   schedule:
-    - cron: '0 23 * * 0-6'
+    - cron: "0 23 * * 0-6"
 
 permissions:
   contents: write
@@ -37,7 +37,7 @@ jobs:
         run: uv run python .github/scripts/build_cv_json.py
 
       - name: Render CV PDF
-        run: uv run rendercv render src/templates/achievement.yaml
+        run: uv run rendercv render src/templates/software-engineer.yaml
 
       - name: Copy CV PDF into docs/
         run: cp src/resumes/Stanley_Okwii_CV.pdf docs/assets/cv.pdf

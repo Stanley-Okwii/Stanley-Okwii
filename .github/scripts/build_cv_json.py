@@ -11,11 +11,23 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "src" / "templates" / "achievement.yaml"
+SOURCE = ROOT / "src" / "templates" / "software-engineer.yaml"
 OUTPUT = ROOT / "docs" / "data" / "cv.json"
 
-MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+MONTHS = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+]
 
 MD_LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 SAFE_SCHEMES = ("http:", "https:", "mailto:", "tel:")
@@ -68,14 +80,23 @@ def main() -> int:
     sections = cv.get("sections") or {}
 
     summary_items = sections.get("Summary") or sections.get("summary") or []
-    summary = " ".join(md_to_html(s) for s in summary_items) if isinstance(summary_items, list) else md_to_html(summary_items)
+    summary = (
+        " ".join(md_to_html(s) for s in summary_items)
+        if isinstance(summary_items, list)
+        else md_to_html(summary_items)
+    )
 
-    socials = {s.get("network", "").lower(): s.get("username", "") for s in (cv.get("social_networks") or [])}
+    socials = {
+        s.get("network", "").lower(): s.get("username", "")
+        for s in (cv.get("social_networks") or [])
+    }
     linkedin = socials.get("linkedin")
     github = socials.get("github")
 
     payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "generated_at": datetime.now(timezone.utc)
+        .isoformat(timespec="seconds")
+        .replace("+00:00", "Z"),
         "name": cv.get("name") or "",
         "location": cv.get("location") or "",
         "summary": summary,
@@ -83,7 +104,9 @@ def main() -> int:
             "email": cv.get("email") or "",
             "phone": cv.get("phone") or "",
             "location": cv.get("location") or "",
-            "linkedin_url": f"https://www.linkedin.com/in/{linkedin}/" if linkedin else "",
+            "linkedin_url": (
+                f"https://www.linkedin.com/in/{linkedin}/" if linkedin else ""
+            ),
             "linkedin_handle": linkedin or "",
             "github_url": f"https://github.com/{github}" if github else "",
             "github_handle": github or "",
