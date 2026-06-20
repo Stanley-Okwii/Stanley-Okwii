@@ -155,7 +155,7 @@ design:
     space_below_name: "0.7cm"
     space_below_connections: "0.7cm"
     connections:
-      phone_number_format: "national"
+      phone_number_format: "international"
       hyperlink: true
       show_icons: true
       display_urls_instead_of_usernames: false

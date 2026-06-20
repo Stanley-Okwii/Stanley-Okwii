@@ -2,7 +2,6 @@
 
 cv:
   name: "Stanley Okwii"
-  headline: "Data Scientist  |  Machine Learning & NLP"
   location: "London, United Kingdom"
   email: "stanlee.okwii@icloud.com"
   phone: "+44 7570 488 532"
@@ -13,52 +12,52 @@ cv:
     - network: "GitHub"
       username: "Stanley-Okwii"
   sections:
-    PROFILE:
-      - "Data scientist and ML practitioner with 6+ years' production experience and an MSc in Data Analytics (Merit, Birkbeck). I build verifiable, end-to-end systems that turn dense, unstructured documents into traceable, defensible insight — applying both traditional machine learning and large language models to surface patterns and trends for non-technical stakeholders. My recent work centres on strict output accuracy and full source traceability: every finding can be traced to the evidence behind it, the discipline an audit demands."
-    CORE SKILLS:
-      - label: "Statistics & machine learning"
+    Summary:
+      - "Data Scientist and ML practitioner with 6+ years of production engineering experience and an MSc in Data Analytics (Merit, Birkbeck). I build automated, end-to-end solutions — from scalable data pipelines to verifiable LLM systems — and have deep expertise in parsing complex, unstructured data, and delivering traceable insights to stakeholders."
+    skills:
+      - label: "Data Science & Machine Learning"
         details: "Statistical analysis, hypothesis testing, regression, classification, SVMs; model evaluation, adversarial robustness; Pandas, NumPy, scikit-learn"
-      - label: "NLP & generative AI"
+      - label: "NLP & Generative AI"
         details: "LLM integration, RAG architectures, vector search (pgvector), hybrid retrieval, deep transfer learning, hallucination mitigation"
-      - label: "Data engineering & databases"
-        details: "PostgreSQL, MongoDB, Snowflake, DBT, PySpark, structured logging and monitoring, ETL pipeline design"
-      - label: "Programming & infrastructure"
+      - label: "Data Engineering & Databases"
+        details: "PostgreSQL, MongoDB, Snowflake, DBT, PySpark, structured logging/monitoring, ETL pipeline design"
+      - label: "Programming & Infrastructure"
         details: "Python, SQL, AWS, TypeScript; CI/CD, cloud infrastructure provisioning"
-    EXPERIENCE:
+    experience:
       - company: "Access to Energy (Stealth)"
         position: "Founding Engineer (Data & NLP)"
         date:
         start_date: "2026-01"
         end_date: "present"
         location: "London, UK"
-        summary: "Built a verifiable AI research assistant that extracts factual data from dense sector reports, with strict output accuracy and full source traceability."
+        summary: "Built a verifiable AI research assistant that extracts factual data from dense sector reports, focusing on strict output accuracy and source traceability."
         highlights:
-          - "Built an LLM-powered information-extraction system in which every output is traceable to its cited source document, raising measured factual accuracy by 35% over the default model response — an evidence-first design suited to audit and risk work."
-          - "Engineered an NLP pipeline that parses, chunks and embeds hundreds of complex files concurrently, turning unstructured text into queryable vector data in minutes."
-          - "Designed and deployed the supporting AWS infrastructure, automating environment set-up and cutting provisioning from days to under 15 minutes for secure, reproducible deployments."
+          - "Built an LLM-powered information extraction system where every output is strictly traceable to cited source documents, improving measured factual accuracy by 35% over the default LLM response."
+          - "Engineered an NLP document-processing pipeline that parses, chunks, and embeds hundreds of complex files concurrently, transforming unstructured text into queryable vector data in minutes."
+          - "Designed and deployed the underlying AWS infrastructure, automating environment setup and cutting provisioning time from days to under 15 minutes for secure, reproducible deployments."
       - company: "Harver"
-        position: "Senior Full-Stack Software Engineer (Data & Backend)"
+        position: "Senior Full-Stack Software Engineer (Data & Backend focus)"
         date:
         start_date: "2023-03"
         end_date: "2025-05"
         location: "New York, USA"
-        summary: "Left Harver in May 2025 to complete an MSc at Birkbeck, University of London, full-time."
+        summary: "Left Harver in May 2025 to focus full-time on completing my MSc at Birkbeck, University of London."
         highlights:
-          - "Led the backend architecture and data workflows for 3+ client-facing analytics platforms, ensuring high performance, secure data handling and maintainability."
-          - "Partnered with product and analytics teams to scope data-heavy features, managing technical trade-offs to deliver accurate reporting to non-engineering stakeholders."
-          - "Authored technical documentation for core data pipelines and system workflows, reducing new-hire onboarding time by 15%."
+          - "Led the backend architecture and data workflows for 3+ client-facing platforms, ensuring high performance, secure data handling, and maintainability for talent analytics applications."
+          - "Worked with product and analytics teams to scope requirements for data-heavy features, managing technical trade-offs to deliver accurate reporting to non-engineering stakeholders."
+          - "Authored comprehensive technical documentation for core data pipelines and system workflows, establishing shared knowledge and reducing new-hire onboarding time by 15%."
       - company: "Harver"
-        position: "Full-Stack Software Engineer (Data & Backend)"
+        position: "Full-Stack Software Engineer (Data & Backend focus)"
         date:
         start_date: "2019-09"
         end_date: "2023-03"
         location: "New York, USA"
         summary:
         highlights:
-          - "Designed and maintained ETL pipelines that ingested and transformed candidate-assessment data, powering client scoring models and workforce-insight dashboards."
-          - "Built analytics dashboards surfacing talent-growth and workforce-mobility trends for clients."
-          - "Resolved database performance bottlenecks through systematic profiling, improving data-retrieval latency by 15%."
-    EDUCATION:
+          - "Designed and maintained ETL data pipelines that ingested and transformed candidate assessment data, directly powering client scoring models and workforce-insight dashboards."
+          - "Built analytics dashboards surfacing talent growth and workforce-mobility trends for clients."
+          - "Identified and resolved database performance bottlenecks through systematic profiling, achieving a 15% improvement in latency for data retrieval operations."
+    education:
       - institution: "Birkbeck, University of London"
         area: "Data Analytics"
         degree: "MSc"
@@ -68,7 +67,7 @@ cv:
         location: "London, UK"
         summary: "Graduated with Merit. Modules included Applied Machine Learning, Big Data Analytics, Data Analytics Using R, and Neural Networks & Deep Learning."
         highlights:
-          - "Dissertation on impact of adversarial training: Quantified the robustness-accuracy tradeoff of image classifiers against adversarial attacks on ResNet-50 at ImageNet scale (128k+ images, 1,000 classes)."
+          - "Dissertation on impact of adversarial training on models: Quantified the robustness-accuracy tradeoff of image classifiers against adversarial attacks on ResNet-50 at ImageNet scale (128k+ images, 1,000 classes)."
           - "Built and fine-tuned CNNs using deep transfer learning (VGG, ResNet-50) in TensorFlow/Keras, and implemented PGD adversarial attacks from scratch to stress-test and retrain ResNet-50 — demonstrating practical approaches to identifying and mitigating model vulnerabilities."
           - "Built, tuned, and evaluated regression, classification, and SVM models using cross-validation and ROC/AUROC comparison in Python (scikit-learn) and R."
       - institution: "Makerere University"
