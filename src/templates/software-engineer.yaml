@@ -90,7 +90,7 @@ cv:
           - "Implemented new features for a productivity Chrome extension serving over 6,000 users, which led to a 12% increase in daily active usage."
     education:
       - institution: "Birkbeck, University of London"
-        area: "Advanced Computing"
+        area: "Data Analytics"
         degree: "MSc"
         date:
         start_date: "2024-10"
