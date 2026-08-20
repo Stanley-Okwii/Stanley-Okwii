@@ -1,171 +1,171 @@
 {
-  "generated_at": "2026-08-19T23:18:36Z",
+  "generated_at": "2026-08-20T23:21:29Z",
   "username": "StanleeO",
   "all_time": {
-    "total_seconds": 27947726.426501,
-    "human_readable": "7,763 hrs 15 mins"
+    "total_seconds": 27956332.613501,
+    "human_readable": "7,765 hrs 38 mins"
   },
   "last_7_days": {
-    "total_seconds": 101244.657,
-    "human_readable_total": "28 hrs 7 mins",
-    "daily_average_seconds": 14464.0,
-    "daily_average_human": "4 hrs 1 min",
+    "total_seconds": 98969.544,
+    "human_readable_total": "27 hrs 29 mins",
+    "daily_average_seconds": 14139.0,
+    "daily_average_human": "3 hrs 55 mins",
     "languages": [
       {
         "name": "Python",
-        "percent": 42.29,
-        "human_readable": "12 hrs 6 mins"
+        "percent": 40.53,
+        "human_readable": "11 hrs 27 mins"
       },
       {
         "name": "Markdown",
-        "percent": 21.87,
-        "human_readable": "6 hrs 15 mins"
+        "percent": 21.38,
+        "human_readable": "6 hrs 2 mins"
       },
       {
         "name": "Bash",
-        "percent": 14.2,
-        "human_readable": "4 hrs 3 mins"
+        "percent": 18.98,
+        "human_readable": "5 hrs 22 mins"
       },
       {
         "name": "Dart",
-        "percent": 11.51,
-        "human_readable": "3 hrs 17 mins"
+        "percent": 7.24,
+        "human_readable": "2 hrs 2 mins"
       },
       {
         "name": "JSON",
-        "percent": 2.83,
-        "human_readable": "48 mins"
-      },
-      {
-        "name": "Diff",
-        "percent": 1.97,
-        "human_readable": "33 mins"
+        "percent": 2.92,
+        "human_readable": "49 mins"
       },
       {
         "name": "Other",
-        "percent": 1.74,
-        "human_readable": "29 mins"
+        "percent": 2.81,
+        "human_readable": "47 mins"
+      },
+      {
+        "name": "Diff",
+        "percent": 1.99,
+        "human_readable": "33 mins"
+      },
+      {
+        "name": "YAML",
+        "percent": 1.53,
+        "human_readable": "25 mins"
       },
       {
         "name": "Text",
-        "percent": 1.22,
+        "percent": 1.23,
         "human_readable": "20 mins"
       },
       {
         "name": "TypeScript",
-        "percent": 1.16,
+        "percent": 1.18,
         "human_readable": "19 mins"
-      },
-      {
-        "name": "YAML",
-        "percent": 0.99,
-        "human_readable": "17 mins"
       }
     ],
     "editors": [
       {
         "name": "Claude Code",
-        "percent": 67.13,
-        "human_readable": "19 hrs 12 mins"
+        "percent": 65.24,
+        "human_readable": "18 hrs 27 mins"
       },
       {
         "name": "VS Code",
-        "percent": 19.47,
-        "human_readable": "5 hrs 34 mins"
+        "percent": 19.03,
+        "human_readable": "5 hrs 22 mins"
       },
       {
         "name": "Antigravity CLI",
-        "percent": 13.4,
-        "human_readable": "3 hrs 50 mins"
+        "percent": 15.74,
+        "human_readable": "4 hrs 27 mins"
       }
     ],
     "operating_systems": [
       {
         "name": "Mac",
         "percent": 100.0,
-        "human_readable": "28 hrs 37 mins"
+        "human_readable": "28 hrs 17 mins"
       }
     ]
   },
   "last_30_days": {
-    "total_seconds": 308134.096,
-    "human_readable_total": "85 hrs 35 mins",
-    "daily_average_seconds": 11412.0,
-    "daily_average_human": "3 hrs 10 mins",
+    "total_seconds": 314414.028,
+    "human_readable_total": "87 hrs 20 mins",
+    "daily_average_seconds": 11229.0,
+    "daily_average_human": "3 hrs 7 mins",
     "languages": [
       {
         "name": "Python",
-        "percent": 38.64,
-        "human_readable": "33 hrs 39 mins"
+        "percent": 37.79,
+        "human_readable": "33 hrs 49 mins"
       },
       {
         "name": "Dart",
-        "percent": 21.93,
-        "human_readable": "19 hrs 5 mins"
+        "percent": 21.35,
+        "human_readable": "19 hrs 6 mins"
       },
       {
         "name": "Markdown",
-        "percent": 21.46,
-        "human_readable": "18 hrs 41 mins"
+        "percent": 21.01,
+        "human_readable": "18 hrs 48 mins"
       },
       {
         "name": "Bash",
-        "percent": 4.74,
-        "human_readable": "4 hrs 7 mins"
+        "percent": 6.07,
+        "human_readable": "5 hrs 26 mins"
       },
       {
         "name": "TypeScript",
-        "percent": 2.8,
+        "percent": 2.73,
         "human_readable": "2 hrs 26 mins"
       },
       {
+        "name": "Other",
+        "percent": 2.41,
+        "human_readable": "2 hrs 9 mins"
+      },
+      {
         "name": "Diff",
-        "percent": 1.79,
+        "percent": 1.74,
         "human_readable": "1 hr 33 mins"
       },
       {
         "name": "reStructuredText",
-        "percent": 1.74,
+        "percent": 1.69,
         "human_readable": "1 hr 30 mins"
       },
       {
-        "name": "Other",
-        "percent": 1.73,
-        "human_readable": "1 hr 30 mins"
+        "name": "YAML",
+        "percent": 0.99,
+        "human_readable": "53 mins"
       },
       {
         "name": "JSON",
-        "percent": 0.95,
-        "human_readable": "49 mins"
-      },
-      {
-        "name": "XML",
-        "percent": 0.87,
-        "human_readable": "45 mins"
+        "percent": 0.94,
+        "human_readable": "50 mins"
       }
     ],
     "editors": [
       {
         "name": "Claude Code",
-        "percent": 70.73,
-        "human_readable": "61 hrs 36 mins"
+        "percent": 70.42,
+        "human_readable": "63 hrs 1 min"
       },
       {
         "name": "VS Code",
-        "percent": 19.15,
-        "human_readable": "16 hrs 40 mins"
+        "percent": 18.95,
+        "human_readable": "16 hrs 57 mins"
       },
       {
         "name": "Antigravity CLI",
-        "percent": 10.12,
-        "human_readable": "8 hrs 48 mins"
+        "percent": 10.63,
+        "human_readable": "9 hrs 30 mins"
       }
     ],
     "operating_systems": [
       {
         "name": "Mac",
         "percent": 100.0,
-        "human_readable": "87 hrs 6 mins"
+        "human_readable": "89 hrs 29 mins"
       }
     ]
   }
