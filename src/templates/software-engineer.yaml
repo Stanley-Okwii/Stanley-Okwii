@@ -28,7 +28,7 @@ cv:
       - label: "Developer Tooling"
         details: "Claude Code, GitHub Copilot, Git, GitHub Actions, Antigravity CLI"
     experience:
-      - company: "Access to Energy (Stealth)"
+      - company: "Access to Energy"
         position: "Founding Engineer"
         date:
         start_date: "2026-01"
