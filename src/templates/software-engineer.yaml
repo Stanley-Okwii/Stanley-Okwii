@@ -11,18 +11,22 @@ cv:
       username: "Stanley-Okwii"
   sections:
     Summary:
-      - "A senior Full-Stack Engineer with 6+ years building web and mobile products in Python and TypeScript on AWS and GCP. I build systems end-to-end, from AI assistants and payment platforms to large-scale data pipelines. I thrive as a technical lead or individual contributor, turning ambiguous requirements into production systems that serve real users."
+      - "Senior engineer with 6+ years shipping production systems in Python and TypeScript on AWS, spanning payment platforms, analytics products, and data pipelines. Currently building an LLM research assistant end-to-end as a founding engineer: retrieval, evaluation, and multi-tenant infrastructure. AI-assisted development is part of my normal workflow, from coding to review and testing."
     skills:
       - label: "Programming"
-        details: "Python, Javascript, Typescript, Dart, HTML, CSS"
-      - label: "Databases"
-        details: "PostgreSQL, MySQL, MongoDB, Redis, SQLite, pgvector"
-      - label: "Libraries and Frameworks"
-        details: "Django, FastAPI, Flask, Express, React, Next.js, Node.js, Flutter, Redux, Angular, ReactNative, GraphQL"
+        details: "Python, TypeScript, JavaScript, SQL, Dart"
       - label: "AI/ML"
-        details: "RAG Pipelines, LLM Integration (Claude, Gemini), Vector Search, Embeddings, Hybrid Retrieval"
-      - label: "Tools and Platforms"
-        details: "AWS (ECS, Bedrock, CloudFormation), GCP, Supabase, Docker, Git, GitHub Actions, Celery, Redis Streams, Sentry, New Relic"
+        details: "RAG pipelines, LLM integration (Claude and Gemini APIs), LLM evaluation, prompt engineering, agent and tool-use workflows, vector search (pgvector), embeddings, hybrid retrieval"
+      - label: "Backend and Frameworks"
+        details: "Django, FastAPI, Flask, Node.js, Express, GraphQL, Celery, Redis"
+      - label: "Frontend and Mobile"
+        details: "React, Next.js, Flutter"
+      - label: "Databases"
+        details: "PostgreSQL, MongoDB, Redis, MySQL"
+      - label: "Infrastructure"
+        details: "AWS (ECS, Bedrock, CloudFormation), GCP, Docker, GitHub Actions CI/CD, Supabase, Sentry, New Relic, Terraform / Kubernetes"
+      - label: "Developer Tooling"
+        details: "Claude Code, GitHub Copilot, Git, GitHub Actions, Antigravity CLI"
     experience:
       - company: "Access to Energy (Stealth)"
         position: "Founding Engineer"
@@ -30,47 +34,48 @@ cv:
         start_date: "2026-01"
         end_date: "present"
         location: "London, UK"
-        summary: "AI research assistant for energy access in Africa — helps researchers, NGOs, and energy professionals get evidence-based answers with citations, drawn from a trusted library of sector reports and publications."
+        summary: "AI research assistant for energy access in Africa: evidence-based answers with citations from a curated library of sector reports. Team of 4; I own the backend, AI pipeline, and infrastructure."
         highlights:
-          - "Built an AI research assistant that answers questions with cited sources from a curated document library, improving answer accuracy by 35% over a basic search baseline."
-          - "Designed and deployed the cloud infrastructure on AWS, automating environment setup and cutting provisioning time from days to under 15 minutes."
-          - "Built a document processing pipeline that handles hundreds of files at once, making uploaded content searchable in minutes instead of hours."
-          - "Designed a multi-tenant platform with secure data isolation and per-organisation usage tracking, enabling onboarding of multiple research organisations on a single shared system."
+          - "Built the RAG pipeline behind the assistant — hybrid retrieval over pgvector plus reranking(RRF) and the evaluation harness used to measure it: a labelled question set scored for factual accuracy against source documents, showing a 35% improvement over the keyword-search baseline."
+          - "Designed the agent workflow that routes questions, calls retrieval and citation tools, and refuses when the knowledge library lacks evidence — keeping every answer traceable to a source document."
+          - "Built the document ingestion pipeline (parsing, chunking, embedding) that processes hundreds of PDFs concurrently; newly uploaded reports become searchable in minutes rather than hours."
+          - "Designed multi-tenant data isolation with per-organisation access control and usage metering, so several research organisations share one deployment without any visibility into each other's data."
+          - "Wrote the AWS infrastructure as CloudFormation and automated environment setup, cutting the time to stand up a new environment from days to under 15 minutes."
       - company: "Harver"
-        position: "Senior Full-Stack Software Engineer (Full-time)"
+        position: "Senior Full-Stack Software Engineer"
         date:
         start_date: "2023-03"
         end_date: "2025-05"
-        location: "New York, USA"
-        summary: "Left Harver in May 2025 to focus full-time on completing my MSc at Birkbeck, University of London."
+        location: "New York, USA (remote)"
+        summary: "Left in May 2025 to complete my MSc full-time."
         highlights:
-          - "Owned end-to-end architecture and delivery of 3+ client-facing software projects across a Python backend and React frontend, making key technical decisions on security, performance, and long-term maintainability."
-          - "Drove project planning across engineering, product, and design — scoping requirements, managing technical trade-offs, and delivering projects on schedule."
-          - "Authored technical documentation of core system workflows, reducing onboarding time for new engineers by 15% and establishing shared knowledge across the team."
-          - "Shaped engineering hiring by leading 15+ technical interviews, assessing candidates on system design, code quality, and problem-solving."
+          - "Owned architecture and delivery of three client-facing products end-to-end (Python backend, React frontend), including the calls on security, performance, and long-term maintainability."
+          - "Ran project planning across engineering, product, and design: scoping, trade-offs, and delivery dates that held."
+          - "Wrote the technical documentation new engineers onboard with, covering core system workflows."
+          - "Led 15+ technical interviews on system design and code quality, helping set the engineering hiring bar."
       - company: "Harver"
-        position: "Full-Stack Software Engineer (Full-time)"
+        position: "Full-Stack Software Engineer"
         date:
         start_date: "2019-09"
         end_date: "2023-03"
-        location: "New York, USA"
+        location: "New York, USA (remote)"
         summary:
         highlights:
-          - "Improved application observability by implementing structured logging and monitoring, cutting debugging time by 25%."
-          - "Built analytics dashboards providing clients with actionable insights into talent growth and mobility metrics across their organisations."
-          - "Identified and resolved performance bottlenecks through systematic profiling, achieving a 15% improvement in API response latency."
-          - "Automated the release process by building CI/CD pipelines, resulting in 20% faster deployment of frontend applications."
+          - "Added structured logging and monitoring (Sentry, New Relic) across the application, cutting typical time-to-diagnose for production issues by around 25%."
+          - "Built analytics dashboards clients used to track talent growth and mobility across their organisations."
+          - "Cut API response latency 15% by profiling hot paths by removing N+1 queries and caching."
+          - "Automated releases with CI/CD pipelines, taking frontend deployments from a manual process to one-click and roughly 20% faster."
     projects:
-      - name: "Hoppers (Event Ticketing Platform)"
+      - name: "[Hoppers](https://hoppers.ug/) (Event Ticketing Platform)"
         date:
         start_date: "2025-10"
         end_date: "present"
         location: "Remote"
         summary: "Full-Stack Software Engineer (Contract)"
         highlights:
-          - "Built a payment system integrating multiple providers with commission tracking, automated settlements, and booking-fee snapshots for accurate revenue reconciliation."
-          - "Implemented QR-code ticketing with secure generation, server-side validation, and per-user purchase limits with safeguards to prevent double-bookings under heavy traffic."
-          - "Shipped a team management system with invitations, permission controls, and organiser metrics dashboards — delivering major features across backend, admin, and mobile as primary contributor."
+          - "Built the payment system across multiple providers, with commission tracking and booking-fee snapshots for revenue reconciliation."
+          - "Implemented QR-code ticketing with server-side validation, per-user purchase limits, and concurrency safeguards against double-booking under load."
+          - "Shipped team management — invitations, permissions, organiser dashboards — as primary contributor across backend, admin, and mobile."
       - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
         date:
         start_date: "2023-03"
@@ -78,16 +83,15 @@ cv:
         location: "Berlin, Germany"
         summary: "Full-Stack Web Development Mentor (Freelance)"
         highlights:
-          - "Provided technical mentorship and project feedback to 23+ students in the Full-Stack Web Development program at CareerFoundry."
-          - "Maintained a consistent 5/5 student rating for quality of feedback, supportiveness, and responsiveness."
-      - name: "[Utidash - New Tab](https://chromewebstore.google.com/detail/dghaelfeofkkdebndhkfoneojddiebhd?utm_source=item-share-cb) (Productivity Chrome Extension)"
+          - "Mentored 23+ students through the Full-Stack Web Development program, holding a 5/5 rating for feedback quality and responsiveness."
+      - name: "[Utidash — New Tab](https://chromewebstore.google.com/detail/dghaelfeofkkdebndhkfoneojddiebhd) (Chrome Extension)"
         date:
         start_date: "2020-09"
         end_date: "2020-11"
         location: "Berlin, Germany"
         summary: "Full-Stack Software Engineer (Contract)"
         highlights:
-          - "Implemented new features for a productivity Chrome extension serving over 6,000 users, which led to a 12% increase in daily active usage."
+          - "Shipped features for a productivity extension with 6,000+ users; daily active usage rose 12% in the following months."
     education:
       - institution: "Birkbeck, University of London"
         area: "Data Analytics"
@@ -98,7 +102,7 @@ cv:
         location: "London, UK"
         summary:
         highlights:
-          - "Graduated with Merit"
+          - "Merit. Dissertation on adversarial robustness: implemented PGD attacks from scratch and adversarially retrained ResNet-50 on ImageNet (128k+ images, 1,000 classes)."
       - institution: "Makerere University"
         area: "Software Engineering"
         degree: "BSc"
@@ -108,7 +112,7 @@ cv:
         location: "Kampala, Uganda"
         summary:
         highlights:
-          - "Graduated with 2:1 (Upper Second Class Honours)"
+          - "2:1 (Upper Second Class Honours)"
 design:
   theme: "engineeringclassic"
   page:
@@ -238,7 +242,7 @@ locale:
     - "November"
     - "December"
 settings:
-  current_date: "2026-04-14"
+  current_date: "2026-08-24"
   bold_keywords: []
   render_command:
     pdf_path: ../resumes/Stanley_Okwii_CV.pdf

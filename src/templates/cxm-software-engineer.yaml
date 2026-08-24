@@ -1,0 +1,239 @@
+cv:
+  name: "Stanley Okwii"
+  location: "London, United Kingdom"
+  email: "stanlee.okwii@icloud.com"
+  phone: "+44 7570 488 532"
+  website: "https://stanleeokwii.info/"
+  social_networks:
+    - network: "LinkedIn"
+      username: "stanley-okwii"
+    - network: "GitHub"
+      username: "Stanley-Okwii"
+  sections:
+    Summary:
+      - "MSc Data Analytics graduate (Birkbeck, Merit, September 2025) with 6+ years building production systems in Python and TypeScript before returning to study. My recent work centres on transactional backends — inventory, payment paths, and job queues built to hold up under contention and bulk load. I profile before optimising, test what I ship, and am looking to bring that rigour to the Deliveroo team."
+      - "Right to work in the UK — Post-Study Work visa valid to December 2027."
+    education:
+      - institution: "Birkbeck, University of London"
+        area: "Data Analytics"
+        degree: "MSc"
+        date:
+        start_date: "2024-10"
+        end_date: "2025-09"
+        location: "London, UK"
+        summary:
+        highlights:
+          - "Graduated with Merit"
+          - "Dissertation on adversarial training: quantified the robustness–accuracy trade-off for image classifiers at ImageNet scale."
+      - institution: "Makerere University"
+        area: "Software Engineering"
+        degree: "BSc"
+        date:
+        start_date: "2014-08"
+        end_date: "2018-09"
+        location: "Kampala, Uganda"
+        summary:
+        highlights:
+          - "Graduated with 2:1 (Upper Second Class Honours)"
+    skills:
+      - label: "Languages"
+        details: "Python, TypeScript, JavaScript, SQL"
+      - label: "Backend"
+        details: "Django, Django REST Framework, FastAPI, Flask, Node.js, Express, Celery, Redis Streams"
+      - label: "Databases"
+        details: "PostgreSQL, MySQL, Redis"
+      - label: "Testing"
+        details: "pytest, Jest, React Testing Library, Playwright, JMeter"
+      - label: "Frontend"
+        details: "React, Next.js, Redux"
+      - label: "Tools and Platforms"
+        details: "AWS (ECS, S3, CloudFront, CloudFormation), Docker, Git, GitHub Actions, Terraform, Sentry"
+    experience:
+      - company: "Hoppers"
+        position: "Full-Stack Software Engineer (Contract)"
+        date:
+        start_date: "2025-10"
+        end_date: "present"
+        location: "Remote"
+        summary: "Event ticketing marketplace connecting organisers, attendees, and payment providers."
+        highlights:
+          - "Built a ticketing system with concurrency safeguards, preventing double-selling of the same seat under high-traffic demand."
+          - "Built a payment integration for multiple providers with automated settlements that reconcile accurately through pricing changes."
+          - "Wrote unit and end-to-end tests alongside each feature."
+      - company: "Access to Energy (Stealth)"
+        position: "Founding Engineer"
+        date:
+        start_date: "2026-01"
+        end_date: "present"
+        location: "London, UK"
+        summary: "Document search platform for energy access research."
+        highlights:
+          - "Built a background job queue processing hundreds of uploaded files in parallel, cutting bulk ingestion time from hours to minutes."
+          - "Designed multi-tenant data isolation at the query layer, ensuring organisations sharing the platform cannot access each other's data."
+          - "Containerised the deployment on AWS ECS with automated provisioning, cutting environment setup from days to under 15 minutes."
+      - company: "Harver"
+        position: "Senior Full-Stack Software Engineer"
+        date:
+        start_date: "2023-03"
+        end_date: "2025-05"
+        location: "New York, USA"
+        summary: "Left Harver in May 2025 to complete my MSc at Birkbeck, University of London, full-time."
+        highlights:
+          - "Diagnosed and fixed critical API timeouts for the platform's largest client: load-tested to find the cause, restructured the queries behind it, and brought response times from 8–12 seconds to under 800ms."
+          - "Led integration of an acquired product into the platform, comparing three approaches against time, maintenance, and security criteria before building the one that kept candidate data out of the browser."
+          - "Introduced request mocking for frontend tests and took it through engineering review to team-wide adoption."
+      - company: "Harver"
+        position: "Full-Stack Software Engineer"
+        date:
+        start_date: "2019-09"
+        end_date: "2023-03"
+        location: "New York, USA"
+        summary:
+        highlights:
+          - "Decoupled a microfrontend from the monolith deploy pipeline, cutting deploy time from 45 minutes to under five and eliminating the version mismatch that had been breaking production."
+          - "Drove team-wide adoption of the new deploy pipeline post-launch through targeted documentation and hands-on support, establishing it as the team default."
+    projects:
+      - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
+        date:
+        start_date: "2023-03"
+        end_date: "2026-01"
+        location: "Berlin, Germany"
+        summary: "Full-Stack Web Development Mentor (Freelance)"
+        highlights:
+          - "Provided technical mentorship and project feedback to 23+ students, maintaining a consistent 5/5 student rating."
+design:
+  theme: "engineeringclassic"
+  page:
+    size: "a4"
+    top_margin: "2cm"
+    bottom_margin: "2cm"
+    left_margin: "2cm"
+    right_margin: "2cm"
+    show_footer: false
+    show_top_note: true
+  colors:
+    body: "rgb(0, 0, 0)"
+    name: "rgb(0, 79, 144)"
+    connections: "rgb(0, 79, 144)"
+    section_titles: "rgb(0, 79, 144)"
+    links: "rgb(0, 79, 144)"
+    footer: "rgb(128, 128, 128)"
+    top_note: "rgb(128, 128, 128)"
+  typography:
+    font_family:
+      body: "Raleway"
+      name: "Raleway"
+      headline: "Raleway"
+      connections: "Raleway"
+      section_titles: "Raleway"
+    font_size:
+      body: "10pt"
+      name: "30pt"
+      section_titles: "1.4em"
+    line_spacing: "0.6em"
+    alignment: "justified"
+    date_and_location_column_alignment: "right"
+    bold:
+      name: false
+      section_titles: false
+    small_caps:
+      name: false
+  links:
+    underline: false
+    show_external_link_icon: false
+  header:
+    alignment: "left"
+    photo_width: "3.5cm"
+    space_below_name: "0.7cm"
+    space_below_connections: "0.7cm"
+    connections:
+      phone_number_format: "international"
+      hyperlink: true
+      show_icons: true
+      display_urls_instead_of_usernames: false
+      separator: ""
+      space_between_connections: "0.5cm"
+  section_titles:
+    type: "with_partial_line"
+    line_thickness: "0.5pt"
+    space_above: "0.5cm"
+    space_below: "0.3cm"
+  sections:
+    allow_page_break: true
+    space_between_regular_entries: "1.2em"
+    show_time_spans_in: []
+  entries:
+    date_and_location_width: "4.15cm"
+    side_space: "0.2cm"
+    space_between_columns: "0.1cm"
+    allow_page_break: true
+    short_second_row: false
+    highlights:
+      bullet: "•"
+      nested_bullet: "-"
+      space_above: "0.25cm"
+      space_left: "0cm"
+      space_between_items: "0.2cm"
+      space_between_bullet_and_text: "0.5em"
+  templates:
+    footer: "NAME - Page PAGE_NUMBER of TOTAL_PAGES"
+    top_note: "*LAST_UPDATED CURRENT_DATE*"
+    single_date: "MONTH_ABBREVIATION YEAR"
+    date_range: "START_DATE – END_DATE"
+    one_line_entry:
+      main_column: "**LABEL:** DETAILS"
+    education_entry:
+      main_column: "**INSTITUTION**, AREA -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      degree_column: "**DEGREE**"
+      date_and_location_column: "DATE"
+    normal_entry:
+      main_column: "**NAME** -- **LOCATION**\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    experience_entry:
+      main_column: "**POSITION**, COMPANY -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    publication_entry:
+      main_column: "**TITLE**\nAUTHORS\nURL (JOURNAL)"
+      date_and_location_column: "DATE"
+locale:
+  language: "english"
+  last_updated: "Last updated in"
+  month: "month"
+  months: "months"
+  year: "year"
+  years: "years"
+  present: "present"
+  month_abbreviations:
+    - "Jan"
+    - "Feb"
+    - "Mar"
+    - "Apr"
+    - "May"
+    - "June"
+    - "July"
+    - "Aug"
+    - "Sept"
+    - "Oct"
+    - "Nov"
+    - "Dec"
+  month_names:
+    - "January"
+    - "February"
+    - "March"
+    - "April"
+    - "May"
+    - "June"
+    - "July"
+    - "August"
+    - "September"
+    - "October"
+    - "November"
+    - "December"
+settings:
+  current_date: "2026-07-28"
+  bold_keywords: []
+  render_command:
+    pdf_path: ../resumes/Stanley_Okwii_CV_Deliveroo.pdf
+    dont_generate_markdown: true
+    dont_generate_html: true
+    dont_generate_png: true
