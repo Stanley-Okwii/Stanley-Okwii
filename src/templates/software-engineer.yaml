@@ -36,7 +36,7 @@ cv:
         location: "London, UK"
         summary: "AI research assistant for energy access in Africa: evidence-based answers with citations from a curated library of sector reports. Team of 4; I own the backend, AI pipeline, and infrastructure."
         highlights:
-          - "Built the RAG pipeline behind the assistant — hybrid retrieval over pgvector plus reranking(RRF) and the evaluation harness used to measure it: a labelled question set scored for factual accuracy against source documents, showing a 35% improvement over the keyword-search baseline."
+          - "Built the end-to-end RAG pipeline and its evaluation harness, benchmarking hybrid retrieval on pgvector against a keyword-only baseline across a labelled question set"
           - "Designed the agent workflow that routes questions, calls retrieval and citation tools, and refuses when the knowledge library lacks evidence — keeping every answer traceable to a source document."
           - "Built the document ingestion pipeline (parsing, chunking, embedding) that processes hundreds of PDFs concurrently; newly uploaded reports become searchable in minutes rather than hours."
           - "Designed multi-tenant data isolation with per-organisation access control and usage metering, so several research organisations share one deployment without any visibility into each other's data."
