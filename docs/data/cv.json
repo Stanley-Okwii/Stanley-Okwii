@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T00:39:50Z",
+  "generated_at": "2026-09-14T16:55:03Z",
   "name": "Stanley Okwii",
   "location": "London, United Kingdom",
   "summary": "Senior engineer with 6+ years shipping production systems in Python and TypeScript on AWS, spanning payment platforms, analytics products, and data pipelines. Currently building an LLM research assistant end-to-end as a founding engineer: retrieval, evaluation, and multi-tenant infrastructure. AI-assisted development is part of my normal workflow, from coding to review and testing.",
@@ -54,7 +54,7 @@
         "Designed the agent workflow that routes questions, calls retrieval and citation tools, and refuses when the knowledge library lacks evidence — keeping every answer traceable to a source document.",
         "Built the document ingestion pipeline (parsing, chunking, embedding) that processes hundreds of PDFs concurrently; newly uploaded reports become searchable in minutes rather than hours.",
         "Designed multi-tenant data isolation with per-organisation access control and usage metering, so several research organisations share one deployment without any visibility into each other's data.",
-        "Wrote the AWS infrastructure as CloudFormation and automated environment setup, cutting the time to stand up a new environment from days to under 15 minutes."
+        "Wrote the AWS infrastructure as CloudFormation and automated environment setup, cutting the time to stand up a new environment from days to minutes."
       ]
     },
     {
@@ -77,10 +77,10 @@
       "location": "New York, USA (remote)",
       "summary": "",
       "highlights": [
-        "Added structured logging and monitoring (Sentry, New Relic) across the application, cutting typical time-to-diagnose for production issues by around 25%.",
+        "Added structured logging and monitoring (Sentry, New Relic) across the application, cutting typical time-to-diagnose for production issues by replacing guesswork with a direct trail from error to root cause.",
         "Built analytics dashboards clients used to track talent growth and mobility across their organisations.",
-        "Cut API response latency 15% by profiling hot paths by removing N+1 queries and caching.",
-        "Automated releases with CI/CD pipelines, taking frontend deployments from a manual process to one-click and roughly 20% faster."
+        "Cut API response latency by profiling hot paths, removing N+1 queries, and adding targeted caching.",
+        "Automated releases with CI/CD pipelines, taking frontend deployments from a manual process to one-click."
       ]
     }
   ],
@@ -111,7 +111,7 @@
       "period": "Sep 2020 — Nov 2020",
       "location": "Berlin, Germany",
       "highlights": [
-        "Shipped features for a productivity extension with 6,000+ users; daily active usage rose 12% in the following months."
+        "Shipped features for a productivity extension with 6,000+ users; daily active usage rose in the following months."
       ]
     }
   ],
@@ -123,7 +123,7 @@
       "period": "Oct 2024 — Sep 2025",
       "location": "London, UK",
       "highlights": [
-        "Merit. Dissertation on adversarial robustness: implemented PGD attacks from scratch and adversarially retrained ResNet-50 on ImageNet (128k+ images, 1,000 classes)."
+        "Merit. Dissertation on adversarial robustness: implemented PGD attacks from scratch and adversarially retrained ResNet-50 on ImageNet."
       ]
     },
     {
