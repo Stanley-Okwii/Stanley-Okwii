@@ -11,7 +11,7 @@ cv:
       username: "Stanley-Okwii"
   sections:
     Summary:
-      - "Senior software engineer with 6+ years building production systems in Python and TypeScript on AWS, across payments, analytics products and data pipelines. Currently the founding engineer on an AI research assistant, where I own the retrieval pipeline, the agent workflow and the infrastructure that serves several client organisations from one deployment. I run AI agents through implementation, testing and review with checks at every stage, and keep architecture, security and unclear product decisions for myself. Right to work in the UK on a Graduate visa until December 2027."
+      - "Senior software engineer with 6+ years building production systems in Python and TypeScript on AWS, across payments, analytics products and data pipelines. Currently the founding engineer on an AI research assistant, where I own the retrieval pipeline, the agent workflow and the infrastructure that serves several client organisations from one deployment. I run AI agents through implementation, testing and review with checks at every stage, and keep architecture, security and unclear product decisions for myself. Right to work in the UK."
     skills:
       - label: "Programming"
         details: "Python, TypeScript, JavaScript, SQL, Dart"
