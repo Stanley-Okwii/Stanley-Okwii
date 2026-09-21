@@ -11,12 +11,12 @@ cv:
       username: "Stanley-Okwii"
   sections:
     Summary:
-      - "Senior engineer with 6+ years shipping production systems in Python and TypeScript on AWS, spanning payment platforms, analytics products, and data pipelines. Currently building an LLM research assistant end-to-end as a founding engineer: retrieval, evaluation, and multi-tenant infrastructure. AI-assisted development is part of my normal workflow, from coding to review and testing."
+      - "Senior software engineer with 6+ years building production systems in Python and TypeScript on AWS, across payments, analytics products and data pipelines. Currently the founding engineer on an AI research assistant, where I own the retrieval pipeline, the agent workflow and the infrastructure that serves several client organisations from one deployment. I run AI agents through implementation, testing and review with checks at every stage, and keep architecture, security and unclear product decisions for myself. Right to work in the UK on a Graduate visa until December 2027."
     skills:
       - label: "Programming"
         details: "Python, TypeScript, JavaScript, SQL, Dart"
       - label: "AI/ML"
-        details: "RAG pipelines, LLM integration (Claude and Gemini APIs), LLM evaluation, prompt engineering, agent and tool-use workflows, vector search (pgvector), embeddings, hybrid retrieval"
+        details: "RAG pipelines, LLM integration (Claude and Gemini APIs), prompt engineering, agent and tool use workflows, embeddings, vector search (pgvector), hybrid retrieval"
       - label: "Backend and Frameworks"
         details: "Django, FastAPI, Flask, Node.js, Express, GraphQL, Celery, Redis"
       - label: "Frontend and Mobile"
@@ -24,9 +24,11 @@ cv:
       - label: "Databases"
         details: "PostgreSQL, MongoDB, Redis, MySQL"
       - label: "Infrastructure"
-        details: "AWS (ECS, Bedrock, CloudFormation), GCP, Docker, GitHub Actions CI/CD, Supabase, Sentry, New Relic, Terraform / Kubernetes"
+        details: "AWS (ECS, Bedrock, CloudFormation), GCP, Docker, GitHub Actions, Supabase, Sentry, New Relic, Terraform, Kubernetes"
+      - label: "Testing"
+        details: "Unit, integration and end to end testing, Jest, Playwright"
       - label: "Developer Tooling"
-        details: "Claude Code, GitHub Copilot, Git, GitHub Actions, Antigravity CLI"
+        details: "Claude Code (custom skills and agents), GitHub Copilot, Git, Antigravity CLI"
     experience:
       - company: "Access to Energy"
         position: "Founding Engineer"
@@ -34,64 +36,60 @@ cv:
         start_date: "2026-01"
         end_date: "present"
         location: "London, UK"
-        summary: "AI research assistant for energy access in Africa: evidence-based answers with citations from a curated library of sector reports. Team of 4; I own the backend, AI pipeline, and infrastructure."
+        summary: "An AI research assistant that answers questions on energy access in Africa, citing evidence from a curated library of sector reports. Team of 4. I own the backend, the AI pipeline and the infrastructure."
         highlights:
-          - "Built the end-to-end RAG pipeline and its evaluation harness, benchmarking hybrid retrieval on pgvector against a keyword-only baseline across a labelled question set"
-          - "Designed the agent workflow that routes questions, calls retrieval and citation tools, and refuses when the knowledge library lacks evidence — keeping every answer traceable to a source document."
-          - "Built the document ingestion pipeline (parsing, chunking, embedding) that processes hundreds of PDFs concurrently; newly uploaded reports become searchable in minutes rather than hours."
-          - "Designed multi-tenant data isolation with per-organisation access control and usage metering, so several research organisations share one deployment without any visibility into each other's data."
-          - "Wrote the AWS infrastructure as CloudFormation and automated environment setup, cutting the time to stand up a new environment from days to minutes."
+          - "Built the retrieval pipeline behind the assistant, combining keyword and vector search in PostgreSQL with pgvector so questions find the right passages even when worded differently from the source."
+          - "Designed the agent workflow that decides how to handle each question, calls the retrieval and citation tools, and declines to answer when the library holds no supporting evidence, so every answer traces back to a source."
+          - "Built the ingestion pipeline that parses, chunks and embeds PDF reports in the background, so large uploads don't slow the app and new reports appear in search automatically."
+          - "Designed the data model and access controls that let several research organisations share one deployment while keeping their documents fully separate and metering usage for each."
+          - "Wrote the AWS infrastructure as CloudFormation templates and scripted environment setup, so every environment is built from reviewed code rather than manual console work."
       - company: "Harver"
-        position: "Senior Full-Stack Software Engineer"
+        position: "Senior Full Stack Software Engineer"
         date:
         start_date: "2023-03"
         end_date: "2025-05"
         location: "New York, USA (remote)"
-        summary: "Left in May 2025 to complete my MSc full-time."
+        summary: "Promoted to Senior in March 2023. Left in May 2025 to complete my MSc full time."
         highlights:
-          - "Owned architecture and delivery of three client-facing products end-to-end (Python backend, React frontend), including the calls on security, performance, and long-term maintainability."
-          - "Ran project planning across engineering, product, and design: scoping, trade-offs, and delivery dates that held."
-          - "Wrote the technical documentation new engineers onboard with, covering core system workflows."
-          - "Led 15+ technical interviews on system design and code quality, helping set the engineering hiring bar."
+          - "Owned the architecture and delivery of three client products (Python backend, React frontend) from design to release, making the key calls on security, performance and maintainability."
+          - "Led the technical design of new features, working out the data model, API design and implementation plan before the team started building."
+          - "Handled production incidents reported by clients, tracing each one through New Relic logs and traces to its root cause and shipping the fix."
+          - "Ran planning across engineering, product and design, breaking features into milestones and raising risks early so scope could change before a deadline slipped."
+          - "Wrote the documentation on core system workflows that new engineers used to get up to speed."
+          - "Conducted 15+ technical interviews on system design and code quality, and helped shape how the team assessed engineering candidates."
       - company: "Harver"
-        position: "Full-Stack Software Engineer"
+        position: "Full Stack Software Engineer"
         date:
         start_date: "2019-09"
         end_date: "2023-03"
         location: "New York, USA (remote)"
         summary:
         highlights:
-          - "Added structured logging and monitoring (Sentry, New Relic) across the application, cutting typical time-to-diagnose for production issues by replacing guesswork with a direct trail from error to root cause."
-          - "Built analytics dashboards clients used to track talent growth and mobility across their organisations."
-          - "Cut API response latency by profiling hot paths, removing N+1 queries, and adding targeted caching."
-          - "Automated releases with CI/CD pipelines, taking frontend deployments from a manual process to one-click."
+          - "Introduced structured logging and error monitoring with Sentry and New Relic, giving the team a clear trail from each production error to its root cause instead of relying on guesswork."
+          - "Built analytics dashboards that clients used to follow talent growth and internal mobility across their organisations."
+          - "Improved API response times by profiling the slowest endpoints, removing N+1 queries and adding caching where it mattered most."
+          - "Automated frontend releases with CI/CD pipelines, replacing a manual deployment process with a single click."
     projects:
       - name: "[Hoppers](https://hoppers.ug/) (Event Ticketing Platform)"
         date:
         start_date: "2025-10"
         end_date: "present"
         location: "Remote"
-        summary: "Full-Stack Software Engineer (Contract)"
+        summary: "Full Stack Software Engineer (Contract, Part Time)"
         highlights:
-          - "Built the payment system across multiple providers, with commission tracking and booking-fee snapshots for revenue reconciliation."
-          - "Implemented QR-code ticketing with server-side validation, per-user purchase limits, and concurrency safeguards against double-booking under load."
-          - "Shipped team management — invitations, permissions, organiser dashboards — as primary contributor across backend, admin, and mobile."
+          - "Built the payment system across several payment providers, recording commission and booking fees at the moment of purchase so revenue can be reconciled even after pricing changes."
+          - "Implemented QR code ticketing with validation on the server, purchase limits for each buyer and safeguards that prevent the same ticket being sold twice when demand spikes."
+          - "Delivered team management as the main contributor across the backend, admin panel and mobile app, covering invitations, role permissions and organiser dashboards."
+          - "Built an agent workflow in Claude Code that turns a GitHub issue into a tested draft pull request, then checks its own work with Playwright screenshots for UI changes and replayed API calls for backend changes, which I verify before anything ships."
+          - "Built a review agent that checks each pull request in an isolated dev container against our conventions, runs its own QA and follows up on replies, so feedback keeps moving while the author still has context."
       - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
         date:
         start_date: "2023-03"
         end_date: "2026-01"
         location: "Berlin, Germany"
-        summary: "Full-Stack Web Development Mentor (Freelance)"
+        summary: "Full Stack Web Development Mentor (Freelance)"
         highlights:
-          - "Mentored 23+ students through the Full-Stack Web Development program, holding a 5/5 rating for feedback quality and responsiveness."
-      - name: "[Utidash — New Tab](https://chromewebstore.google.com/detail/dghaelfeofkkdebndhkfoneojddiebhd) (Chrome Extension)"
-        date:
-        start_date: "2020-09"
-        end_date: "2020-11"
-        location: "Berlin, Germany"
-        summary: "Full-Stack Software Engineer (Contract)"
-        highlights:
-          - "Shipped features for a productivity extension with 6,000+ users; daily active usage rose in the following months."
+          - "Mentored 23+ students through the Full Stack Web Development program and held a 5/5 student rating for the quality and speed of my feedback."
     education:
       - institution: "Birkbeck, University of London"
         area: "Data Analytics"
@@ -102,7 +100,7 @@ cv:
         location: "London, UK"
         summary:
         highlights:
-          - "Merit. Dissertation on adversarial robustness: implemented PGD attacks from scratch and adversarially retrained ResNet-50 on ImageNet."
+          - "Merit. Dissertation on adversarial robustness in image classification: implemented PGD attacks from scratch and adversarially retrained ResNet50 on an ImageNet subset."
       - institution: "Makerere University"
         area: "Software Engineering"
         degree: "BSc"
@@ -143,7 +141,7 @@ design:
       name: "30pt"
       section_titles: "1.4em"
     line_spacing: "0.6em"
-    alignment: "justified"
+    alignment: "left"
     date_and_location_column_alignment: "right"
     bold:
       name: false
