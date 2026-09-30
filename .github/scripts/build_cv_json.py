@@ -134,7 +134,7 @@ def main() -> int:
                 "location": str(item.get("location") or ""),
                 "highlights": [md_to_html(h) for h in (item.get("highlights") or [])],
             }
-            for item in (sections.get("projects") or [])
+            for item in (sections.get("projects") or sections.get("Mentorship") or sections.get("mentorship") or [])
         ],
         "education": [
             {

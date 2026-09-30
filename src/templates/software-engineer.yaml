@@ -1,6 +1,6 @@
 cv:
   name: "Stanley Okwii"
-  location: "London, United Kingdom"
+  location: "London, United Kingdom (UK Right to Work)"
   email: "stanlee.okwii@icloud.com"
   phone: "+44 7570 488 532"
   website: "https://stanleeokwii.info/"
@@ -11,7 +11,7 @@ cv:
       username: "Stanley-Okwii"
   sections:
     Summary:
-      - "Senior software engineer with 6+ years building production systems in Python and TypeScript on AWS, across payments, analytics products and data pipelines. Currently the founding engineer on an AI research assistant, where I own the retrieval pipeline, the agent workflow and the infrastructure that serves several client organisations from one deployment. I run AI agents through implementation, testing and review with checks at every stage, and keep architecture, security and unclear product decisions for myself. Right to work in the UK."
+      - "Senior software engineer with 6+ years building production systems in Python and TypeScript on AWS, across payments, analytics products and data pipelines. Currently founding engineer on an AI research assistant, owning the hybrid retrieval pipeline, agent orchestration, and multi-tenant cloud infrastructure. Experienced across the full lifecycle—from schema design and IaC to React interfaces—leveraging agentic development harnesses for rapid delivery while maintaining strict ownership of architecture, security, and system reliability."
     skills:
       - label: "Programming"
         details: "Python, TypeScript, JavaScript, SQL, Dart"
@@ -26,9 +26,9 @@ cv:
       - label: "Infrastructure"
         details: "AWS (ECS, Bedrock, CloudFormation), GCP, Docker, GitHub Actions, Supabase, Sentry, New Relic, Terraform, Kubernetes"
       - label: "Testing"
-        details: "Unit, integration and end to end testing, Jest, Playwright"
+        details: "Jest, Playwright, Pytest"
       - label: "Developer Tooling"
-        details: "Claude Code (custom skills and agents), GitHub Copilot, Git, Antigravity CLI"
+        details: "Claude Code (custom skills and agent workflows), Dev Containers, CI/CD"
     experience:
       - company: "Access to Energy"
         position: "Founding Engineer"
@@ -38,25 +38,37 @@ cv:
         location: "London, UK"
         summary: "An AI research assistant that answers questions on energy access in Africa, citing evidence from a curated library of sector reports. Team of 4. I own the backend, the AI pipeline and the infrastructure."
         highlights:
-          - "Built the retrieval pipeline behind the assistant, combining keyword and vector search in PostgreSQL with pgvector so questions find the right passages even when worded differently from the source."
-          - "Designed the agent workflow that decides how to handle each question, calls the retrieval and citation tools, and declines to answer when the library holds no supporting evidence, so every answer traces back to a source."
-          - "Built the ingestion pipeline that parses, chunks and embeds PDF reports in the background, so large uploads don't slow the app and new reports appear in search automatically."
-          - "Designed the data model and access controls that let several research organisations share one deployment while keeping their documents fully separate and metering usage for each."
-          - "Wrote the AWS infrastructure as CloudFormation templates and scripted environment setup, so every environment is built from reviewed code rather than manual console work."
+          - "Built the core hybrid search engine combining keyword matching (BM25) and semantic vector search (768-dim Gemini embeddings, HNSW) in PostgreSQL, delivering accurate passage retrieval without external database overhead."
+          - "Built the end-to-end RAG assistant in Python (bespoke pipeline without LangChain bloat), routing questions to AWS Bedrock (Claude 3 Haiku) with streaming inline citations and automated Gemini fallback."
+          - "Built the background document ingestion pipeline using a custom Redis Streams worker (consumer groups, dead-letter retries) to parse, chunk, and embed large PDFs without degrading API response times."
+          - "Designed multi-tenant data isolation and access controls in PostgreSQL, letting multiple client organisations share one deployment while keeping their documents fully partitioned and metering usage."
+          - "Automated AWS infrastructure provisioning using modular nested CloudFormation stacks, deploying ECS Fargate microservices, ElastiCache Redis 7.1, ALB, and Fluent Bit telemetry to Axiom."
+      - company: "Hoppers"
+        position: "Full Stack Software Engineer (Contract, Part Time)"
+        date:
+        start_date: "2025-10"
+        end_date: "present"
+        location: "Remote"
+        summary: "Event ticketing platform (hoppers.ug). Built the multi-provider payment engine and high-concurrency reservation system."
+        highlights:
+          - "Built the multi-provider payment system (DPO, IoTec), implementing idempotent webhook handling via row-level locking (SELECT FOR UPDATE) to eliminate duplicate charges."
+          - "Prevented ticket overselling during demand spikes by building a high-concurrency reservation engine with guarded atomic updates (Django F expressions) and database check constraints."
+          - "Enforced purchase limits and venue table reservations by serializing booking state transitions with row-level locks, stopping race conditions during high-traffic checkout."
+          - "Delivered core platform features end-to-end across the Django backend, React admin panel, and mobile app, covering QR code ticket verification and role-based permissions."
+          - "Created an automated testing harness using Claude Code agents to turn GitHub issues into draft pull requests verified by Playwright UI diffs and replayed API test suites."
       - company: "Harver"
         position: "Senior Full Stack Software Engineer"
         date:
         start_date: "2023-03"
         end_date: "2025-05"
         location: "New York, USA (remote)"
-        summary: "Promoted to Senior in March 2023. Left in May 2025 to complete my MSc full time."
+        summary: "Promoted to Senior in March 2023. Stepped away in May 2025 to complete MSc in Data Analytics full time."
         highlights:
-          - "Owned the architecture and delivery of three client products (Python backend, React frontend) from design to release, making the key calls on security, performance and maintainability."
-          - "Led the technical design of new features, working out the data model, API design and implementation plan before the team started building."
-          - "Handled production incidents reported by clients, tracing each one through New Relic logs and traces to its root cause and shipping the fix."
-          - "Ran planning across engineering, product and design, breaking features into milestones and raising risks early so scope could change before a deadline slipped."
-          - "Wrote the documentation on core system workflows that new engineers used to get up to speed."
-          - "Conducted 15+ technical interviews on system design and code quality, and helped shape how the team assessed engineering candidates."
+          - "Owned the architecture and delivery of three enterprise client products—candidate assessment matching, recruiter portal, and analytics dashboards—built with Django REST Framework, PostgreSQL, and React."
+          - "Led technical design and RFCs across engineering, product, and design, building asynchronous task queues with Celery and RabbitMQ to process candidate scoring pipelines."
+          - "Directed Tier-3 incident response for enterprise clients, isolating distributed regressions via New Relic APM and Sentry traces to deliver permanent root-cause fixes."
+          - "Ran cross-functional project planning, breaking complex product roadmaps into phased milestones and managing risk mitigation to hit scheduled release dates."
+          - "Conducted 15+ technical interviews for system design and code quality, and authored onboarding documentation for core services to accelerate new hire ramp-up."
       - company: "Harver"
         position: "Full Stack Software Engineer"
         date:
@@ -65,23 +77,11 @@ cv:
         location: "New York, USA (remote)"
         summary:
         highlights:
-          - "Introduced structured logging and error monitoring with Sentry and New Relic, giving the team a clear trail from each production error to its root cause instead of relying on guesswork."
-          - "Built analytics dashboards that clients used to follow talent growth and internal mobility across their organisations."
-          - "Improved API response times by profiling the slowest endpoints, removing N+1 queries and adding caching where it mattered most."
-          - "Automated frontend releases with CI/CD pipelines, replacing a manual deployment process with a single click."
-    projects:
-      - name: "[Hoppers](https://hoppers.ug/) (Event Ticketing Platform)"
-        date:
-        start_date: "2025-10"
-        end_date: "present"
-        location: "Remote"
-        summary: "Full Stack Software Engineer (Contract, Part Time)"
-        highlights:
-          - "Built the payment system across several payment providers, recording commission and booking fees at the moment of purchase so revenue can be reconciled even after pricing changes."
-          - "Implemented QR code ticketing with validation on the server, purchase limits for each buyer and safeguards that prevent the same ticket being sold twice when demand spikes."
-          - "Delivered team management as the main contributor across the backend, admin panel and mobile app, covering invitations, role permissions and organiser dashboards."
-          - "Built an agent workflow in Claude Code that turns a GitHub issue into a tested draft pull request, then checks its own work with Playwright screenshots for UI changes and replayed API calls for backend changes, which I verify before anything ships."
-          - "Built a review agent that checks each pull request in an isolated dev container against our conventions, runs its own QA and follows up on replies, so feedback keeps moving while the author still has context."
+          - "Introduced structured logging and APM monitoring across distributed Django services with Sentry and New Relic, replacing speculative debugging with direct error-to-cause tracing."
+          - "Built talent mobility dashboards in React, enabling enterprise clients to track employee career progression and skills across their organizations."
+          - "Profiled high-latency API endpoints, eliminating N+1 database queries and implementing Memcached caching on hot data paths."
+          - "Automated deployment pipelines with GitHub Actions and Docker, replacing manual deployment procedures with one-click CI/CD releases."
+    Mentorship:
       - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
         date:
         start_date: "2023-03"
@@ -115,12 +115,12 @@ design:
   theme: "engineeringclassic"
   page:
     size: "a4"
-    top_margin: "2cm"
-    bottom_margin: "2cm"
-    left_margin: "2cm"
-    right_margin: "2cm"
+    top_margin: "1.5cm"
+    bottom_margin: "1.5cm"
+    left_margin: "1.5cm"
+    right_margin: "1.5cm"
     show_footer: false
-    show_top_note: true
+    show_top_note: false
   colors:
     body: "rgb(0, 0, 0)"
     name: "rgb(0, 79, 144)"
@@ -154,8 +154,8 @@ design:
   header:
     alignment: "left"
     photo_width: "3.5cm"
-    space_below_name: "0.7cm"
-    space_below_connections: "0.7cm"
+    space_below_name: "0.3cm"
+    space_below_connections: "0.4cm"
     connections:
       phone_number_format: "international"
       hyperlink: true
@@ -166,24 +166,24 @@ design:
   section_titles:
     type: "with_partial_line"
     line_thickness: "0.5pt"
-    space_above: "0.5cm"
-    space_below: "0.3cm"
+    space_above: "0.4cm"
+    space_below: "0.25cm"
   sections:
     allow_page_break: true
-    space_between_regular_entries: "1.2em"
+    space_between_regular_entries: "0.9em"
     show_time_spans_in: []
   entries:
     date_and_location_width: "4.15cm"
     side_space: "0.2cm"
     space_between_columns: "0.1cm"
-    allow_page_break: true
+    allow_page_break: false
     short_second_row: false
     highlights:
       bullet: "•"
       nested_bullet: "-"
-      space_above: "0.25cm"
+      space_above: "0.2cm"
       space_left: "0cm"
-      space_between_items: "0.2cm"
+      space_between_items: "0.15cm"
       space_between_bullet_and_text: "0.5em"
   templates:
     footer: "NAME - Page PAGE_NUMBER of TOTAL_PAGES"
