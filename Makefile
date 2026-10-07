@@ -2,10 +2,12 @@
 .PHONY: help render-local render-docs
 
 RENDERCV  := uv run rendercv render
-FLAGS     := -nomd -nopng
+FLAGS     := -nomd -nohtml -nopng
 
 TEMPLATE  := software-engineer
-NAME      := swe-resume
+# Must match settings.render_command.pdf_path in the template YAML: CI calls
+# `make render-local` and then copies src/resumes/$(NAME).pdf into docs/.
+NAME      := Stanley_Okwii_CV
 
 TEMPLATE_PATH := src/templates/$(TEMPLATE).yaml
 LOCAL_PDF     := src/resumes/$(NAME).pdf
@@ -24,8 +26,8 @@ help:
 	@echo "Examples:"
 	@echo "  make render-local"
 	@echo "  make render-local TEMPLATE=software-engineer"
-	@echo "  make render-local TEMPLATE=software-engineer NAME=swe-resume"
-	@echo "  make render-docs  TEMPLATE=software-engineer NAME=swe-resume"
+	@echo "  make render-local NAME=Stanley_Okwii_CV"
+	@echo "  make render-docs  TEMPLATE=software-engineer NAME=Stanley_Okwii_CV"
 
 render-local:
 	$(RENDERCV) $(TEMPLATE_PATH) $(FLAGS) -pdf "$(abspath $(LOCAL_PDF))"

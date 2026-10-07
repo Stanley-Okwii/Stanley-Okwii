@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-07T02:02:35Z",
+  "generated_at": "2026-10-07T15:31:26Z",
   "name": "Stanley Okwii",
   "location": "London, United Kingdom (UK Right to Work)",
-  "summary": "Senior software engineer with 6+ years building production systems in Python and TypeScript on AWS, across payments, analytics products and data pipelines. Currently founding engineer on an AI research assistant, owning the hybrid retrieval pipeline, agent orchestration, and multi-tenant cloud infrastructure. Experienced across the full lifecycle—from schema design and IaC to React interfaces—leveraging agentic development harnesses for rapid delivery while maintaining strict ownership of architecture, security, and system reliability.",
+  "summary": "Senior Software Engineer with 7+ years building production systems in <strong>Python</strong> and <strong>TypeScript</strong> on <strong>AWS</strong>, across payments, analytics products, and data pipelines. Currently founding engineer on an AI research assistant, owning the hybrid retrieval pipeline, agent orchestration, and multi-tenant cloud infrastructure. Experienced across the full lifecycle from schema design and IaC to <strong>React</strong> frontends, leveraging modern agentic workflows for rapid delivery while maintaining strict ownership of system architecture, security, and reliability.",
   "contact": {
     "email": "stanlee.okwii@icloud.com",
     "phone": "+44 7570 488 532",
@@ -15,35 +15,35 @@
   "skills": [
     {
       "label": "Programming",
-      "details": "Python, TypeScript, JavaScript, SQL, Dart"
+      "details": "<strong>Python</strong>, <strong>TypeScript</strong>, JavaScript, SQL"
     },
     {
-      "label": "AI/ML",
-      "details": "RAG pipelines, LLM integration (Claude and Gemini APIs), prompt engineering, agent and tool use workflows, embeddings, vector search (pgvector), hybrid retrieval"
+      "label": "AI &amp; ML",
+      "details": "RAG pipelines, hybrid retrieval, <strong>pgvector</strong>, embeddings, LLM integration (<strong>Claude</strong>, Gemini), prompt engineering"
     },
     {
-      "label": "Backend and Frameworks",
-      "details": "Django, FastAPI, Flask, Node.js, Express, GraphQL, Celery, Redis"
+      "label": "Backend",
+      "details": "<strong>Django</strong>, <strong>Django REST Framework</strong>, <strong>FastAPI</strong>, <strong>Node.js</strong>, <strong>Celery</strong>, Redis Streams"
     },
     {
-      "label": "Frontend and Mobile",
-      "details": "React, Next.js, Flutter"
+      "label": "Frontend &amp; Mobile",
+      "details": "<strong>React</strong>, <strong>Next.js</strong>, <strong>Flutter</strong>"
     },
     {
       "label": "Databases",
-      "details": "PostgreSQL, MongoDB, Redis, MySQL"
+      "details": "<strong>PostgreSQL</strong>, <strong>Redis</strong>, <strong>MySQL</strong>, MongoDB"
     },
     {
-      "label": "Infrastructure",
-      "details": "AWS (ECS, Bedrock, CloudFormation), GCP, Docker, GitHub Actions, Supabase, Sentry, New Relic, Terraform, Kubernetes"
+      "label": "Cloud &amp; DevOps",
+      "details": "<strong>AWS</strong> (ECS Fargate, Bedrock, CloudFormation), <strong>Docker</strong>, <strong>Terraform</strong>, <strong>GitHub Actions</strong>, CI/CD, Sentry, New Relic"
     },
     {
       "label": "Testing",
-      "details": "Jest, Playwright, Pytest"
+      "details": "<strong>Pytest</strong>, <strong>Playwright</strong>, Jest"
     },
     {
       "label": "Developer Tooling",
-      "details": "Claude Code (custom skills and agent workflows), Dev Containers, CI/CD"
+      "details": "Claude Code (custom skills &amp; agent workflows), Dev Containers"
     }
   ],
   "experience": [
@@ -54,11 +54,11 @@
       "location": "London, UK",
       "summary": "An AI research assistant that answers questions on energy access in Africa, citing evidence from a curated library of sector reports. Team of 4. I own the backend, the AI pipeline and the infrastructure.",
       "highlights": [
-        "Built the core hybrid search engine combining keyword matching (BM25) and semantic vector search (768-dim Gemini embeddings, HNSW) in PostgreSQL, delivering accurate passage retrieval without external database overhead.",
-        "Built the end-to-end RAG assistant in Python (bespoke pipeline without LangChain bloat), routing questions to AWS Bedrock (Claude 3 Haiku) with streaming inline citations and automated Gemini fallback.",
-        "Built the background document ingestion pipeline using a custom Redis Streams worker (consumer groups, dead-letter retries) to parse, chunk, and embed large PDFs without degrading API response times.",
-        "Designed multi-tenant data isolation and access controls in PostgreSQL, letting multiple client organisations share one deployment while keeping their documents fully partitioned and metering usage.",
-        "Automated AWS infrastructure provisioning using modular nested CloudFormation stacks, deploying ECS Fargate microservices, ElastiCache Redis 7.1, ALB, and Fluent Bit telemetry to Axiom."
+        "Built the core <strong>hybrid search</strong> engine combining keyword matching (<strong>BM25</strong>) and semantic vector search (<strong>pgvector</strong>, HNSW) in <strong>PostgreSQL</strong>, delivering accurate passage retrieval without external database overhead.",
+        "Built the end-to-end <strong>RAG</strong> assistant in <strong>Python</strong> with a custom, lightweight pipeline, routing questions to <strong>AWS Bedrock</strong> (<strong>Claude</strong>) with streaming inline citations and automated Gemini fallback.",
+        "Built the asynchronous document ingestion pipeline using <strong>Redis Streams</strong> workers (consumer groups, dead-letter retries) to parse, chunk, and embed large PDFs without degrading API response times.",
+        "Designed <strong>multi-tenant</strong> data isolation and role-based access controls in <strong>PostgreSQL</strong>, letting multiple client organisations share one deployment while strictly partitioning documents.",
+        "Automated <strong>AWS</strong> infrastructure provisioning using modular nested <strong>CloudFormation</strong> stacks to deploy <strong>ECS Fargate</strong> microservices, ElastiCache <strong>Redis</strong>, and ALB, reducing environment setup from days to minutes."
       ]
     },
     {
@@ -68,11 +68,11 @@
       "location": "Remote",
       "summary": "Event ticketing platform (hoppers.ug). Built the multi-provider payment engine and high-concurrency reservation system.",
       "highlights": [
-        "Built the multi-provider payment system (DPO, IoTec), implementing idempotent webhook handling via row-level locking (SELECT FOR UPDATE) to eliminate duplicate charges.",
-        "Prevented ticket overselling during demand spikes by building a high-concurrency reservation engine with guarded atomic updates (Django F expressions) and database check constraints.",
-        "Enforced purchase limits and venue table reservations by serializing booking state transitions with row-level locks, stopping race conditions during high-traffic checkout.",
-        "Delivered core platform features end-to-end across the Django backend, React admin panel, and mobile app, covering QR code ticket verification and role-based permissions.",
-        "Created an automated testing harness using Claude Code agents to turn GitHub issues into draft pull requests verified by Playwright UI diffs and replayed API test suites."
+        "Built the multi-provider payment engine (DPO, IoTec), implementing idempotent webhook handling via row-level locking to eliminate duplicate charges.",
+        "Prevented ticket overselling during demand spikes by building a high-concurrency reservation engine with guarded atomic updates in <strong>Django</strong> and database check constraints.",
+        "Enforced purchase limits and venue table reservations by serializing booking state transitions with row-level locks, eliminating checkout race conditions.",
+        "Delivered core platform features end-to-end across the <strong>Django</strong> backend, <strong>React</strong> admin panel, and mobile app, covering QR code ticket verification and role-based permissions.",
+        "Built an agentic development environment across isolated git worktrees and Dev Containers with dynamic port allocation, automating migrations, seed data, and pull requests verified by <strong>Playwright</strong> UI diffs and replayed API tests across web and <strong>Flutter</strong> apps."
       ]
     },
     {
@@ -82,9 +82,9 @@
       "location": "New York, USA (remote)",
       "summary": "Promoted to Senior in March 2023. Stepped away in May 2025 to complete MSc in Data Analytics full time.",
       "highlights": [
-        "Owned the architecture and delivery of three enterprise client products—candidate assessment matching, recruiter portal, and analytics dashboards—built with Django REST Framework, PostgreSQL, and React.",
-        "Led technical design and RFCs across engineering, product, and design, building asynchronous task queues with Celery and RabbitMQ to process candidate scoring pipelines.",
-        "Directed Tier-3 incident response for enterprise clients, isolating distributed regressions via New Relic APM and Sentry traces to deliver permanent root-cause fixes.",
+        "Owned the architecture and delivery of three enterprise client products covering candidate assessment matching, recruiter portals, and analytics dashboards, built with <strong>Django REST Framework</strong>, <strong>PostgreSQL</strong>, and <strong>React</strong>.",
+        "Led technical design for core platform features, defining data models and API contracts while building asynchronous processing queues with <strong>Celery</strong> and <strong>RabbitMQ</strong>.",
+        "Resolved high-priority production incidents for enterprise clients, using <strong>New Relic</strong> and <strong>Sentry</strong> to trace complex bugs across distributed services and ship permanent fixes.",
         "Ran cross-functional project planning, breaking complex product roadmaps into phased milestones and managing risk mitigation to hit scheduled release dates.",
         "Conducted 15+ technical interviews for system design and code quality, and authored onboarding documentation for core services to accelerate new hire ramp-up."
       ]
@@ -96,10 +96,10 @@
       "location": "New York, USA (remote)",
       "summary": "",
       "highlights": [
-        "Introduced structured logging and APM monitoring across distributed Django services with Sentry and New Relic, replacing speculative debugging with direct error-to-cause tracing.",
-        "Built talent mobility dashboards in React, enabling enterprise clients to track employee career progression and skills across their organizations.",
-        "Profiled high-latency API endpoints, eliminating N+1 database queries and implementing Memcached caching on hot data paths.",
-        "Automated deployment pipelines with GitHub Actions and Docker, replacing manual deployment procedures with one-click CI/CD releases."
+        "Introduced structured logging and APM monitoring across distributed <strong>Django</strong> services with <strong>Sentry</strong> and <strong>New Relic</strong>, replacing speculative debugging with direct error-to-cause tracing.",
+        "Built talent mobility dashboards in <strong>React</strong>, enabling enterprise clients to track employee career progression and skills across their organizations.",
+        "Profiled high-latency API endpoints, eliminating N+1 database queries and implementing <strong>Memcached</strong> caching on hot data paths to cut response latency.",
+        "Automated deployment pipelines with <strong>GitHub Actions</strong> and <strong>Docker</strong>, replacing manual deployment procedures with one-click CI/CD releases."
       ]
     }
   ],

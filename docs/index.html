@@ -826,7 +826,9 @@ function renderSkills(skills){
     label.textContent = s.label || '';
     const details = document.createElement('div');
     details.className = 'b-card-details';
-    details.textContent = s.details || '';
+    // innerHTML (not textContent): details may carry <strong> from **bold** in
+    // the YAML. build_cv_json.py escapes all author text and emits only <a>/<strong>.
+    details.innerHTML = s.details || '';
     card.append(label, details);
     host.appendChild(card);
   });

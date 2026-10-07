@@ -30,6 +30,7 @@ MONTHS = [
 ]
 
 MD_LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+MD_BOLD = re.compile(r"\*\*(.+?)\*\*")
 SAFE_SCHEMES = ("http:", "https:", "mailto:", "tel:")
 
 
@@ -44,7 +45,10 @@ def md_to_html(text):
             url = "#"
         return f'<a href="{html.escape(url, quote=True)}" rel="noopener">{html.escape(m.group(1), quote=False)}</a>'
 
-    return MD_LINK.sub(replace, escaped)
+    # Links first, then bold: the emitted <a> markup contains no "**", so the
+    # bold pass cannot touch it. Only these two tags are ever produced, and all
+    # author text was escaped above.
+    return MD_BOLD.sub(r"<strong>\1</strong>", MD_LINK.sub(replace, escaped))
 
 
 def fmt_date(value):
@@ -77,9 +81,13 @@ def main() -> int:
         data = yaml.safe_load(fh) or {}
 
     cv = data.get("cv") or {}
-    sections = cv.get("sections") or {}
+    raw_sections = cv.get("sections") or {}
+    # RenderCV section keys are arbitrary and this file has mixed casing
+    # ("Summary" vs "skills"). Normalise once so renaming a key in the YAML
+    # cannot silently drop a section from the site.
+    sections = {str(k).strip().lower(): v for k, v in raw_sections.items()}
 
-    summary_items = sections.get("Summary") or sections.get("summary") or []
+    summary_items = sections.get("summary") or []
     summary = (
         " ".join(md_to_html(s) for s in summary_items)
         if isinstance(summary_items, list)
@@ -112,7 +120,10 @@ def main() -> int:
             "github_handle": github or "",
         },
         "skills": [
-            {"label": s.get("label", ""), "details": s.get("details", "")}
+            {
+                "label": md_to_html(s.get("label", "")),
+                "details": md_to_html(s.get("details", "")),
+            }
             for s in (sections.get("skills") or [])
         ],
         "experience": [
@@ -134,7 +145,7 @@ def main() -> int:
                 "location": str(item.get("location") or ""),
                 "highlights": [md_to_html(h) for h in (item.get("highlights") or [])],
             }
-            for item in (sections.get("projects") or sections.get("Mentorship") or sections.get("mentorship") or [])
+            for item in (sections.get("projects") or sections.get("mentorship") or [])
         ],
         "education": [
             {
