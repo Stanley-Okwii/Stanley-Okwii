@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T01:14:21Z",
+  "generated_at": "2026-10-22T01:10:17Z",
   "login": "Stanley-Okwii",
   "url": "https://github.com/Stanley-Okwii",
   "created_at": "2017-06-01T13:21:14Z",
@@ -8,9 +8,9 @@
   "total_stars": 2,
   "contributions_past_year": {
     "commits": 90,
-    "total": 1642
+    "total": 1659
   },
-  "contributions_all_time": 6885,
+  "contributions_all_time": 6902,
   "contributions_weekly": [
     {
       "week_start": "2025-10-19",
@@ -218,57 +218,57 @@
     },
     {
       "week_start": "2026-10-11",
-      "count": 36
+      "count": 41
     },
     {
       "week_start": "2026-10-18",
-      "count": 12
+      "count": 24
     }
   ],
-  "active_days_past_year": 232,
+  "active_days_past_year": 234,
   "longest_streak_past_year": 20,
   "totals": {
     "commits": 90,
     "prs": 291,
-    "issues": 163,
+    "issues": 165,
     "stars": 2
   },
   "top_languages": [
     {
+      "name": "Python",
+      "size": 143168,
+      "color": "#3572A5",
+      "percent": 26.94
+    },
+    {
       "name": "Shell",
       "size": 130443,
       "color": "#89e051",
-      "percent": 25.15
-    },
-    {
-      "name": "Python",
-      "size": 130416,
-      "color": "#3572A5",
-      "percent": 25.14
+      "percent": 24.54
     },
     {
       "name": "JavaScript",
       "size": 113905,
       "color": "#f1e05a",
-      "percent": 21.96
+      "percent": 21.43
     },
     {
       "name": "TypeScript",
       "size": 62440,
       "color": "#3178c6",
-      "percent": 12.04
+      "percent": 11.75
     },
     {
       "name": "Jupyter Notebook",
       "size": 52182,
       "color": "#DA5B0B",
-      "percent": 10.06
+      "percent": 9.82
     },
     {
       "name": "HTML",
       "size": 16613,
       "color": "#e34c26",
-      "percent": 3.2
+      "percent": 3.13
     }
   ]
 }
