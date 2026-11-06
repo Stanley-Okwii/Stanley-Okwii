@@ -19,7 +19,7 @@
 <br/>
 
 > Senior full-stack engineer. I take ambiguous requirements and turn them into production systems people actually use — currently AI research tooling, previously hiring platforms, event ticketing, and edtech mentorship.
-> **6+ years shipping** in Python + TypeScript on AWS + GCP. Tech lead or IC — whichever unblocks the work.
+> **7+ years shipping** in Python + TypeScript on AWS + GCP. Tech lead or IC — whichever unblocks the work.
 
 <!-- ========================= CURRENTLY ========================= -->
 

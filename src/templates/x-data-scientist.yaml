@@ -13,7 +13,7 @@ cv:
       username: "Stanley-Okwii"
   sections:
     Summary:
-      - "Data Scientist and ML practitioner with 6+ years of production engineering experience and an MSc in Data Analytics (Merit, Birkbeck). I build automated, end-to-end solutions — from scalable data pipelines to verifiable LLM systems — and have deep expertise in parsing complex, unstructured data, and delivering traceable insights to stakeholders."
+      - "Data Scientist and ML practitioner with 7+ years of production engineering experience and an MSc in Data Analytics (Merit, Birkbeck). I build automated, end-to-end solutions — from scalable data pipelines to verifiable LLM systems — and have deep expertise in parsing complex, unstructured data, and delivering traceable insights to stakeholders."
     skills:
       - label: "Data Science & Machine Learning"
         details: "Statistical analysis, hypothesis testing, regression, classification, SVMs; model evaluation, adversarial robustness; Pandas, NumPy, scikit-learn"

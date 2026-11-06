@@ -1,0 +1,243 @@
+# Tailored for: HSBC Asset Management, Senior Data Business Analytics, Data Analytics Office (DAO) Change (London)
+# Built from data-scientist.yaml. Domain gaps (Asset Management, Bloomberg, GCP) are deliberately not claimed.
+
+cv:
+  name: "Stanley Okwii"
+  headline: "Data Engineer  |  SQL, Data Quality & Data Pipelines"
+  location: "London, United Kingdom (UK Right to Work)"
+  email: "stanlee.okwii@icloud.com"
+  phone: "+44 7570 488 532"
+  website: "https://stanleeokwii.info/"
+  social_networks:
+    - network: "LinkedIn"
+      username: "stanley-okwii"
+    - network: "GitHub"
+      username: "Stanley-Okwii"
+  sections:
+    PROFILE:
+      - "Data focused engineer with 7+ years building and supporting production data systems, and an MSc in Data Analytics (Merit, Birkbeck). I work where business needs meet data: turning requirements into data models and pipelines, using **SQL** to validate data and find where it goes wrong, and tracing data issues back to their root cause. I have worked with product, analytics and enterprise client teams across time zones, planned delivery from scope to release, and written the documentation that keeps data systems understandable. I am now moving closer to the business side of data, where I can combine that hands on technical depth with requirements, data quality and delivery."
+    CORE SKILLS:
+      - label: "Delivery & stakeholders"
+        details: "Requirements scoping, data models and API contracts, phased milestone planning, risk management, root cause analysis of production issues, technical documentation"
+      - label: "Data engineering & databases"
+        details: "**SQL**, **PostgreSQL**, MySQL, MongoDB, Snowflake, DBT, PySpark; ETL pipeline design, data modelling, data validation, access controls"
+      - label: "Programming & infrastructure"
+        details: "**Python**, SQL, TypeScript; **AWS**, Docker, CloudFormation, CI/CD; monitoring with Sentry and New Relic"
+      - label: "Statistics & machine learning"
+        details: "Statistical analysis, regression, classification, model evaluation; Pandas, NumPy, scikit-learn, R"
+      - label: "NLP & generative AI"
+        details: "LLM integration, retrieval pipelines, vector search (pgvector), source traceability for generated answers"
+    EXPERIENCE:
+      - company: "Access to Energy"
+        position: "Founding Engineer"
+        date:
+        start_date: "2026-01"
+        end_date: "present"
+        location: "London, UK"
+        summary: "An AI research assistant that answers questions on energy access in Africa from a curated library of sector reports. Team of 4. I own the backend, the data pipeline and the infrastructure."
+        highlights:
+          - "Built the document ingestion pipeline that parses, chunks and indexes large PDF reports into **PostgreSQL**, with automatic retries and a dead letter queue so failed documents are caught and reprocessed rather than silently lost."
+          - "Designed every answer to trace back to the exact passage in its source report, so any figure the assistant gives can be checked against the evidence behind it."
+          - "Designed the data model that lets multiple client organisations share one deployment, using role based access controls in PostgreSQL to strictly partition each organisation's documents."
+          - "Automated **AWS** infrastructure provisioning with CloudFormation, taking environment setup from days to minutes and making deployments secure and repeatable."
+      - company: "Hoppers"
+        position: "Full Stack Software Engineer (Contract, Part Time)"
+        date:
+        start_date: "2025-10"
+        end_date: "present"
+        location: "Remote"
+        summary: "Event ticketing platform (hoppers.ug) taking online payments."
+        highlights:
+          - "Built the payment engine across two providers (DPO, IoTec), processing each payment notification exactly once so customers are never charged twice."
+          - "Kept ticket counts consistent with real sales during demand spikes by enforcing limits with database constraints and guarded updates, preventing overselling."
+      - company: "Harver"
+        position: "Senior Full Stack Software Engineer"
+        date:
+        start_date: "2023-03"
+        end_date: "2025-05"
+        location: "New York, USA (remote)"
+        summary: "Promoted to Senior in March 2023. Left in May 2025 to complete an MSc in Data Analytics full time."
+        highlights:
+          - "Owned delivery of three enterprise client products (candidate assessment matching, recruiter portals and analytics dashboards), working with product, analytics and client teams to turn business needs into data models and API contracts."
+          - "Ran cross functional project planning, breaking product roadmaps into phased milestones and managing risks to hit scheduled release dates."
+          - "Led investigation of high priority production incidents for enterprise clients, tracing issues across services with New Relic and Sentry to their root cause and shipping permanent fixes."
+          - "Authored documentation for core data pipelines and services to speed up onboarding, and conducted 15+ technical interviews."
+      - company: "Harver"
+        position: "Full Stack Software Engineer"
+        date:
+        start_date: "2019-09"
+        end_date: "2023-03"
+        location: "New York, USA (remote)"
+        summary:
+        highlights:
+          - "Designed and maintained **ETL pipelines** that ingested and transformed candidate assessment data, feeding client scoring models and workforce insight dashboards."
+          - "Built talent mobility dashboards so enterprise clients could track career progression and skills across their organisations."
+          - "Profiled slow API endpoints, removing N+1 database queries and adding caching on hot data paths to cut response times."
+          - "Introduced structured logging and monitoring across services, replacing guesswork with a direct trail from each error to its cause."
+    EDUCATION:
+      - institution: "Birkbeck, University of London"
+        area: "Data Analytics"
+        degree: "MSc"
+        date:
+        start_date: "2024-10"
+        end_date: "2025-09"
+        location: "London, UK"
+        summary: "Merit. Modules included Applied Machine Learning, Big Data Analytics, Data Analytics Using R, and Neural Networks & Deep Learning."
+        highlights:
+          - "Built and evaluated regression and classification models in Python (scikit-learn) and R, comparing them with cross validation."
+          - "Dissertation on adversarial robustness: measured the tradeoff between accuracy and robustness for ResNet50 image classifiers on an ImageNet subset."
+      - institution: "Makerere University"
+        area: "Software Engineering"
+        degree: "BSc"
+        date:
+        start_date: "2014-08"
+        end_date: "2018-09"
+        location: "Kampala, Uganda"
+        summary:
+        highlights:
+          - "2:1 (Upper Second Class Honours)"
+    MENTORSHIP:
+      - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
+        date:
+        start_date: "2023-03"
+        end_date: "2026-01"
+        location: "Berlin, Germany"
+        summary: "Full Stack Web Development Mentor (Freelance)"
+        highlights:
+          - "Mentored 23+ students through the programme and held a 5/5 student rating for the quality and speed of my feedback."
+design:
+  theme: "engineeringclassic"
+  page:
+    size: "a4"
+    top_margin: "1.5cm"
+    bottom_margin: "1.5cm"
+    left_margin: "1.5cm"
+    right_margin: "1.5cm"
+    show_footer: false
+    show_top_note: false
+  colors:
+    body: "rgb(0, 0, 0)"
+    name: "rgb(0, 79, 144)"
+    connections: "rgb(0, 79, 144)"
+    section_titles: "rgb(0, 79, 144)"
+    links: "rgb(0, 79, 144)"
+    footer: "rgb(128, 128, 128)"
+    top_note: "rgb(128, 128, 128)"
+  typography:
+    font_family:
+      body: "Raleway"
+      name: "Raleway"
+      headline: "Raleway"
+      connections: "Raleway"
+      section_titles: "Raleway"
+    font_size:
+      body: "10pt"
+      name: "30pt"
+      section_titles: "1.4em"
+    line_spacing: "0.6em"
+    alignment: "left"
+    date_and_location_column_alignment: "right"
+    bold:
+      name: false
+      section_titles: false
+    small_caps:
+      name: false
+  links:
+    underline: false
+    show_external_link_icon: false
+  header:
+    alignment: "left"
+    photo_width: "3.5cm"
+    space_below_name: "0.7cm"
+    space_below_connections: "0.7cm"
+    connections:
+      phone_number_format: "international"
+      hyperlink: true
+      show_icons: true
+      display_urls_instead_of_usernames: false
+      separator: ""
+      space_between_connections: "0.5cm"
+  section_titles:
+    type: "with_partial_line"
+    line_thickness: "0.5pt"
+    space_above: "0.5cm"
+    space_below: "0.3cm"
+  sections:
+    allow_page_break: true
+    space_between_regular_entries: "1.2em"
+    show_time_spans_in: []
+  entries:
+    date_and_location_width: "4.15cm"
+    side_space: "0.2cm"
+    space_between_columns: "0.1cm"
+    allow_page_break: true
+    short_second_row: false
+    highlights:
+      bullet: "•"
+      nested_bullet: "-"
+      space_above: "0.25cm"
+      space_left: "0cm"
+      space_between_items: "0.2cm"
+      space_between_bullet_and_text: "0.5em"
+  templates:
+    footer: "NAME - Page PAGE_NUMBER of TOTAL_PAGES"
+    top_note: "*LAST_UPDATED CURRENT_DATE*"
+    single_date: "MONTH_ABBREVIATION YEAR"
+    date_range: "START_DATE – END_DATE"
+    one_line_entry:
+      main_column: "**LABEL:** DETAILS"
+    education_entry:
+      main_column: "**INSTITUTION**, AREA -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      degree_column: "**DEGREE**"
+      date_and_location_column: "DATE"
+    normal_entry:
+      main_column: "**NAME** -- **LOCATION**\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    experience_entry:
+      main_column: "**POSITION**, COMPANY -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+      date_and_location_column: "DATE"
+    publication_entry:
+      main_column: "**TITLE**\nAUTHORS\nURL (JOURNAL)"
+      date_and_location_column: "DATE"
+locale:
+  language: "english"
+  last_updated: "Last updated in"
+  month: "month"
+  months: "months"
+  year: "year"
+  years: "years"
+  present: "present"
+  month_abbreviations:
+    - "Jan"
+    - "Feb"
+    - "Mar"
+    - "Apr"
+    - "May"
+    - "June"
+    - "July"
+    - "Aug"
+    - "Sept"
+    - "Oct"
+    - "Nov"
+    - "Dec"
+  month_names:
+    - "January"
+    - "February"
+    - "March"
+    - "April"
+    - "May"
+    - "June"
+    - "July"
+    - "August"
+    - "September"
+    - "October"
+    - "November"
+    - "December"
+settings:
+  current_date: "today"
+  bold_keywords: []
+  render_command:
+    pdf_path: ../resumes/hsbc_data_cv.pdf
+    dont_generate_markdown: true
+    dont_generate_html: true
+    dont_generate_png: true

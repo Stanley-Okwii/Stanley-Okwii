@@ -14,7 +14,7 @@ cv:
       username: "Stanley-Okwii"
   sections:
     PROFILE:
-      - "Data scientist and ML practitioner with 6+ years' production experience and an MSc in Data Analytics (Merit, Birkbeck). I build verifiable, end-to-end systems that turn dense, unstructured documents into traceable, defensible insight — applying both traditional machine learning and large language models to surface patterns and trends for non-technical stakeholders. My recent work centres on strict output accuracy and full source traceability: every finding can be traced to the evidence behind it, the discipline an audit demands."
+      - "Data scientist and ML practitioner with 7+ years' production experience and an MSc in Data Analytics (Merit, Birkbeck). I build verifiable, end-to-end systems that turn dense, unstructured documents into traceable, defensible insight — applying both traditional machine learning and large language models to surface patterns and trends for non-technical stakeholders. My recent work centres on strict output accuracy and full source traceability: every finding can be traced to the evidence behind it, the discipline an audit demands."
     CORE SKILLS:
       - label: "Statistics & machine learning"
         details: "Statistical analysis, hypothesis testing, regression, classification, SVMs; model evaluation, adversarial robustness; Pandas, NumPy, scikit-learn"
