@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-10T04:28:26Z",
+  "generated_at": "2026-11-11T02:29:26Z",
   "username": "StanleeO",
   "all_time": {
-    "total_seconds": 28671220.393935,
-    "human_readable": "7,964 hrs 13 mins"
+    "total_seconds": 28673642.851935,
+    "human_readable": "7,964 hrs 54 mins"
   },
   "last_7_days": {
     "total_seconds": 40218.572434,
@@ -88,76 +88,76 @@
     ]
   },
   "last_30_days": {
-    "total_seconds": 239357.249434,
-    "human_readable_total": "66 hrs 29 mins",
-    "daily_average_seconds": 9574.0,
-    "daily_average_human": "2 hrs 39 mins",
+    "total_seconds": 241767.912434,
+    "human_readable_total": "67 hrs 9 mins",
+    "daily_average_seconds": 9299.0,
+    "daily_average_human": "2 hrs 34 mins",
     "languages": [
       {
         "name": "Python",
-        "percent": 43.24,
-        "human_readable": "29 hrs 20 mins"
+        "percent": 43.18,
+        "human_readable": "29 hrs 35 mins"
       },
       {
         "name": "Markdown",
-        "percent": 30.95,
-        "human_readable": "21 hrs"
+        "percent": 30.89,
+        "human_readable": "21 hrs 10 mins"
       },
       {
         "name": "TypeScript",
-        "percent": 11.41,
-        "human_readable": "7 hrs 44 mins"
+        "percent": 11.37,
+        "human_readable": "7 hrs 47 mins"
       },
       {
         "name": "Bash",
-        "percent": 4.1,
-        "human_readable": "2 hrs 46 mins"
+        "percent": 4.36,
+        "human_readable": "2 hrs 59 mins"
       },
       {
         "name": "Dart",
-        "percent": 2.05,
+        "percent": 2.03,
         "human_readable": "1 hr 23 mins"
       },
       {
         "name": "Other",
-        "percent": 2.03,
+        "percent": 2.01,
         "human_readable": "1 hr 22 mins"
       },
       {
         "name": "Text",
-        "percent": 1.73,
+        "percent": 1.71,
         "human_readable": "1 hr 10 mins"
       },
       {
         "name": "HTML",
-        "percent": 1.27,
+        "percent": 1.26,
         "human_readable": "51 mins"
       },
       {
         "name": "JavaScript",
-        "percent": 1.08,
+        "percent": 1.07,
         "human_readable": "43 mins"
       },
       {
         "name": "JSON",
-        "percent": 0.5,
+        "percent": 0.49,
         "human_readable": "20 mins"
       }
     ],
     "editors": [
       {
         "name": "Claude Code",
-        "percent": 76.08,
-        "human_readable": "51 hrs 37 mins"
+        "percent": 75.77,
+        "human_readable": "51 hrs 55 mins"
       },
       {
         "name": "VS Code",
-        "percent": 23.54,
-        "human_readable": "15 hrs 58 mins"
+        "percent": 23.86,
+        "human_readable": "16 hrs 21 mins"
       },
       {
         "name": "Copilot CLI",
-        "percent": 0.25,
+        "percent": 0.24,
         "human_readable": "10 mins"
       },
       {
@@ -175,7 +175,7 @@
       {
         "name": "Mac",
         "percent": 100.0,
-        "human_readable": "67 hrs 51 mins"
+        "human_readable": "68 hrs 32 mins"
       }
     ]
   }
