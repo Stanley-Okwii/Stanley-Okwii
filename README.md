@@ -1,10 +1,10 @@
 <!-- ======================= PROFILE ======================= -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a2540,50:1a6fb0,100:7fd3ff&height=200&section=header&text=Stanley%20Okwii&fontSize=58&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Senior%20Full-Stack%20Engineer%20%E2%80%A2%20London&descSize=18&descAlignY=62&descAlign=50" width="100%" alt="Stanley Okwii — Senior Full-Stack Engineer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a2540,50:1a6fb0,100:7fd3ff&height=200&section=header&text=Stanley%20Okwii&fontSize=58&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Full-Stack%20Engineer%20%E2%80%A2%20London&descSize=18&descAlignY=62&descAlign=50" width="100%" alt="Stanley Okwii, Full-Stack Engineer"/>
 
 <a href="https://stanley-okwii.github.io/Stanley-Okwii/">
-  <img src="https://readme-typing-svg.demolab.com?font=IBM+Plex+Mono&size=17&pause=1200&color=7FD3FF&center=true&vCenter=true&width=760&lines=Senior+Full-Stack+%C2%B7+Python+%C2%B7+TypeScript+%C2%B7+AWS+%C2%B7+GCP;6%2B+years+shipping+production+web+%2B+mobile+systems;End-to-end%3A+payment+platforms%2C+RAG+pipelines%2C+multi-tenant+infra;Now%3A+AI+research+assistant+for+energy+access+in+Africa" alt="Rotating tagline"/>
+  <img src="https://readme-typing-svg.demolab.com?font=IBM+Plex+Mono&size=17&pause=1200&color=7FD3FF&center=true&vCenter=true&width=760&lines=Full-Stack+%C2%B7+Python+%C2%B7+TypeScript+%C2%B7+AWS;Database+and+infrastructure+design+through+to+user-facing+apps;End-to-end%3A+payment+platforms%2C+RAG+pipelines%2C+multi-tenant+infra;Now%3A+AI+research+assistant+for+energy+access+in+Africa" alt="Rotating tagline"/>
 </a>
 
 <br/><br/>
@@ -18,15 +18,14 @@
 
 <br/>
 
-> Senior full-stack engineer. I take ambiguous requirements and turn them into production systems people actually use — currently AI research tooling, previously hiring platforms, event ticketing, and edtech mentorship.
-> **7+ years shipping** in Python + TypeScript on AWS + GCP. Tech lead or IC — whichever unblocks the work.
+> Full-stack engineer working in Python and TypeScript on AWS, from database and infrastructure design through to the applications people use. I take ambiguous requirements and turn them into production systems: currently AI research tooling, previously hiring platforms and event ticketing.
 
 <!-- ========================= CURRENTLY ========================= -->
 
 > ### 💡 Right now
-> **Founding Engineer** at **Access to Energy** *(stealth)* — an AI research assistant helping researchers, NGOs, and energy professionals find evidence-based answers from a curated library of energy-sector reports.<br/>
-> **Stack** — Python · FastAPI · AWS (ECS, Bedrock) · pgvector · Claude · Gemini<br/>
-> **Open to chat** about RAG, multi-tenant infra, or turning AI prototypes into production systems.<br/>
+> **Founding Engineer** at **Access to Energy**: an AI research assistant that answers questions on energy access in Africa with cited sources from a curated library of sector reports.<br/>
+> **Stack:** Python · FastAPI · AWS (ECS, Bedrock) · pgvector · Claude · Gemini<br/>
+> **Open to chat** about retrieval, multi-tenant infrastructure, or turning AI prototypes into production systems.<br/>
 
 <!-- ========================= STACK ========================= -->
 
@@ -45,7 +44,6 @@
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=FF9900)
-![GCP](https://img.shields.io/badge/GCP-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
 ![Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
@@ -58,8 +56,8 @@
 
 I'd say yes to:
 
-- **Full-Stack engineering** where the engineer still gets to think about the product (Python + TypeScript).
-- **Data Science / Data Analytics** — teams where the data work lands in product: pipelines, features, and decisions in production.
+- **Full-stack engineering** where the engineer still gets to think about the product (Python and TypeScript).
+- **Data engineering and data science** on teams where the data work lands in product: pipelines, features, and decisions in production.
 
 <!-- ========================= FOOTER ========================= -->
 
