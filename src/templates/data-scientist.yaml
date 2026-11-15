@@ -1,5 +1,6 @@
 cv:
   name: "Stanley Okwii"
+  headline: "Data Analytics & Machine Learning  |  Python, SQL, Snowflake, dbt"
   location: "London, United Kingdom (UK Right to Work)"
   email: "stanlee.okwii@icloud.com"
   phone: "+44 7570 488 532"
@@ -11,22 +12,22 @@ cv:
       username: "Stanley-Okwii"
   sections:
     Summary:
-      - "Software engineer building data and AI systems that run in production, in **Python** on **AWS**, from pipelines and database design through to the dashboards and applications people use. As founding engineer at Access to Energy, designed and built the retrieval pipeline, data model and document ingestion for a research assistant that answers questions with cited sources. Previously at Harver, took over the **Snowflake** and **dbt** pipeline behind the client analytics dashboards. MSc in Data Analytics (Merit) from Birkbeck, with a dissertation on adversarial robustness of image classifiers."
+      - "Data practitioner working in **Python** and **SQL**, from pipelines and warehouses through to the dashboards and models people use. As founding engineer at Access to Energy, designed the data model, search and document ingestion for a research assistant that answers questions with cited sources from a library of industry reports. Previously at Harver, took over the **Snowflake** and **dbt** warehouse behind client reporting, built the **Looker** dashboards customer success used to track each client's turnaround SLA, and traced reporting discrepancies back to their source in the pipeline. MSc in Data Analytics (Merit) from Birkbeck."
     skills:
       - label: "Programming"
-        details: "**Python**, **TypeScript**, SQL, R"
+        details: "**Python**, **SQL**, R, TypeScript"
       - label: "Data & ML"
-        details: "**Snowflake**, **dbt**, **Pandas**, **NumPy**, **scikit-learn**, **TensorFlow**, adversarial robustness"
+        details: "**Pandas**, **NumPy**, **scikit-learn**, **TensorFlow**, regression, classification, cross validation, model evaluation, statistical analysis, adversarial robustness"
+      - label: "Data Engineering"
+        details: "**Snowflake**, **dbt** (models and tests), Stitch, data modelling, data validation and reconciliation, metric definition, GDPR data handling"
       - label: "AI & Retrieval"
         details: "RAG pipelines, hybrid retrieval, **pgvector**, embeddings, LLM integration (**Claude**, Gemini)"
-      - label: "Backend"
-        details: "**Django**, **Django REST Framework**, **FastAPI**, **Celery**, RabbitMQ, Redis Streams"
-      - label: "Frontend"
-        details: "**React**, **Next.js**, D3.js"
+      - label: "Visualisation"
+        details: "**Looker**, Mode, client dashboards in **React** and **D3.js**"
       - label: "Databases"
         details: "**PostgreSQL**, **Redis**, **MySQL**, MongoDB"
-      - label: "Cloud & DevOps"
-        details: "**AWS** (ECS Fargate, Bedrock, CloudFormation, Secrets Manager), **Docker**, **GitHub Actions**, CI/CD, Axiom, New Relic"
+      - label: "Engineering & Cloud"
+        details: "**Django**, **FastAPI**, **Celery**, **AWS** (ECS Fargate, Bedrock, CloudFormation), **Docker**, **GitHub Actions**, New Relic, Axiom"
     experience:
       - company: "Access to Energy"
         position: "Founding Engineer"
@@ -34,69 +35,50 @@ cv:
         start_date: "2026-01"
         end_date: "present"
         location: "London, UK"
-        summary: "An AI research assistant on energy access in Africa that cites a curated library of sector reports. Team of 4. Sole engineer for the first month, now owning the backend, AI pipeline and infrastructure."
+        summary: "Startup building an AI research assistant that answers questions on energy access in Africa from industry reports, citing its sources. Team of 4. Sole engineer for the first month, now owning the data model, AI pipeline and infrastructure."
         highlights:
-          - "Built retrieval in **PostgreSQL** without a separate vector database: **pgvector** semantic search (HNSW) and keyword search, merged with reciprocal rank fusion. Keyword search catches specialist terms that semantic matching misses."
-          - "Designed the data model: a shared curated library and organisation uploads in separate tables, hierarchical chunks linked to their parent, JSONB for metadata that varies by organisation, and feedback recorded against the chunks an answer drew on."
-          - "Built document ingestion on **Redis Streams** with consumer groups, parallel workers and a dead-letter stream, so large PDFs are embedded without slowing the API."
-          - "Made every answer cite the source passage it came from, because researchers need to know where information comes from. Quality is checked by hand. There is no automated evaluation yet."
-          - "Isolated each organisation's data with **PostgreSQL** row-level security, and tracked token usage per organisation."
-          - "Wrote the **CloudFormation** stacks for three containerised services on **ECS Fargate**, reducing environment setup from days to under fifteen minutes."
+          - "Designed the data model for a shared report library and each organisation's own uploads, linking user feedback to the passages behind each answer (**PostgreSQL**)."
+          - "Built search that matches on both meaning and exact keywords, so specialist sector terms are not missed (**pgvector**)."
+          - "Made every answer cite its source passage, so researchers can verify any figure. Quality is reviewed by hand, with no automated evaluation yet."
+          - "Built background indexing for large PDF reports that retries failed documents instead of losing them (**Redis Streams**)."
+          - "Kept each organisation's data private at the database level, and automated cloud setup from days to minutes (**AWS**, CloudFormation)."
       - company: "Hoppers"
         position: "Full Stack Software Engineer (Contract, Part Time)"
         date:
         start_date: "2025-10"
         end_date: "present"
         location: "Remote"
-        summary: "Event ticketing platform. Built the payment handling and the ticket reservation flow."
+        summary: "Event ticketing platform taking online payments."
         highlights:
-          - "Built payment handling for two providers (DPO, IoTec) with idempotent webhooks that use row-level locking to stop duplicate charges. Recorded settlements and booking fee snapshots for reconciliation."
-          - "Stopped double booking by claiming a ticket with `select_for_update` in a short transaction, then holding it with a reserved status and expiry until payment succeeds or the hold lapses."
+          - "Built payment handling for two providers (DPO, IoTec) so each payment notification is processed exactly once, and recorded settlements and booking fee snapshots for reconciliation."
       - company: "Harver (formerly Pymetrics)"
-        position: "Senior Full-Stack Software Engineer"
+        position: "Senior Full Stack Software Engineer"
         date:
         start_date: "2023-03"
         end_date: "2025-05"
         location: "New York, USA (remote)"
-        summary: "Promoted to Senior in March 2023. Stepped away in May 2025 to complete MSc in Data Analytics full time."
+        summary: "Hiring assessment software used by large employers to screen job candidates. Promoted to Senior in March 2023. Stepped away in May 2025 to complete MSc in Data Analytics full time."
         highlights:
-          - "Owned three client-facing products end to end: the candidate assessment platform (the games candidates take), the recruiter portal and client analytics dashboards."
-          - "Took over the **Snowflake** and **dbt** pipeline behind the dashboards when the data scientist left. Stitch replicates production data into Snowflake and dbt builds staging and pre-aggregated analytics tables. I checked every change in my own Snowflake test schema."
-          - "Agreed what counts as a completed assessment (12 of 16 games) with product and data science, applied it everywhere, and reconciled dashboard figures against the warehouse before each release."
-          - "Found transformations being recomputed instead of reused and fixed them in dbt, which cut warehouse costs."
-          - "Stripped personal data from assessment data before it reached Snowflake and New Relic, and worked on GDPR requirements: retention based deletion, candidate data export, and EU and US data residency."
-          - "Led delivery for a team of five for about two months after our manager was let go with no handover, alongside a full workload. The team met every sprint commitment and shipped on time."
-          - "Ran 15+ technical interviews against an existing rubric, and wrote onboarding documentation."
+          - "Owned three client products end to end: the online assessment candidates take, the portal recruiters use to review them, and the analytics dashboards clients use to track their hiring."
+          - "Took over the analytics warehouse (**Snowflake**, **dbt**) when the data scientist left, keeping client reporting running and testing every change in my own schema before release."
+          - "Built the reporting customer success used to check whether each client was getting candidate results within its agreed turnaround (SLA), leaving out rare stuck cases so they did not distort the picture."
+          - "Built completion funnels showing clients how many invited candidates registered, finished and passed: first as **SQL** queries in Mode, then as **Looker** dashboards after the migration."
+          - "Investigated why dashboard figures disagreed with the recruiter portal, traced the gap to where records were being duplicated in the pipeline, and fixed it. Removed test accounts from client reports so clients saw only real activity."
+          - "Agreed one definition of a completed assessment with product and data science, then guarded the numbers with automated data checks in dbt and reconciliation against the warehouse before each release."
+          - "Found calculations being repeated instead of reused and restructured them, which cut warehouse costs and sped up slow reports."
+          - "Kept personal data out of the warehouse and monitoring tools, and delivered GDPR requirements: deletion after retention periods, candidate data export, and EU and US data kept in their own regions."
+          - "Led a team of five for about two months after our manager left, alongside a full workload; every sprint commitment was met. Ran 15+ technical interviews."
       - company: "Harver (formerly Pymetrics)"
-        position: "Full-Stack Software Engineer"
+        position: "Full Stack Software Engineer"
         date:
         start_date: "2019-09"
         end_date: "2023-03"
         location: "New York, USA (remote)"
         summary:
         highlights:
-          - "Built the assessment games candidates take, used by around 500,000 candidates a day, including accessibility accommodations (colour blindness, dyslexia font, extra time)."
-          - "Built customer dashboards in **React** and **D3.js**, using **Pandas** and **NumPy** for the aggregations and statistics behind them."
-          - "Fixed an N+1 query problem for a client with 120,000+ records. The endpoint went from 8 to 12 seconds to under 800ms and queries per page from 100+ to 3 to 5, with the record count cached for 30 minutes."
-          - "Built candidate scoring on **Celery** queues with **RabbitMQ**, and a fan-out exchange to two services with idempotent consumers."
-    Projects:
-      - name: "Personal Projects"
-        date:
-        location:
-        summary:
-        highlights:
-          - "**Cloudflare analytics reporting.** A **Python** script on **GitHub Actions** that pulls Web Analytics through GraphQL and emails a report."
-          - "**Personal AI agent.** An agent on Oracle Cloud linked to WhatsApp and Discord that hands tasks to OpenCode."
-          - "**Hosted decision model.** I host an open-weight model (Bespoke Nimble 9B, a LoRA adapter on Qwen3.5-9B, 4 bit quantised) on Modal as a **FastAPI** endpoint on a T4 GPU. I did not fine tune it."
-    Mentorship:
-      - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
-        date:
-        start_date: "2023-03"
-        end_date: "2026-01"
-        location: "Berlin, Germany"
-        summary: "Full Stack Web Development Mentor (Freelance)"
-        highlights:
-          - "Mentored 23+ students and held a 5/5 rating for the quality and speed of my feedback."
+          - "Built the online assessments candidates take, used by around 500,000 candidates a day, with accessibility options for colour blindness, dyslexia and extra time."
+          - "Built client analytics dashboards in **React** and **D3.js**, with **Pandas** and **NumPy** for the aggregations and statistics behind them."
+          - "Made a slow page for a large client (120,000+ records) load in under a second instead of 8 to 12 seconds, by cutting more than 100 repeated database queries per page down to 3 to 5."
     education:
       - institution: "Birkbeck, University of London"
         area: "Data Analytics"
@@ -105,10 +87,10 @@ cv:
         start_date: "2024-10"
         end_date: "2025-09"
         location: "London, UK"
-        summary:
+        summary: "Merit. Modules included Applied Machine Learning, Big Data Analytics, Data Analytics Using R, and Neural Networks and Deep Learning."
         highlights:
-          - "Merit. Dissertation: implemented PGD attacks from scratch, adversarially retrained ResNet50 (TensorFlow, ImageNet subset), and tested robustness against FGSM attacks."
-          - "Coursework: scikit-learn classification, Pandas and NumPy for cleaning and statistics, and one module taught entirely in R."
+          - "Built and evaluated regression and classification models in **Python** (scikit-learn) and **R**, comparing them with cross validation. Used Pandas and NumPy for cleaning and statistics."
+          - "Dissertation on adversarial robustness: implemented PGD attacks from scratch, adversarially retrained ResNet50 (**TensorFlow**, ImageNet subset), and measured the tradeoff between accuracy and robustness against FGSM attacks."
       - institution: "Makerere University"
         area: "Software Engineering"
         degree: "BSc"
@@ -119,6 +101,22 @@ cv:
         summary:
         highlights:
           - "2:1 (Upper Second Class Honours)"
+    Projects:
+      - name: "Personal Projects"
+        date:
+        location:
+        summary:
+        highlights:
+          - "**Cloudflare analytics reporting.** A **Python** script on **GitHub Actions** that pulls Web Analytics through GraphQL and emails a report."
+    Mentorship:
+      - name: "[CareerFoundry](https://careerfoundry.com/) (Online Coding Bootcamp)"
+        date:
+        start_date: "2023-03"
+        end_date: "2026-01"
+        location: "Berlin, Germany"
+        summary: "Full Stack Web Development Mentor (Freelance)"
+        highlights:
+          - "Mentored 23+ students and held a 5/5 rating for the quality and speed of my feedback."
 design:
   theme: "engineeringclassic"
   page:
@@ -184,7 +182,7 @@ design:
     date_and_location_width: "4.15cm"
     side_space: "0.2cm"
     space_between_columns: "0.1cm"
-    allow_page_break: false
+    allow_page_break: true
     short_second_row: false
     highlights:
       bullet: "•"
@@ -256,7 +254,7 @@ settings:
   # See https://github.com/rendercv/rendercv/issues/706
   bold_keywords: []
   render_command:
-    pdf_path: ../resumes/data_cv.pdf
+    pdf_path: ../resumes/data-resume.pdf
     dont_generate_markdown: true
     dont_generate_html: true
     dont_generate_png: true
