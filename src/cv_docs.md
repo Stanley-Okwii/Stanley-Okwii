@@ -1,6 +1,6 @@
 ## Docs
 
-How to render the CV PDF. Source template: `src/templates/software-engineer.yaml`. The YAML's `pdf_path` sends output to `src/resumes/Stanley_Okwii_CV.pdf` unless overridden with `-pdf`.
+How to render the CV PDF. Source template: `src/templates/software-engineer.yaml`. The YAML's `pdf_path` sends output to `src/resumes/stanley-okwii-resume.pdf` unless overridden with `-pdf`.
 
 ### Make targets (preferred)
 
@@ -8,7 +8,7 @@ The repo `Makefile` wraps the two common workflows:
 
 ```sh
 make              # list targets
-make render-local # render to src/resumes/Stanley_Okwii_CV.pdf
+make render-local # render to src/resumes/stanley-okwii-resume.pdf
 make render-docs  # render to the iCloud "Latest Resumes" folder
 ```
 
@@ -27,7 +27,7 @@ uv run rendercv render src/templates/software-engineer.yaml
 Override the PDF destination with `-pdf`; skip the Markdown / PNG side-outputs with `-nomd -nopng`:
 
 ```sh
-uv run rendercv render src/templates/software-engineer.yaml -nomd -nopng -pdf src/resumes/Stanley_Okwii_CV.pdf
+uv run rendercv render src/templates/software-engineer.yaml -nomd -nopng -pdf src/resumes/stanley-okwii-resume.pdf
 ```
 
 ### Useful flags

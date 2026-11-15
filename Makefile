@@ -7,7 +7,7 @@ FLAGS     := -nomd -nohtml -nopng
 TEMPLATE  := software-engineer
 # Must match settings.render_command.pdf_path in the template YAML: CI calls
 # `make render-local` and then copies src/resumes/$(NAME).pdf into docs/.
-NAME      := Stanley_Okwii_CV
+NAME      := stanley-okwii-resume
 
 TEMPLATE_PATH := src/templates/$(TEMPLATE).yaml
 LOCAL_PDF     := src/resumes/$(NAME).pdf
@@ -26,8 +26,8 @@ help:
 	@echo "Examples:"
 	@echo "  make render-local"
 	@echo "  make render-local TEMPLATE=software-engineer"
-	@echo "  make render-local NAME=Stanley_Okwii_CV"
-	@echo "  make render-docs  TEMPLATE=software-engineer NAME=Stanley_Okwii_CV"
+	@echo "  make render-local NAME=stanley-okwii-resume"
+	@echo "  make render-docs  TEMPLATE=software-engineer NAME=stanley-okwii-resume"
 
 render-local:
 	$(RENDERCV) $(TEMPLATE_PATH) $(FLAGS) -pdf "$(abspath $(LOCAL_PDF))"

@@ -251,4 +251,4 @@ settings:
   bold_keywords: []
   render_command:
     # Output flags are owned by the Makefile (FLAGS), which CI also calls.
-    pdf_path: ../resumes/Stanley_Okwii_CV.pdf
+    pdf_path: ../resumes/stanley-okwii-resume.pdf
