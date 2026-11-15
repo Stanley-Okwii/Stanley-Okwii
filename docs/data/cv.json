@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T13:02:40Z",
+  "generated_at": "2026-11-15T13:51:15Z",
   "name": "Stanley Okwii",
   "location": "London, United Kingdom (UK Right to Work)",
   "summary": "Full-stack engineer working in <strong>Python</strong> and <strong>TypeScript</strong> on <strong>AWS</strong>, from database and infrastructure design through to the applications people use. As founding engineer at Access to Energy, designed and built the backend, AI pipeline and AWS infrastructure for a research assistant that answers questions with cited sources from a curated library of sector reports. Previously at Harver, promoted to senior engineer, owned three client products end to end, worked on assessment games with around 500,000 daily users, led a team of five for two months after our manager left, and ran 15+ technical interviews.",
@@ -54,12 +54,12 @@
       "location": "London, UK",
       "summary": "An AI research assistant on energy access in Africa that cites a curated library of sector reports. Team of 4. Sole engineer for the first month, now owning the backend, AI pipeline and infrastructure.",
       "highlights": [
-        "Built retrieval in <strong>PostgreSQL</strong> without a separate vector database: <strong>pgvector</strong> semantic search (HNSW) and keyword search, merged with reciprocal rank fusion. Keyword search catches specialist terms that semantic matching misses.",
-        "Built the answering service in <strong>Python</strong> (<strong>FastAPI</strong>) without LangChain or similar. It calls <strong>Claude</strong> through <strong>AWS Bedrock</strong>, streams inline citations, and declines questions the library cannot support.",
+        "Built retrieval in <strong>PostgreSQL</strong> with no separate vector database: <strong>pgvector</strong> semantic search (HNSW) and keyword search, merged with reciprocal rank fusion.",
+        "Built the answering service in <strong>Python</strong> (<strong>FastAPI</strong>) with no LangChain. Calls <strong>Claude</strong> via <strong>AWS Bedrock</strong>, streams inline citations, declines unsupported questions.",
         "Built document ingestion on <strong>Redis Streams</strong> with consumer groups, parallel workers and a dead-letter stream, so large PDFs are embedded without slowing the API.",
-        "Isolated each organisation's data with <strong>PostgreSQL</strong> row-level security, and tracked token usage per organisation.",
-        "Wrote the <strong>CloudFormation</strong> stacks for three containerised services (chat API, query service, ingestion service) on <strong>ECS Fargate</strong>, reducing environment setup from days to under fifteen minutes. Three junior engineers set the project up alone after one onboarding call.",
-        "Built a pull request review agent used by the Access to Energy and Hoppers teams. It combines two models' reviews, posts first-pass feedback, and flags me only when they disagree. A human still approves every merge."
+        "Isolated each organisation's data with <strong>PostgreSQL</strong> row-level security.",
+        "Wrote the <strong>CloudFormation</strong> stacks for three containerised services on <strong>ECS Fargate</strong>, cutting environment setup from days to under fifteen minutes. Three junior engineers set it up alone after one onboarding call.",
+        "Built a pull request review agent used by the Access to Energy and Hoppers teams. It combines two models' reviews and flags me only when they disagree. A human approves every merge."
       ]
     },
     {
@@ -69,8 +69,8 @@
       "location": "Remote",
       "summary": "Event ticketing platform. Built the payment handling and the ticket reservation flow.",
       "highlights": [
-        "Built payment handling for two providers (DPO, IoTec) with idempotent webhooks that use row-level locking to stop duplicate charges. Recorded settlements and booking fee snapshots for reconciliation.",
-        "Stopped double booking by claiming a ticket with `select_for_update` in a short transaction, then holding it with a reserved status and expiry until payment succeeds or the hold lapses. Purchase limits are enforced in the same flow.",
+        "Built payment handling for two providers (DPO, IoTec) with idempotent webhooks and row-level locking, stopping duplicate charges.",
+        "Stopped double booking: tickets are claimed with `select_for_update`, then held with an expiry until payment succeeds or the hold lapses.",
         "Delivered features across the <strong>Django</strong> backend, <strong>React</strong> admin panel and <strong>Flutter</strong> app, including QR ticketing with server-side validation and team permissions. Errors are tracked in <strong>Sentry</strong>."
       ]
     },
@@ -82,12 +82,13 @@
       "summary": "Promoted to Senior in March 2023. Stepped away in May 2025 to complete MSc in Data Analytics full time.",
       "highlights": [
         "Owned three client-facing products end to end: the candidate assessment platform (the games candidates take), the recruiter portal and client analytics dashboards, built in <strong>Django</strong>, <strong>PostgreSQL</strong> and <strong>React</strong>.",
-        "Led delivery for a team of five for about two months after our manager was let go with no handover, alongside a full workload. The team met every sprint commitment and shipped on time.",
-        "Pushed back on deprecating a database table in one sprint. I specced where it was still used (production writing, the warehouse reading) and proposed a staged plan, preventing a production break.",
+        "Led a team of five for about two months after our manager left, alongside a full workload. Every sprint commitment was met.",
+        "Pushed back on deprecating a database table in one sprint, mapped where it was still used and proposed a staged plan, preventing a production break.",
         "Built candidate scoring on <strong>Celery</strong> queues with <strong>RabbitMQ</strong>, and a fan-out exchange to two services with idempotent consumers.",
-        "Took over the <strong>Snowflake</strong> and <strong>dbt</strong> pipeline behind the dashboards when the data scientist left, and agreed what counts as a completed assessment (12 of 16 games) with product and data science.",
-        "Treated a broken assessment game as severity one because it stalled a candidate's job application: fixed and shipped straight away, monitored with <strong>New Relic</strong>. Took turns on a two week investigation rotation, including data migrations made safe with backups, undo scripts and staging runs.",
-        "Ran 15+ technical interviews against an existing rubric, and wrote onboarding documentation for systems where I had become the bottleneck."
+        "Took over the <strong>Snowflake</strong> and <strong>dbt</strong> pipeline behind the dashboards when the data scientist left. Agreed with product and data science what counts as a completed assessment (12 of 16 games).",
+        "Fixed broken assessment games as severity one, shipping straight away and monitoring with <strong>New Relic</strong>.",
+        "Joined a two week investigation rotation, making data migrations safe with backups, undo scripts and staging runs.",
+        "Ran 15+ technical interviews against an existing rubric. Wrote onboarding documentation for systems where I was the bottleneck."
       ]
     },
     {
@@ -98,8 +99,8 @@
       "summary": "",
       "highlights": [
         "Built the assessment games candidates take, used by around 500,000 candidates a day, including accessibility accommodations (colour blindness, dyslexia font, extra time).",
-        "Fixed an N+1 query problem for a client with 120,000+ records. The endpoint went from 8 to 12 seconds to under 800ms and queries per page from 100+ to 3 to 5, with the record count cached for 30 minutes.",
-        "Automated the micro-frontend deploy on push (<strong>GitHub Actions</strong>, S3, CloudFront). Manual work fell from about twenty minutes to under five, and deployment errors from about five a quarter to none.",
+        "Fixed an N+1 query problem for a client with 120,000+ records: endpoint from 8 to 12 seconds to under 800ms by replacing a query per record with a fixed number of prefetched queries.",
+        "Automated the micro-frontend deploy on push (<strong>GitHub Actions</strong>, S3, CloudFront): manual work from about twenty minutes to under five, deployment errors from about five a quarter to none.",
         "Moved <strong>New Relic</strong> logs from plain strings to searchable key-value fields."
       ]
     }
