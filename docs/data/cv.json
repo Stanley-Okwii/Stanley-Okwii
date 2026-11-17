@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-17T04:56:15Z",
+  "generated_at": "2026-11-17T13:42:38Z",
   "name": "Stanley Okwii",
   "location": "London, United Kingdom (UK Right to Work)",
-  "summary": "Full-stack engineer working in <strong>Python</strong> and <strong>TypeScript</strong> on <strong>AWS</strong>, from database and infrastructure design through to the applications people use. As founding engineer at Access to Energy, designed and built the backend, AI pipeline and AWS infrastructure for a research assistant that answers questions with cited sources from a curated library of sector reports. Previously at Harver, promoted to senior engineer, owned three client products end to end, worked on assessment games with around 500,000 daily users, led a team of five for two months after our manager left, and ran 15+ technical interviews.",
+  "summary": "Full-stack engineer working in <strong>Python</strong> and <strong>TypeScript</strong> on <strong>AWS</strong>, from database and infrastructure design through to the applications people use. As founding engineer at Access to Energy, designed and built a research assistant end to end, from the <strong>Next.js</strong> frontend to the backend, AI pipeline and AWS infrastructure. It answers questions with cited sources from a curated library of sector reports. Previously at Harver, promoted to senior engineer, owned three client products end to end, worked on assessment games with around 500,000 daily users, led a team of five for two months after our manager left, and ran 15+ technical interviews.",
   "contact": {
     "email": "stanlee.okwii@icloud.com",
     "phone": "+44 7570 488 532",
@@ -52,8 +52,9 @@
       "company": "Access to Energy",
       "period": "Jan 2026 — Present",
       "location": "London, UK",
-      "summary": "An AI research assistant on energy access in Africa that cites a curated library of sector reports. Team of 4. Sole engineer for the first month, now owning the backend, AI pipeline and infrastructure.",
+      "summary": "An AI research assistant on energy access in Africa that cites a curated library of sector reports. Team of 4. Sole engineer for the first month, building the product from the frontend to the infrastructure.",
       "highlights": [
+        "Built the <strong>Next.js</strong> and <strong>TypeScript</strong> frontend, streaming answers as they are generated with inline citations that link back to the source passage.",
         "Built retrieval in <strong>PostgreSQL</strong> with no separate vector database: <strong>pgvector</strong> semantic search (HNSW) and keyword search, merged with reciprocal rank fusion.",
         "Built the answering service in <strong>Python</strong> (<strong>FastAPI</strong>) with no LangChain. Calls <strong>Claude</strong> via <strong>AWS Bedrock</strong>, streams inline citations, declines unsupported questions.",
         "Built document ingestion on <strong>Redis Streams</strong> with consumer groups, parallel workers and a dead-letter stream, so large PDFs are embedded without slowing the API.",
@@ -71,7 +72,7 @@
       "highlights": [
         "Built payment handling for two providers (DPO, IoTec) with idempotent webhooks and row-level locking, stopping duplicate charges.",
         "Stopped double booking: tickets are claimed with `select_for_update`, then held with an expiry until payment succeeds or the hold lapses.",
-        "Delivered features across the <strong>Django</strong> backend, <strong>React</strong> admin panel and <strong>Flutter</strong> app, including QR ticketing with server-side validation and team permissions. Errors are tracked in <strong>Sentry</strong>."
+        "Delivered features across the <strong>Django</strong> backend, <strong>React</strong> admin panel and <strong>Flutter</strong> app, including QR ticketing with server-side validation and team permissions."
       ]
     },
     {
@@ -100,8 +101,7 @@
       "highlights": [
         "Built the assessment games candidates take, used by around 500,000 candidates a day, including accessibility accommodations (colour blindness, dyslexia font, extra time).",
         "Fixed an N+1 query problem for a client with 120,000+ records: endpoint from 8 to 12 seconds to under 800ms by replacing a query per record with a fixed number of prefetched queries.",
-        "Automated the micro-frontend deploy on push (<strong>GitHub Actions</strong>, S3, CloudFront): manual work from about twenty minutes to under five, deployment errors from about five a quarter to none.",
-        "Moved <strong>New Relic</strong> logs from plain strings to searchable key-value fields."
+        "Automated the micro-frontend deploy on push (<strong>GitHub Actions</strong>, S3, CloudFront): manual work from about twenty minutes to under five, deployment errors from about five a quarter to none."
       ]
     }
   ],
