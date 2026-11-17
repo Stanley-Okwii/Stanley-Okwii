@@ -1,154 +1,154 @@
 {
-  "generated_at": "2026-11-16T02:32:19Z",
+  "generated_at": "2026-11-17T04:56:20Z",
   "username": "StanleeO",
   "all_time": {
-    "total_seconds": 28693595.162935,
-    "human_readable": "7,970 hrs 26 mins"
+    "total_seconds": 28697636.435935,
+    "human_readable": "7,971 hrs 33 mins"
   },
   "last_7_days": {
-    "total_seconds": 38702.494,
-    "human_readable_total": "10 hrs 45 mins",
-    "daily_average_seconds": 7740.0,
-    "daily_average_human": "2 hrs 9 mins",
+    "total_seconds": 29271.606,
+    "human_readable_total": "8 hrs 7 mins",
+    "daily_average_seconds": 5854.0,
+    "daily_average_human": "1 hr 37 mins",
     "languages": [
       {
-        "name": "TypeScript",
-        "percent": 41.77,
-        "human_readable": "4 hrs 34 mins"
+        "name": "Markdown",
+        "percent": 28.74,
+        "human_readable": "2 hrs 22 mins"
       },
       {
-        "name": "Markdown",
-        "percent": 35.15,
-        "human_readable": "3 hrs 50 mins"
+        "name": "TypeScript",
+        "percent": 26.57,
+        "human_readable": "2 hrs 11 mins"
       },
       {
         "name": "Python",
-        "percent": 8.0,
-        "human_readable": "52 mins"
+        "percent": 17.62,
+        "human_readable": "1 hr 27 mins"
+      },
+      {
+        "name": "YAML",
+        "percent": 10.77,
+        "human_readable": "53 mins"
       },
       {
         "name": "JavaScript",
-        "percent": 6.17,
-        "human_readable": "40 mins"
-      },
-      {
-        "name": "Bash",
-        "percent": 2.51,
-        "human_readable": "16 mins"
-      },
-      {
-        "name": "Other",
-        "percent": 1.66,
-        "human_readable": "10 mins"
+        "percent": 9.55,
+        "human_readable": "47 mins"
       },
       {
         "name": "Diff",
-        "percent": 1.66,
-        "human_readable": "10 mins"
-      },
-      {
-        "name": "Text",
-        "percent": 1.34,
+        "percent": 1.76,
         "human_readable": "8 mins"
       },
       {
+        "name": "Other",
+        "percent": 1.7,
+        "human_readable": "8 mins"
+      },
+      {
+        "name": "Bash",
+        "percent": 0.89,
+        "human_readable": "4 mins"
+      },
+      {
         "name": "reStructuredText",
-        "percent": 0.67,
+        "percent": 0.88,
         "human_readable": "4 mins"
       },
       {
         "name": "JSON",
-        "percent": 0.37,
+        "percent": 0.48,
         "human_readable": "2 mins"
       }
     ],
     "editors": [
       {
         "name": "Claude Code",
-        "percent": 73.87,
-        "human_readable": "8 hrs 4 mins"
+        "percent": 69.4,
+        "human_readable": "5 hrs 44 mins"
       },
       {
         "name": "VS Code",
-        "percent": 26.13,
-        "human_readable": "2 hrs 51 mins"
+        "percent": 30.6,
+        "human_readable": "2 hrs 31 mins"
       }
     ],
     "operating_systems": [
       {
         "name": "Mac",
         "percent": 100.0,
-        "human_readable": "10 hrs 55 mins"
+        "human_readable": "8 hrs 16 mins"
       }
     ]
   },
   "last_30_days": {
-    "total_seconds": 237047.100434,
-    "human_readable_total": "65 hrs 50 mins",
-    "daily_average_seconds": 9482.0,
-    "daily_average_human": "2 hrs 38 mins",
+    "total_seconds": 234902.333434,
+    "human_readable_total": "65 hrs 15 mins",
+    "daily_average_seconds": 9396.0,
+    "daily_average_human": "2 hrs 36 mins",
     "languages": [
       {
         "name": "Python",
-        "percent": 37.22,
+        "percent": 37.5,
         "human_readable": "25 hrs 32 mins"
       },
       {
         "name": "Markdown",
-        "percent": 30.92,
-        "human_readable": "21 hrs 12 mins"
+        "percent": 29.89,
+        "human_readable": "20 hrs 21 mins"
       },
       {
         "name": "TypeScript",
-        "percent": 13.19,
+        "percent": 13.28,
         "human_readable": "9 hrs 2 mins"
       },
       {
         "name": "Other",
-        "percent": 4.04,
-        "human_readable": "2 hrs 46 mins"
+        "percent": 4.2,
+        "human_readable": "2 hrs 51 mins"
       },
       {
         "name": "Dart",
-        "percent": 3.21,
+        "percent": 3.23,
         "human_readable": "2 hrs 12 mins"
       },
       {
         "name": "Bash",
-        "percent": 2.76,
+        "percent": 2.78,
         "human_readable": "1 hr 53 mins"
       },
       {
-        "name": "Text",
-        "percent": 2.51,
-        "human_readable": "1 hr 43 mins"
-      },
-      {
         "name": "JavaScript",
-        "percent": 2.05,
+        "percent": 2.06,
         "human_readable": "1 hr 24 mins"
       },
       {
-        "name": "HTML",
-        "percent": 1.46,
-        "human_readable": "1 hr"
+        "name": "Text",
+        "percent": 1.59,
+        "human_readable": "1 hr 5 mins"
       },
       {
-        "name": "Git Config",
-        "percent": 0.69,
-        "human_readable": "28 mins"
+        "name": "HTML",
+        "percent": 1.52,
+        "human_readable": "1 hr 2 mins"
+      },
+      {
+        "name": "YAML",
+        "percent": 1.39,
+        "human_readable": "56 mins"
       }
     ],
     "editors": [
       {
         "name": "Claude Code",
-        "percent": 73.22,
-        "human_readable": "50 hrs 14 mins"
+        "percent": 72.88,
+        "human_readable": "49 hrs 38 mins"
       },
       {
         "name": "VS Code",
-        "percent": 26.4,
-        "human_readable": "18 hrs 6 mins"
+        "percent": 26.74,
+        "human_readable": "18 hrs 12 mins"
       },
       {
         "name": "Copilot CLI",
@@ -165,7 +165,7 @@
       {
         "name": "Mac",
         "percent": 100.0,
-        "human_readable": "68 hrs 37 mins"
+        "human_readable": "68 hrs 6 mins"
       }
     ]
   }
